@@ -21,6 +21,10 @@ func instance_exists(node):
 		return false
 	else:
 		return true
+		
+func get_instance(node):
+	var instancenode = GameNode.get_node(node)
+	return instancenode
 	
 func get_player():
 	var GameNode = get_node(@"/root/Game")

@@ -1785,7 +1785,7 @@ collision_mask = 2
 [node name="SlopeCheck" type="RayCast2D" parent="."]
 position = Vector2( 48, 96 )
 enabled = true
-cast_to = Vector2( 0, 12 )
+cast_to = Vector2( 0, 32 )
 collision_mask = 2
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]

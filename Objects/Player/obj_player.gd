@@ -167,8 +167,8 @@ func _process(delta):
 
 func _physics_process(delta):
 	var snap_vector = Vector2.ZERO
-	if is_on_floor() && (state == global.states.normal || state == global.states.crouch):
-		snap_vector = Vector2.DOWN * 15
+	if ($SlopeCheck.is_colliding() && $SlopeCheck.get_collider().is_in_group("obj_slope") && !Input.is_action_pressed("key_jump") && (state != global.states.jump && state != global.states.climbwall)):
+		snap_vector = Vector2.DOWN * 20
 	if state != global.states.backbreaker && state != global.states.Sjumpland:
 		velocity.y += grav
 	velocity = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, true, 4, 1)
@@ -408,7 +408,7 @@ func scr_player_jump():
 		jumpAnim = 1
 		jumpstop = 0
 		movespeed = 2
-	if (is_on_floor() && velocity.y >= 0 && !Input.is_action_pressed("key_dash")):
+	if ((is_on_floor() && velocity.y >= 0 && !Input.is_action_pressed("key_dash"))):
 		$Step.play()
 		if Input.is_action_pressed("key_dash"):
 			landAnim = 0
@@ -722,7 +722,40 @@ func scr_player_comingoutdoor():
 	pass
 	
 func scr_player_crouchslide():
-	pass
+	velocity.x = (xscale * movespeed)
+	if (movespeed >= 0):
+		movespeed -= 0.2
+	crouchmask = true
+	if (mach2 >= 35 && !Input.is_action_pressed("key_down") && Input.is_action_pressed("key_dash")):
+		if (character == "P"):
+			$PeppinoSprite.animation = "machhit"
+		mach2 = 35
+		state = global.states.mach2
+		if (movespeed < 10):
+			movespeed = 10
+	if (velocity.x == 0 || movespeed <= 0):
+		state = global.states.crouch
+		movespeed = 0
+		mach2 = 0
+		crouchslideAnim = 1
+		crouchAnim = 1
+	if (is_on_wall()):
+		movespeed = 0
+		state = global.states.bump
+		velocity.x = (-2.5 * xscale)
+		velocity.y = -3
+		mach2 = 0
+		machslideAnim = 1
+		machhitAnim = 0
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_bumpeffect.tscn")
+	if (!utils.instance_exists("obj_slidecloud") && is_on_floor() && movespeed > 5):
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_slidecloud.tscn")
+		for i in get_tree().get_nodes_in_group("obj_slidecloud"):
+			if xscale == 1:
+				i.sprite.flip_h = false
+			elif xscale == -1:
+				i.sprite.flip_h = true
+	$PeppinoSprite.speed_scale = 0.35
 	
 func scr_player_door():
 	pass

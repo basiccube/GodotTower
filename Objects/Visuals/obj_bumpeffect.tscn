@@ -24,6 +24,7 @@ z_index = 4
 script = ExtResource( 10 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 16, 28 )
 frames = SubResource( 1 )
 centered = false
 
