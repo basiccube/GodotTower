@@ -1,0 +1,27 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Objects/Visuals/sprites/landcloud_4.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Visuals/sprites/landcloud_2.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Visuals/sprites/landcloud_0.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Visuals/sprites/landcloud_1.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Visuals/sprites/landcloud_5.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Visuals/sprites/landcloud_3.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Visuals/obj_landcloud.gd" type="Script" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+} ]
+
+[node name="obj_landcloud" type="Node2D" groups=["obj_landcloud"]]
+z_index = 4
+script = ExtResource( 8 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+centered = false
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]

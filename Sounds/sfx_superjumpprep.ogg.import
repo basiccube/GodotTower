@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_superjumpprep.ogg-308d59ff1055a2fcc878db3a4c606dae.oggstr"
+
+[deps]
+
+source_file="res://Sounds/sfx_superjumpprep.ogg"
+dest_files=[ "res://.import/sfx_superjumpprep.ogg-308d59ff1055a2fcc878db3a4c606dae.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

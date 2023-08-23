@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Objects/HUD/obj_camera.gd" type="Script" id=1]
+
+[node name="obj_camera" type="Camera2D" groups=["obj_camera"]]
+offset = Vector2( 48, 0 )
+current = true
+script = ExtResource( 1 )

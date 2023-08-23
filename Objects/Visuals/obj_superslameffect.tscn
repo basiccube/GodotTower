@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Objects/Visuals/sprites/superslameffect_1.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Visuals/sprites/superslameffect_3.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Visuals/sprites/superslameffect_2.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Visuals/sprites/superslameffect_0.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Visuals/obj_superslameffect.gd" type="Script" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+} ]
+
+[node name="obj_superslameffect" type="Node2D" groups=["obj_superslameffect"]]
+z_index = 4
+script = ExtResource( 7 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+centered = false
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]

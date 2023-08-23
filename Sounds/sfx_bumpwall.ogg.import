@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_bumpwall.ogg-b86b96358c5de89fc0c781bd441ae9bb.oggstr"
+
+[deps]
+
+source_file="res://Sounds/sfx_bumpwall.ogg"
+dest_files=[ "res://.import/sfx_bumpwall.ogg-b86b96358c5de89fc0c781bd441ae9bb.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

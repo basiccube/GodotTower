@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_enemyprojectile.ogg-187280dd360f8856854707417f972a6f.oggstr"
+
+[deps]
+
+source_file="res://Sounds/sfx_enemyprojectile.ogg"
+dest_files=[ "res://.import/sfx_enemyprojectile.ogg-187280dd360f8856854707417f972a6f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,30 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Objects/Visuals/sprites/hurteffect_5.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Visuals/sprites/hurteffect_6.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Visuals/sprites/hurteffect_3.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Visuals/sprites/hurteffect_7.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Visuals/sprites/hurteffect_4.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Visuals/sprites/hurteffect_8.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Visuals/sprites/hurteffect_0.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Visuals/sprites/hurteffect_1.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Visuals/sprites/hurteffect_2.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Visuals/obj_bumpeffect.gd" type="Script" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+} ]
+
+[node name="obj_bumpeffect" type="Node2D" groups=["obj_bumpeffect"]]
+z_index = 4
+script = ExtResource( 10 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+centered = false
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]

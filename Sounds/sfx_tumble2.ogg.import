@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_tumble2.ogg-6be5427495f5a38404fb418b8afaff23.oggstr"
+
+[deps]
+
+source_file="res://Sounds/sfx_tumble2.ogg"
+dest_files=[ "res://.import/sfx_tumble2.ogg-6be5427495f5a38404fb418b8afaff23.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

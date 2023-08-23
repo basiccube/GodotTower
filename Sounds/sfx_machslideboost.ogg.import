@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_machslideboost.ogg-7a10365131a0490c5e0763adf1303abd.oggstr"
+
+[deps]
+
+source_file="res://Sounds/sfx_machslideboost.ogg"
+dest_files=[ "res://.import/sfx_machslideboost.ogg-7a10365131a0490c5e0763adf1303abd.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

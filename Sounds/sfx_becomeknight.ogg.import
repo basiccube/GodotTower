@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_becomeknight.ogg-49a0188bb2a1ba6694406e62dfb38284.oggstr"
+
+[deps]
+
+source_file="res://Sounds/sfx_becomeknight.ogg"
+dest_files=[ "res://.import/sfx_becomeknight.ogg-49a0188bb2a1ba6694406e62dfb38284.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

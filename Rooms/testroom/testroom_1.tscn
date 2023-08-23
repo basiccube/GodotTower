@@ -1,0 +1,118 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Collision/obj_slope.tscn" type="PackedScene" id=3]
+
+[node name="testroom_1" type="Node2D"]
+
+[node name="obj_solid" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 416 )
+scale = Vector2( 36, 21 )
+
+[node name="obj_solid18" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1344, 416 )
+scale = Vector2( 26, 15 )
+
+[node name="obj_solid19" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1088, 1088 )
+scale = Vector2( 40, 6 )
+
+[node name="obj_solid17" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2304, 416 )
+scale = Vector2( 50, 21 )
+
+[node name="obj_solid2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3840, -352 )
+scale = Vector2( 2, 24 )
+
+[node name="obj_solid8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3200, -288 )
+scale = Vector2( 2, 8 )
+
+[node name="obj_solid9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1792, -352 )
+scale = Vector2( 64, 2 )
+
+[node name="obj_solid11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3264, 64 )
+scale = Vector2( 2, 7 )
+
+[node name="obj_solid12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3680, -64 )
+scale = Vector2( 5, 3 )
+
+[node name="obj_solid13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3328, 96 )
+scale = Vector2( 4, 3 )
+
+[node name="obj_solid14" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1984, 64 )
+scale = Vector2( 4, 5 )
+
+[node name="obj_solid10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2496, -128 )
+scale = Vector2( 6, 4 )
+
+[node name="obj_solid15" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1696, -352 )
+scale = Vector2( 3, 11 )
+
+[node name="obj_solid3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 64 )
+scale = Vector2( 2, 11 )
+
+[node name="obj_solid4" parent="." instance=ExtResource( 1 )]
+scale = Vector2( 68, 2 )
+
+[node name="obj_solid16" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2304, 0 )
+scale = Vector2( 32, 2 )
+
+[node name="obj_solid5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 448, 352 )
+scale = Vector2( 4, 2 )
+
+[node name="obj_solid6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 640, 320 )
+scale = Vector2( 2, 2 )
+
+[node name="obj_solid7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 704, 256 )
+scale = Vector2( 4, 4 )
+
+[node name="obj_slope" parent="." instance=ExtResource( 3 )]
+position = Vector2( 640, 256 )
+scale = Vector2( 2, 2 )
+
+[node name="obj_slope3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 96, 384 )
+scale = Vector2( -1, 1 )
+
+[node name="obj_slope4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2816, -128 )
+scale = Vector2( -4, 4 )
+
+[node name="obj_slope5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1856, -64 )
+scale = Vector2( -2, 2 )
+
+[node name="obj_slope6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1216, 1024 )
+scale = Vector2( -2, 2 )
+
+[node name="obj_platform2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 64, 224 )
+scale = Vector2( 8, 1 )
+
+[node name="obj_platform5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3456, 160 )
+scale = Vector2( 8, 1 )
+
+[node name="obj_platform6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3328, 0 )
+scale = Vector2( 6, 1 )
+
+[node name="obj_platform8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1152, 416 )
+scale = Vector2( 6, 1 )
