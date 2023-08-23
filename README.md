@@ -1,6 +1,6 @@
 # Godot Tower
 
-Godot Tower is a recreation of Pizza Tower (SAGE 2019 demo) in Godot Engine (3.x).
+Godot Tower is a work-in-progress recreation of Pizza Tower (SAGE 2019 demo) in Godot Engine (3.x).
 
 ## Info
 
