@@ -55,4 +55,26 @@ func _process(delta):
 		position.y = target.position.y
 		if (shake_mag != 0):
 			position.y = (target.position.y + utils.randi_range((-shake_mag), shake_mag))
+	global_position.x = clamp(global_position.x, (limit_left + 480), (limit_right - 480))
+	global_position.y = clamp(global_position.y, (limit_top + 270), (limit_bottom - 270))
+	var obj_player = utils.get_player()
+	# Speedbar code
+	if (obj_player.movespeed < 2.4 || (!(obj_player.state == global.states.mach1 || obj_player.state == global.states.mach2 || obj_player.state == global.states.mach3 || obj_player.state == global.states.climbwall || obj_player.state == global.states.machslide || obj_player.state == global.states.machroll || obj_player.state == global.states.handstandjump))):
+		$Speedbar.frame = 0
+	elif (obj_player.movespeed >= 2.4 && obj_player.movespeed < 4.8 && (obj_player.state == global.states.mach1 || obj_player.state == global.states.mach2 || obj_player.state == global.states.mach3 || obj_player.state == global.states.climbwall || obj_player.state == global.states.machslide || obj_player.state == global.states.machroll || obj_player.state == global.states.handstandjump)):
+		$Speedbar.frame = 1
+	elif (obj_player.movespeed >= 4.8 && obj_player.movespeed < 7.2 && (obj_player.state == global.states.mach1 || obj_player.state == global.states.mach2 || obj_player.state == global.states.mach3 || obj_player.state == global.states.climbwall || obj_player.state == global.states.machslide || obj_player.state == global.states.machroll || obj_player.state == global.states.handstandjump)):
+		$Speedbar.frame = 2
+	elif (obj_player.movespeed >= 7.2 && obj_player.movespeed < 9.6 && (obj_player.state == global.states.mach1 || obj_player.state == global.states.mach2 || obj_player.state == global.states.mach3 || obj_player.state == global.states.climbwall || obj_player.state == global.states.machslide || obj_player.state == global.states.machroll || obj_player.state == global.states.handstandjump)):
+		$Speedbar.frame = 3
+	elif (obj_player.movespeed >= 9.6 && obj_player.movespeed < 12 && (obj_player.state == global.states.mach1 || obj_player.state == global.states.mach2 || obj_player.state == global.states.mach3 || obj_player.state == global.states.climbwall || obj_player.state == global.states.machslide || obj_player.state == global.states.machroll || obj_player.state == global.states.handstandjump)):
+		$Speedbar.frame = 4
+	elif (obj_player.movespeed >= 12 && $Speedbar.animation != "max" && (obj_player.state == global.states.mach1 || obj_player.state == global.states.mach2 || obj_player.state == global.states.mach3 || obj_player.state == global.states.climbwall || obj_player.state == global.states.machslide || obj_player.state == global.states.machroll || obj_player.state == global.states.handstandjump)):
+		$Speedbar.animation = "max"
+		$Speedbar.playing = true
+		$Speedbar.speed_scale = 0.5
+	if (obj_player.movespeed < 12 && $Speedbar.animation != "normal"):
+		$Speedbar.animation = "normal"
+		$Speedbar.playing = false
+		$Speedbar.speed_scale = 0
 	

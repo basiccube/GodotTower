@@ -1,8 +1,35 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Objects/HUD/obj_camera.gd" type="Script" id=1]
+[ext_resource path="res://Objects/HUD/sprites/speedbar_1.png" type="Texture" id=2]
+[ext_resource path="res://Objects/HUD/sprites/speedbarmax_0.png" type="Texture" id=3]
+[ext_resource path="res://Objects/HUD/sprites/speedbarmax_1.png" type="Texture" id=4]
+[ext_resource path="res://Objects/HUD/sprites/speedbar_0.png" type="Texture" id=5]
+[ext_resource path="res://Objects/HUD/sprites/speedbar_4.png" type="Texture" id=6]
+[ext_resource path="res://Objects/HUD/sprites/speedbar_3.png" type="Texture" id=7]
+[ext_resource path="res://Objects/HUD/sprites/speedbar_2.png" type="Texture" id=8]
+[ext_resource path="res://Objects/HUD/sprites/speedbar_5.png" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "max",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "normal",
+"speed": 60.0
+} ]
 
 [node name="obj_camera" type="Camera2D" groups=["obj_camera"]]
 offset = Vector2( 48, 0 )
 current = true
 script = ExtResource( 1 )
+
+[node name="Speedbar" type="AnimatedSprite" parent="."]
+position = Vector2( -307, -130 )
+frames = SubResource( 1 )
+animation = "normal"
+speed_scale = 0.0
