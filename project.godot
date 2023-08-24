@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "obj_player",
+"language": "GDScript",
+"path": "res://Objects/Player/obj_player.gd"
+} ]
+_global_script_class_icons={
+"obj_player": ""
+}
+
 [application]
 
 config/name="GodotTower"

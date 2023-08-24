@@ -26,7 +26,25 @@ func get_instance(node):
 	var instancenode = GameNode.get_node(node)
 	return instancenode
 	
+func get_gamenode():
+	return GameNode
+	
 func get_player():
-	var GameNode = get_node(@"/root/Game")
 	var PlayerNode = GameNode.get_node(@"obj_player")
 	return PlayerNode
+	
+func get_level():
+	var LevelNode = GameNode.get_node(@"level")
+	return LevelNode
+	
+func room_goto(levelname, roomname):
+	var oldlevel = get_level()
+	var newroom = "res://Rooms/" + levelname + "/" + roomname + ".tscn"
+	var newroomnode = load(newroom)
+	var newroominstance = newroomnode.instance()
+	global.targetRoom = roomname
+	global.targetLevel = levelname
+	oldlevel.queue_free()
+	yield(get_tree().create_timer(0.01), "timeout")
+	newroominstance.name = "level"
+	GameNode.add_child(newroominstance)

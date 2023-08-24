@@ -2,7 +2,9 @@ extends Node
 
 var panic = false
 var saveroom = []
-var room
+var targetLevel = ""
+var targetRoom = ""
+var targetDoor = ""
 
 var minutes = 0
 var seconds = 59
@@ -37,4 +39,5 @@ enum states {
 	Sjumpprep,
 	Sjumpland,
 	Sjump,
+	victory,
 }

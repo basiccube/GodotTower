@@ -24,6 +24,7 @@ animations = [ {
 } ]
 
 [node name="obj_camera" type="Camera2D" groups=["obj_camera"]]
+z_index = 1000
 offset = Vector2( 48, 0 )
 current = true
 script = ExtResource( 1 )

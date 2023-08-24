@@ -1,3 +1,4 @@
+class_name obj_player
 extends KinematicBody2D
 
 const FLOOR_NORMAL = Vector2.UP
@@ -9,6 +10,11 @@ var yscale = 1
 var dir = xscale
 var movespeed = 19
 var wallspeed = 0
+
+var targetLevel = ""
+var targetRoom = ""
+
+var is_in_door = false
 
 var sprite_index
 

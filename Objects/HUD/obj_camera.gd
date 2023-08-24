@@ -14,7 +14,7 @@ func _ready():
 	room_start()
 	
 func _process(delta):
-	if (global.room == "rank_room" || global.room == "timesuproom" || global.room == "Realtitlescreen"):
+	if (global.targetRoom == "rank_room" || global.targetRoom == "timesuproom" || global.targetRoom == "Realtitlescreen"):
 		visible = false
 	else:
 		visible = true
