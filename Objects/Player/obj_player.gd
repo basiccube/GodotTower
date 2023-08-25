@@ -132,6 +132,14 @@ func _process(delta):
 			scr_player_Sjumpland()
 		global.states.Sjumpprep:
 			scr_player_Sjumpprep()
+		global.states.fireass:
+			scr_player_fireass()
+		global.states.timesup:
+			scr_player_timesup()
+		global.states.gameover:
+			scr_player_gameover()
+		global.states.victory:
+			scr_player_victory()
 	scr_playersounds()
 	if (state != global.states.freefall):
 		freefallsmash = 0
@@ -1255,7 +1263,10 @@ func scr_player_tumble():
 	$PeppinoSprite.speed_scale = 0.35
 	
 func scr_player_titlescreen():
-	pass
+	global.targetDoor = "A"
+	if ($PeppinoSprite.animation == "pepcooter" && (!utils.instance_exists("obj_superdashcloud"))):
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_superdashcloud.tscn")
+	$PeppinoSprite.speed_scale = 0.35
 	
 func scr_player_Sjump():
 	velocity.x = 0
@@ -1345,6 +1356,18 @@ func scr_player_Sjumpprep():
 	if (!$SuperJumpHold.playing):
 		$SuperJumpHold.play()
 	$PeppinoSprite.speed_scale = 0.35
+	
+func scr_player_fireass():
+	pass
+	
+func scr_player_timesup():
+	pass
+	
+func scr_player_gameover():
+	pass
+
+func scr_player_victory():
+	pass
 	
 func scr_playersounds():
 	var move = ((-int(Input.is_action_pressed("key_left"))) + int(Input.is_action_pressed("key_right")))

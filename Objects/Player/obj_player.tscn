@@ -1,4 +1,4 @@
-[gd_scene load_steps=1204 format=2]
+[gd_scene load_steps=1210 format=2]
 
 [ext_resource path="res://Objects/Player/sprites/idle_4.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/sprites/idle_0.png" type="Texture" id=2]
@@ -1200,6 +1200,18 @@
 [ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_suplexdash_1.png" type="Texture" id=1198]
 [ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_suplexdash_6.png" type="Texture" id=1199]
 [ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_suplexdash_7.png" type="Texture" id=1200]
+[ext_resource path="res://Objects/Player/sprites/pepcooter_2.png" type="Texture" id=1201]
+[ext_resource path="res://Objects/Player/sprites/pepcooter_1.png" type="Texture" id=1202]
+[ext_resource path="res://Objects/Player/sprites/pepcooter_0.png" type="Texture" id=1203]
+[ext_resource path="res://Shaders/PaletteSwap.gdshader" type="Shader" id=1204]
+[ext_resource path="res://Objects/Player/peppalette.png" type="Texture" id=1205]
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 1204 )
+shader_param/skip_first_row = true
+shader_param/use_palette_alpha = false
+shader_param/fps = 0.0
+shader_param/palette = ExtResource( 1205 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -1538,6 +1550,11 @@ animations = [ {
 "name": "panic",
 "speed": 60.0
 }, {
+"frames": [ ExtResource( 1203 ), ExtResource( 1202 ), ExtResource( 1201 ) ],
+"loop": true,
+"name": "pepcooter",
+"speed": 60.0
+}, {
 "frames": [ ExtResource( 1129 ), ExtResource( 1130 ), ExtResource( 1133 ), ExtResource( 1134 ), ExtResource( 1128 ), ExtResource( 1132 ), ExtResource( 1135 ), ExtResource( 1136 ), ExtResource( 1131 ), ExtResource( 1125 ), ExtResource( 1126 ), ExtResource( 1127 ) ],
 "loop": true,
 "name": "rollgetup",
@@ -1752,8 +1769,9 @@ collision/safe_margin = 0.001
 script = ExtResource( 55 )
 
 [node name="PeppinoSprite" type="AnimatedSprite" parent="."]
+material = SubResource( 4 )
 frames = SubResource( 1 )
-animation = "idle"
+animation = "pepcooter"
 centered = false
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]

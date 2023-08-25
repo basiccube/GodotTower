@@ -36,6 +36,7 @@ scale = Vector2( 20, 10 )
 [node name="obj_hallway" parent="." instance=ExtResource( 2 )]
 position = Vector2( -64, 320 )
 scale = Vector2( -2, 2 )
+targetDoor = "B"
 
 [node name="obj_camlimit_left" parent="." instance=ExtResource( 4 )]
 position = Vector2( -176, 0 )

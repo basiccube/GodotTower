@@ -4,7 +4,7 @@ var panic = false
 var saveroom = []
 var targetLevel = ""
 var targetRoom = ""
-var targetDoor = ""
+var targetDoor = "A"
 
 var minutes = 0
 var seconds = 59
