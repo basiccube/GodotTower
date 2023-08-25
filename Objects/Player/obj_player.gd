@@ -175,9 +175,10 @@ func _physics_process(delta):
 	var snap_vector = Vector2.ZERO
 	if ($SlopeCheck.is_colliding() && $SlopeCheck.get_collider().is_in_group("obj_slope") && !Input.is_action_pressed("key_jump") && (state != global.states.jump && state != global.states.climbwall)):
 		snap_vector = Vector2.DOWN * 20
-	if state != global.states.backbreaker && state != global.states.Sjumpland:
-		velocity.y += grav
-	velocity = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, true, 4, 1)
+	if state != global.states.titlescreen:
+		if state != global.states.backbreaker && state != global.states.Sjumpland:
+			velocity.y += grav
+		velocity = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, true, 4, 1)
 	
 func scr_dotaunt():
 	if Input.is_action_just_pressed("key_taunt"):
@@ -325,7 +326,7 @@ func scr_player_normal():
 		state = global.states.jump
 		jumpAnim = 1
 		jumpstop = 0
-	if ((Input.is_action_pressed("key_down") && is_on_floor()) || (is_on_ceiling() && is_on_floor()) && character == "P"):
+	if ((Input.is_action_pressed("key_down") && is_on_floor()) || ($CrouchCheck.is_colliding() && is_on_floor()) && character == "P"):
 		state = global.states.crouch
 		landAnim = 0
 		crouchAnim = 1
@@ -557,7 +558,7 @@ func scr_player_crouch():
 		jumpAnim = 1
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		if collision.collider.is_in_group("obj_slope"):
+		if collision.collider.is_in_group("obj_slope") && Input.is_action_pressed("key_down"):
 			movespeed = 14
 			xscale = (-sign(collision.collider.scale.x))
 			state = global.states.tumble
@@ -663,7 +664,7 @@ func scr_player_freefall():
 			movespeed += 0.25
 		if (movespeed > 7):
 			movespeed -= 0.05
-		if (is_on_wall() && move != 0):
+		if ($SolidCheck.is_colliding() && $SolidCheck.get_collider().is_in_group("obj_solid") && move != 0):
 			movespeed = 0
 		if (dir != xscale):
 			mach2 = 0
@@ -688,7 +689,10 @@ func scr_player_freefall():
 		state = global.states.freefallland
 		jumpAnim = 1
 		jumpstop = 0
-		# TODO: obj_baddie and obj_camera
+		# TODO: obj_baddie
+		for i in get_tree().get_nodes_in_group("obj_camera"):
+			i.shake_mag = 20
+			i.shake_mag_acc = (30 / 10)
 		bounce = 0
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_landcloud.tscn")
 	$PeppinoSprite.speed_scale = 0.35
@@ -956,7 +960,7 @@ func scr_player_mach2():
 	var solidcolider = $SolidCheck.get_collider()
 	var slopecolider = $SlopeCheck.get_collider()
 	if solidcolider != null:
-		if (!is_on_floor() && solidcolider.is_in_group("obj_solid")):
+		if (!is_on_floor() && solidcolider.is_in_group("obj_solid") && $PeppinoSprite.animation != "walljumpstart"):
 			wallspeed = movespeed
 			state = global.states.climbwall
 		if slopecolider != null:

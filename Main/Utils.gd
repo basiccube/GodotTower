@@ -48,3 +48,4 @@ func room_goto(levelname, roomname):
 	yield(get_tree().create_timer(0.01), "timeout")
 	newroominstance.name = "level"
 	GameNode.add_child(newroominstance)
+	utils.get_instance("obj_music").room_start()

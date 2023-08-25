@@ -14,12 +14,20 @@ position = Vector2( -640, 448 )
 scale = Vector2( 56, 4 )
 
 [node name="obj_solid2" parent="." instance=ExtResource( 1 )]
-position = Vector2( -128, -128 )
-scale = Vector2( 40, 4 )
+position = Vector2( -128, -576 )
+scale = Vector2( 36, 18 )
+
+[node name="obj_solid5" parent="." instance=ExtResource( 1 )]
+position = Vector2( -64, -832 )
+scale = Vector2( 36, 2 )
+
+[node name="obj_solid6" parent="." instance=ExtResource( 1 )]
+position = Vector2( -64, -768 )
+scale = Vector2( 2, 6 )
 
 [node name="obj_solid4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1088, 0 )
-scale = Vector2( 2, 14 )
+position = Vector2( 1088, -832 )
+scale = Vector2( 2, 40 )
 
 [node name="obj_solid3" parent="." instance=ExtResource( 1 )]
 position = Vector2( -640, 0 )
@@ -33,7 +41,7 @@ scale = Vector2( -2, 2 )
 position = Vector2( -176, 0 )
 
 [node name="obj_camlimit_top" parent="." instance=ExtResource( 7 )]
-position = Vector2( 0, -128 )
+position = Vector2( 0, -832 )
 
 [node name="obj_camlimit_bottom" parent="." instance=ExtResource( 6 )]
 position = Vector2( 0, 576 )

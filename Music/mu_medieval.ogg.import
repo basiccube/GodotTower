@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mu_medieval.ogg-c594c93dd47ac79651aeec2fe2cb974b.oggstr"
+
+[deps]
+
+source_file="res://Music/mu_medieval.ogg"
+dest_files=[ "res://.import/mu_medieval.ogg-c594c93dd47ac79651aeec2fe2cb974b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
