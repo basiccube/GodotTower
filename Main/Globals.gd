@@ -9,6 +9,13 @@ var targetDoor = "A"
 var minutes = 0
 var seconds = 59
 
+var combo = 0
+var combotime = 0
+var collect = 0
+var key_inv = 0
+
+var bigfont = load("res://Objects/HUD/font.tres")
+
 enum states {
 	normal,
 	jump,
@@ -40,4 +47,19 @@ enum states {
 	Sjumpland,
 	Sjump,
 	victory,
+	knightpep,
+	knightpepslopes,
+	knightpepattack,
+	keyget,
+	smirk,
+	gottreasure,
+	bossintro,
+	tackle,
+	slam,
+	grab,
+	punch,
+	shoulder,
+	uppunch,
+	backkick,
+	bombpep,
 }

@@ -5,6 +5,7 @@ var pausedmusic = false
 var music
 var secretmusic
 var secret = false
+onready var musicnode = $music
 
 # This array is arranged the following way:
 #   room name      song name      secret song name     set song position at previous songs position
