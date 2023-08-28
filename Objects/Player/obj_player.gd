@@ -60,6 +60,9 @@ var grabbing = 0
 var toomuchalarm1 = 0
 var toomuchalarm2 = 0
 var baddiegrabbed = ""
+var attacking = 0
+var inv_frames = 0
+var hurted = 0
 
 var state = global.states.normal
 
@@ -174,6 +177,12 @@ func _process(delta):
 		input_buffer_secondjump += 1
 	if (input_buffer_highjump < 8):
 		input_buffer_highjump += 1
+	if (inv_frames == 0 && hurted == 0):
+		modulate.a = 1
+	if (state == global.states.mach2 || state == global.states.knightpep || state == global.states.knightpepslopes || state == global.states.knightpepattack || state == global.states.facestomp || state == global.states.cheesepep || state == global.states.bombpep || state == global.states.machfreefall || state == global.states.machroll || state == global.states.mach3 || state == global.states.freefall || state == global.states.Sjump):
+		attacking = 1
+	else:
+		attacking = 0
 	if (state == global.states.throw || state == global.states.punch || state == global.states.backkick || state == global.states.shoulder || state == global.states.uppunch):
 		grabbing = 1
 	else:

@@ -14,6 +14,7 @@ var combo = 0
 var combotime = 0
 var collect = 0
 var key_inv = 0
+var hit = 0
 
 var bigfont = load("res://Objects/HUD/font.tres")
 
@@ -72,4 +73,8 @@ enum states {
 	hit,
 	pizzagoblinthrow,
 	throw,
+	cheesepep,
+	cheeseball,
+	cheesepepstick,
+	facestomp,
 }
