@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/Player/sprites/mach4_0.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Visuals/obj_mach3effect.gd" type="Script" id=2]
+
+[node name="obj_mach3effect" type="Node2D" groups=["obj_mach3effect"]]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="DestroyTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="AlphaOffTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="AlphaOnTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_DestroyTimer_timeout"]
+[connection signal="timeout" from="AlphaOffTimer" to="." method="_on_AlphaOffTimer_timeout"]
+[connection signal="timeout" from="AlphaOnTimer" to="." method="_on_AlphaOnTimer_timeout"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Objects/Visuals/sprites/cloudeffect_1.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Visuals/sprites/cloudeffect_3.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Visuals/sprites/cloudeffect_4.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Visuals/sprites/cloudeffect_0.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Visuals/sprites/cloudeffect_5.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Visuals/sprites/cloudeffect_6.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Visuals/sprites/cloudeffect_2.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Visuals/obj_machalleffect.gd" type="Script" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+} ]
+
+[node name="obj_machalleffect" type="Node2D" groups=["obj_machalleffect"]]
+z_index = 4
+script = ExtResource( 8 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 32, 36 )
+frames = SubResource( 1 )
+centered = false
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]

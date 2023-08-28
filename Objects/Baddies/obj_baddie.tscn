@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Objects/Baddies/obj_baddie.gd" type="Script" id=1]
+
+[node name="obj_baddie" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 1 )
+
+[node name="MachEffectTimer" type="Timer" parent="."]
+wait_time = 0.083
+one_shot = true
+
+[node name="BangEffectTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="timeout" from="MachEffectTimer" to="." method="_on_MachEffectTimer_timeout"]
+[connection signal="timeout" from="BangEffectTimer" to="." method="_on_BangEffectTimer_timeout"]

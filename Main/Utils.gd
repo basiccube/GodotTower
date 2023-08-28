@@ -14,16 +14,27 @@ func instance_create(x, y, scene):
 	var id = loadedscene.instance()
 	GameNode.add_child(id)
 	id.position = Vector2(x, y)
+	return id
 	
 func instance_exists(node):
-	var instancenode = GameNode.get_node(node)
+	var instancenode = GameNode.get_node_or_null(node)
 	if instancenode == null:
 		return false
 	else:
 		return true
 		
+func instance_exists_level(node):
+	if (get_level() != null):
+		var instancenode = get_level().get_node_or_null(node)
+		if instancenode == null:
+			return false
+		else:
+			return true
+	else:
+		return false
+		
 func get_instance(node):
-	var instancenode = GameNode.get_node(node)
+	var instancenode = GameNode.get_node_or_null(node)
 	return instancenode
 	
 func get_gamenode():

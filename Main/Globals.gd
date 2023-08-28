@@ -2,6 +2,7 @@ extends Node
 
 var panic = false
 var saveroom = []
+var baddieroom = []
 var targetLevel = ""
 var targetRoom = ""
 var targetDoor = "A"
@@ -55,6 +56,7 @@ enum states {
 	gottreasure,
 	bossintro,
 	tackle,
+	superslam,
 	slam,
 	grab,
 	punch,
@@ -62,4 +64,12 @@ enum states {
 	uppunch,
 	backkick,
 	bombpep,
+	grabbed,
+	stun,
+	turn,
+	walk,
+	land,
+	hit,
+	pizzagoblinthrow,
+	throw,
 }

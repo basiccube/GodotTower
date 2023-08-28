@@ -55,6 +55,11 @@ var freefallsmash = 0
 var bounce = 0
 var character = "P"
 var crouchmask = false
+var instakillmove = 0
+var grabbing = 0
+var toomuchalarm1 = 0
+var toomuchalarm2 = 0
+var baddiegrabbed = ""
 
 var state = global.states.normal
 
@@ -140,9 +145,17 @@ func _process(delta):
 			scr_player_gameover()
 		global.states.victory:
 			scr_player_victory()
+		global.states.grab:
+			scr_player_grab()
 	scr_playersounds()
+	if (is_on_floor() && state != global.states.handstandjump):
+		suplexmove = 0
 	if (state != global.states.freefall):
 		freefallsmash = 0
+	if (!utils.instance_exists_level(baddiegrabbed) && (state == global.states.grab || state == global.states.superslam)):
+		state = global.states.normal
+	if (!(state == global.states.grab || state == global.states.superslam || state == global.states.mach2)):
+		baddiegrabbed = ""
 	if (character == "P"):
 		if (anger == 0):
 			angry = 0
@@ -151,13 +164,25 @@ func _process(delta):
 			anger -= 1
 	if ($PeppinoSprite.animation == "winding" && state != global.states.normal):
 		windingAnim = 0
+	if (global.combotime > 0):
+		global.combotime -= 0.5
+	if (global.combotime == 0 && global.combo != 0):
+		global.combo = 0
 	if (input_buffer_jump < 8):
 		input_buffer_jump += 1
 	if (input_buffer_secondjump < 8):
 		input_buffer_secondjump += 1
 	if (input_buffer_highjump < 8):
 		input_buffer_highjump += 1
-	if ((state != global.states.jump) || velocity.y < 0):
+	if (state == global.states.throw || state == global.states.punch || state == global.states.backkick || state == global.states.shoulder || state == global.states.uppunch):
+		grabbing = 1
+	else:
+		grabbing = 0
+	if (state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.freefall || state == global.states.tumble || state == global.states.fireass || state == global.states.Sjump || state == global.states.machroll || state == global.states.machfreefall || (state == global.states.superslam && $PeppinoSprite.animation == "piledriver") || state == global.states.knightpep || state == global.states.knightpepattack || state == global.states.knightpepslopes):
+		instakillmove = 1
+	else:
+		instakillmove = 0
+	if ((state != global.states.jump && state != global.states.crouchjump) || velocity.y < 0):
 		fallinganimation = 0
 	if state != global.states.normal:
 		facehurt = 0
@@ -171,6 +196,14 @@ func _process(delta):
 		ladderbuffer = 0
 	if state != global.states.jump:
 		stompAnim = 0
+	if ((state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.machroll || state == global.states.handstandjump || state == global.states.machslide) && (!utils.instance_exists("obj_mach3effect"))):
+		toomuchalarm1 = 6
+		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_mach3effect.tscn")
+	if (toomuchalarm1 > 0):
+		toomuchalarm1 -= 1
+		if (toomuchalarm1 <= 0 && (state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.machroll || state == global.states.handstandjump || state == global.states.machslide)):
+			utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_mach3effect.tscn")
+			toomuchalarm1 = 6
 	if (!$CrouchCheck.is_colliding()):
 		if (state != global.states.bump && state != global.states.tumble && state != global.states.fireass && state != global.states.crouch && state != global.states.machroll && state != global.states.hurt && state != global.states.crouchslide && state != global.states.crouchjump):
 			crouchmask = false
@@ -178,6 +211,8 @@ func _process(delta):
 			crouchmask = true
 	else:
 		crouchmask = true
+	if (state == global.states.mach2 && (!utils.instance_exists("obj_speedlines"))):
+		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_speedlines.tscn")
 
 func _physics_process(delta):
 	var snap_vector = Vector2.ZERO
@@ -187,6 +222,12 @@ func _physics_process(delta):
 		if state != global.states.backbreaker && state != global.states.Sjumpland:
 			velocity.y += grav
 		velocity = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, true, 4, 1)
+		
+func get_sprite_frame():
+	return $PeppinoSprite.frames.get_frame($PeppinoSprite.animation, $PeppinoSprite.frame)
+	
+func set_animation(anim):
+	$PeppinoSprite.animation = anim
 	
 func scr_dotaunt():
 	if Input.is_action_just_pressed("key_taunt"):
@@ -1367,6 +1408,9 @@ func scr_player_gameover():
 	pass
 
 func scr_player_victory():
+	pass
+	
+func scr_player_grab():
 	pass
 	
 func scr_playersounds():
