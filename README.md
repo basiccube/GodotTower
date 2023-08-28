@@ -1,6 +1,6 @@
 # Godot Tower
 
-Godot Tower is a work-in-progress recreation of Pizza Tower (SAGE 2019 demo) in Godot Engine (3.x).
+Godot Tower is a work-in-progress rewrite of Pizza Tower (SAGE 2019 demo) in Godot Engine (3.x).
 
 ## Info
 
@@ -11,7 +11,7 @@ In its current state, it is very buggy and unfinished, primarily due to certain 
 
 ## Credits
 
-I do not own and didn't make any of the assets, music that are used in this project.
+I do not own and didn't make any of the assets and music that are used in this project.
 
 * Pizza Tower is made by Tour De Pizza. (McPig and Sertif)
 
