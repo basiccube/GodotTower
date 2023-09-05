@@ -1,0 +1,259 @@
+[gd_scene load_steps=96 format=2]
+
+[ext_resource path="res://Objects/HUD/obj_tv.gd" type="Script" id=1]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvdefault_0.png" type="Texture" id=2]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvbanana_1.png" type="Texture" id=3]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvdook_1.png" type="Texture" id=4]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvcomboresult_2.png" type="Texture" id=5]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvbanana_0.png" type="Texture" id=6]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvbomb_2.png" type="Texture" id=7]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvcomboresult_0.png" type="Texture" id=8]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvcomboresult_1.png" type="Texture" id=9]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvbomb_0.png" type="Texture" id=10]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvbomb_1.png" type="Texture" id=11]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvcomboresult_3.png" type="Texture" id=12]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvdook_0.png" type="Texture" id=13]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvclap_0.png" type="Texture" id=14]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvclap_1.png" type="Texture" id=15]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvcombo_3.png" type="Texture" id=16]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvcombo_1.png" type="Texture" id=17]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvcombo_2.png" type="Texture" id=18]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvcombo_0.png" type="Texture" id=19]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvcombo_4.png" type="Texture" id=20]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_6.png" type="Texture" id=21]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_42.png" type="Texture" id=22]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_25.png" type="Texture" id=23]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_39.png" type="Texture" id=24]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_40.png" type="Texture" id=25]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_47.png" type="Texture" id=26]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_29.png" type="Texture" id=27]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_18.png" type="Texture" id=28]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_23.png" type="Texture" id=29]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_27.png" type="Texture" id=30]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_31.png" type="Texture" id=31]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_16.png" type="Texture" id=32]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_28.png" type="Texture" id=33]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_14.png" type="Texture" id=34]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_43.png" type="Texture" id=35]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_22.png" type="Texture" id=36]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_32.png" type="Texture" id=37]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_13.png" type="Texture" id=38]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_45.png" type="Texture" id=39]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_19.png" type="Texture" id=40]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_15.png" type="Texture" id=41]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_20.png" type="Texture" id=42]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_33.png" type="Texture" id=43]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_30.png" type="Texture" id=44]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_38.png" type="Texture" id=45]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_10.png" type="Texture" id=46]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_36.png" type="Texture" id=47]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_11.png" type="Texture" id=48]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_41.png" type="Texture" id=49]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_21.png" type="Texture" id=50]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_34.png" type="Texture" id=51]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_46.png" type="Texture" id=52]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_37.png" type="Texture" id=53]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_35.png" type="Texture" id=54]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_9.png" type="Texture" id=55]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_8.png" type="Texture" id=56]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_12.png" type="Texture" id=57]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_17.png" type="Texture" id=58]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_7.png" type="Texture" id=59]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_26.png" type="Texture" id=60]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_24.png" type="Texture" id=61]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_44.png" type="Texture" id=62]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_2.png" type="Texture" id=63]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_4.png" type="Texture" id=64]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_1.png" type="Texture" id=65]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_5.png" type="Texture" id=66]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_0.png" type="Texture" id=67]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvescape_3.png" type="Texture" id=68]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvexit_1.png" type="Texture" id=69]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvknight_0.png" type="Texture" id=70]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvhurt_1.png" type="Texture" id=71]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvhurt_0.png" type="Texture" id=72]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvexit_0.png" type="Texture" id=73]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvnoise_2.png" type="Texture" id=74]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvnoise_0.png" type="Texture" id=75]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvnoise_1.png" type="Texture" id=76]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvpillar_1.png" type="Texture" id=77]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvpillar_0.png" type="Texture" id=78]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvrad_0.png" type="Texture" id=79]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvrankb_0.png" type="Texture" id=80]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvrankc_0.png" type="Texture" id=81]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvranka_0.png" type="Texture" id=82]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvtalking4_1.png" type="Texture" id=83]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvtalking1_0.png" type="Texture" id=84]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvtalking2_1.png" type="Texture" id=85]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvtalking3_0.png" type="Texture" id=86]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvtalking1_1.png" type="Texture" id=87]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvtalking3_1.png" type="Texture" id=88]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvtalking2_0.png" type="Texture" id=89]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvskull_0.png" type="Texture" id=90]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvtalking4_0.png" type="Texture" id=91]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvtreasure_1.png" type="Texture" id=92]
+[ext_resource path="res://Objects/HUD/sprites/tv/tvtreasure_0.png" type="Texture" id=93]
+[ext_resource path="res://Objects/HUD/font.tres" type="BitmapFont" id=94]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "banana",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "bomb",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "clap",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "combo",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "comboresult",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "dook",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 67 ), ExtResource( 65 ), ExtResource( 63 ), ExtResource( 68 ), ExtResource( 64 ), ExtResource( 66 ), ExtResource( 21 ), ExtResource( 59 ), ExtResource( 56 ), ExtResource( 55 ), ExtResource( 46 ), ExtResource( 48 ), ExtResource( 57 ), ExtResource( 38 ), ExtResource( 34 ), ExtResource( 41 ), ExtResource( 32 ), ExtResource( 58 ), ExtResource( 28 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 50 ), ExtResource( 36 ), ExtResource( 29 ), ExtResource( 61 ), ExtResource( 23 ), ExtResource( 60 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 27 ), ExtResource( 44 ), ExtResource( 31 ), ExtResource( 37 ), ExtResource( 43 ), ExtResource( 51 ), ExtResource( 54 ), ExtResource( 47 ), ExtResource( 53 ), ExtResource( 45 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 49 ), ExtResource( 22 ), ExtResource( 35 ), ExtResource( 62 ), ExtResource( 39 ), ExtResource( 52 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "escape",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 73 ), ExtResource( 69 ) ],
+"loop": true,
+"name": "exit",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 72 ), ExtResource( 71 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 70 ) ],
+"loop": true,
+"name": "knight",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 75 ), ExtResource( 76 ), ExtResource( 74 ) ],
+"loop": true,
+"name": "noise",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 78 ), ExtResource( 77 ) ],
+"loop": true,
+"name": "pillar",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 79 ) ],
+"loop": true,
+"name": "rad",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 82 ) ],
+"loop": true,
+"name": "ranka",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 80 ) ],
+"loop": true,
+"name": "rankb",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 81 ) ],
+"loop": true,
+"name": "rankc",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 90 ) ],
+"loop": true,
+"name": "skull",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 84 ), ExtResource( 87 ) ],
+"loop": true,
+"name": "talking1",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 89 ), ExtResource( 85 ) ],
+"loop": true,
+"name": "talking2",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 86 ), ExtResource( 88 ) ],
+"loop": true,
+"name": "talking3",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 91 ), ExtResource( 83 ) ],
+"loop": true,
+"name": "talking4",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 93 ), ExtResource( 92 ) ],
+"loop": true,
+"name": "treasure",
+"speed": 60.0
+} ]
+
+[node name="obj_tv" type="Node2D" groups=["obj_tv"]]
+script = ExtResource( 1 )
+
+[node name="TVSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 270, -270 )
+frames = SubResource( 1 )
+speed_scale = 0.1
+centered = false
+
+[node name="ResetTimer" type="Timer" parent="."]
+wait_time = 3.33
+one_shot = true
+
+[node name="MessageLabel" type="Label" parent="."]
+margin_left = -480.0
+margin_top = 330.0
+margin_right = 480.0
+margin_bottom = 362.0
+custom_fonts/font = ExtResource( 94 )
+text = "TEST"
+align = 1
+uppercase = true
+
+[node name="ComboLabel" type="Label" parent="."]
+margin_left = -108.0
+margin_top = -185.0
+margin_right = 852.0
+margin_bottom = -153.0
+custom_fonts/font = ExtResource( 94 )
+text = "1"
+align = 1
+uppercase = true
+
+[node name="ScoreLabel" type="Label" parent="."]
+margin_left = -128.0
+margin_top = -195.0
+margin_right = 832.0
+margin_bottom = -163.0
+custom_fonts/font = ExtResource( 94 )
+text = "0"
+align = 1
+uppercase = true
+
+[connection signal="timeout" from="ResetTimer" to="." method="_on_ResetTimer_timeout"]

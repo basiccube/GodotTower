@@ -16,3 +16,13 @@ I do not own and didn't make any of the assets and music that are used in this p
 * Pizza Tower is made by Tour De Pizza. (McPig and Sertif)
 
 * Pizza Tower's composers are: Mr. Sauceman, ClascyJitto and POST ELVIS.
+
+The following projects are used, which are both licensed under the MIT License:
+
+* Godot Palette Swap Shader (Godot 3.x version)
+https://github.com/KoBeWi/Godot-Palette-Swap-Shader/tree/3.x
+
+* BitmapTextureFont
+https://github.com/Digital-Sin/BitmapTextureFont
+
+The licenses for these projects can be found in their respective folders.

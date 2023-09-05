@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Objects/Baddies/obj_baddie.gd" type="Script" id=1]
 
-[node name="obj_baddie" type="KinematicBody2D"]
+[node name="obj_baddie" type="KinematicBody2D" groups=["obj_baddie"]]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource( 1 )

@@ -16,6 +16,14 @@ var collect = 0
 var key_inv = 0
 var hit = 0
 
+var hurtcounter = 0
+var hurtmilestone = 3
+
+var srank = 0
+var arank = 0
+var brank = 0
+var crank = 0
+
 var bigfont = load("res://Objects/HUD/font.tres")
 
 enum states {

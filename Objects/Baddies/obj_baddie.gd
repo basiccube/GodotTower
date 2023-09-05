@@ -18,11 +18,17 @@ onready var macheffecttimer = $MachEffectTimer
 onready var bangeffecttimer = $BangEffectTimer
 
 func _process(delta):
+	position.x += velocity.x
+	position.y += velocity.y
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.is_in_group("obj_solid"):
 			if (state != global.states.grabbed):
 				destroy()
+		if collision.collider.is_in_group("obj_spike"):
+			destroy()
+		if collision.collider.is_in_group("obj_boilingsauce"):
+			destroy()
 		if collision.collider.is_in_group("obj_player"):
 			if (state != global.states.grabbed):
 				for obj_player in get_tree().get_nodes_in_group("obj_player"):
@@ -95,11 +101,18 @@ func _process(delta):
 						else:
 							pass
 							# insert code for shotgun
-						
+		if collision.collider.is_in_group("obj_baddie"):
+			if (state == global.states.stun && thrown):
+				destroy()
+				collision.collider.destroy()
 func _physics_process(delta):
 	if (state != global.states.grabbed):
 		velocity.y += grav
 		velocity = move_and_slide(velocity, FLOOR_NORMAL, true)
+		
+func _ready():
+	if (global.baddieroom.has(global.targetRoom + name)):
+		queue_free()
 
 func destroy():
 	if (!global.baddieroom.has(global.targetRoom + name) && important == 0):

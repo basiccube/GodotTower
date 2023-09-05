@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Rooms/loadingroom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Player/obj_player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/HUD/obj_camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sounds/sfx_door.ogg" type="AudioStream" id=4]
-[ext_resource path="res://Objects/Level/obj_music.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Global/obj_music.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sounds/sfx_killenemy.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Sounds/sfx_punch.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Sounds/sfx_stompenemy.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Sounds/sfx_bumpwall.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Sounds/sfx_hitenemy.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Objects/HUD/obj_tv.tscn" type="PackedScene" id=11]
 
 [node name="Game" type="Node2D"]
 
@@ -19,6 +20,9 @@
 position = Vector2( 128, 352 )
 
 [node name="obj_camera" parent="." instance=ExtResource( 3 )]
+
+[node name="obj_tv" parent="obj_camera" instance=ExtResource( 11 )]
+position = Vector2( 48, 0 )
 
 [node name="obj_music" parent="." instance=ExtResource( 5 )]
 
