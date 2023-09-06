@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/HUD/smallnumber.tres" type="BitmapFont" id=1]
+[ext_resource path="res://Objects/Visuals/obj_smallnumber.gd" type="Script" id=2]
+
+[node name="obj_smallnumber" type="Node2D" groups=["obj_smallnumber"]]
+script = ExtResource( 2 )
+
+[node name="Number" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 1 )
+text = "10"
+align = 1
+
+[node name="DestroyTimer" type="Timer" parent="."]
+wait_time = 0.83
+one_shot = true
+
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_DestroyTimer_timeout"]

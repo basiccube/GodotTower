@@ -25,6 +25,7 @@ var brank = 0
 var crank = 0
 
 var bigfont = load("res://Objects/HUD/font.tres")
+var smallnumberfont = load("res://Objects/HUD/smallnumber.tres")
 
 enum states {
 	normal,
@@ -73,6 +74,8 @@ enum states {
 	uppunch,
 	backkick,
 	bombpep,
+	skateboard,
+	slipnslide,
 	grabbed,
 	stun,
 	turn,

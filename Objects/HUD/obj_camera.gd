@@ -61,6 +61,8 @@ func _process(delta):
 			position.y = (target.position.y + utils.randi_range((-shake_mag), shake_mag))
 	global_position.x = clamp(global_position.x, (limit_left + 480), (limit_right - 480))
 	global_position.y = clamp(global_position.y, (limit_top + 270), (limit_bottom - 270))
+	if (shake_mag != 0):
+		global_position.y = clamp(global_position.y, (limit_top + 270 + utils.randi_range((-shake_mag), shake_mag)), (limit_bottom - 270 + utils.randi_range((-shake_mag), shake_mag)))
 	var obj_player = utils.get_player()
 	if (obj_player.state != global.states.gameover):
 		# Character face HUD code

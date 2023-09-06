@@ -521,7 +521,7 @@ func scr_player_jump():
 		#TODO: Implement obj_baddie
 		for i in get_tree().get_nodes_in_group("obj_camera"):
 			i.shake_mag = 10
-			i.shake_mag_acc = (30 / 10)
+			i.shake_mag_acc = (30 / 30)
 		$Groundpound.play()
 		$PeppinoSprite.animation = "bodyslamland"
 		state = global.states.freefallland
@@ -750,7 +750,7 @@ func scr_player_freefall():
 		# TODO: obj_baddie
 		for i in get_tree().get_nodes_in_group("obj_camera"):
 			i.shake_mag = 20
-			i.shake_mag_acc = (30 / 10)
+			i.shake_mag_acc = (30 / 30)
 		bounce = 0
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_landcloud.tscn")
 	$PeppinoSprite.speed_scale = 0.35
@@ -1135,7 +1135,7 @@ func scr_player_mach3():
 		$Bump.play()
 		for i in get_tree().get_nodes_in_group("obj_camera"):
 			i.shake_mag = 20
-			i.shake_mag_acc = (40 / 10)
+			i.shake_mag_acc = (40 / 20)
 		velocity.x = 0
 		$PeppinoSprite.speed_scale = 0.35
 		# TODO: obj_baddie
@@ -1335,7 +1335,7 @@ func scr_player_Sjump():
 			$PeppinoSprite.animation = "superjumpland"
 		for i in get_tree().get_nodes_in_group("obj_camera"):
 			i.shake_mag = 10
-			i.shake_mag_acc = (30 / 10)
+			i.shake_mag_acc = (30 / 30)
 		$Groundpound.play()
 		state = global.states.Sjumpland
 		machhitAnim = 0
@@ -1375,7 +1375,7 @@ func scr_player_Sjumpprep():
 	if ($PeppinoSprite.animation == "superjumppreplight" || $PeppinoSprite.animation == "superjumpright" || $PeppinoSprite.animation == "superjumpleft"):
 		velocity.x = (move * 2)
 	if (character == "P"):
-		if ($PeppinoSprite.animation == "superjumpprep"):
+		if ($PeppinoSprite.animation != "superjumpprep"):
 			if (sign(velocity.x) == 0):
 				$PeppinoSprite.animation = "superjumppreplight"
 			if (sign(velocity.x) == 1):

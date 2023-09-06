@@ -1,0 +1,13 @@
+[gd_resource type="BitmapFont" load_steps=3 format=2]
+
+[ext_resource path="res://addons/BitmapTextureFont/main.gd" type="Script" id=1]
+[ext_resource path="res://Objects/HUD/sprites/smallnumber.png" type="Texture" id=2]
+
+[resource]
+textures = [ ExtResource( 2 ) ]
+chars = PoolIntArray( 48, 0, 298, 0, 14, 32, 0, 0, 14, 56, 0, 232, 0, 17, 32, 0, 0, 17, 57, 0, 262, 0, 17, 32, 0, 0, 17, 49, 0, 8, 0, 16, 32, 0, 0, 16, 50, 0, 40, 0, 17, 32, 0, 0, 17, 51, 0, 72, 0, 16, 32, 0, 0, 16, 52, 0, 103, 0, 15, 32, 0, 0, 15, 53, 0, 135, 0, 17, 32, 0, 0, 17, 54, 0, 169, 0, 16, 32, 0, 0, 16, 55, 0, 199, 0, 18, 32, 0, 0, 18 )
+script = ExtResource( 1 )
+texture = ExtResource( 2 )
+characterMap = "1234567890"
+size = Vector2( 32, 32 )
+monospace = false

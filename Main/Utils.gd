@@ -37,6 +37,10 @@ func get_instance(node):
 	var instancenode = GameNode.get_node_or_null(node)
 	return instancenode
 	
+func get_instance_level(node):
+	var instancenode = get_level().get_node_or_null(node)
+	return instancenode
+	
 func get_gamenode():
 	return GameNode
 	

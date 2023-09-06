@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/Level/obj_hallway.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/Level/obj_spawnpoint.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/Collectibles/obj_collect.tscn" type="PackedScene" id=10]
 
 [node name="testroom_1" type="Node2D"]
 
@@ -143,3 +144,51 @@ position = Vector2( 3984, -192 )
 
 [node name="obj_spawnpoint" parent="." instance=ExtResource( 9 )]
 position = Vector2( 192, 320 )
+
+[node name="obj_collect" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1408, 320 )
+
+[node name="obj_collect2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1440, 320 )
+
+[node name="obj_collect3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1472, 320 )
+
+[node name="obj_collect4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1504, 320 )
+
+[node name="obj_collect5" parent="." instance=ExtResource( 10 )]
+position = Vector2( 864, 320 )
+
+[node name="obj_collect6" parent="." instance=ExtResource( 10 )]
+position = Vector2( 896, 320 )
+
+[node name="obj_collect7" parent="." instance=ExtResource( 10 )]
+position = Vector2( 928, 320 )
+
+[node name="obj_collect8" parent="." instance=ExtResource( 10 )]
+position = Vector2( 3072, -32 )
+
+[node name="obj_collect9" parent="." instance=ExtResource( 10 )]
+position = Vector2( 3040, -32 )
+
+[node name="obj_collect10" parent="." instance=ExtResource( 10 )]
+position = Vector2( 3008, -32 )
+
+[node name="obj_collect11" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2976, -32 )
+
+[node name="obj_collect12" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2944, -32 )
+
+[node name="obj_collect13" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2208, 0 )
+
+[node name="obj_collect14" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2240, 32 )
+
+[node name="obj_collect15" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2208, 32 )
+
+[node name="obj_collect16" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2240, 0 )
