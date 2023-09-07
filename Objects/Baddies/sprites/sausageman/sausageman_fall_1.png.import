@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/sausageman_fall_1.png-061f066f8e1bbc43aad74e382033e71d.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Objects/Baddies/sprites/sausageman/sausageman_fall_1.png"
+dest_files=[ "res://.import/sausageman_fall_1.png-061f066f8e1bbc43aad74e382033e71d.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

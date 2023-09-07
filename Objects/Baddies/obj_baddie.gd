@@ -6,18 +6,31 @@ extends KinematicBody2D
 
 var important = 0
 var spr_dead
+var spr_scared
+var spr_idle
+var spr_turn
+var spr_walk
 var state
 var stunned = 0
+var movespeed = 0
 const FLOOR_NORMAL = Vector2.UP
 var velocity = Vector2.ZERO
 var thrown = 0
 var hp = 1
 var grav = 0.5
 var xscale = -1
+var sprite_index
 onready var macheffecttimer = $MachEffectTimer
 onready var bangeffecttimer = $BangEffectTimer
 
 func _process(delta):
+	sprite_index = $Sprite.animation
+	if (xscale == 1):
+		$Sprite.flip_h = false
+		$WallCheck.scale.x = 1
+	elif (xscale == -1):
+		$Sprite.flip_h = true
+		$WallCheck.scale.x = -1
 	position.x += velocity.x
 	position.y += velocity.y
 	for i in get_slide_count():
@@ -78,7 +91,7 @@ func _process(delta):
 					if (obj_player.state == global.states.superslam || obj_player.state == global.states.freefall):
 						utils.get_gamenode().get_node(@"HitEnemy").play()
 						global.combotime = 60
-						utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_baddiegibs.tscn")
+						utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
 						state = global.states.stun
 						hp -= 1
 						if (stunned < 100):
@@ -123,9 +136,9 @@ func destroy():
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
-		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_baddiegibs.tscn")
-		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_baddiegibs.tscn")
-		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_baddiegibs.tscn")
+		utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
+		utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
+		utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
 		for obj in get_tree().get_nodes_in_group("obj_camera"):
 			obj.shake_mag = 3
 			obj.shake_mag_acc = (3 / 10)
@@ -156,9 +169,9 @@ func destroy():
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
-		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_baddiegibs.tscn")
-		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_baddiegibs.tscn")
-		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_baddiegibs.tscn")
+		utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
+		utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
+		utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
 		for obj in get_tree().get_nodes_in_group("obj_camera"):
 			obj.shake_mag = 3
 			obj.shake_mag_acc = (3 / 10)
@@ -174,3 +187,32 @@ func _on_MachEffectTimer_timeout():
 
 func _on_BangEffectTimer_timeout():
 	utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_bangeffect.tscn")
+	
+# Enemy scripts
+func scr_enemy_idle():
+	if (velocity.y > 1 && is_on_floor()):
+		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_landcloud.tscn")
+	if (velocity.y >= 0 && sprite_index == spr_scared && is_on_floor()):
+		state = global.states.walk
+	if (is_in_group("obj_ancho") && sprite_index == spr_scared && $Sprite.frame == $Sprite.frames.get_frame_count($Sprite.animation) - 1):
+		state = global.states.walk
+	if (is_in_group("obj_forknight") && sprite_index == "turn" && $Sprite.frame == $Sprite.frames.get_frame_count($Sprite.animation) - 1):
+		state = global.states.walk
+	if (is_on_floor() && velocity.y > 0):
+		velocity.x = 0
+	if (!is_on_floor() && velocity.x < 0):
+		velocity.x += 0.1
+	elif (!is_on_floor() && velocity.x > 0):
+		velocity.x -= 0.1
+	$Sprite.speed_scale = 0.35
+	
+func scr_enemy_walk():
+	if (is_on_floor()):
+		velocity.x = (xscale * movespeed)
+	elif (!is_in_group("obj_ancho")):
+		velocity.x = 0
+	$Sprite.animation = spr_walk
+	$Sprite.speed_scale = 0.35
+	if ($WallCheck.is_colliding() && ($WallCheck.get_collider().is_in_group("obj_solid") || $WallCheck.get_collider().is_in_group("obj_hallway"))):
+		pass
+	
