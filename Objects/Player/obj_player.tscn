@@ -1,4 +1,4 @@
-[gd_scene load_steps=1210 format=2]
+[gd_scene load_steps=1248 format=2]
 
 [ext_resource path="res://Objects/Player/sprites/idle_4.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/sprites/idle_0.png" type="Texture" id=2]
@@ -1205,6 +1205,44 @@
 [ext_resource path="res://Objects/Player/sprites/pepcooter_0.png" type="Texture" id=1203]
 [ext_resource path="res://Shaders/PaletteSwap.gdshader" type="Shader" id=1204]
 [ext_resource path="res://Objects/Player/peppalette.png" type="Texture" id=1205]
+[ext_resource path="res://Objects/Player/sprites/haulingwalk_1.png" type="Texture" id=1206]
+[ext_resource path="res://Objects/Player/sprites/haulingwalk_8.png" type="Texture" id=1207]
+[ext_resource path="res://Objects/Player/sprites/haulingwalk_0.png" type="Texture" id=1208]
+[ext_resource path="res://Objects/Player/sprites/haulingwalk_4.png" type="Texture" id=1209]
+[ext_resource path="res://Objects/Player/sprites/haulingwalk_10.png" type="Texture" id=1210]
+[ext_resource path="res://Objects/Player/sprites/haulingwalk_7.png" type="Texture" id=1211]
+[ext_resource path="res://Objects/Player/sprites/haulingstart_2.png" type="Texture" id=1212]
+[ext_resource path="res://Objects/Player/sprites/haulingwalk_5.png" type="Texture" id=1213]
+[ext_resource path="res://Objects/Player/sprites/haulingwalk_6.png" type="Texture" id=1214]
+[ext_resource path="res://Objects/Player/sprites/haulingwalk_3.png" type="Texture" id=1215]
+[ext_resource path="res://Objects/Player/sprites/haulingwalk_9.png" type="Texture" id=1216]
+[ext_resource path="res://Objects/Player/sprites/haulingstart_1.png" type="Texture" id=1217]
+[ext_resource path="res://Objects/Player/sprites/haulingwalk_2.png" type="Texture" id=1218]
+[ext_resource path="res://Objects/Player/sprites/haulingstart_3.png" type="Texture" id=1219]
+[ext_resource path="res://Objects/Player/sprites/haulingstart_0.png" type="Texture" id=1220]
+[ext_resource path="res://Objects/Player/sprites/haulingstart_4.png" type="Texture" id=1221]
+[ext_resource path="res://Objects/Player/sprites/haulingfall_0.png" type="Texture" id=1222]
+[ext_resource path="res://Objects/Player/sprites/haulingfall_1.png" type="Texture" id=1223]
+[ext_resource path="res://Objects/Player/sprites/haulingfall_2.png" type="Texture" id=1224]
+[ext_resource path="res://Objects/Player/sprites/haulingidle_0.png" type="Texture" id=1225]
+[ext_resource path="res://Objects/Player/sprites/haulingidle_1.png" type="Texture" id=1226]
+[ext_resource path="res://Objects/Player/sprites/haulingidle_2.png" type="Texture" id=1227]
+[ext_resource path="res://Objects/Player/sprites/haulingidle_3.png" type="Texture" id=1228]
+[ext_resource path="res://Objects/Player/sprites/haulingidle_4.png" type="Texture" id=1229]
+[ext_resource path="res://Objects/Player/sprites/haulingidle_5.png" type="Texture" id=1230]
+[ext_resource path="res://Objects/Player/sprites/haulingidle_6.png" type="Texture" id=1231]
+[ext_resource path="res://Objects/Player/sprites/haulingidle_7.png" type="Texture" id=1232]
+[ext_resource path="res://Objects/Player/sprites/haulingjump_1.png" type="Texture" id=1233]
+[ext_resource path="res://Objects/Player/sprites/haulingjump_2.png" type="Texture" id=1234]
+[ext_resource path="res://Objects/Player/sprites/haulingjump_4.png" type="Texture" id=1235]
+[ext_resource path="res://Objects/Player/sprites/haulingland_0.png" type="Texture" id=1236]
+[ext_resource path="res://Objects/Player/sprites/haulingland_1.png" type="Texture" id=1237]
+[ext_resource path="res://Objects/Player/sprites/haulingland_2.png" type="Texture" id=1238]
+[ext_resource path="res://Objects/Player/sprites/haulingland_3.png" type="Texture" id=1239]
+[ext_resource path="res://Objects/Player/sprites/haulingland_4.png" type="Texture" id=1240]
+[ext_resource path="res://Objects/Player/sprites/haulingjump_5.png" type="Texture" id=1241]
+[ext_resource path="res://Objects/Player/sprites/haulingjump_0.png" type="Texture" id=1242]
+[ext_resource path="res://Objects/Player/sprites/haulingjump_3.png" type="Texture" id=1243]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 1204 )
@@ -1398,6 +1436,36 @@ animations = [ {
 "frames": [ ExtResource( 190 ), ExtResource( 180 ), ExtResource( 182 ), ExtResource( 183 ), ExtResource( 184 ), ExtResource( 186 ), ExtResource( 192 ), ExtResource( 202 ), ExtResource( 198 ), ExtResource( 200 ), ExtResource( 203 ), ExtResource( 199 ), ExtResource( 205 ), ExtResource( 201 ), ExtResource( 204 ), ExtResource( 197 ) ],
 "loop": true,
 "name": "handgesture4",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1222 ), ExtResource( 1223 ), ExtResource( 1224 ) ],
+"loop": true,
+"name": "haulingfall",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1225 ), ExtResource( 1226 ), ExtResource( 1227 ), ExtResource( 1228 ), ExtResource( 1229 ), ExtResource( 1230 ), ExtResource( 1231 ), ExtResource( 1232 ) ],
+"loop": true,
+"name": "haulingidle",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1242 ), ExtResource( 1233 ), ExtResource( 1234 ), ExtResource( 1243 ), ExtResource( 1235 ), ExtResource( 1241 ) ],
+"loop": true,
+"name": "haulingjump",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1236 ), ExtResource( 1237 ), ExtResource( 1238 ), ExtResource( 1239 ), ExtResource( 1240 ) ],
+"loop": true,
+"name": "haulingland",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1220 ), ExtResource( 1217 ), ExtResource( 1212 ), ExtResource( 1219 ), ExtResource( 1221 ) ],
+"loop": true,
+"name": "haulingstart",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1208 ), ExtResource( 1206 ), ExtResource( 1218 ), ExtResource( 1215 ), ExtResource( 1209 ), ExtResource( 1213 ), ExtResource( 1214 ), ExtResource( 1211 ), ExtResource( 1207 ), ExtResource( 1216 ), ExtResource( 1210 ) ],
+"loop": true,
+"name": "haulingwalk",
 "speed": 60.0
 }, {
 "frames": [ ExtResource( 703 ), ExtResource( 699 ), ExtResource( 704 ), ExtResource( 698 ), ExtResource( 697 ), ExtResource( 705 ), ExtResource( 700 ), ExtResource( 696 ), ExtResource( 706 ), ExtResource( 701 ), ExtResource( 695 ), ExtResource( 702 ) ],

@@ -23,5 +23,20 @@ enabled = true
 cast_to = Vector2( 24, 0 )
 collision_mask = 6
 
+[node name="OppositeWallCheck" type="RayCast2D" parent="."]
+position = Vector2( 0, -8 )
+enabled = true
+cast_to = Vector2( -24, 0 )
+collision_mask = 6
+
+[node name="PlatformCheck" type="RayCast2D" parent="."]
+position = Vector2( 16, 40 )
+enabled = true
+cast_to = Vector2( 0, 32 )
+collision_mask = 6
+
+[node name="ScreenVisibility" type="VisibilityNotifier2D" parent="."]
+rect = Rect2( -96, -96, 192, 192 )
+
 [connection signal="timeout" from="MachEffectTimer" to="." method="_on_MachEffectTimer_timeout"]
 [connection signal="timeout" from="BangEffectTimer" to="." method="_on_BangEffectTimer_timeout"]

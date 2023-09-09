@@ -15,6 +15,7 @@ var combotime = 0
 var collect = 0
 var key_inv = 0
 var hit = 0
+var golfhit = 0
 
 var hurtcounter = 0
 var hurtmilestone = 3
@@ -61,6 +62,7 @@ enum states {
 	knightpep,
 	knightpepslopes,
 	knightpepattack,
+	finishingblow,
 	keyget,
 	smirk,
 	gottreasure,
@@ -69,6 +71,8 @@ enum states {
 	superslam,
 	slam,
 	grab,
+	grabbed,
+	grabbing,
 	punch,
 	shoulder,
 	uppunch,
@@ -76,9 +80,9 @@ enum states {
 	bombpep,
 	skateboard,
 	slipnslide,
-	grabbed,
 	stun,
 	turn,
+	idle,
 	walk,
 	land,
 	hit,

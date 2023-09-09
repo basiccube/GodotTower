@@ -518,7 +518,10 @@ func scr_player_jump():
 		xscale = move
 	$PeppinoSprite.speed_scale = 0.35
 	if (is_on_floor() && ($PeppinoSprite.animation == "facestomp" || $PeppinoSprite.animation == "freefall")):
-		#TODO: Implement obj_baddie
+		for i in utils.get_tree().get_nodes_in_group("obj_baddie"):
+			if (i.is_on_floor() && i.screenvisible):
+				i.velocity.y = -7
+				i.velocity.x = 0
 		for i in get_tree().get_nodes_in_group("obj_camera"):
 			i.shake_mag = 10
 			i.shake_mag_acc = (30 / 30)
@@ -747,7 +750,10 @@ func scr_player_freefall():
 		state = global.states.freefallland
 		jumpAnim = 1
 		jumpstop = 0
-		# TODO: obj_baddie
+		for i in get_tree().get_nodes_in_group("obj_baddie"):
+			if (i.is_on_floor() && i.screenvisible):
+				i.velocity.y = -11
+				i.velocity.x = 0
 		for i in get_tree().get_nodes_in_group("obj_camera"):
 			i.shake_mag = 20
 			i.shake_mag_acc = (30 / 30)
@@ -1138,7 +1144,12 @@ func scr_player_mach3():
 			i.shake_mag_acc = (40 / 20)
 		velocity.x = 0
 		$PeppinoSprite.speed_scale = 0.35
-		# TODO: obj_baddie
+		for i in get_tree().get_nodes_in_group("obj_baddie"):
+			if (i.screenvisible):
+				i.stun = true
+				i.ministun = false
+				i.velocity.y = -5
+				i.velocity.x = 0
 		state = global.states.bump
 		velocity.x = (-2.5 * xscale)
 		velocity.y = -3
@@ -1336,6 +1347,10 @@ func scr_player_Sjump():
 		for i in get_tree().get_nodes_in_group("obj_camera"):
 			i.shake_mag = 10
 			i.shake_mag_acc = (30 / 30)
+		for i in get_tree().get_nodes_in_group("obj_baddie"):
+			if (i.screenvisible):
+				if (i.is_on_floor()):
+					i.velocity.y = -7
 		$Groundpound.play()
 		state = global.states.Sjumpland
 		machhitAnim = 0
