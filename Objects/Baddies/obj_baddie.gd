@@ -4,13 +4,15 @@ extends KinematicBody2D
 # This is a combination of obj_baddie and obj_baddiecollisionbox
 # since having them seperately would be an absolute nightmare to work with
 
-var important = 0
+var important = false
 var spr_dead
 var spr_scared
 var spr_idle
+var spr_fall
 var spr_stunfall
 var spr_stunfalltrans
 var spr_grabbed
+var spr_recovery
 var spr_hit
 var spr_hitwall
 var spr_flying
@@ -42,10 +44,12 @@ func _process(delta):
 		$Sprite.flip_h = false
 		$WallCheck.scale.x = 1
 		$OppositeWallCheck.scale.x = 1
+		$PlatformCheck.scale.x = 1
 	elif (xscale == -1):
 		$Sprite.flip_h = true
 		$WallCheck.scale.x = -1
 		$OppositeWallCheck.scale.x = -1
+		$PlatformCheck.scale.x = -1
 	position.x += velocity.x
 	position.y += velocity.y
 	for i in get_slide_count():
@@ -96,12 +100,11 @@ func _process(delta):
 						if (obj_player.state != global.states.bombpep && obj_player.state != global.states.mach1):
 							obj_player.movespeed = 0
 						if (is_in_group("obj_pizzaball")):
-							pass
-							# global.golfhit += 1
+							global.golfhit += 1
 						if (stunned < 100):
 							stunned = 100
 						velocity.y = -5
-						velocity.x = (xscale * 2)
+						velocity.x = ((-xscale) * 2)
 						state = global.states.stun
 					if (obj_player.state == global.states.superslam || obj_player.state == global.states.freefall):
 						utils.get_gamenode().get_node(@"HitEnemy").play()
@@ -143,7 +146,7 @@ func _ready():
 		queue_free()
 
 func destroy():
-	if (!global.baddieroom.has(global.targetRoom + name) && important == 0):
+	if (!global.baddieroom.has(global.targetRoom + name) && important):
 		var i = utils.randi_range(0, 100)
 		#if (i >= 95):
 			# insert code to play scream sfx here
@@ -180,7 +183,7 @@ func destroy():
 			var smallnumbid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_smallnumber.tscn")
 			smallnumbid.number = "80"
 		global.combotime = 60
-	elif (!global.baddieroom.has(global.targetRoom + name) && important == 1):
+	elif (!global.baddieroom.has(global.targetRoom + name) && important):
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
@@ -236,7 +239,7 @@ func scr_enemy_walk():
 		else:
 			xscale *= -1
 	if (!is_in_group("obj_ancho")):
-		if ($PlatformCheck.is_colliding() && $PlatformCheck.get_collider().is_in_group("obj_platform")):
+		if (!$PlatformCheck.is_colliding()):
 			if (movespeed > 0 && is_on_floor()):
 				if (is_in_group("obj_forknight")):
 					xscale *= -1
@@ -267,7 +270,7 @@ func scr_enemy_stun():
 		velocity.x = 0
 	if ($OppositeWallCheck.is_colliding() && ($OppositeWallCheck.get_collider().is_in_group("obj_solid") && !$OppositeWallCheck.get_collider().is_in_group("obj_destructibles"))):
 		var impactinst = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_bulletimpact.tscn")
-		impactinst.xscale = -xscale
+		impactinst.scale.x = -xscale
 		if (thrown):
 			destroy()
 		thrown = false
@@ -480,5 +483,90 @@ func scr_enemy_grabbed():
 			z_index = 7
 			position.x = obj_player.position.x
 			position.y = (obj_player.position.y - 40)
+	if (obj_player.sprite_index == "piledriverland" && $Sprite.frame == $Sprite.frames.get_frame_count($Sprite.animation) - 1):
+		obj_player.state = global.states.jump
+		obj_player.velocity.y = -8
+		obj_player.set_animation("machfreefall")
+		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
+		utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
+		global.combotime = 60
+		global.hit += 1
+		hp -= 5
+		$MachEffectTimer.wait_time = 0.083
+		$MachEffectTimer.start()
+		thrown = true
+		position.x = obj_player.position.x
+		position.y = obj_player.position.y
+		state = global.states.stun
+		velocity.x = ((-xscale) * 10)
+		velocity.y = -10
+	if (obj_player.state == global.states.grab && obj_player.sprite_index == "swingding"):
+		if (obj_player.character == "P"):
+			if (floor(obj_player.get_sprite_frame) == 0):
+				z_index = 8
+				position.x = (obj_player.position.x + (obj_player.xscale * 25))
+				position.y = obj_player.position.y
+			if (floor(obj_player.get_sprite_frame) == 1):
+				z_index = 8
+				position.x = obj_player.position.x
+				position.y = obj_player.position.y
+			if (floor(obj_player.get_sprite_frame) == 2):
+				z_index = 8
+				position.x = (obj_player.position.x + (obj_player.xscale * -25))
+				position.y = obj_player.position.y
+			if (floor(obj_player.get_sprite_frame) == 3):
+				z_index = 0
+				position.x = (obj_player.position.x + (obj_player.xscale * -50))
+				position.y = obj_player.position.y
+			if (floor(obj_player.get_sprite_frame) == 4):
+				z_index = 0
+				position.x = (obj_player.position.x + (obj_player.xscale * -25))
+				position.y = obj_player.position.y
+			if (floor(obj_player.get_sprite_frame) == 5):
+				z_index = 0
+				position.x = obj_player.position.x
+				position.y = obj_player.position.y
+			if (floor(obj_player.get_sprite_frame) == 6):
+				z_index = 0
+				position.x = (obj_player.position.x + (obj_player.xscale * 25))
+				position.y = obj_player.position.y
+			if (floor(obj_player.get_sprite_frame) == 7):
+				z_index = 0
+				position.x = (obj_player.position.x + (obj_player.xscale * 50))
+				position.y = obj_player.position.y
+		else:
+			z_index = 7
+			position.x = obj_player.position.x
+			position.y = (obj_player.position.y - 40)
 	$Sprite.animation = spr_grabbed
 	$Sprite.speed_scale = 0.35
+	
+func scr_enemy_charge():
+	if (is_in_group("obj_peasanto")):
+		if (is_on_floor()):
+			velocity.x = (xscale * (movespeed * 4))
+		else:
+			velocity.x = 0
+		$Sprite.speed_scale = 0.35
+		if ($WallCheck.is_colliding() && $WallCheck.get_collider().is_in_group("obj_solid")):
+			xscale *= -1
+		if (!$PlatformCheck.is_colliding() && movespeed > 0):
+			xscale *= -1
+		if (!is_on_floor() && velocity.x < 0):
+			velocity.x += 0.1
+		elif (!is_on_floor() && velocity.x > 0):
+			velocity.x -= 0.1
+		$Sprite.animation = "attack"
+	if (is_in_group("obj_fencer")):
+		if (is_on_floor()):
+			velocity.x = (xscale * movespeed)
+		else:
+			velocity.x = 0
+		if ($WallCheck.is_colliding() && $WallCheck.get_collider().is_in_group("obj_solid")):
+			xscale *= -1
+	if (is_in_group("obj_ancho")):
+		velocity.x = (xscale * movespeed)
+		if ($WallCheck.is_colliding() && $WallCheck.get_collider().is_in_group("obj_solid")):
+			state = global.states.stun
+			stunned = 100
+

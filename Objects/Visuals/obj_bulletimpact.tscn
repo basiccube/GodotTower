@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/Visuals/sprites/impact_0.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Visuals/sprites/impact_1.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Visuals/obj_bulletimpact.gd" type="Script" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+} ]
+
+[node name="obj_bulletimpact" type="Node2D" groups=["obj_bulletimpact"]]
+z_index = 4
+script = ExtResource( 6 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( -2, 0 )
+frames = SubResource( 1 )
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]

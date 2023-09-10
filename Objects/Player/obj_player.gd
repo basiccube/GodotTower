@@ -873,7 +873,7 @@ func scr_player_handstandjump():
 			$Jump.play()
 			utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_highjumpcloud2.tscn")
 			velocity.y = -11
-		if (is_on_wall()):
+		if ($WallClimbCheck.is_colliding() && $WallClimbCheck.get_collider().is_in_group("obj_solid")):
 			$Bump.play()
 			movespeed = 0
 			state = global.states.bump
