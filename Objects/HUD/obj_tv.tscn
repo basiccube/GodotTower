@@ -239,10 +239,10 @@ align = 1
 uppercase = true
 
 [node name="ComboLabel" type="Label" parent="."]
-margin_left = -108.0
-margin_top = -185.0
-margin_right = 852.0
-margin_bottom = -153.0
+margin_left = -106.0
+margin_top = -180.0
+margin_right = 854.0
+margin_bottom = -148.0
 custom_fonts/font = ExtResource( 94 )
 text = "1"
 align = 1

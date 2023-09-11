@@ -3,6 +3,7 @@ extends KinematicBody2D
 
 # This is a combination of obj_baddie and obj_baddiecollisionbox
 # since having them seperately would be an absolute nightmare to work with
+# Most of obj_baddiecollisionbox's code is in obj_player anyway
 
 var important = false
 var spr_dead
@@ -54,88 +55,15 @@ func _process(delta):
 	position.y += velocity.y
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		if collision.collider.is_in_group("obj_solid"):
-			if (state != global.states.grabbed):
-				destroy()
 		if collision.collider.is_in_group("obj_spike"):
 			destroy()
 		if collision.collider.is_in_group("obj_boilingsauce"):
 			destroy()
-		if collision.collider.is_in_group("obj_player"):
-			if (state != global.states.grabbed):
-				for obj_player in get_tree().get_nodes_in_group("obj_player"):
-					if (obj_player.instakillmove == 1):
-						if (obj_player.state == global.states.mach3 && obj_player.sprite_index != "mach3hit"):
-							obj_player.set_animation("mach3hit")
-						if (obj_player.state == global.states.mach2 && obj_player.is_on_floor()):
-							obj_player.machpunchAnim = 1
-						utils.get_gamenode().get_node(@"Punch").play()
-						global.hit += 1
-						global.combotime = 60
-						if (!obj_player.is_on_floor() && obj_player.state != global.states.freefall && Input.is_action_just_pressed("key_jump")):
-							if (obj_player.state == global.states.mach3 || obj_player.state == global.states.mach2):
-								obj_player.set_animation("mach2jump")
-							obj_player.suplexmove = 0
-							obj_player.velocity.y = -11
-						destroy()
-					if (obj_player.global_position.y < global_position.y && obj_player.attacking == 0 && obj_player.sprite_index != "mach2jump" && (obj_player.state == global.states.jump || obj_player.state == global.states.mach1 || obj_player.state == global.states.grab) && obj_player.velocity.y >= 0 && velocity.y >= 0 && obj_player.sprite_index != "stompprep"):
-						utils.get_gamenode().get_node(@"Stomp").play()
-						state = global.states.stun
-						if (stunned < 100):
-							stunned = 100
-						if Input.is_action_just_pressed("key_jump"):
-							utils.instance_create(obj_player.global_position.x, (obj_player.global_position.y + 50), "res://Objects/Visuals/obj_stompeffect.tscn")
-							obj_player.stompAnim = 1
-							obj_player.velocity.y = -14
-							if (obj_player.state != global.states.grab):
-								obj_player.set_animation("stompprep")
-						else:
-							utils.instance_create(obj_player.global_position.x, (obj_player.global_position.y + 50), "res://Objects/Visuals/obj_stompeffect.tscn")
-							obj_player.stompAnim = 1
-							obj_player.velocity.y = -9
-							if (obj_player.state != global.states.grab):
-								obj_player.set_animation("stompprep")
-					if (state != global.states.pizzagoblinthrow && velocity.y >= 0 && obj_player.state != global.states.tackle && obj_player.state != global.states.superslam && obj_player.state != global.states.machslide && obj_player.state != global.states.freefall && obj_player.state != global.states.mach2 && obj_player.state != global.states.handstandjump):
-						utils.get_gamenode().get_node(@"Bump").play()
-						if (obj_player.state != global.states.bombpep && obj_player.state != global.states.mach1):
-							obj_player.movespeed = 0
-						if (is_in_group("obj_pizzaball")):
-							global.golfhit += 1
-						if (stunned < 100):
-							stunned = 100
-						velocity.y = -5
-						velocity.x = ((-xscale) * 2)
-						state = global.states.stun
-					if (obj_player.state == global.states.superslam || obj_player.state == global.states.freefall):
-						utils.get_gamenode().get_node(@"HitEnemy").play()
-						global.combotime = 60
-						utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
-						state = global.states.stun
-						hp -= 1
-						if (stunned < 100):
-							stunned = 100
-						utils.instance_create(obj_player.global_position.x, obj_player.global_position.y, "res://Objects/Visuals/obj_bumpeffect.tscn")
-						utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_bangeffect.tscn")
-						if (hp <= 0):
-							stunned = 200
-							state = global.states.stun
-						obj_player.velocity.y = -7
-						obj_player.state = global.states.normal
-						velocity.y = -4
-						velocity.x = (xscale * 5)
-					if (obj_player.state == global.states.handstandjump && obj_player.character == "P"):
-						if (obj_player.shotgunAnim == 0):
-							obj_player.movespeed = 0
-							obj_player.set_animation("haulingstart")
-							obj_player.state = global.states.grab
-							state = global.states.grabbed
-						else:
-							pass
-							# insert code for shotgun
 		if collision.collider.is_in_group("obj_baddie"):
 			if (state == global.states.stun && thrown):
 				destroy()
 				collision.collider.destroy()
+
 func _physics_process(delta):
 	if (state != global.states.grabbed):
 		velocity.y += grav
@@ -146,10 +74,29 @@ func _ready():
 		queue_free()
 
 func destroy():
-	if (!global.baddieroom.has(global.targetRoom + name) && important):
+	if (!global.baddieroom.has(global.targetRoom + name) && !important):
 		var i = utils.randi_range(0, 100)
-		#if (i >= 95):
-			# insert code to play scream sfx here
+		if (i >= 90):
+			if (i == 90):
+				utils.get_gamenode().get_node(@"Scream1").play()
+			if (i == 91):
+				utils.get_gamenode().get_node(@"Scream2").play()
+			if (i == 92):
+				utils.get_gamenode().get_node(@"Scream3").play()
+			if (i == 93):
+				utils.get_gamenode().get_node(@"Scream4").play()
+			if (i == 94):
+				utils.get_gamenode().get_node(@"Scream5").play()
+			if (i == 95):
+				utils.get_gamenode().get_node(@"Scream6").play()
+			if (i == 96):
+				utils.get_gamenode().get_node(@"Scream7").play()
+			if (i == 97):
+				utils.get_gamenode().get_node(@"Scream8").play()
+			if (i == 98):
+				utils.get_gamenode().get_node(@"Scream9").play()
+			if (i == 99):
+				utils.get_gamenode().get_node(@"Scream10").play()
 		utils.get_gamenode().get_node(@"KillEnemy").play()
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
@@ -159,12 +106,12 @@ func destroy():
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
 		for obj in get_tree().get_nodes_in_group("obj_camera"):
 			obj.shake_mag = 3
-			obj.shake_mag_acc = (3 / 10)
+			obj.shake_mag_acc = 0.1
 		var deadbaddieid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_sausageman_dead.tscn")
 		deadbaddieid.sprite_index = spr_dead
 		global.baddieroom.append(global.targetRoom + name)
 		for obj in get_tree().get_nodes_in_group("obj_tv"):
-			obj.frame = utils.randi_range(0, 4)
+			obj.sprite.frame = utils.randi_range(0, 4)
 		global.combo += 1
 		if (global.combo == 1):
 			global.collect += 10
@@ -195,6 +142,7 @@ func destroy():
 			obj.shake_mag_acc = (3 / 10)
 		var deadbaddieid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_sausageman_dead.tscn")
 		deadbaddieid.sprite_index = spr_dead
+	queue_free()
 
 func _on_MachEffectTimer_timeout():
 	var a = utils.randi_range(-20, 20)
@@ -321,13 +269,13 @@ func scr_enemy_grabbed():
 		position.x = obj_player.position.x
 		if (obj_player.sprite_index != "haulingstart"):
 			position.y = (obj_player.position.y - 40)
-		elif (floor(obj_player.get_sprite_frame) == 0):
+		elif (floor(obj_player.get_frame()) == 0):
 			position.y = obj_player.position.y
-		elif (floor(obj_player.get_sprite_frame) == 1):
+		elif (floor(obj_player.get_frame()) == 1):
 			position.y = (obj_player.position.y - 10)
-		elif (floor(obj_player.get_sprite_frame) == 2):
+		elif (floor(obj_player.get_frame()) == 2):
 			position.y = (obj_player.position.y - 20)
-		elif (floor(obj_player.get_sprite_frame) == 3):
+		elif (floor(obj_player.get_frame()) == 3):
 			position.y = (obj_player.position.y - 30)
 		xscale = (-obj_player.xscale)
 	if (!(obj_player.state == global.states.grab || obj_player.state == global.states.finishingblow || obj_player.state == global.states.grabbing || obj_player.state == global.states.throw || obj_player.state == global.states.slam || obj_player.state == global.states.punch || obj_player.state == global.states.superslam || obj_player.state == global.states.backkick || obj_player.state == global.states.uppunch || obj_player.state == global.states.shoulder)):
@@ -359,7 +307,7 @@ func scr_enemy_grabbed():
 		for i in get_tree().get_nodes_in_group("obj_camera"):
 			i.shake_mag = 3
 			i.shake_mag_acc = (3 / 30)
-	if (obj_player.state == global.states.finishingblow && obj_player.get_sprite_frame < 5):
+	if (obj_player.state == global.states.finishingblow && obj_player.get_frame() < 5):
 		position.x = (obj_player.position.x + (obj_player.xscale * 60))
 		position.y = obj_player.position.y
 	if (obj_player.state == global.states.backkick):
@@ -447,35 +395,35 @@ func scr_enemy_grabbed():
 			i.shake_mag_acc = (3 / 30)
 	if ((obj_player.state == global.states.superslam && obj_player.sprite_index == "piledriver") || (obj_player.state == global.states.grab && obj_player.sprite_index == "swingding")):
 		if (obj_player.character == "P"):
-			if (floor(obj_player.get_sprite_frame) == 0):
+			if (floor(obj_player.get_frame()) == 0):
 				z_index = 0
 				position.x = (obj_player.position.x + (obj_player.xscale * 10))
 				position.y = obj_player.position.y
-			if (floor(obj_player.get_sprite_frame) == 1):
+			if (floor(obj_player.get_frame()) == 1):
 				z_index = 0
 				position.x = (obj_player.position.x + (obj_player.xscale * 5))
 				position.y = obj_player.position.y
-			if (floor(obj_player.get_sprite_frame) == 2):
+			if (floor(obj_player.get_frame()) == 2):
 				z_index = 0
 				position.x = obj_player.position.x
 				position.y = obj_player.position.y
-			if (floor(obj_player.get_sprite_frame) == 3):
+			if (floor(obj_player.get_frame()) == 3):
 				z_index = 0
 				position.x = (obj_player.position.x + (obj_player.xscale * -5))
 				position.y = obj_player.position.y
-			if (floor(obj_player.get_sprite_frame) == 4):
+			if (floor(obj_player.get_frame()) == 4):
 				z_index = 0
 				position.x = (obj_player.position.x + (obj_player.xscale * -10))
 				position.y = obj_player.position.y
-			if (floor(obj_player.get_sprite_frame) == 5):
+			if (floor(obj_player.get_frame()) == 5):
 				z_index = 8
 				position.x = (obj_player.position.x + (obj_player.xscale * -5))
 				position.y = obj_player.position.y
-			if (floor(obj_player.get_sprite_frame) == 6):
+			if (floor(obj_player.get_frame()) == 6):
 				z_index = 8
 				position.x = obj_player.position.x
 				position.y = obj_player.position.y
-			if (floor(obj_player.get_sprite_frame) == 7):
+			if (floor(obj_player.get_frame()) == 7):
 				z_index = 8
 				position.x = (obj_player.position.x + (obj_player.xscale * 5))
 				position.y = obj_player.position.y
@@ -502,35 +450,35 @@ func scr_enemy_grabbed():
 		velocity.y = -10
 	if (obj_player.state == global.states.grab && obj_player.sprite_index == "swingding"):
 		if (obj_player.character == "P"):
-			if (floor(obj_player.get_sprite_frame) == 0):
+			if (floor(obj_player.get_frame()) == 0):
 				z_index = 8
 				position.x = (obj_player.position.x + (obj_player.xscale * 25))
 				position.y = obj_player.position.y
-			if (floor(obj_player.get_sprite_frame) == 1):
+			if (floor(obj_player.get_frame()) == 1):
 				z_index = 8
 				position.x = obj_player.position.x
 				position.y = obj_player.position.y
-			if (floor(obj_player.get_sprite_frame) == 2):
+			if (floor(obj_player.get_frame()) == 2):
 				z_index = 8
 				position.x = (obj_player.position.x + (obj_player.xscale * -25))
 				position.y = obj_player.position.y
-			if (floor(obj_player.get_sprite_frame) == 3):
+			if (floor(obj_player.get_frame()) == 3):
 				z_index = 0
 				position.x = (obj_player.position.x + (obj_player.xscale * -50))
 				position.y = obj_player.position.y
-			if (floor(obj_player.get_sprite_frame) == 4):
+			if (floor(obj_player.get_frame()) == 4):
 				z_index = 0
 				position.x = (obj_player.position.x + (obj_player.xscale * -25))
 				position.y = obj_player.position.y
-			if (floor(obj_player.get_sprite_frame) == 5):
+			if (floor(obj_player.get_frame()) == 5):
 				z_index = 0
 				position.x = obj_player.position.x
 				position.y = obj_player.position.y
-			if (floor(obj_player.get_sprite_frame) == 6):
+			if (floor(obj_player.get_frame()) == 6):
 				z_index = 0
 				position.x = (obj_player.position.x + (obj_player.xscale * 25))
 				position.y = obj_player.position.y
-			if (floor(obj_player.get_sprite_frame) == 7):
+			if (floor(obj_player.get_frame()) == 7):
 				z_index = 0
 				position.x = (obj_player.position.x + (obj_player.xscale * 50))
 				position.y = obj_player.position.y

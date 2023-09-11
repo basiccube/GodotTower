@@ -9,7 +9,7 @@ resource_local_to_scene = true
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "idle",
+"name": "pizzaboy",
 "speed": 60.0
 } ]
 
@@ -21,7 +21,7 @@ script = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="2"]
 frames = SubResource( 3 )
-animation = "idle"
+animation = "pizzaboy"
 
 [node name="Collision" type="CollisionShape2D" parent="." index="3"]
 position = Vector2( 0, 35 )

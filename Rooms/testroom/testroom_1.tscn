@@ -195,4 +195,13 @@ position = Vector2( 2208, 32 )
 position = Vector2( 2240, 0 )
 
 [node name="obj_pizzaboy" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1088, 360 )
+position = Vector2( 1696, 368 )
+
+[node name="obj_pizzaboy2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1960, 368 )
+
+[node name="obj_pizzaboy3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 2568, 368 )
+
+[node name="obj_pizzaboy4" parent="." instance=ExtResource( 11 )]
+position = Vector2( 2864, 368 )

@@ -34,10 +34,10 @@ func _process(delta):
 		global.seconds -= 59
 	if ((global.panic && global.minutes < 1) || utils.get_player().sprite_index == "timesup"):
 		shake_mag = 2
-		shake_mag_acc = (3 / delta)
+		shake_mag_acc = (3 / 10)
 	elif (global.panic):
 		shake_mag = 2
-		shake_mag_acc = (3 / delta)
+		shake_mag_acc = (3 / 10)
 	if (shake_mag > 0):
 		shake_mag -= shake_mag_acc
 		if (shake_mag < 0):

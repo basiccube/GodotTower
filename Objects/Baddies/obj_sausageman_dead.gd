@@ -7,7 +7,6 @@ var stomped = false
 var sprite_index = "sausageman_shot"
 
 func _ready():
-	$Sprite.animation = sprite_index
 	$Sprite.playing = true
 	$MachAllTimer.wait_time = 0.083
 	$MachAllTimer.start()
@@ -18,6 +17,7 @@ func _ready():
 			$Sprite.flip_h = false
 			
 func _process(delta):
+	$Sprite.animation = sprite_index
 	if (velocity.y < 20):
 		velocity.y += grav
 	position.x += velocity.x

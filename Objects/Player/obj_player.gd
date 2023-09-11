@@ -37,6 +37,8 @@ var crouchAnim = 1
 var idle = 0
 var idleanim = 0
 var suplexmove = 0
+var heavy = false
+var lastmove = 0
 var tauntstoredstate = global.states.normal
 var tauntstoredmovespeed = 6
 var tauntstoredsprite = "idle"
@@ -44,6 +46,7 @@ var taunttimer = 20
 var fallinganimation = 0
 var momemtum = 0
 var superslam = 0
+var swingdingbuffer = 0
 var punch = 0
 var anger = 0
 var angry = 0
@@ -87,6 +90,80 @@ func _process(delta):
 		$CrouchCollision.set_deferred("disabled", true)
 		$PlayerCollision.set_deferred("disabled", false)
 		$CrouchCheck.enabled = false
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.collider.is_in_group("obj_baddie"):
+			var baddie = collision.collider
+			print("collision")
+			if (baddie.state != global.states.grabbed):
+				if (instakillmove == 1):
+					if (state == global.states.mach3 && $PeppinoSprite.animation != "mach3hit"):
+						$PeppinoSprite.animation = "mach3hit"
+					if (state == global.states.mach2 && is_on_floor()):
+						machpunchAnim = 1
+					utils.get_gamenode().get_node(@"Punch").play()
+					global.hit += 1
+					global.combotime = 60
+					if (!is_on_floor() && state != global.states.freefall && Input.is_action_just_pressed("key_jump")):
+						if (state == global.states.mach3 || state == global.states.mach2):
+							$PeppinoSprite.animation = "mach2jump"
+						suplexmove = 0
+						velocity.y = -11
+					baddie.destroy()
+				if (global_position.y < baddie.global_position.y && attacking == 0 && $PeppinoSprite.animation != "mach2jump" && (state == global.states.jump || state == global.states.mach1 || state == global.states.grab) && velocity.y >= 0 && baddie.velocity.y >= 0 && $PeppinoSprite.animation != "stompprep"):
+					utils.get_gamenode().get_node(@"Stomp").play()
+					baddie.state = global.states.stun
+					if (baddie.stunned < 100):
+						baddie.stunned = 100
+					if Input.is_action_just_pressed("key_jump"):
+						utils.instance_create(global_position.x, (global_position.y + 50), "res://Objects/Visuals/obj_stompeffect.tscn")
+						stompAnim = 1
+						velocity.y = -14
+						if (state != global.states.grab):
+							$PeppinoSprite.animation = "stompprep"
+					else:
+						utils.instance_create(global_position.x, (global_position.y + 50), "res://Objects/Visuals/obj_stompeffect.tscn")
+						stompAnim = 1
+						velocity.y = -9
+						if (state != global.states.grab):
+							$PeppinoSprite.animation = "stompprep"
+				if (baddie.state != global.states.pizzagoblinthrow && baddie.velocity.y >= 0 && state != global.states.tackle && state != global.states.superslam && state != global.states.machslide && state != global.states.freefall && state != global.states.mach2 && state != global.states.handstandjump && state != global.states.mach3 && state != global.states.machroll):
+					utils.get_gamenode().get_node(@"Bump").play()
+					if (state != global.states.bombpep && state != global.states.mach1):
+						movespeed = 0
+					if (baddie.is_in_group("obj_pizzaball")):
+						global.golfhit += 1
+					if (baddie.stunned < 100):
+						baddie.stunned = 100
+					baddie.velocity.y = -5
+					baddie.velocity.x = ((-xscale) * 2)
+					baddie.state = global.states.stun
+				if (state == global.states.superslam || state == global.states.freefall):
+					utils.get_gamenode().get_node(@"HitEnemy").play()
+					global.combotime = 60
+					utils.instance_create(baddie.global_position.x, baddie.global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
+					baddie.state = global.states.stun
+					baddie.hp -= 1
+					if (baddie.stunned < 100):
+						baddie.stunned = 100
+					utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_bumpeffect.tscn")
+					utils.instance_create(baddie.global_position.x, baddie.global_position.y, "res://Objects/Visuals/obj_bangeffect.tscn")
+					if (baddie.hp <= 0):
+						baddie.stunned = 200
+						baddie.state = global.states.stun
+					velocity.y = -7
+					state = global.states.normal
+					baddie.velocity.y = -4
+					baddie.velocity.x = (xscale * 5)
+				if (state == global.states.handstandjump && character == "P"):
+					if (shotgunAnim == 0):
+						movespeed = 0
+						$PeppinoSprite.animation = "haulingstart"
+						state = global.states.grab
+						baddie.state = global.states.grabbed
+					else:
+						pass
+						# insert code for shotgun
 	match state:
 		global.states.normal:
 			scr_player_normal()
@@ -155,8 +232,8 @@ func _process(delta):
 		suplexmove = 0
 	if (state != global.states.freefall):
 		freefallsmash = 0
-	if (!utils.instance_exists_level(baddiegrabbed) && (state == global.states.grab || state == global.states.superslam)):
-		state = global.states.normal
+	#if (!utils.instance_exists_level(baddiegrabbed) && (state == global.states.grab || state == global.states.superslam)):
+		#state = global.states.normal
 	if (!(state == global.states.grab || state == global.states.superslam || state == global.states.mach2)):
 		baddiegrabbed = ""
 	if (character == "P"):
@@ -201,6 +278,8 @@ func _process(delta):
 		momemtum = 0
 	if state != global.states.normal:
 		idle = 0
+	if state != global.states.mach2:
+		machpunchAnim = 0
 	if state != global.states.jump:
 		ladderbuffer = 0
 	if state != global.states.jump:
@@ -234,6 +313,9 @@ func _physics_process(delta):
 		
 func get_sprite_frame():
 	return $PeppinoSprite.frames.get_frame($PeppinoSprite.animation, $PeppinoSprite.frame)
+	
+func get_frame():
+	return $PeppinoSprite.frame
 	
 func set_animation(anim):
 	$PeppinoSprite.animation = anim
@@ -873,7 +955,7 @@ func scr_player_handstandjump():
 			$Jump.play()
 			utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_highjumpcloud2.tscn")
 			velocity.y = -11
-		if ($WallClimbCheck.is_colliding() && $WallClimbCheck.get_collider().is_in_group("obj_solid")):
+		if (is_on_wall()):
 			$Bump.play()
 			movespeed = 0
 			state = global.states.bump
@@ -1270,7 +1352,7 @@ func scr_player_machroll():
 	velocity.x = (xscale * movespeed)
 	mach2 = 100
 	machslideAnim = 1
-	if (is_on_wall()):
+	if ($WallClimbCheck.is_colliding() && $WallClimbCheck.get_collider().is_in_group("obj_solid") && is_on_wall()):
 		$Bump.play()
 		velocity.x = 0
 		$PeppinoSprite.speed_scale = 0.35
@@ -1306,7 +1388,7 @@ func scr_player_tumble():
 			$PeppinoSprite.frame = 11
 	if ($PeppinoSprite.animation == "tumblestart" && $PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1):
 		$PeppinoSprite.animation = "tumble"
-	if (is_on_wall()):
+	if ($WallClimbCheck.is_colliding() && $WallClimbCheck.get_collider().is_in_group("obj_solid") && is_on_wall()):
 		$Tumble4.play()
 		velocity.x = 0
 		movespeed = 0
@@ -1435,7 +1517,156 @@ func scr_player_victory():
 	pass
 	
 func scr_player_grab():
-	pass
+	grav = 0.5
+	var move = ((-int(Input.is_action_pressed("key_left"))) + int(Input.is_action_pressed("key_right")))
+	if (is_on_floor()):
+		if (dir != xscale && $PeppinoSprite.animation != "swingding"):
+			dir = xscale
+			movespeed = 2
+			facehurt = 0
+		jumpstop = 0
+		anger = 100
+		velocity.x = (move * movespeed)
+		if (!heavy):
+			if (move != 0):
+				if (movespeed < 6):
+					movespeed += 0.5
+				elif (floor(movespeed) == 6):
+					movespeed = 6 
+			else:
+				movespeed = 0
+			if (movespeed > 6):
+				movespeed -= 0.1
+		else:
+			if (move != 0):
+				if (movespeed < 4):
+					movespeed += 0.25
+				elif (floor(movespeed) == 4):
+					movespeed = 4
+			else:
+				movespeed = 0
+			if (movespeed > 4):
+				movespeed -= 0.1
+		if (move != 0 && $PeppinoSprite.animation != "swingding"):
+			xscale = move
+		if (move != 0):
+			if (movespeed < 3 && move != 0):
+				$PeppinoSprite.speed_scale = 0.35
+			elif (movespeed > 3 && movespeed < 6):
+				$PeppinoSprite.speed_scale = 0.45
+			else:
+				$PeppinoSprite.speed_scale = 0.6
+		else:
+			$PeppinoSprite.speed_scale = 0.35
+	if (!is_on_floor()):
+		if (dir != xscale && $PeppinoSprite.animation != "swingding"):
+			dir = xscale
+			movespeed = 2
+			facehurt = 0
+		if (move != xscale):
+			movespeed = 2
+		if (momemtum == 0):
+			velocity.x = (move * movespeed)
+		else:
+			velocity.x = (xscale * movespeed)
+		if (move != xscale && momemtum == 1 && movespeed != 0):
+			movespeed -= 0.05
+		if (movespeed == 0):
+			momemtum = 0
+		if (move != 0 && movespeed < 6):
+			movespeed += 0.5
+		if (movespeed > 6):
+			movespeed -= 0.5
+		if ($WallClimbCheck.is_colliding() && $WallClimbCheck.get_collider().is_in_group("obj_solid") && is_on_wall()):
+			movespeed = 0
+		if (dir != xscale && $PeppinoSprite.animation != "swingding"):
+			dir = xscale
+			movespeed = 2
+			facehurt = 0
+		if (move == (-xscale)):
+			mach2 = 0
+			momemtum = 0
+		landAnim = 1
+		if (!Input.is_action_pressed("key_jump") && jumpstop == 0 && velocity.y < 0.5 && stompAnim == 0):
+			velocity.y /= 10
+			jumpstop = 1
+		if (ladderbuffer > 0):
+			ladderbuffer -= 1
+		if (is_on_ceiling() && jumpstop == 0 && jumpAnim == 1):
+			velocity.y = grav
+			jumpstop = 1
+		if (move != 0 && $PeppinoSprite.animation != "swingding"):
+			xscale = move
+	if (Input.is_action_just_pressed("key_jump")):
+		input_buffer_jump = 0
+	if (is_on_floor() && input_buffer_jump < 8 && !Input.is_action_pressed("key_down") && !Input.is_action_pressed("key_dash") && velocity.y >= 0 && $PeppinoSprite.animation != "swingding"):
+		$Jump.play()
+		$PeppinoSprite.animation = "haulingjump"
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_highjumpcloud2.tscn")
+		if (!heavy):
+			velocity.y = -11
+		else:
+			velocity.y = -6
+	if (is_on_floor() && move != 0 && $PeppinoSprite.animation == "haulingidle"):
+		$PeppinoSprite.animation = "haulingwalk"
+	elif (is_on_floor() && move == 0 && $PeppinoSprite.animation == "haulingwalk"):
+		$PeppinoSprite.animation = "haulingidle"
+	if ($PeppinoSprite.animation == "haulingstart" && $PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1):
+		$PeppinoSprite.animation = "haulingidle"
+	if (($PeppinoSprite.animation == "haulingjump" && $PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1) || (!is_on_floor() && ($PeppinoSprite.animation == "haulingwalk" || $PeppinoSprite.animation == "haulingidle"))):
+		$PeppinoSprite.animation = "haulingfall"
+	if (is_on_floor() && velocity.y >= 0 && ($PeppinoSprite.animation == "haulingfall" || $PeppinoSprite.animation == "haulingjump")):
+		$PeppinoSprite.animation = "haulingland"
+		movespeed = 2
+	if ($PeppinoSprite.animation == "haulingland" && $PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1):
+		$PeppinoSprite.animation = "haulingidle"
+	if (move != 0 && move != lastmove && swingdingbuffer < 300):
+		lastmove = move
+		swingdingbuffer += 50
+	if (swingdingbuffer > 0):
+		swingdingbuffer -= 1
+	if ($PeppinoSprite.animation == "swingding" && swingdingbuffer < 150):
+		state = global.states.normal
+	if (swingdingbuffer > 300 && $PeppinoSprite.animation != "swingding"):
+		$PeppinoSprite.animation = "swingding"
+	if (Input.is_action_just_pressed("key_dash") || Input.is_action_just_pressed("key_grab")):
+		if (move != 0):
+			move = xscale
+		state = global.states.finishingblow
+		if ($PeppinoSprite.animation == "swingding"):
+			$PeppinoSprite.animation = "swingdingend"
+		elif (!Input.is_action_pressed("key_down")):
+			var rng = utils.randi_range(1, 5)
+			if (rng == 1):
+				$PeppinoSprite.animation = "finishingblow1"
+			elif (rng == 2):
+				$PeppinoSprite.animation = "finishingblow2"
+			elif (rng == 3):
+				$PeppinoSprite.animation = "finishingblow3"
+			elif (rng == 4):
+				$PeppinoSprite.animation = "finishingblow4"
+			elif (rng == 5):
+				$PeppinoSprite.animation = "finishingblow5"
+		elif (Input.is_action_pressed("key_down")):
+			$PeppinoSprite.animation = "uppercutfinishingblow"
+		velocity.x = 0
+		movespeed = 0
+	if (Input.is_action_pressed("key_down") && !is_on_floor()):
+		$PeppinoSprite.animation = "piledriver"
+		velocity.y = -6
+		state = global.states.superslam
+		$PeppinoSprite.speed_scale = 0.35
+	if (!utils.instance_exists("obj_cloudeffect") && is_on_floor() && move != 0 && (floor($PeppinoSprite.frame) == 4 || floor($PeppinoSprite.frame) == 10)):
+		utils.instance_create(position.x, (position.y + 43), "res://Objects/Visuals/obj_cloudeffect.tscn")
+	if (Input.is_action_pressed("key_down") && is_on_floor()):
+		state = global.states.crouch
+		landAnim = 0
+		crouchAnim = 1
+		idle = 0
+	if ($PeppinoSprite.animation != "swingding"):
+		$PeppinoSprite.speed_scale = 0.35
+	else:
+		$PeppinoSprite.speed_scale = (swingdingbuffer / 600)
 	
 func scr_playersounds():
 	var move = ((-int(Input.is_action_pressed("key_left"))) + int(Input.is_action_pressed("key_right")))

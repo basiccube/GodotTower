@@ -1,6 +1,6 @@
 extends "res://Objects/Visuals/obj_parentparticle.gd"
 
-func _init():
+func _ready():
 	velocity.x = utils.randi_range(-10, 10)
 	velocity.y = utils.randi_range(-10, 10)
 	grav = 0.4

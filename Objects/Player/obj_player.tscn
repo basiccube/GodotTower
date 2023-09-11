@@ -1,4 +1,4 @@
-[gd_scene load_steps=1248 format=2]
+[gd_scene load_steps=1291 format=2]
 
 [ext_resource path="res://Objects/Player/sprites/idle_4.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/sprites/idle_0.png" type="Texture" id=2]
@@ -1243,6 +1243,49 @@
 [ext_resource path="res://Objects/Player/sprites/haulingjump_5.png" type="Texture" id=1241]
 [ext_resource path="res://Objects/Player/sprites/haulingjump_0.png" type="Texture" id=1242]
 [ext_resource path="res://Objects/Player/sprites/haulingjump_3.png" type="Texture" id=1243]
+[ext_resource path="res://Objects/Player/sprites/swingding_1.png" type="Texture" id=1244]
+[ext_resource path="res://Objects/Player/sprites/swingding_0.png" type="Texture" id=1245]
+[ext_resource path="res://Objects/Player/sprites/swingding_2.png" type="Texture" id=1246]
+[ext_resource path="res://Objects/Player/sprites/swingding_3.png" type="Texture" id=1247]
+[ext_resource path="res://Objects/Player/sprites/swingding_4.png" type="Texture" id=1248]
+[ext_resource path="res://Objects/Player/sprites/swingdingend_4.png" type="Texture" id=1249]
+[ext_resource path="res://Objects/Player/sprites/swingding_7.png" type="Texture" id=1250]
+[ext_resource path="res://Objects/Player/sprites/swingdingend_3.png" type="Texture" id=1251]
+[ext_resource path="res://Objects/Player/sprites/swingding_6.png" type="Texture" id=1252]
+[ext_resource path="res://Objects/Player/sprites/swingdingend_0.png" type="Texture" id=1253]
+[ext_resource path="res://Objects/Player/sprites/swingdingend_2.png" type="Texture" id=1254]
+[ext_resource path="res://Objects/Player/sprites/swingding_5.png" type="Texture" id=1255]
+[ext_resource path="res://Objects/Player/sprites/swingdingend_5.png" type="Texture" id=1256]
+[ext_resource path="res://Objects/Player/sprites/swingdingend_6.png" type="Texture" id=1257]
+[ext_resource path="res://Objects/Player/sprites/swingdingend_7.png" type="Texture" id=1258]
+[ext_resource path="res://Objects/Player/sprites/swingdingend_1.png" type="Texture" id=1259]
+[ext_resource path="res://Objects/Player/sprites/uppercutfinishingblow_5.png" type="Texture" id=1260]
+[ext_resource path="res://Objects/Player/sprites/uppercutfinishingblow_1.png" type="Texture" id=1261]
+[ext_resource path="res://Objects/Player/sprites/uppercutfinishingblow_2.png" type="Texture" id=1262]
+[ext_resource path="res://Objects/Player/sprites/uppercutfinishingblow_4.png" type="Texture" id=1263]
+[ext_resource path="res://Objects/Player/sprites/uppercutfinishingblow_10.png" type="Texture" id=1264]
+[ext_resource path="res://Objects/Player/sprites/uppercutfinishingblow_0.png" type="Texture" id=1265]
+[ext_resource path="res://Objects/Player/sprites/uppercutfinishingblow_7.png" type="Texture" id=1266]
+[ext_resource path="res://Objects/Player/sprites/uppercutfinishingblow_9.png" type="Texture" id=1267]
+[ext_resource path="res://Objects/Player/sprites/uppercutfinishingblow_6.png" type="Texture" id=1268]
+[ext_resource path="res://Objects/Player/sprites/uppercutfinishingblow_12.png" type="Texture" id=1269]
+[ext_resource path="res://Objects/Player/sprites/uppercutfinishingblow_11.png" type="Texture" id=1270]
+[ext_resource path="res://Objects/Player/sprites/uppercutfinishingblow_3.png" type="Texture" id=1271]
+[ext_resource path="res://Objects/Player/sprites/uppercutfinishingblow_8.png" type="Texture" id=1272]
+[ext_resource path="res://Objects/Player/sprites/piledriverland_5.png" type="Texture" id=1273]
+[ext_resource path="res://Objects/Player/sprites/piledriver_5.png" type="Texture" id=1274]
+[ext_resource path="res://Objects/Player/sprites/piledriver_1.png" type="Texture" id=1275]
+[ext_resource path="res://Objects/Player/sprites/piledriver_2.png" type="Texture" id=1276]
+[ext_resource path="res://Objects/Player/sprites/piledriver_0.png" type="Texture" id=1277]
+[ext_resource path="res://Objects/Player/sprites/piledriver_3.png" type="Texture" id=1278]
+[ext_resource path="res://Objects/Player/sprites/piledriver_4.png" type="Texture" id=1279]
+[ext_resource path="res://Objects/Player/sprites/piledriver_6.png" type="Texture" id=1280]
+[ext_resource path="res://Objects/Player/sprites/piledriver_7.png" type="Texture" id=1281]
+[ext_resource path="res://Objects/Player/sprites/piledriverland_0.png" type="Texture" id=1282]
+[ext_resource path="res://Objects/Player/sprites/piledriverland_1.png" type="Texture" id=1283]
+[ext_resource path="res://Objects/Player/sprites/piledriverland_2.png" type="Texture" id=1284]
+[ext_resource path="res://Objects/Player/sprites/piledriverland_3.png" type="Texture" id=1285]
+[ext_resource path="res://Objects/Player/sprites/piledriverland_4.png" type="Texture" id=1286]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 1204 )
@@ -1623,6 +1666,16 @@ animations = [ {
 "name": "pepcooter",
 "speed": 60.0
 }, {
+"frames": [ ExtResource( 1277 ), ExtResource( 1275 ), ExtResource( 1276 ), ExtResource( 1278 ), ExtResource( 1279 ), ExtResource( 1274 ), ExtResource( 1280 ), ExtResource( 1281 ) ],
+"loop": true,
+"name": "piledriver",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1282 ), ExtResource( 1283 ), ExtResource( 1284 ), ExtResource( 1285 ), ExtResource( 1286 ), ExtResource( 1273 ) ],
+"loop": true,
+"name": "piledriverland",
+"speed": 60.0
+}, {
 "frames": [ ExtResource( 1129 ), ExtResource( 1130 ), ExtResource( 1133 ), ExtResource( 1134 ), ExtResource( 1128 ), ExtResource( 1132 ), ExtResource( 1135 ), ExtResource( 1136 ), ExtResource( 1131 ), ExtResource( 1125 ), ExtResource( 1126 ), ExtResource( 1127 ) ],
 "loop": true,
 "name": "rollgetup",
@@ -1768,6 +1821,16 @@ animations = [ {
 "name": "suplexdashjumpstart",
 "speed": 60.0
 }, {
+"frames": [ ExtResource( 1245 ), ExtResource( 1244 ), ExtResource( 1246 ), ExtResource( 1247 ), ExtResource( 1248 ), ExtResource( 1255 ), ExtResource( 1252 ), ExtResource( 1250 ) ],
+"loop": true,
+"name": "swingding",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1253 ), ExtResource( 1259 ), ExtResource( 1254 ), ExtResource( 1251 ), ExtResource( 1249 ), ExtResource( 1256 ), ExtResource( 1257 ), ExtResource( 1258 ) ],
+"loop": true,
+"name": "swingdingend",
+"speed": 60.0
+}, {
 "frames": [ ExtResource( 440 ), ExtResource( 437 ), ExtResource( 438 ), ExtResource( 439 ), ExtResource( 442 ), ExtResource( 444 ), ExtResource( 446 ), ExtResource( 443 ), ExtResource( 447 ), ExtResource( 445 ), ExtResource( 441 ) ],
 "loop": true,
 "name": "taunt",
@@ -1791,6 +1854,11 @@ animations = [ {
 "frames": [ ExtResource( 632 ), ExtResource( 630 ), ExtResource( 627 ), ExtResource( 631 ), ExtResource( 628 ), ExtResource( 629 ), ExtResource( 654 ), ExtResource( 656 ), ExtResource( 655 ), ExtResource( 638 ), ExtResource( 648 ), ExtResource( 647 ), ExtResource( 652 ), ExtResource( 639 ), ExtResource( 642 ), ExtResource( 641 ), ExtResource( 644 ), ExtResource( 649 ), ExtResource( 633 ) ],
 "loop": true,
 "name": "tumblestart",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1265 ), ExtResource( 1261 ), ExtResource( 1262 ), ExtResource( 1271 ), ExtResource( 1263 ), ExtResource( 1260 ), ExtResource( 1268 ), ExtResource( 1266 ), ExtResource( 1272 ), ExtResource( 1267 ), ExtResource( 1264 ), ExtResource( 1270 ), ExtResource( 1269 ) ],
+"loop": true,
+"name": "uppercutfinishingblow",
 "speed": 60.0
 }, {
 "frames": [ ExtResource( 916 ), ExtResource( 921 ), ExtResource( 924 ), ExtResource( 925 ), ExtResource( 917 ), ExtResource( 920 ), ExtResource( 918 ), ExtResource( 926 ), ExtResource( 922 ), ExtResource( 923 ), ExtResource( 919 ) ],

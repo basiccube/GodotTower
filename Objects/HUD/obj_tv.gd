@@ -10,19 +10,23 @@ var shownranka = false
 var shownrankb = false
 var shownrankc = false
 var character = "PEPPINO"
+onready var sprite = $TVSprite
 
 func _process(delta):
 	$MessageLabel.text = message
 	$TVSprite.animation = tvsprite
 	$TVSprite.playing = true
 	if (global.combo != 0 && global.combotime != 0 && (tvsprite == "default" || tvsprite == "combo")):
-		$ComboLabel.visible = false
+		$ComboLabel.visible = true
 		$ComboLabel.text = str(global.combo)
 	else:
 		$ComboLabel.visible = false
 	if (tvsprite == "default"):
 		chose = false
+		$ScoreLabel.visible = true
 		$ScoreLabel.text = str(global.collect)
+	else:
+		$ScoreLabel.visible = false
 	if (global.targetRoom == "rank_room" || global.targetRoom == "timesuproom" || global.targetRoom == "Realtitlescreen"):
 		$TVSprite.modulate.a = 0
 	match global.targetRoom:
