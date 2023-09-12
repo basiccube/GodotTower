@@ -13,8 +13,8 @@ animations = [ {
 "speed": 60.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16, 11 )
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 24, 34 )
 
 [node name="obj_pizzaboy" groups=["obj_pizzaboy"] instance=ExtResource( 1 )]
 script = ExtResource( 3 )
@@ -23,6 +23,6 @@ script = ExtResource( 3 )
 frames = SubResource( 3 )
 animation = "pizzaboy"
 
-[node name="Collision" type="CollisionShape2D" parent="." index="3"]
-position = Vector2( 0, 35 )
-shape = SubResource( 2 )
+[node name="Collision" parent="." index="7"]
+position = Vector2( 0, 12 )
+shape = SubResource( 4 )

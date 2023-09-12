@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Objects/Level/obj_spawnpoint.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objects/Collectibles/obj_collect.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_pizzaboy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_cheeseslime.tscn" type="PackedScene" id=12]
 
 [node name="testroom_1" type="Node2D"]
 
@@ -205,3 +206,12 @@ position = Vector2( 2568, 368 )
 
 [node name="obj_pizzaboy4" parent="." instance=ExtResource( 11 )]
 position = Vector2( 2864, 368 )
+
+[node name="obj_cheeseslime" parent="." instance=ExtResource( 12 )]
+position = Vector2( 512, 304 )
+
+[node name="obj_cheeseslime2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 2408, -48 )
+
+[node name="obj_cheeseslime3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 3592, 104 )

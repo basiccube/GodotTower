@@ -1,4 +1,4 @@
-[gd_scene load_steps=1291 format=2]
+[gd_scene load_steps=1315 format=2]
 
 [ext_resource path="res://Objects/Player/sprites/idle_4.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/sprites/idle_0.png" type="Texture" id=2]
@@ -1286,6 +1286,30 @@
 [ext_resource path="res://Objects/Player/sprites/piledriverland_2.png" type="Texture" id=1284]
 [ext_resource path="res://Objects/Player/sprites/piledriverland_3.png" type="Texture" id=1285]
 [ext_resource path="res://Objects/Player/sprites/piledriverland_4.png" type="Texture" id=1286]
+[ext_resource path="res://Sounds/sfx_pephurt.ogg" type="AudioStream" id=1287]
+[ext_resource path="res://Objects/Player/sprites/jumphurt_0.png" type="Texture" id=1288]
+[ext_resource path="res://Objects/Player/sprites/jumphurt_7.png" type="Texture" id=1289]
+[ext_resource path="res://Objects/Player/sprites/hurt_10.png" type="Texture" id=1290]
+[ext_resource path="res://Objects/Player/sprites/hurt_6.png" type="Texture" id=1291]
+[ext_resource path="res://Objects/Player/sprites/jumphurt_3.png" type="Texture" id=1292]
+[ext_resource path="res://Objects/Player/sprites/hurt_5.png" type="Texture" id=1293]
+[ext_resource path="res://Objects/Player/sprites/hurt_8.png" type="Texture" id=1294]
+[ext_resource path="res://Objects/Player/sprites/hurt_7.png" type="Texture" id=1295]
+[ext_resource path="res://Objects/Player/sprites/jumphurt_2.png" type="Texture" id=1296]
+[ext_resource path="res://Objects/Player/sprites/jumphurt_4.png" type="Texture" id=1297]
+[ext_resource path="res://Objects/Player/sprites/jumphurt_1.png" type="Texture" id=1298]
+[ext_resource path="res://Objects/Player/sprites/jumphurt_5.png" type="Texture" id=1299]
+[ext_resource path="res://Objects/Player/sprites/hurt_9.png" type="Texture" id=1300]
+[ext_resource path="res://Objects/Player/sprites/jumphurt_6.png" type="Texture" id=1301]
+[ext_resource path="res://Objects/Player/sprites/jumphurt_8.png" type="Texture" id=1302]
+[ext_resource path="res://Objects/Player/sprites/jumphurt_9.png" type="Texture" id=1303]
+[ext_resource path="res://Objects/Player/sprites/jumphurt_10.png" type="Texture" id=1304]
+[ext_resource path="res://Objects/Player/sprites/jumphurt_11.png" type="Texture" id=1305]
+[ext_resource path="res://Objects/Player/sprites/hurt_3.png" type="Texture" id=1306]
+[ext_resource path="res://Objects/Player/sprites/hurt_4.png" type="Texture" id=1307]
+[ext_resource path="res://Objects/Player/sprites/hurt_0.png" type="Texture" id=1308]
+[ext_resource path="res://Objects/Player/sprites/hurt_1.png" type="Texture" id=1309]
+[ext_resource path="res://Objects/Player/sprites/hurt_2.png" type="Texture" id=1310]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 1204 )
@@ -1516,9 +1540,19 @@ animations = [ {
 "name": "hitwall",
 "speed": 60.0
 }, {
+"frames": [ ExtResource( 1308 ), ExtResource( 1309 ), ExtResource( 1310 ), ExtResource( 1306 ), ExtResource( 1307 ), ExtResource( 1293 ), ExtResource( 1291 ), ExtResource( 1295 ), ExtResource( 1294 ), ExtResource( 1300 ), ExtResource( 1290 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 60.0
+}, {
 "frames": [ ExtResource( 255 ), ExtResource( 251 ), ExtResource( 252 ), ExtResource( 253 ), ExtResource( 254 ), ExtResource( 217 ), ExtResource( 218 ), ExtResource( 219 ), ExtResource( 220 ), ExtResource( 216 ), ExtResource( 230 ), ExtResource( 250 ), ExtResource( 240 ), ExtResource( 241 ), ExtResource( 249 ), ExtResource( 228 ), ExtResource( 238 ), ExtResource( 243 ), ExtResource( 246 ), ExtResource( 234 ) ],
 "loop": true,
 "name": "hurtidle",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1288 ), ExtResource( 1298 ), ExtResource( 1296 ), ExtResource( 1292 ), ExtResource( 1297 ), ExtResource( 1299 ), ExtResource( 1301 ), ExtResource( 1289 ), ExtResource( 1302 ), ExtResource( 1303 ), ExtResource( 1304 ), ExtResource( 1305 ) ],
+"loop": true,
+"name": "hurtjump",
 "speed": 60.0
 }, {
 "frames": [ ExtResource( 248 ), ExtResource( 237 ), ExtResource( 229 ), ExtResource( 231 ), ExtResource( 225 ), ExtResource( 247 ), ExtResource( 232 ), ExtResource( 221 ), ExtResource( 245 ), ExtResource( 233 ), ExtResource( 242 ), ExtResource( 235 ) ],
@@ -1959,6 +1993,10 @@ bus = "SFX"
 stream = ExtResource( 1183 )
 bus = "SFX"
 
+[node name="PepHurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1287 )
+bus = "SFX"
+
 [node name="Step" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 373 )
 bus = "SFX"
@@ -2029,3 +2067,13 @@ bus = "SFX"
 stream = ExtResource( 734 )
 volume_db = -5.0
 bus = "SFX"
+
+[node name="HurtTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HurtTimer2" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="HurtTimer" to="." method="_on_HurtTimer_timeout"]
+[connection signal="timeout" from="HurtTimer2" to="." method="_on_HurtTimer2_timeout"]

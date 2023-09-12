@@ -153,6 +153,7 @@ key_dash={
 
 [physics]
 
+common/physics_jitter_fix=0.0
 common/enable_pause_aware_picking=true
 2d/default_gravity=1000
 

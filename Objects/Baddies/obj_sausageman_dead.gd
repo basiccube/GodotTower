@@ -22,15 +22,14 @@ func _process(delta):
 		velocity.y += grav
 	position.x += velocity.x
 	position.y += floor(velocity.y)
+	if (!$CamVisibility.is_on_screen()):
+		queue_free()
 
 func _on_MachAllTimer_timeout():
 	var a = utils.randi_range(-40, 40)
 	$MachAllTimer.wait_time = 0.083
 	$MachAllTimer.start()
 	utils.instance_create((position.x + a), (position.y + a), "res://Objects/Visuals/obj_machalleffect.tscn")
-
-func _on_CamVisibility_screen_exited():
-	queue_free()
 
 func _on_Sprite_animation_finished():
 	$Sprite.playing = false

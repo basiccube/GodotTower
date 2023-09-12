@@ -1,0 +1,134 @@
+[gd_scene load_steps=62 format=2]
+
+[ext_resource path="res://Objects/Baddies/obj_baddie.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimeidle_0.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_cheeseslime.gd" type="Script" id=3]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimeidle_1.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimeidle_2.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimeidle_3.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimeidle_7.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimeidle_8.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimeidle_4.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimeidle_6.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimeidle_5.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimemove_2.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimemove_3.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimemove_1.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimemove_7.png" type="Texture" id=15]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimemove_8.png" type="Texture" id=16]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimemove_4.png" type="Texture" id=17]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimemove_0.png" type="Texture" id=18]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimemove_6.png" type="Texture" id=19]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimemove_5.png" type="Texture" id=20]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_scared_2.png" type="Texture" id=21]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_scared_0.png" type="Texture" id=22]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_scared_1.png" type="Texture" id=23]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimedead_0.png" type="Texture" id=24]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_scared_3.png" type="Texture" id=25]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimegrabbed_1.png" type="Texture" id=26]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimestun_0.png" type="Texture" id=27]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimeturn_2.png" type="Texture" id=28]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimeturn_4.png" type="Texture" id=29]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimeturn_5.png" type="Texture" id=30]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimerecovery_1.png" type="Texture" id=31]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimebounce_5.png" type="Texture" id=32]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimerecovery_4.png" type="Texture" id=33]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimeturn_0.png" type="Texture" id=34]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimebounce_4.png" type="Texture" id=35]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimebounce_9.png" type="Texture" id=36]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimestun_2.png" type="Texture" id=37]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimestun_1.png" type="Texture" id=38]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimebounce_7.png" type="Texture" id=39]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimebounce_1.png" type="Texture" id=40]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimefall_0.png" type="Texture" id=41]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimefall_1.png" type="Texture" id=42]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimeturn_1.png" type="Texture" id=43]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimebounce_6.png" type="Texture" id=44]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimebounce_11.png" type="Texture" id=45]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimefall_2.png" type="Texture" id=46]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimerecovery_0.png" type="Texture" id=47]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimebounce_2.png" type="Texture" id=48]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimerecovery_2.png" type="Texture" id=49]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimeturn_3.png" type="Texture" id=50]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimeturn_6.png" type="Texture" id=51]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimebounce_3.png" type="Texture" id=52]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimerecovery_3.png" type="Texture" id=53]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimebounce_8.png" type="Texture" id=54]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimebounce_10.png" type="Texture" id=55]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimebounce_12.png" type="Texture" id=56]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimegrabbed_0.png" type="Texture" id=57]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimegrabbed_2.png" type="Texture" id=58]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimebounce_0.png" type="Texture" id=59]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 59 ), ExtResource( 40 ), ExtResource( 48 ), ExtResource( 52 ), ExtResource( 35 ), ExtResource( 32 ), ExtResource( 44 ), ExtResource( 39 ), ExtResource( 54 ), ExtResource( 36 ), ExtResource( 55 ), ExtResource( 45 ), ExtResource( 56 ) ],
+"loop": true,
+"name": "bounce",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 41 ), ExtResource( 42 ), ExtResource( 46 ) ],
+"loop": true,
+"name": "fall",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 57 ), ExtResource( 26 ), ExtResource( 58 ) ],
+"loop": true,
+"name": "grabbed",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "idle",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "move",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 47 ), ExtResource( 31 ), ExtResource( 49 ), ExtResource( 53 ), ExtResource( 33 ) ],
+"loop": true,
+"name": "recovery",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "scared",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "slimedead",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 38 ), ExtResource( 37 ) ],
+"loop": true,
+"name": "stun",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 34 ), ExtResource( 43 ), ExtResource( 28 ), ExtResource( 50 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 51 ) ],
+"loop": true,
+"name": "turn",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 28, 12 )
+
+[node name="obj_cheeseslime" groups=["obj_cheeseslime"] instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="2"]
+frames = SubResource( 5 )
+animation = "idle"
+
+[node name="WallCheck" parent="." index="3"]
+position = Vector2( 0, 24 )
+
+[node name="OppositeWallCheck" parent="." index="4"]
+position = Vector2( 0, 24 )
+
+[node name="Collision" parent="." index="8"]
+position = Vector2( 4, 34 )
+shape = SubResource( 6 )

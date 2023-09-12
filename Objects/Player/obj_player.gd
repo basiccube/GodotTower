@@ -34,6 +34,7 @@ var stompAnim = 0
 var stopAnim = 1
 var crouchslideAnim = 1
 var crouchAnim = 1
+var facestompAnim = 0
 var idle = 0
 var idleanim = 0
 var suplexmove = 0
@@ -55,6 +56,7 @@ var input_buffer_secondjump = 8
 var input_buffer_highjump = 8
 var ladderbuffer = 0
 var freefallsmash = 0
+var freefallstart = 0
 var bounce = 0
 var character = "P"
 var crouchmask = false
@@ -66,6 +68,9 @@ var baddiegrabbed = ""
 var attacking = 0
 var inv_frames = 0
 var hurted = 0
+onready var pephurtsfx = $PepHurt
+onready var hurttimer = $HurtTimer
+onready var hurttimer2 = $HurtTimer2
 
 var state = global.states.normal
 
@@ -82,6 +87,13 @@ func _process(delta):
 		$PeppinoSprite.flip_h = true
 		$SolidCheck.scale.x = -1
 		$WallClimbCheck.scale.x = -1
+	if ($PeppinoSprite.animation == "finishingblow1" || $PeppinoSprite.animation == "finishingblow2" || $PeppinoSprite.animation == "finishingblow3" || $PeppinoSprite.animation == "finishingblow4" || $PeppinoSprite.animation == "finishingblow5" || $PeppinoSprite.animation == "uppercutfinishingblow"):
+		if (!$PeppinoSprite.flip_h):
+			$PeppinoSprite.position.x = -20
+		elif ($PeppinoSprite.flip_h):
+			$PeppinoSprite.position.x = -80
+	else:
+		$PeppinoSprite.position.x = 0
 	if crouchmask:
 		$CrouchCollision.set_deferred("disabled", false)
 		$PlayerCollision.set_deferred("disabled", true)
@@ -92,78 +104,78 @@ func _process(delta):
 		$CrouchCheck.enabled = false
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		if collision.collider.is_in_group("obj_baddie"):
-			var baddie = collision.collider
-			print("collision")
-			if (baddie.state != global.states.grabbed):
-				if (instakillmove == 1):
-					if (state == global.states.mach3 && $PeppinoSprite.animation != "mach3hit"):
-						$PeppinoSprite.animation = "mach3hit"
-					if (state == global.states.mach2 && is_on_floor()):
-						machpunchAnim = 1
-					utils.get_gamenode().get_node(@"Punch").play()
-					global.hit += 1
-					global.combotime = 60
-					if (!is_on_floor() && state != global.states.freefall && Input.is_action_just_pressed("key_jump")):
-						if (state == global.states.mach3 || state == global.states.mach2):
-							$PeppinoSprite.animation = "mach2jump"
-						suplexmove = 0
-						velocity.y = -11
-					baddie.destroy()
-				if (global_position.y < baddie.global_position.y && attacking == 0 && $PeppinoSprite.animation != "mach2jump" && (state == global.states.jump || state == global.states.mach1 || state == global.states.grab) && velocity.y >= 0 && baddie.velocity.y >= 0 && $PeppinoSprite.animation != "stompprep"):
-					utils.get_gamenode().get_node(@"Stomp").play()
-					baddie.state = global.states.stun
-					if (baddie.stunned < 100):
-						baddie.stunned = 100
-					if Input.is_action_just_pressed("key_jump"):
-						utils.instance_create(global_position.x, (global_position.y + 50), "res://Objects/Visuals/obj_stompeffect.tscn")
-						stompAnim = 1
-						velocity.y = -14
-						if (state != global.states.grab):
-							$PeppinoSprite.animation = "stompprep"
-					else:
-						utils.instance_create(global_position.x, (global_position.y + 50), "res://Objects/Visuals/obj_stompeffect.tscn")
-						stompAnim = 1
-						velocity.y = -9
-						if (state != global.states.grab):
-							$PeppinoSprite.animation = "stompprep"
-				if (baddie.state != global.states.pizzagoblinthrow && baddie.velocity.y >= 0 && state != global.states.tackle && state != global.states.superslam && state != global.states.machslide && state != global.states.freefall && state != global.states.mach2 && state != global.states.handstandjump && state != global.states.mach3 && state != global.states.machroll):
-					utils.get_gamenode().get_node(@"Bump").play()
-					if (state != global.states.bombpep && state != global.states.mach1):
-						movespeed = 0
-					if (baddie.is_in_group("obj_pizzaball")):
-						global.golfhit += 1
-					if (baddie.stunned < 100):
-						baddie.stunned = 100
-					baddie.velocity.y = -5
-					baddie.velocity.x = ((-xscale) * 2)
-					baddie.state = global.states.stun
-				if (state == global.states.superslam || state == global.states.freefall):
-					utils.get_gamenode().get_node(@"HitEnemy").play()
-					global.combotime = 60
-					utils.instance_create(baddie.global_position.x, baddie.global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
-					baddie.state = global.states.stun
-					baddie.hp -= 1
-					if (baddie.stunned < 100):
-						baddie.stunned = 100
-					utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_bumpeffect.tscn")
-					utils.instance_create(baddie.global_position.x, baddie.global_position.y, "res://Objects/Visuals/obj_bangeffect.tscn")
-					if (baddie.hp <= 0):
-						baddie.stunned = 200
+		if collision.collider != null:
+			if collision.collider.is_in_group("obj_baddie"):
+				var baddie = collision.collider
+				if (baddie.state != global.states.grabbed):
+					if (instakillmove == 1):
+						if (state == global.states.mach3 && $PeppinoSprite.animation != "mach3hit"):
+							$PeppinoSprite.animation = "mach3hit"
+						if (state == global.states.mach2 && is_on_floor()):
+							machpunchAnim = 1
+						utils.get_gamenode().get_node(@"Punch").play()
+						global.hit += 1
+						global.combotime = 60
+						if (!is_on_floor() && state != global.states.freefall && Input.is_action_just_pressed("key_jump")):
+							if (state == global.states.mach3 || state == global.states.mach2):
+								$PeppinoSprite.animation = "mach2jump"
+							suplexmove = 0
+							velocity.y = -11
+						baddie.destroy()
+					if (global_position.y < baddie.global_position.y && attacking == 0 && $PeppinoSprite.animation != "mach2jump" && (state == global.states.jump || state == global.states.mach1 || state == global.states.grab) && velocity.y >= 0 && baddie.velocity.y >= 0 && $PeppinoSprite.animation != "stompprep"):
+						utils.get_gamenode().get_node(@"Stomp").play()
 						baddie.state = global.states.stun
-					velocity.y = -7
-					state = global.states.normal
-					baddie.velocity.y = -4
-					baddie.velocity.x = (xscale * 5)
-				if (state == global.states.handstandjump && character == "P"):
-					if (shotgunAnim == 0):
-						movespeed = 0
-						$PeppinoSprite.animation = "haulingstart"
-						state = global.states.grab
-						baddie.state = global.states.grabbed
-					else:
-						pass
-						# insert code for shotgun
+						if (baddie.stunned < 100):
+							baddie.stunned = 100
+						if Input.is_action_just_pressed("key_jump"):
+							utils.instance_create(global_position.x, (global_position.y + 50), "res://Objects/Visuals/obj_stompeffect.tscn")
+							stompAnim = 1
+							velocity.y = -14
+							if (state != global.states.grab):
+								$PeppinoSprite.animation = "stompprep"
+						else:
+							utils.instance_create(global_position.x, (global_position.y + 50), "res://Objects/Visuals/obj_stompeffect.tscn")
+							stompAnim = 1
+							velocity.y = -9
+							if (state != global.states.grab):
+								$PeppinoSprite.animation = "stompprep"
+					if (baddie.state != global.states.pizzagoblinthrow && baddie.velocity.y >= 0 && state != global.states.tackle && state != global.states.superslam && state != global.states.machslide && state != global.states.freefall && state != global.states.mach2 && state != global.states.handstandjump && state != global.states.mach3 && state != global.states.machroll):
+						utils.get_gamenode().get_node(@"Bump").play()
+						if (state != global.states.bombpep && state != global.states.mach1):
+							movespeed = 0
+						if (baddie.is_in_group("obj_pizzaball")):
+							global.golfhit += 1
+						if (baddie.stunned < 100):
+							baddie.stunned = 100
+						baddie.velocity.y = -5
+						baddie.velocity.x = ((-xscale) * 2)
+						baddie.state = global.states.stun
+					if (state == global.states.superslam || state == global.states.freefall):
+						utils.get_gamenode().get_node(@"HitEnemy").play()
+						global.combotime = 60
+						utils.instance_create(baddie.global_position.x, baddie.global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
+						baddie.state = global.states.stun
+						baddie.hp -= 1
+						if (baddie.stunned < 100):
+							baddie.stunned = 100
+						utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_bumpeffect.tscn")
+						utils.instance_create(baddie.global_position.x, baddie.global_position.y, "res://Objects/Visuals/obj_bangeffect.tscn")
+						if (baddie.hp <= 0):
+							baddie.stunned = 200
+							baddie.state = global.states.stun
+						velocity.y = -7
+						state = global.states.normal
+						baddie.velocity.y = -4
+						baddie.velocity.x = (xscale * 5)
+					if (state == global.states.handstandjump && character == "P"):
+						if (shotgunAnim == 0):
+							movespeed = 0
+							$PeppinoSprite.animation = "haulingstart"
+							state = global.states.grab
+							baddie.state = global.states.grabbed
+						else:
+							pass
+							# insert code for shotgun
 	match state:
 		global.states.normal:
 			scr_player_normal()
@@ -227,6 +239,10 @@ func _process(delta):
 			scr_player_victory()
 		global.states.grab:
 			scr_player_grab()
+		global.states.superslam:
+			scr_player_superslam()
+		global.states.finishingblow:
+			scr_player_finishingblow()
 	scr_playersounds()
 	if (is_on_floor() && state != global.states.handstandjump):
 		suplexmove = 0
@@ -278,6 +294,10 @@ func _process(delta):
 		momemtum = 0
 	if state != global.states.normal:
 		idle = 0
+	if (state != global.states.facestomp):
+		facestompAnim = 0
+	if (state != global.states.freefall && state != global.states.facestomp && state != global.states.superslam && state != global.states.freefallland):
+		superslam = 0
 	if state != global.states.mach2:
 		machpunchAnim = 0
 	if state != global.states.jump:
@@ -1635,7 +1655,7 @@ func scr_player_grab():
 		state = global.states.finishingblow
 		if ($PeppinoSprite.animation == "swingding"):
 			$PeppinoSprite.animation = "swingdingend"
-		elif (!Input.is_action_pressed("key_down")):
+		elif (!Input.is_action_pressed("key_up")):
 			var rng = utils.randi_range(1, 5)
 			if (rng == 1):
 				$PeppinoSprite.animation = "finishingblow1"
@@ -1647,8 +1667,13 @@ func scr_player_grab():
 				$PeppinoSprite.animation = "finishingblow4"
 			elif (rng == 5):
 				$PeppinoSprite.animation = "finishingblow5"
-		elif (Input.is_action_pressed("key_down")):
+		elif (Input.is_action_pressed("key_up")):
 			$PeppinoSprite.animation = "uppercutfinishingblow"
+		if ($PeppinoSprite.animation == "finishingblow1" || $PeppinoSprite.animation == "finishingblow2" || $PeppinoSprite.animation == "finishingblow3" || $PeppinoSprite.animation == "finishingblow4" || $PeppinoSprite.animation == "finishingblow5" || $PeppinoSprite.animation == "uppercutfinishingblow"):
+			if (!$PeppinoSprite.flip_h):
+				$PeppinoSprite.position.x = -20
+			elif ($PeppinoSprite.flip_h):
+				$PeppinoSprite.position.x = -80
 		velocity.x = 0
 		movespeed = 0
 	if (Input.is_action_pressed("key_down") && !is_on_floor()):
@@ -1668,6 +1693,67 @@ func scr_player_grab():
 	else:
 		$PeppinoSprite.speed_scale = (swingdingbuffer / 600)
 	
+func scr_player_superslam():
+	var move = 0
+	if ($PeppinoSprite.animation == "piledriver"):
+		move = ((-int(Input.is_action_pressed("key_left"))) + int(Input.is_action_pressed("key_right")))
+		velocity.x = (move * movespeed)
+	else:
+		move = 0
+		velocity.x = 0
+	if (is_on_floor() && $PeppinoSprite.animation == "piledriver" && velocity.y >= 0):
+		$Groundpound.play()
+		$PeppinoSprite.animation = "piledriverland"
+		jumpAnim = 1
+		for i in get_tree().get_nodes_in_group("obj_camera"):
+			i.shake_mag = 20
+			i.shake_mag_acc = (40 / 30)
+		velocity.x = 0
+		bounce = 0
+		var effectid = utils.instance_create(global_position.x, global_position.y + 35, "res://Objects/Visuals/obj_bangeffect.tscn")
+		effectid.scale.x = xscale
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_landcloud.tscn")
+		freefallstart = 0
+		for i in utils.get_tree().get_nodes_in_group("obj_baddie"):
+			if (i.is_on_floor() && i.screenvisible):
+				i.velocity.y = -7
+				i.velocity.x = 0
+	jumpAnim = 1
+	landAnim = 0
+	machslideAnim = 1
+	moveAnim = 1
+	stopAnim = 1
+	crouchslideAnim = 1
+	crouchAnim = 1
+	if (move != 0):
+		if (movespeed < 6):
+			movespeed += 0.5
+		elif (floor(movespeed) == 6):
+			movespeed = 6
+	else:
+		movespeed = 0
+	if (movespeed > 6):
+		movespeed -= 0.1
+	if (character == "N" && move != 0):
+		xscale = move
+	$PeppinoSprite.speed_scale = 0.35
+	
+func scr_player_finishingblow():
+	velocity.x = (xscale * movespeed)
+	if (movespeed > 0):
+		movespeed -= 0.5
+	if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1):
+		state = global.states.normal
+	if ($PeppinoSprite.frame == 6 && (!utils.instance_exists("obj_swordhitbox"))):
+		utils.get_gamenode().get_node(@"Punch").play()
+		utils.get_gamenode().get_node(@"KillingBlow").play()
+		utils.instance_create((global_position.x + 100), (global_position.y + 50), "res://Objects/Hitboxes/obj_swordhitbox.tscn")
+	if ($PeppinoSprite.frame == 0 && (!utils.instance_exists("obj_swordhitbox")) && $PeppinoSprite.animation == "swingdingend"):
+		utils.get_gamenode().get_node(@"KillingBlow").play()
+		utils.instance_create((global_position.x + 100), (global_position.y + 50), "res://Objects/Hitboxes/obj_swordhitbox.tscn")
+	$PeppinoSprite.speed_scale = 0.35
+	landAnim = 0
+
 func scr_playersounds():
 	var move = ((-int(Input.is_action_pressed("key_left"))) + int(Input.is_action_pressed("key_right")))
 	if (state == global.states.mach1 && !$Mach1.playing && is_on_floor()):
@@ -1703,4 +1789,12 @@ func scr_playersounds():
 		$Tumble3.stop()
 	if ($SuplexDash.playing && state != global.states.handstandjump):
 		$SuplexDash.stop()
-	
+
+func _on_HurtTimer_timeout():
+	if (state == global.states.hurt):
+		state = global.states.normal
+		movespeed = 0
+
+func _on_HurtTimer2_timeout():
+	hurted = 0
+	inv_frames = 0

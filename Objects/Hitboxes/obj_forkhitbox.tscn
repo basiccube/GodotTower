@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/Level/obj_hurtbox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Hitboxes/sprites/forkhitbox.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Hitboxes/obj_forkhitbox.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 24, 16 )
+
+[node name="obj_forkhitbox" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Collision" type="CollisionShape2D" parent="." index="1"]
+position = Vector2( 80, 80 )
+shape = SubResource( 1 )

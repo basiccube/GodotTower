@@ -21,23 +21,31 @@ one_shot = true
 [node name="WallCheck" type="RayCast2D" parent="."]
 position = Vector2( 0, -8 )
 enabled = true
-cast_to = Vector2( 24, 0 )
-collision_mask = 6
+cast_to = Vector2( 32, 0 )
+collision_mask = 7
 
 [node name="OppositeWallCheck" type="RayCast2D" parent="."]
 position = Vector2( 0, -8 )
 enabled = true
-cast_to = Vector2( -24, 0 )
+cast_to = Vector2( -32, 0 )
 collision_mask = 6
 
 [node name="PlatformCheck" type="RayCast2D" parent="."]
 position = Vector2( 16, 40 )
 enabled = true
-cast_to = Vector2( 0, 32 )
-collision_mask = 6
+cast_to = Vector2( 0, 28 )
+collision_mask = 2
+
+[node name="FloorCheck" type="RayCast2D" parent="."]
+position = Vector2( 0, 40 )
+enabled = true
+cast_to = Vector2( 0, 12 )
+collision_mask = 2
 
 [node name="ScreenVisibility" type="VisibilityNotifier2D" parent="."]
 rect = Rect2( -96, -96, 192, 192 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
 
 [connection signal="timeout" from="MachEffectTimer" to="." method="_on_MachEffectTimer_timeout"]
 [connection signal="timeout" from="BangEffectTimer" to="." method="_on_BangEffectTimer_timeout"]
