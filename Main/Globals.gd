@@ -86,6 +86,7 @@ enum states {
 	walk,
 	land,
 	hit,
+	charge,
 	pizzagoblinthrow,
 	throw,
 	cheesepep,

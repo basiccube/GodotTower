@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Objects/Collectibles/obj_collect.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_pizzaboy.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_cheeseslime.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Objects/Blocks/obj_spike.tscn" type="PackedScene" id=14]
 
 [node name="testroom_1" type="Node2D"]
 
@@ -25,7 +27,15 @@ scale = Vector2( 26, 15 )
 
 [node name="obj_solid19" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1088, 1088 )
-scale = Vector2( 40, 6 )
+scale = Vector2( 18, 6 )
+
+[node name="obj_solid21" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1792, 1088 )
+scale = Vector2( 18, 6 )
+
+[node name="obj_solid22" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1664, 1152 )
+scale = Vector2( 4, 4 )
 
 [node name="obj_solid17" parent="." instance=ExtResource( 1 )]
 position = Vector2( 2304, 416 )
@@ -89,6 +99,10 @@ scale = Vector2( 2, 2 )
 [node name="obj_solid7" parent="." instance=ExtResource( 1 )]
 position = Vector2( 704, 256 )
 scale = Vector2( 4, 4 )
+
+[node name="obj_solid20" parent="." instance=ExtResource( 1 )]
+position = Vector2( 992, 224 )
+scale = Vector2( 25, 2 )
 
 [node name="obj_slope" parent="." instance=ExtResource( 3 )]
 position = Vector2( 640, 256 )
@@ -215,3 +229,18 @@ position = Vector2( 2408, -48 )
 
 [node name="obj_cheeseslime3" parent="." instance=ExtResource( 12 )]
 position = Vector2( 3592, 104 )
+
+[node name="obj_forknight" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1104, 176 )
+
+[node name="obj_spike" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1696, 1120 )
+
+[node name="obj_spike2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1728, 1120 )
+
+[node name="obj_spike3" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1760, 1120 )
+
+[node name="obj_spike4" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1664, 1120 )

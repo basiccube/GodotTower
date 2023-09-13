@@ -21,5 +21,6 @@ script = ExtResource( 6 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+centered = false
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]

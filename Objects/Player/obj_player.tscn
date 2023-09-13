@@ -1,4 +1,4 @@
-[gd_scene load_steps=1315 format=2]
+[gd_scene load_steps=1317 format=2]
 
 [ext_resource path="res://Objects/Player/sprites/idle_4.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/sprites/idle_0.png" type="Texture" id=2]
@@ -1310,6 +1310,8 @@
 [ext_resource path="res://Objects/Player/sprites/hurt_0.png" type="Texture" id=1308]
 [ext_resource path="res://Objects/Player/sprites/hurt_1.png" type="Texture" id=1309]
 [ext_resource path="res://Objects/Player/sprites/hurt_2.png" type="Texture" id=1310]
+[ext_resource path="res://Sounds/sfx_bombpep2.ogg" type="AudioStream" id=1311]
+[ext_resource path="res://Sounds/sfx_bombpep1.ogg" type="AudioStream" id=1312]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 1204 )
@@ -2004,6 +2006,16 @@ bus = "SFX"
 [node name="SuplexDash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1124 )
 volume_db = -8.0
+bus = "SFX"
+
+[node name="Bombpep1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1312 )
+volume_db = -4.0
+bus = "SFX"
+
+[node name="Bombpep2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1311 )
+volume_db = -4.0
 bus = "SFX"
 
 [node name="Tumble1" type="AudioStreamPlayer" parent="."]

@@ -28,7 +28,7 @@ z_index = 4
 script = ExtResource( 14 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 48, 48 )
+position = Vector2( 50, 48 )
 frames = SubResource( 1 )
 animation = "taunt"
 

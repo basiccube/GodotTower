@@ -1,0 +1,54 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Objects/Visuals/obj_parentparticle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Collectibles/sprites/pineapplecollect_0.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Collectibles/sprites/sausagecollect_2.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Collectibles/sprites/cheesecollect_0.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Collectibles/sprites/tomatocollect_2.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Collectibles/sprites/pineapplecollect_2.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Collectibles/sprites/pineapplecollect_1.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Collectibles/sprites/shroomcollect_1.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Collectibles/sprites/tomatocollect_0.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Collectibles/sprites/sausagecollect_0.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Collectibles/sprites/shroomcollect_2.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Collectibles/sprites/shroomcollect_0.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Collectibles/sprites/tomatocollect_1.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Collectibles/sprites/sausagecollect_1.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Collectibles/sprites/cheesecollect_1.png" type="Texture" id=15]
+[ext_resource path="res://Objects/Collectibles/sprites/cheesecollect_2.png" type="Texture" id=16]
+[ext_resource path="res://Objects/Visuals/obj_pizzaloss.gd" type="Script" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "cheese",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "pineapple",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 14 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "sausage",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 8 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "shroom",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 13 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "tomato",
+"speed": 60.0
+} ]
+
+[node name="obj_pizzaloss" groups=["obj_pizzaloss"] instance=ExtResource( 1 )]
+z_index = 1
+script = ExtResource( 17 )
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="1"]
+frames = SubResource( 1 )

@@ -46,7 +46,7 @@ func _process(delta):
 				xscale = (-(sign(position.x - obj_player.position.x)))
 	if (!hitboxcreate && state == global.states.walk):
 		hitboxcreate = true
-		var forkhitboxid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Hitboxes/obj_forkhitbox.tscn")
+		var forkhitboxid = utils.instance_create(-50000, -50000, "res://Objects/Hitboxes/obj_forkhitbox.tscn")
 		forkhitboxid.baddieid = name
 	if (state != global.states.grabbed):
 		z_index = 0

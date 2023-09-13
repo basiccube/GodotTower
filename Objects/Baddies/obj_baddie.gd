@@ -358,7 +358,6 @@ func scr_enemy_grabbed():
 			i.shake_mag_acc = (3 / 30)
 	if ($WallCheck.is_colliding() && $WallCheck.get_collider().is_in_group("obj_swordhitbox")):
 		hp -= 1
-		print("HIT!")
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
