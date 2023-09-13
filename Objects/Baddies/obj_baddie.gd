@@ -73,7 +73,7 @@ func _process(delta):
 		if collision.collider.is_in_group("obj_player"):
 			var obj_player = utils.get_player()
 			if (state != global.states.pizzagoblinthrow && velocity.y >= 0 && obj_player.state != global.states.tackle && obj_player.state != global.states.superslam && obj_player.state != global.states.machslide && obj_player.state != global.states.freefall && obj_player.state != global.states.mach2 && obj_player.state != global.states.handstandjump && obj_player.state != global.states.mach3 && obj_player.state != global.states.machroll):
-					utils.get_gamenode().get_node(@"Bump").play()
+					utils.playsound("Bump")
 					if (obj_player.state != global.states.bombpep && obj_player.state != global.states.mach1):
 						obj_player.movespeed = 0
 					if (is_in_group("obj_pizzaball")):
@@ -98,26 +98,26 @@ func destroy():
 		var i = utils.randi_range(0, 100)
 		if (i >= 90):
 			if (i == 90):
-				utils.get_gamenode().get_node(@"Scream1").play()
+				utils.playsound("Scream1")
 			if (i == 91):
-				utils.get_gamenode().get_node(@"Scream2").play()
+				utils.playsound("Scream2")
 			if (i == 92):
-				utils.get_gamenode().get_node(@"Scream3").play()
+				utils.playsound("Scream3")
 			if (i == 93):
-				utils.get_gamenode().get_node(@"Scream4").play()
+				utils.playsound("Scream4")
 			if (i == 94):
-				utils.get_gamenode().get_node(@"Scream5").play()
+				utils.playsound("Scream5")
 			if (i == 95):
-				utils.get_gamenode().get_node(@"Scream6").play()
+				utils.playsound("Scream6")
 			if (i == 96):
-				utils.get_gamenode().get_node(@"Scream7").play()
+				utils.playsound("Scream7")
 			if (i == 97):
-				utils.get_gamenode().get_node(@"Scream8").play()
+				utils.playsound("Scream8")
 			if (i == 98):
-				utils.get_gamenode().get_node(@"Scream9").play()
+				utils.playsound("Scream9")
 			if (i == 99):
-				utils.get_gamenode().get_node(@"Scream10").play()
-		utils.get_gamenode().get_node(@"KillEnemy").play()
+				utils.playsound("Scream10")
+		utils.playsound("KillEnemy")
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")

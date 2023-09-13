@@ -14,8 +14,6 @@ var wallspeed = 0
 var targetLevel = ""
 var targetRoom = ""
 
-var is_in_door = false
-
 var sprite_index
 
 var facehurt = 1
@@ -69,9 +67,15 @@ var baddiegrabbed = ""
 var attacking = 0
 var inv_frames = 0
 var hurted = 0
+var cutscene = false
+var indoor = false
+var backtohubstartx = position.x
+var backtohubstarty = position.y
+var backtohubroom = "Realtitlescreen"
 onready var pephurtsfx = $PepHurt
 onready var hurttimer = $HurtTimer
 onready var hurttimer2 = $HurtTimer2
+onready var pepsprite = $PeppinoSprite
 
 var state = global.states.normal
 
@@ -106,6 +110,24 @@ func _process(delta):
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider != null:
+			if collision.collider.is_in_group("obj_hungrypillar"):
+				if (state == global.states.handstandjump):
+					state = global.states.finishingblow
+					var rng = utils.randi_range(1, 5)
+					if (rng == 1):
+						$PeppinoSprite.animation = "finishingblow1"
+					elif (rng == 2):
+						$PeppinoSprite.animation = "finishingblow2"
+					elif (rng == 3):
+						$PeppinoSprite.animation = "finishingblow3"
+					elif (rng == 4):
+						$PeppinoSprite.animation = "finishingblow4"
+					elif (rng == 5):
+						$PeppinoSprite.animation = "finishingblow5"
+					velocity.x = 0
+					movespeed = 0
+				if (instakillmove == 1):
+					collision.collider.destroy()
 			if collision.collider.is_in_group("obj_spike"):
 				if (state == global.states.bombpep && hurted == 0):
 					$Bombpep2.play()
@@ -115,7 +137,7 @@ func _process(delta):
 					state = global.states.bombpep
 					bombpeptimer = 0
 			if collision.collider.is_in_group("obj_hurtbox"):
-				if (state == global.states.knightpep || state == global.states.knightpepattack || state == global.states.knightpepslopes):
+				if ((state == global.states.knightpep || state == global.states.knightpepattack || state == global.states.knightpepslopes) && !cutscene):
 					pass
 				elif (state == global.states.bombpep && hurted == 0):
 					pass
@@ -123,7 +145,7 @@ func _process(delta):
 					pass
 				elif (state == global.states.cheesepep || state == global.states.cheesepepstick):
 					pass
-				elif (state != global.states.hurt && hurted == 0 && state != global.states.bump):
+				elif (state != global.states.hurt && hurted == 0 && state != global.states.bump && !cutscene):
 					if collision.collider.is_in_group("obj_forkhitbox"):
 						position.x += (8 * (-xscale))
 					$PepHurt.play()
@@ -164,13 +186,13 @@ func _process(delta):
 						shotgunAnim = 0
 			if collision.collider.is_in_group("obj_baddie"):
 				var baddie = collision.collider
-				if (baddie.state != global.states.grabbed):
+				if (baddie.state != global.states.grabbed && !cutscene):
 					if (instakillmove == 1):
 						if (state == global.states.mach3 && $PeppinoSprite.animation != "mach3hit"):
 							$PeppinoSprite.animation = "mach3hit"
 						if (state == global.states.mach2 && is_on_floor()):
 							machpunchAnim = 1
-						utils.get_gamenode().get_node(@"Punch").play()
+						utils.playsound("Punch")
 						global.hit += 1
 						global.combotime = 60
 						if (!is_on_floor() && state != global.states.freefall && Input.is_action_just_pressed("key_jump")):
@@ -180,7 +202,7 @@ func _process(delta):
 							velocity.y = -11
 						baddie.destroy()
 					if (global_position.y < baddie.global_position.y && attacking == 0 && $PeppinoSprite.animation != "mach2jump" && (state == global.states.jump || state == global.states.mach1 || state == global.states.grab) && velocity.y >= 0 && baddie.velocity.y >= 0 && $PeppinoSprite.animation != "stompprep"):
-						utils.get_gamenode().get_node(@"Stomp").play()
+						utils.playsound("Stomp")
 						baddie.state = global.states.stun
 						if (baddie.stunned < 100):
 							baddie.stunned = 100
@@ -197,7 +219,7 @@ func _process(delta):
 							if (state != global.states.grab):
 								$PeppinoSprite.animation = "stompprep"
 					if (baddie.state != global.states.pizzagoblinthrow && baddie.velocity.y >= 0 && state != global.states.tackle && state != global.states.superslam && state != global.states.machslide && state != global.states.freefall && state != global.states.mach2 && state != global.states.handstandjump && state != global.states.mach3 && state != global.states.machroll):
-						utils.get_gamenode().get_node(@"Bump").play()
+						utils.playsound("Bump")
 						if (state != global.states.bombpep && state != global.states.mach1):
 							movespeed = 0
 						if (baddie.is_in_group("obj_pizzaball")):
@@ -208,7 +230,7 @@ func _process(delta):
 						baddie.velocity.x = ((-xscale) * 2)
 						baddie.state = global.states.stun
 					if (state == global.states.superslam || state == global.states.freefall):
-						utils.get_gamenode().get_node(@"HitEnemy").play()
+						utils.playsound("HitEnemy")
 						global.combotime = 60
 						utils.instance_create(baddie.global_position.x, baddie.global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
 						baddie.state = global.states.stun
@@ -376,6 +398,12 @@ func _process(delta):
 			crouchmask = true
 	else:
 		crouchmask = true
+	if (state == global.states.gottreasure || $PeppinoSprite.animation == "knightpep_start" || $PeppinoSprite.animation == "knightpep_thunder" || state == global.states.keyget || state == global.states.door || state == global.states.ejected || state == global.states.victory || state == global.states.comingoutdoor || state == global.states.gameover):
+		cutscene = true
+	else:
+		cutscene = false
+	if (indoor && !utils.instance_exists("obj_uparrow")):
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_uparrow.tscn")
 	if (state == global.states.mach2 && (!utils.instance_exists("obj_speedlines"))):
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_speedlines.tscn")
 
@@ -394,8 +422,19 @@ func get_sprite_frame():
 func get_frame():
 	return $PeppinoSprite.frame
 	
-func set_animation(anim):
+func set_animation(anim: String):
 	$PeppinoSprite.animation = anim
+	
+func place_meeting(collisionpos: Vector2, object: String):
+	var collisiondata = move_and_collide(collisionpos, true, true, true)
+	if collisiondata != null:
+		if collisiondata.collider != null:
+			if collisiondata.collider.is_in_group(object):
+				return true
+			else:
+				return false
+		else:
+			return false
 	
 func scr_dotaunt():
 	if Input.is_action_just_pressed("key_taunt"):
@@ -952,7 +991,20 @@ func scr_player_bump():
 	$PeppinoSprite.speed_scale = 0.35
 	
 func scr_player_comingoutdoor():
-	pass
+	mach2 = 0
+	jumpAnim = 1
+	landAnim = 0
+	moveAnim = 1
+	stopAnim = 1
+	crouchslideAnim = 1
+	crouchAnim = 1
+	machhitAnim = 0
+	velocity.x = 0
+	$PeppinoSprite.animation = "walkfront"
+	$PeppinoSprite.speed_scale = 0.35
+	if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1):
+		movespeed = 0
+		state = global.states.normal
 	
 func scr_player_crouchslide():
 	velocity.x = (xscale * movespeed)
@@ -1618,7 +1670,19 @@ func scr_player_gameover():
 	pass
 
 func scr_player_victory():
-	pass
+	velocity.x = 0
+	mach2 = 0
+	jumpAnim = 1
+	landAnim = 0
+	moveAnim = 1
+	stopAnim = 1
+	crouchslideAnim = 1
+	crouchAnim = 1
+	machhitAnim = 0
+	if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1):
+		$PeppinoSprite.speed_scale = 0
+	else:
+		$PeppinoSprite.speed_scale = 0.35
 	
 func scr_player_grab():
 	grav = 0.5
@@ -1829,11 +1893,11 @@ func scr_player_finishingblow():
 	if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1):
 		state = global.states.normal
 	if ($PeppinoSprite.frame == 6 && (!utils.instance_exists("obj_swordhitbox"))):
-		utils.get_gamenode().get_node(@"Punch").play()
-		utils.get_gamenode().get_node(@"KillingBlow").play()
+		utils.playsound("Punch")
+		utils.playsound("KillingBlow")
 		utils.instance_create((global_position.x + 100), (global_position.y + 50), "res://Objects/Hitboxes/obj_swordhitbox.tscn")
 	if ($PeppinoSprite.frame == 0 && (!utils.instance_exists("obj_swordhitbox")) && $PeppinoSprite.animation == "swingdingend"):
-		utils.get_gamenode().get_node(@"KillingBlow").play()
+		utils.playsound("KillingBlow")
 		utils.instance_create((global_position.x + 100), (global_position.y + 50), "res://Objects/Hitboxes/obj_swordhitbox.tscn")
 	$PeppinoSprite.speed_scale = 0.35
 	landAnim = 0

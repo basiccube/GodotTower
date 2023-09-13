@@ -44,6 +44,27 @@ func get_instance_level(node):
 func get_gamenode():
 	return GameNode
 	
+func playsound(soundname):
+	if GameNode.get_node_or_null(soundname) != null:
+		GameNode.get_node(soundname).play()
+	else:
+		print("playsound: Sound " + soundname + " does not exist!")
+		
+func stopsound(soundname):
+	if GameNode.get_node_or_null(soundname) != null:
+		GameNode.get_node(soundname).stop()
+	else:
+		print("stopsound: Sound " + soundname + " does not exist!")
+		
+func soundplaying(soundname):
+	if GameNode.get_node_or_null(soundname) != null:
+		if GameNode.get_node_or_null(soundname).playing:
+			return true
+		else:
+			return false
+	else:
+		return false
+	
 func get_player():
 	var PlayerNode = GameNode.get_node(@"obj_player")
 	return PlayerNode

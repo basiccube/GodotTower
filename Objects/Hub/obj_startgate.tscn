@@ -1,0 +1,80 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Objects/Hub/sprites/entrancegate_0.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Hub/sprites/dungeoncomputer_1.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Hub/sprites/dungeoncomputer_0.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Hub/sprites/medievalcomputer_0.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Hub/sprites/medievalcomputer_1.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Hub/sprites/chateaucomputer_1.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Hub/sprites/chateaucomputer_0.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Hub/sprites/ruincomputer_0.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Hub/sprites/ruincomputer_1.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Hub/obj_startgate.gd" type="Script" id=10]
+[ext_resource path="res://Objects/HUD/font.tres" type="BitmapFont" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "chateaucomputer",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "dungeoncomputer",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "entrancegate",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "medievalcomputer",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "ruincomputer",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 80, 128 )
+
+[node name="obj_startgate" type="Area2D" groups=["obj_startgate"]]
+collision_layer = 4
+script = ExtResource( 10 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "entrancegate"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="ScoreLabel" type="Label" parent="."]
+visible = false
+margin_left = -240.0
+margin_top = -150.0
+margin_right = 240.0
+margin_bottom = -118.0
+custom_fonts/font = ExtResource( 11 )
+text = "0"
+align = 1
+uppercase = true
+
+[node name="SecretLabel" type="Label" parent="."]
+visible = false
+margin_left = -240.0
+margin_top = -200.0
+margin_right = 240.0
+margin_bottom = -168.0
+custom_fonts/font = ExtResource( 11 )
+text = "0 OF 6 SECRET"
+align = 1
+uppercase = true
+
+[connection signal="body_entered" from="." to="." method="_on_obj_startgate_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_obj_startgate_body_exited"]

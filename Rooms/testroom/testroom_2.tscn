@@ -20,15 +20,15 @@ scale = Vector2( 36, 18 )
 
 [node name="obj_solid5" parent="." instance=ExtResource( 1 )]
 position = Vector2( -64, -832 )
-scale = Vector2( 36, 2 )
+scale = Vector2( 58, 2 )
 
 [node name="obj_solid6" parent="." instance=ExtResource( 1 )]
 position = Vector2( -64, -768 )
 scale = Vector2( 2, 6 )
 
 [node name="obj_solid4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1088, -832 )
-scale = Vector2( 2, 40 )
+position = Vector2( 1088, -640 )
+scale = Vector2( 22, 34 )
 
 [node name="obj_solid3" parent="." instance=ExtResource( 1 )]
 position = Vector2( -640, 0 )
@@ -38,6 +38,12 @@ scale = Vector2( 20, 10 )
 position = Vector2( -64, 320 )
 scale = Vector2( -2, 2 )
 targetDoor = "B"
+
+[node name="obj_hallway2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1408, -768 )
+scale = Vector2( 2, 2 )
+targetDoor = "C"
+targetRoom = "testroom_3"
 
 [node name="obj_camlimit_left" parent="." instance=ExtResource( 4 )]
 position = Vector2( -176, 0 )

@@ -18,7 +18,7 @@ func _process(delta):
 		fadealpha -= 0.1
 	if (utils.instance_exists("obj_player")):
 		for i in get_tree().get_nodes_in_group("obj_player"):
-			if (fadein == 1 && (i.state == global.states.victory || i.state == global.states.door) && i.is_in_door == true):
+			if (fadein == 1 && (i.state == global.states.victory || i.state == global.states.door) && i.indoor == true):
 				i.state = global.states.comingoutdoor
 			if (fadein == 1 && i.state == global.states.door && (i.sprite_index == "downpizzabox" || i.sprite_index == "uppizzabox")):
 				i.state = global.states.comingoutdoor

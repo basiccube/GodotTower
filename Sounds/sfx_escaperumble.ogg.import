@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_escaperumble.ogg-9ae02ea9c2b1f415592137f2aac40cfc.oggstr"
+
+[deps]
+
+source_file="res://Sounds/sfx_escaperumble.ogg"
+dest_files=[ "res://.import/sfx_escaperumble.ogg-9ae02ea9c2b1f415592137f2aac40cfc.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

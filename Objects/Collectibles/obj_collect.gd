@@ -23,10 +23,9 @@ func destroy():
 
 func _on_obj_collect_body_entered(body):
 	if body is obj_player:
-		var collectsound = utils.get_gamenode().get_node(@"Collect")
-		if (collectsound.playing):
-			collectsound.stop()
-		collectsound.play()
+		if (utils.soundplaying("Collect")):
+			utils.stopsound("Collect")
+		utils.playsound("Collect")
 		global.collect += 10
 		var smallnumbid = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_smallnumber.tscn")
 		smallnumbid.number = "10"

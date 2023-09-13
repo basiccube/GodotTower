@@ -5,18 +5,18 @@ onready var sprite = $Sprite
 func _ready():
 	sprite.playing = true
 	sprite.speed_scale = 0.5
-	if (utils.get_gamenode().get_node(@"Explosion").playing):
-		utils.get_gamenode().get_node(@"Explosion").stop()
-	utils.get_gamenode().get_node(@"Explosion").play()
+	if (utils.soundplaying("Explosion")):
+		utils.stopsound("Explosion")
+	utils.playsound("Explosion")
 	
 func _process(delta):
 	if (sprite.frame > 9):
 		monitoring = false
 	if (overlaps_body(utils.get_player())):
 		var obj_player = utils.get_player()
-		if (obj_player.hurted == 0 && obj_player.state != global.states.bombpep && obj_player.sprite_index != "bombpep_end" && obj_player.state != global.states.Sjump && obj_player.state != global.states.Sjumpprep):
+		if (obj_player.hurted == 0 && !obj_player.cutscene && obj_player.state != global.states.bombpep && obj_player.sprite_index != "bombpep_end" && obj_player.state != global.states.Sjump && obj_player.state != global.states.Sjumpprep):
 			if (obj_player.state != global.states.knightpep || obj_player.state != global.states.knightpepattack):
-				utils.get_gamenode().get_node(@"LoseKnight").play()
+				utils.playsound("LoseKnight")
 				var knightdebris1 = utils.instance_create(obj_player.position.x, obj_player.position.y, "res://Objects/Visuals/obj_knightdebris.tscn")
 				knightdebris1.frame = 0
 				var knightdebris2 = utils.instance_create(obj_player.position.x, obj_player.position.y, "res://Objects/Visuals/obj_knightdebris.tscn")

@@ -93,4 +93,5 @@ enum states {
 	cheeseball,
 	cheesepepstick,
 	facestomp,
+	ejected,
 }

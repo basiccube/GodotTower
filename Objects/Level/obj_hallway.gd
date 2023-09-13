@@ -21,5 +21,5 @@ func _on_obj_hallway_body_entered(body):
 			global.targetDoor = targetDoor
 			if (obj_player.state == global.states.machslide):
 				obj_player.state = global.states.normal
-			utils.get_gamenode().get_node(@"Door").play()
+			utils.playsound("Door")
 			utils.instance_create(utils.get_gamenode().global_position.x, utils.get_gamenode().global_position.y, "res://Objects/Visuals/obj_fadeout.tscn")

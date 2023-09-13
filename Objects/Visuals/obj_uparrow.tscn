@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/Visuals/sprites/uparrow_0.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Visuals/sprites/uparrow_1.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Visuals/obj_uparrow.gd" type="Script" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+} ]
+
+[node name="obj_uparrow" type="Node2D" groups=["obj_uparrow"]]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 16, 16 )
+frames = SubResource( 1 )
+centered = false

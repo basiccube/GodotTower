@@ -11,6 +11,7 @@ var shownrankb = false
 var shownrankc = false
 var character = "PEPPINO"
 onready var sprite = $TVSprite
+onready var resettimer = $ResetTimer
 
 func _process(delta):
 	$MessageLabel.text = message
