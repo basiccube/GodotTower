@@ -133,13 +133,13 @@ func _process(delta):
 					$Label.add_color_override("font_color", Color(1,0,0))
 				else:
 					$Label.add_color_override("font_color", Color(1,1,1))
-				$Label.text = global.minutes + ":0" + global.seconds
+				$Label.text = str(global.minutes) + ":0" + str(global.seconds)
 			elif (global.seconds >= 10):
 				if (global.minutes < 1):
 					$Label.add_color_override("font_color", Color(1,0,0))
 				else:
 					$Label.add_color_override("font_color", Color(1,1,1))
-				$Label.text = global.minutes + ":" + global.seconds
+				$Label.text = str(global.minutes) + ":" + str(global.seconds)
 		else:
 			$Label.visible = false
 		if (global.key_inv):

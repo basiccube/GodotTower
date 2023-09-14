@@ -32,7 +32,6 @@ extents = Vector2( 64, 112 )
 
 [node name="obj_hungrypillar" type="KinematicBody2D" groups=["obj_hungrypillar"]]
 collision_layer = 4
-collision_mask = 0
 script = ExtResource( 18 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]

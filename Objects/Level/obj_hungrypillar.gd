@@ -40,12 +40,12 @@ func destroy():
 			_:
 				global.minutes = 3
 				global.seconds = 30
-		global.baddieroom.append(global.targetRoom + name)
+		global.saveroom.append(global.targetRoom + name)
 		queue_free()
 		
 func _process(delta):
-	for i in get_slide_count():
-		var collision = get_slide_collision(i)
-		if collision.collider != null:
-			if collision.collider.is_in_group("obj_swordhitbox"):
+	var collisiondata = move_and_collide(position, true, true, true)
+	if collisiondata != null:
+		if collisiondata.collider != null:
+			if collisiondata.collider.is_in_group("obj_swordhitbox"):
 				destroy()
