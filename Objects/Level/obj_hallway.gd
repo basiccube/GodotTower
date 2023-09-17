@@ -7,8 +7,8 @@ export(String) var targetRoom = "testroom_1"
 func _ready():
 	if global.targetDoor != "" && global.targetDoor == targetDoor:
 		var obj_player = utils.get_player()
-		obj_player.global_position.x = (global_position.x + ((-scale.x) * 100))
-		obj_player.global_position.y = (global_position.y + (32))
+		obj_player.position.x = (position.x + ((-scale.x) * 100))
+		obj_player.position.y = (position.y + (32 * scale.y))
 		obj_player.xscale = (-sign(scale.x))
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Rooms/loadingroom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Player/obj_player.tscn" type="PackedScene" id=2]
@@ -40,6 +40,7 @@
 [ext_resource path="res://Sounds/sfx_enemyprojectile.ogg" type="AudioStream" id=38]
 [ext_resource path="res://Sounds/sfx_pephurt.ogg" type="AudioStream" id=39]
 [ext_resource path="res://Objects/Global/obj_debugcontroller.tscn" type="PackedScene" id=40]
+[ext_resource path="res://Objects/Global/obj_pause.tscn" type="PackedScene" id=41]
 
 [node name="Game" type="Node2D"]
 
@@ -57,173 +58,211 @@ position = Vector2( 48, 0 )
 
 [node name="obj_debugcontroller" parent="." instance=ExtResource( 40 )]
 
+[node name="obj_pause" parent="." instance=ExtResource( 41 )]
+pause_mode = 2
+
 [node name="Door" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 4 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="EscapeRumble" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 25 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="Explosion" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 24 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="LoseKnight" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 24 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="KillEnemy" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 6 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="RankS" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 26 )
 bus = "Music"
 
 [node name="RankA" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 27 )
 bus = "Music"
 
 [node name="RankC" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 28 )
 bus = "Music"
 
 [node name="RankD" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 29 )
 bus = "Music"
 
 [node name="Scream1" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 13 )
 volume_db = -15.0
 bus = "SFX"
 
 [node name="Scream2" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 21 )
 volume_db = -15.0
 bus = "SFX"
 
 [node name="Scream3" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 18 )
 volume_db = -15.0
 bus = "SFX"
 
 [node name="Scream4" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 20 )
 volume_db = -15.0
 bus = "SFX"
 
 [node name="Scream5" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 14 )
 volume_db = -15.0
 bus = "SFX"
 
 [node name="Scream6" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 16 )
 volume_db = -15.0
 bus = "SFX"
 
 [node name="Scream7" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 19 )
 volume_db = -15.0
 bus = "SFX"
 
 [node name="Scream8" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 15 )
 volume_db = -15.0
 bus = "SFX"
 
 [node name="Scream9" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 17 )
 volume_db = -15.0
 bus = "SFX"
 
 [node name="Scream10" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 22 )
 volume_db = -15.0
 bus = "SFX"
 
 [node name="HitEnemy" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 10 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="EnemyProjectile" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 38 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="KillingBlow" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 23 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="Punch" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 7 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="PepHurt" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 39 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="Stomp" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 8 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="Step" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 37 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="Bump" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 9 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="Collect" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 12 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="CollectToppin" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 30 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="CollectPizza" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 31 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="CollectGiantPizza" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 32 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="SecretFound" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 33 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="BreakMetal" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 34 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="BreakBlock1" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 36 )
 volume_db = -4.0
 bus = "SFX"
 
 [node name="BreakBlock2" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 35 )
 volume_db = -4.0
 bus = "SFX"

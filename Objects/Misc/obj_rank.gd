@@ -36,6 +36,8 @@ func _on_Timer_timeout():
 	utils.stopsound("RankA")
 	utils.stopsound("RankC")
 	utils.stopsound("RankD")
+	global.roomtorestart = ""
+	global.leveltorestart = ""
 	utils.get_player().scr_playerreset()
 	utils.room_goto("", "hub_room1")
 	queue_free()

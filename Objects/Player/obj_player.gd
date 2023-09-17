@@ -157,6 +157,24 @@ func _process(delta):
 					$PeppinoSprite.animation = "bombpepend"
 					state = global.states.bombpep
 					bombpeptimer = 0
+			if collision.collider.is_in_group("obj_destructibles"):
+				if (state == global.states.mach2 || state == global.states.mach3 || state == global.states.machroll || state == global.states.knightpepslopes || state == global.states.tumble):
+					collision.collider.destroy()
+					if (state == global.states.mach2):
+						machpunchAnim = 1
+				if ((state == global.states.knightpep || state == global.states.superslam) && velocity.y > 0):
+					collision.collider.destroy()
+				if (velocity.y <= 0.5 && (state == global.states.jump || state == global.states.climbwall || state == global.states.fireass || state == global.states.Sjump || state == global.states.mach2 || state == global.states.mach3)):
+					if $JumpCheck.is_colliding():
+						collision.collider.destroy()
+						if (state != global.states.Sjump && state != global.states.climbwall):
+							velocity.y = 0
+				if (velocity.y >= 0 && (state == global.states.freefall || state == global.states.freefallland)):
+					if ($FallCheck.is_colliding()):
+						collision.collider.destroy()
+				if (state == global.states.freefall || state == global.states.freefallland):
+					if ($FallCheck.is_colliding() && $FallCheck.get_collider().is_in_group("obj_metalblock") && freefallsmash > 10):
+						collision.collider.destroy()
 			if collision.collider.is_in_group("obj_hurtbox"):
 				if ((state == global.states.knightpep || state == global.states.knightpepattack || state == global.states.knightpepslopes) && !cutscene):
 					pass
@@ -460,7 +478,7 @@ func place_meeting(collisionpos: Vector2, object: String):
 			return false
 			
 func is_colliding_with_wall():
-	if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider().is_in_group("obj_solid")) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider().is_in_group("obj_solid")))):
+	if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider().is_in_group("obj_solid")) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider().is_in_group("obj_solid"))) && !utils.instance_exists("obj_fadeout")):
 		return true
 	else:
 		return false
@@ -2017,6 +2035,8 @@ func scr_playerreset():
 	global.minutes = 1
 	state = global.states.normal
 	visible = true
+	targetLevel = ""
+	targetRoom = ""
 	global.saveroom.clear()
 	global.baddieroom.clear()
 	$HurtTimer.stop()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Level/obj_hallway.tscn" type="PackedScene" id=2]
@@ -14,8 +14,22 @@
 [ext_resource path="res://Objects/Collectibles/obj_pizzacollect.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Objects/Blocks/obj_minipillar.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Objects/Level/obj_ladder.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Backgrounds/bg_tower_0.png" type="Texture" id=15]
 
 [node name="testroom_2" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.25, 0.25 )
+motion_offset = Vector2( 0, 300 )
+motion_mirroring = Vector2( 600, 539 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 15 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1200, 1078 )
 
 [node name="obj_solid" parent="." instance=ExtResource( 1 )]
 position = Vector2( -640, 448 )
@@ -125,31 +139,19 @@ position = Vector2( 384, 352 )
 position = Vector2( 416, 352 )
 
 [node name="obj_collect5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1056, -160 )
+position = Vector2( 1024, -160 )
 
 [node name="obj_collect6" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1024, -192 )
 
 [node name="obj_collect7" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1056, -224 )
+position = Vector2( 1120, -288 )
 
 [node name="obj_collect8" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1024, -256 )
-
-[node name="obj_collect9" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1056, -288 )
-
-[node name="obj_collect10" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1024, -320 )
-
-[node name="obj_collect11" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1056, -352 )
-
-[node name="obj_collect12" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1024, -384 )
+position = Vector2( 1120, -320 )
 
 [node name="obj_collect13" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1056, -416 )
+position = Vector2( 1024, -416 )
 
 [node name="obj_collect14" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1024, -448 )

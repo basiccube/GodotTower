@@ -6,6 +6,8 @@ var baddieroom = []
 var targetLevel = ""
 var targetRoom = ""
 var targetDoor = "A"
+var leveltorestart = ""
+var roomtorestart = ""
 
 var debugview = false
 var debugcollisions = true

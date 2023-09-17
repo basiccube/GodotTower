@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Level/obj_hallway.tscn" type="PackedScene" id=2]
@@ -7,8 +7,22 @@
 [ext_resource path="res://Objects/Level/obj_camlimit_right.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Level/obj_camlimit_bottom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Backgrounds/bg_tower_0.png" type="Texture" id=8]
 
 [node name="testroom_2" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.25, 0.25 )
+motion_offset = Vector2( 0, 300 )
+motion_mirroring = Vector2( 600, 539 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1200, 1078 )
 
 [node name="obj_solid" parent="." instance=ExtResource( 1 )]
 position = Vector2( -640, 448 )

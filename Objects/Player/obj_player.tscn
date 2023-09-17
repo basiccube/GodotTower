@@ -2033,6 +2033,18 @@ enabled = true
 cast_to = Vector2( 0, 32 )
 collision_mask = 2
 
+[node name="FallCheck" type="RayCast2D" parent="."]
+position = Vector2( 48, 96 )
+enabled = true
+cast_to = Vector2( 0, 8 )
+collision_mask = 4
+
+[node name="JumpCheck" type="RayCast2D" parent="."]
+position = Vector2( 48, 40 )
+enabled = true
+cast_to = Vector2( 0, -8 )
+collision_mask = 4
+
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 366 )
 bus = "SFX"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=2]
@@ -18,12 +18,36 @@
 [ext_resource path="res://Objects/Blocks/obj_minipillar.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Objects/Collectibles/obj_pizzacollect.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Objects/Misc/obj_doorblocked.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Backgrounds/bg_tower_0.png" type="Texture" id=19]
+[ext_resource path="res://Objects/Destructibles/obj_secretblock.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Tilesets/tile_tower.tres" type="TileSet" id=21]
 
 [node name="testroom_1" type="Node2D"]
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.25, 0.25 )
+motion_offset = Vector2( 0, 300 )
+motion_mirroring = Vector2( 600, 539 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 19 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1200, 1078 )
+
 [node name="obj_solid" parent="." instance=ExtResource( 1 )]
 position = Vector2( -576, 416 )
-scale = Vector2( 56, 21 )
+scale = Vector2( 40, 10 )
+
+[node name="obj_solid5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 864, 416 )
+scale = Vector2( 11, 4 )
+
+[node name="obj_solid30" parent="." instance=ExtResource( 1 )]
+position = Vector2( 704, 672 )
+scale = Vector2( 16, 13 )
 
 [node name="obj_solid18" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1344, 416 )
@@ -59,39 +83,27 @@ scale = Vector2( 4, 4 )
 
 [node name="obj_solid17" parent="." instance=ExtResource( 1 )]
 position = Vector2( 2304, 416 )
-scale = Vector2( 64, 21 )
-
-[node name="obj_solid2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 3840, -352 )
-scale = Vector2( 16, 20 )
+scale = Vector2( 34, 21 )
 
 [node name="obj_solid8" parent="." instance=ExtResource( 1 )]
-position = Vector2( 3200, -288 )
-scale = Vector2( 2, 8 )
+position = Vector2( 2880, -288 )
+scale = Vector2( 16, 5 )
 
 [node name="obj_solid9" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1792, -352 )
-scale = Vector2( 64, 2 )
+scale = Vector2( 44, 2 )
 
 [node name="obj_solid11" parent="." instance=ExtResource( 1 )]
-position = Vector2( 3264, 64 )
-scale = Vector2( 2, 11 )
-
-[node name="obj_solid12" parent="." instance=ExtResource( 1 )]
-position = Vector2( 3680, -64 )
-scale = Vector2( 5, 3 )
-
-[node name="obj_solid13" parent="." instance=ExtResource( 1 )]
-position = Vector2( 3328, 96 )
-scale = Vector2( 4, 3 )
+position = Vector2( 2816, 64 )
+scale = Vector2( 18, 9 )
 
 [node name="obj_solid14" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1984, 64 )
-scale = Vector2( 4, 5 )
+position = Vector2( 2048, 64 )
+scale = Vector2( 4, 11 )
 
 [node name="obj_solid10" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2496, -128 )
-scale = Vector2( 6, 4 )
+position = Vector2( 2496, -64 )
+scale = Vector2( 6, 2 )
 
 [node name="obj_solid15" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1696, -352 )
@@ -111,19 +123,15 @@ scale = Vector2( 86, 2 )
 
 [node name="obj_solid16" parent="." instance=ExtResource( 1 )]
 position = Vector2( 2304, 0 )
-scale = Vector2( 32, 2 )
-
-[node name="obj_solid5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 448, 352 )
-scale = Vector2( 4, 2 )
+scale = Vector2( 34, 2 )
 
 [node name="obj_solid6" parent="." instance=ExtResource( 1 )]
 position = Vector2( 704, 256 )
 scale = Vector2( 5, 2 )
 
 [node name="obj_solid24" parent="." instance=ExtResource( 1 )]
-position = Vector2( 576, 288 )
-scale = Vector2( 4, 4 )
+position = Vector2( 576, 256 )
+scale = Vector2( 4, 5 )
 
 [node name="obj_solid7" parent="." instance=ExtResource( 1 )]
 position = Vector2( 864, 256 )
@@ -131,21 +139,14 @@ scale = Vector2( 4, 4 )
 
 [node name="obj_solid20" parent="." instance=ExtResource( 1 )]
 position = Vector2( 992, 224 )
-scale = Vector2( 25, 2 )
-
-[node name="obj_solid25" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1792, 224 )
-scale = Vector2( 2, 3 )
+scale = Vector2( 23, 2 )
 
 [node name="obj_slope" parent="." instance=ExtResource( 3 )]
 position = Vector2( 960, 224 )
 
-[node name="obj_slope2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 672, 256 )
-
 [node name="obj_slope4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2816, -128 )
-scale = Vector2( -4, 4 )
+position = Vector2( 2752, -64 )
+scale = Vector2( -2, 2 )
 
 [node name="obj_slope5" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1856, -64 )
@@ -159,23 +160,29 @@ scale = Vector2( -2, 2 )
 position = Vector2( 1984, 768 )
 scale = Vector2( 2, 2 )
 
-[node name="obj_platform5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 3456, 160 )
-scale = Vector2( 8, 1 )
+[node name="obj_slope8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 768, 608 )
+scale = Vector2( -2, 2 )
 
-[node name="obj_platform6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 3328, 0 )
-scale = Vector2( 6, 1 )
+[node name="obj_platform9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 704, 416 )
+scale = Vector2( 5, 1 )
 
-[node name="obj_platform8" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2176, 416 )
+[node name="obj_platform10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1728, 224 )
 scale = Vector2( 4, 1 )
 
 [node name="obj_hallway" parent="." instance=ExtResource( 8 )]
-position = Vector2( 4096, 288 )
+position = Vector2( 3136, -128 )
 scale = Vector2( 2, 2 )
 targetDoor = "B"
 targetRoom = "testroom_2"
+
+[node name="obj_hallway2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3136, 352 )
+scale = Vector2( 2, 1 )
+targetDoor = "C"
+targetRoom = "testroom_secret1"
 
 [node name="obj_camlimit_left" parent="." instance=ExtResource( 4 )]
 position = Vector2( -608, 0 )
@@ -187,7 +194,7 @@ position = Vector2( 1696, -352 )
 position = Vector2( 1088, 1216 )
 
 [node name="obj_camlimit_right" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3984, -192 )
+position = Vector2( 3072, -192 )
 
 [node name="obj_spawnpoint" parent="." instance=ExtResource( 9 )]
 position = Vector2( 192, 320 )
@@ -214,19 +221,16 @@ position = Vector2( 768, 352 )
 position = Vector2( 800, 352 )
 
 [node name="obj_collect8" parent="." instance=ExtResource( 10 )]
-position = Vector2( 3072, -32 )
+position = Vector2( 2528, -96 )
 
 [node name="obj_collect9" parent="." instance=ExtResource( 10 )]
-position = Vector2( 3040, -32 )
+position = Vector2( 2560, -96 )
 
 [node name="obj_collect10" parent="." instance=ExtResource( 10 )]
-position = Vector2( 3008, -32 )
+position = Vector2( 2592, -96 )
 
 [node name="obj_collect11" parent="." instance=ExtResource( 10 )]
-position = Vector2( 2976, -32 )
-
-[node name="obj_collect12" parent="." instance=ExtResource( 10 )]
-position = Vector2( 2944, -32 )
+position = Vector2( 2624, -96 )
 
 [node name="obj_collect13" parent="." instance=ExtResource( 10 )]
 position = Vector2( 2208, 0 )
@@ -252,26 +256,29 @@ position = Vector2( 2144, 960 )
 [node name="obj_collect20" parent="." instance=ExtResource( 10 )]
 position = Vector2( 2112, 960 )
 
+[node name="obj_collect21" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1824, 800 )
+
+[node name="obj_collect22" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1856, 800 )
+
+[node name="obj_collect23" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1888, 800 )
+
+[node name="obj_collect24" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1920, 800 )
+
 [node name="obj_pizzaboy" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1696, 368 )
 
 [node name="obj_pizzaboy2" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1960, 368 )
 
-[node name="obj_pizzaboy3" parent="." instance=ExtResource( 11 )]
-position = Vector2( 2568, 368 )
-
-[node name="obj_pizzaboy4" parent="." instance=ExtResource( 11 )]
-position = Vector2( 2864, 368 )
-
 [node name="obj_cheeseslime" parent="." instance=ExtResource( 12 )]
-position = Vector2( 512, 304 )
+position = Vector2( 632, 208 )
 
 [node name="obj_cheeseslime2" parent="." instance=ExtResource( 12 )]
 position = Vector2( 2408, -48 )
-
-[node name="obj_cheeseslime3" parent="." instance=ExtResource( 12 )]
-position = Vector2( 3592, 104 )
 
 [node name="obj_forknight" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1104, 176 )
@@ -281,6 +288,9 @@ position = Vector2( 1648, 688 )
 
 [node name="obj_forknight3" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1928, 1040 )
+
+[node name="obj_forknight4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1016, 624 )
 
 [node name="obj_spike" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1696, 1120 )
@@ -317,8 +327,84 @@ position = Vector2( -96, 384 )
 z_index = 1
 Reverse = true
 
+[node name="obj_minipillar5" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1216, 416 )
+z_index = 1
+
+[node name="obj_minipillar6" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1248, 416 )
+z_index = 1
+
+[node name="obj_minipillar7" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1280, 416 )
+z_index = 1
+
+[node name="obj_minipillar8" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1312, 416 )
+z_index = 1
+
 [node name="obj_pizzacollect" parent="." instance=ExtResource( 17 )]
 position = Vector2( 2176, 960 )
 
 [node name="obj_doorblocked" parent="." instance=ExtResource( 18 )]
 position = Vector2( 192, 320 )
+
+[node name="obj_secretblock" parent="." instance=ExtResource( 20 )]
+position = Vector2( 2816, 352 )
+
+[node name="obj_secretblock2" parent="." instance=ExtResource( 20 )]
+position = Vector2( 2816, 384 )
+
+[node name="obj_secretblock3" parent="." instance=ExtResource( 20 )]
+position = Vector2( 2848, 384 )
+
+[node name="obj_secretblock4" parent="." instance=ExtResource( 20 )]
+position = Vector2( 2848, 352 )
+
+[node name="obj_secretblock5" parent="." instance=ExtResource( 20 )]
+position = Vector2( 3072, 352 )
+
+[node name="obj_secretblock6" parent="." instance=ExtResource( 20 )]
+position = Vector2( 3072, 384 )
+
+[node name="obj_secretblock7" parent="." instance=ExtResource( 20 )]
+position = Vector2( 3040, 384 )
+
+[node name="obj_secretblock8" parent="." instance=ExtResource( 20 )]
+position = Vector2( 3040, 352 )
+
+[node name="obj_secretblock9" parent="." instance=ExtResource( 20 )]
+position = Vector2( 3008, 352 )
+
+[node name="obj_secretblock10" parent="." instance=ExtResource( 20 )]
+position = Vector2( 3008, 384 )
+
+[node name="obj_secretblock11" parent="." instance=ExtResource( 20 )]
+position = Vector2( 2976, 384 )
+
+[node name="obj_secretblock12" parent="." instance=ExtResource( 20 )]
+position = Vector2( 2976, 352 )
+
+[node name="obj_secretblock13" parent="." instance=ExtResource( 20 )]
+position = Vector2( 2944, 352 )
+
+[node name="obj_secretblock17" parent="." instance=ExtResource( 20 )]
+position = Vector2( 2880, 352 )
+
+[node name="obj_secretblock18" parent="." instance=ExtResource( 20 )]
+position = Vector2( 2880, 384 )
+
+[node name="obj_secretblock14" parent="." instance=ExtResource( 20 )]
+position = Vector2( 2944, 384 )
+
+[node name="obj_secretblock15" parent="." instance=ExtResource( 20 )]
+position = Vector2( 2912, 384 )
+
+[node name="obj_secretblock16" parent="." instance=ExtResource( 20 )]
+position = Vector2( 2912, 352 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 21 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 720984, 0, 327684, 720985, 0, 327685, 720986, 0, 458759, 720987, 0, 393223, 720988, 0, 393223, 720989, 0, 393223, 720990, 0, 393223, 720991, 0, 393223, 720992, 0, 393223, 786520, 0, 327684, 786521, 0, 327685, 786522, 0, 458759, 786523, 0, 393223, 786524, 0, 393223, 786525, 0, 393223, 786526, 0, 393223, 786527, 0, 393223, 786528, 0, 393223 )

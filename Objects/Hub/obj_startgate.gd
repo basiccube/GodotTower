@@ -79,6 +79,8 @@ func _process(delta):
 			obj_player.targetLevel = targetLevel
 			obj_player.targetRoom = targetRoom
 			global.targetDoor = targetDoor
+			global.roomtorestart = targetRoom
+			global.leveltorestart = targetLevel
 			if (!utils.instance_exists("obj_fadeout")):
 				utils.instance_create(utils.get_gamenode().global_position.x, utils.get_gamenode().global_position.y, "res://Objects/Visuals/obj_fadeout.tscn")
 

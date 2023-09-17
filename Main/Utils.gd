@@ -86,6 +86,13 @@ func room_goto(levelname, roomname):
 	GameNode.add_child(newroominstance)
 	utils.get_instance("obj_music").room_start()
 	
+func delete_tile_at(position):
+	var level_tilemap = utils.get_instance_level("TileMap")
+	if level_tilemap != null:
+		var local_position = level_tilemap.to_local(position)
+		var tile_position = level_tilemap.world_to_map(local_position)
+		level_tilemap.set_cell(tile_position.x, tile_position.y, -1)
+	
 func savescore(levelname):
 	if (global.collect > global.srank):
 		global.rank = "s"
