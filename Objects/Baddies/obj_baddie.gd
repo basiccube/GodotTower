@@ -87,7 +87,7 @@ func _process(delta):
 func _physics_process(delta):
 	if (state != global.states.grabbed):
 		velocity.y += grav
-		velocity = move_and_slide(velocity, FLOOR_NORMAL, true)
+		velocity = move_and_slide(velocity, FLOOR_NORMAL, false)
 		
 func _ready():
 	if (global.baddieroom.has(global.targetRoom + name)):
@@ -205,6 +205,9 @@ func scr_enemy_walk():
 			$Sprite.animation = "turn"
 			state = global.states.idle
 		else:
+			$WallCheck.scale.x *= -1
+			$OppositeWallCheck.scale.x *= -1
+			$PlatformCheck.position.x *= -1
 			xscale *= -1
 	if (!is_in_group("obj_ancho")):
 		if (!$PlatformCheck.is_colliding()):
@@ -520,6 +523,9 @@ func scr_enemy_charge():
 			velocity.x = 0
 		$Sprite.speed_scale = 0.35
 		if ($WallCheck.is_colliding() && $WallCheck.get_collider().is_in_group("obj_solid")):
+			$WallCheck.scale.x *= -1
+			$OppositeWallCheck.scale.x *= -1
+			$PlatformCheck.position.x *= -1
 			xscale *= -1
 		if (!$PlatformCheck.is_colliding() && movespeed > 0):
 			xscale *= -1
@@ -534,6 +540,9 @@ func scr_enemy_charge():
 		else:
 			velocity.x = 0
 		if ($WallCheck.is_colliding() && $WallCheck.get_collider().is_in_group("obj_solid")):
+			$WallCheck.scale.x *= -1
+			$OppositeWallCheck.scale.x *= -1
+			$PlatformCheck.position.x *= -1
 			xscale *= -1
 	if (is_in_group("obj_ancho")):
 		velocity.x = (xscale * movespeed)

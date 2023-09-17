@@ -1,0 +1,116 @@
+[gd_scene load_steps=37 format=2]
+
+[ext_resource path="res://Rooms/Realtitlescreen.gd" type="Script" id=1]
+[ext_resource path="res://Backgrounds/bg_mainmenulight_1.png" type="Texture" id=2]
+[ext_resource path="res://Backgrounds/bg_mainmenulight_2.png" type="Texture" id=3]
+[ext_resource path="res://Backgrounds/bg_mainmenulight_0.png" type="Texture" id=4]
+[ext_resource path="res://Backgrounds/bg_mainmenu_0.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Misc/sprites/phone/phonepicked_0.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Misc/sprites/controls.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Misc/sprites/title.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Level/obj_spawnpoint.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/Misc/sprites/phone/phone_12.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Misc/sprites/phone/phone_7.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Misc/sprites/phone/phone_13.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Misc/sprites/phone/phone_14.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Misc/sprites/phone/phone_15.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Misc/sprites/phone/phone_16.png" type="Texture" id=15]
+[ext_resource path="res://Objects/Misc/sprites/phone/phone_1.png" type="Texture" id=16]
+[ext_resource path="res://Objects/Misc/sprites/phone/phone_0.png" type="Texture" id=17]
+[ext_resource path="res://Objects/Misc/sprites/phone/phone_3.png" type="Texture" id=18]
+[ext_resource path="res://Objects/Misc/sprites/phone/phone_4.png" type="Texture" id=19]
+[ext_resource path="res://Objects/Misc/sprites/phone/phone_5.png" type="Texture" id=20]
+[ext_resource path="res://Objects/Misc/sprites/phone/phone_6.png" type="Texture" id=21]
+[ext_resource path="res://Objects/Misc/sprites/phone/phone_8.png" type="Texture" id=22]
+[ext_resource path="res://Objects/Misc/sprites/phone/phone_9.png" type="Texture" id=23]
+[ext_resource path="res://Objects/Misc/sprites/phone/phone_10.png" type="Texture" id=24]
+[ext_resource path="res://Objects/Misc/sprites/phone/phone_11.png" type="Texture" id=25]
+[ext_resource path="res://Objects/Misc/sprites/phone/phone_17.png" type="Texture" id=26]
+[ext_resource path="res://Objects/Misc/sprites/phone/phone_2.png" type="Texture" id=27]
+[ext_resource path="res://Objects/Misc/sprites/phone/phone_18.png" type="Texture" id=28]
+[ext_resource path="res://Objects/Misc/sprites/phone/phone_19.png" type="Texture" id=29]
+[ext_resource path="res://Objects/Menu/obj_file1.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Objects/Menu/obj_file2.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Objects/Menu/obj_file3.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Objects/Menu/obj_mainmenuselect.tscn" type="PackedScene" id=33]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "selection1",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "selection2",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "selection3",
+"speed": 60.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 16 ), ExtResource( 27 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 11 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "phone",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "phonepicked",
+"speed": 60.0
+} ]
+
+[node name="Realtitlescreen" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="MenuLightBG" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "selection1"
+centered = false
+
+[node name="MenuBG" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+centered = false
+
+[node name="obj_spawnpoint" parent="." instance=ExtResource( 9 )]
+position = Vector2( -320, 384 )
+
+[node name="Phone" type="AnimatedSprite" parent="."]
+position = Vector2( 99, 400 )
+frames = SubResource( 3 )
+animation = "phonepicked"
+
+[node name="Controls" type="Sprite" parent="."]
+position = Vector2( 704, 32 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Title" type="Sprite" parent="."]
+position = Vector2( 288, 64 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="obj_file1" parent="." instance=ExtResource( 30 )]
+position = Vector2( 137, 418 )
+
+[node name="obj_file2" parent="." instance=ExtResource( 31 )]
+position = Vector2( 457, 417 )
+
+[node name="obj_file3" parent="." instance=ExtResource( 32 )]
+position = Vector2( 797, 418 )
+
+[node name="obj_mainmenuselect" parent="." instance=ExtResource( 33 )]
+position = Vector2( 448, 256 )

@@ -315,7 +315,7 @@ animation = "normal"
 speed_scale = 0.0
 centered = false
 
-[node name="Label" type="Label" parent="."]
+[node name="TimeText" type="Label" parent="."]
 margin_top = -205.0
 margin_right = 82.0
 margin_bottom = -191.0

@@ -1,0 +1,89 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/Menu/obj_option.gd" type="Script" id=1]
+[ext_resource path="res://Objects/HUD/font.tres" type="BitmapFont" id=2]
+
+[node name="obj_option" type="Node2D" groups=["obj_option"]]
+z_index = 99
+script = ExtResource( 1 )
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 960.0
+margin_bottom = 540.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Fullscreen" type="Label" parent="."]
+margin_top = 100.0
+margin_right = 960.0
+margin_bottom = 132.0
+custom_fonts/font = ExtResource( 2 )
+text = "FULLSCREEN"
+align = 1
+uppercase = true
+
+[node name="FullscreenOn" type="Label" parent="."]
+margin_left = -100.0
+margin_top = 150.0
+margin_right = 860.0
+margin_bottom = 182.0
+custom_fonts/font = ExtResource( 2 )
+text = "ON"
+align = 1
+uppercase = true
+
+[node name="FullscreenOff" type="Label" parent="."]
+margin_left = 100.0
+margin_top = 150.0
+margin_right = 1060.0
+margin_bottom = 182.0
+custom_fonts/font = ExtResource( 2 )
+text = "OFF"
+align = 1
+uppercase = true
+
+[node name="Resolution" type="Label" parent="."]
+margin_top = 250.0
+margin_right = 960.0
+margin_bottom = 282.0
+custom_fonts/font = ExtResource( 2 )
+text = "RESOLUTION"
+align = 1
+uppercase = true
+
+[node name="Resolution480" type="Label" parent="."]
+margin_left = -180.0
+margin_top = 300.0
+margin_right = 780.0
+margin_bottom = 332.0
+custom_fonts/font = ExtResource( 2 )
+text = "480X270"
+align = 1
+uppercase = true
+
+[node name="Resolution960" type="Label" parent="."]
+margin_top = 300.0
+margin_right = 960.0
+margin_bottom = 332.0
+custom_fonts/font = ExtResource( 2 )
+text = "960X540"
+align = 1
+uppercase = true
+
+[node name="Resolution1080" type="Label" parent="."]
+margin_left = 200.0
+margin_top = 300.0
+margin_right = 1160.0
+margin_bottom = 332.0
+custom_fonts/font = ExtResource( 2 )
+text = "1920X1080"
+align = 1
+uppercase = true
+
+[node name="KeyConfig" type="Label" parent="."]
+margin_top = 400.0
+margin_right = 960.0
+margin_bottom = 432.0
+custom_fonts/font = ExtResource( 2 )
+text = "KEY CONFIG"
+align = 1
+uppercase = true

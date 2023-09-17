@@ -72,12 +72,31 @@ var indoor = false
 var backtohubstartx = position.x
 var backtohubstarty = position.y
 var backtohubroom = "Realtitlescreen"
-onready var pephurtsfx = $PepHurt
+var lastroom = ""
+var lastroom_x = 0
+var lastroom_y = 0
 onready var hurttimer = $HurtTimer
 onready var hurttimer2 = $HurtTimer2
 onready var pepsprite = $PeppinoSprite
+onready var slopecheck = $SlopeCheck
 
-var state = global.states.normal
+var state = global.states.titlescreen
+
+func _ready():
+	var SaveManager = ConfigFile.new()
+	var SaveData = SaveManager.load("user://saveData.ini")
+	global.option_fullscreen = SaveManager.get_value("Option", "fullscreen", false)
+	global.option_resolution = SaveManager.get_value("Option", "resolution", 1)
+	if (global.option_fullscreen):
+		OS.window_fullscreen = true
+	else:
+		OS.window_fullscreen = false
+	if (global.option_resolution == 0):
+		OS.window_size = Vector2(480, 270)
+	if (global.option_resolution == 1):
+		OS.window_size = Vector2(960, 540)
+	if (global.option_resolution == 2):
+		OS.window_size = Vector2(1920, 1080)
 
 func _process(delta):
 	$PeppinoSprite.playing = true
@@ -87,10 +106,12 @@ func _process(delta):
 	if xscale == 1:
 		$PeppinoSprite.flip_h = false
 		$SolidCheck.scale.x = 1
+		$SolidCheck2.scale.x = 1
 		$WallClimbCheck.scale.x = 1
 	elif xscale == -1:
 		$PeppinoSprite.flip_h = true
 		$SolidCheck.scale.x = -1
+		$SolidCheck2.scale.x = -1
 		$WallClimbCheck.scale.x = -1
 	if ($PeppinoSprite.animation == "finishingblow1" || $PeppinoSprite.animation == "finishingblow2" || $PeppinoSprite.animation == "finishingblow3" || $PeppinoSprite.animation == "finishingblow4" || $PeppinoSprite.animation == "finishingblow5" || $PeppinoSprite.animation == "uppercutfinishingblow"):
 		if (!$PeppinoSprite.flip_h):
@@ -148,7 +169,7 @@ func _process(delta):
 				elif (state != global.states.hurt && hurted == 0 && state != global.states.bump && !cutscene):
 					if collision.collider.is_in_group("obj_forkhitbox"):
 						position.x += (8 * (-xscale))
-					$PepHurt.play()
+					utils.playsound("PepHurt")
 					$HurtTimer.wait_time = 1
 					$HurtTimer.start()
 					$HurtTimer2.wait_time = 2
@@ -322,6 +343,8 @@ func _process(delta):
 			scr_player_superslam()
 		global.states.finishingblow:
 			scr_player_finishingblow()
+		global.states.ladder:
+			scr_player_ladder()
 	scr_playersounds()
 	if (is_on_floor() && state != global.states.handstandjump):
 		suplexmove = 0
@@ -412,7 +435,7 @@ func _physics_process(delta):
 	if ($SlopeCheck.is_colliding() && $SlopeCheck.get_collider().is_in_group("obj_slope") && !Input.is_action_pressed("key_jump") && (state != global.states.jump && state != global.states.climbwall)):
 		snap_vector = Vector2.DOWN * 20
 	if state != global.states.titlescreen:
-		if state != global.states.backbreaker && state != global.states.Sjumpland:
+		if state != global.states.backbreaker && state != global.states.Sjumpland && state != global.states.ladder:
 			velocity.y += grav
 		velocity = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, true, 4, 1)
 		
@@ -435,6 +458,30 @@ func place_meeting(collisionpos: Vector2, object: String):
 				return false
 		else:
 			return false
+			
+func is_colliding_with_wall():
+	if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider().is_in_group("obj_solid")) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider().is_in_group("obj_solid")))):
+		return true
+	else:
+		return false
+		
+func is_wallclimbable():
+	if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider().is_in_group("obj_solid")) || ($WallClimbCheck.is_colliding() && $WallClimbCheck.get_collider().is_in_group("obj_solid")))):
+		return true
+	else:
+		return false
+		
+func is_collding_wallclimb():
+	if ($SolidCheck.is_colliding() || $WallClimbCheck.is_colliding()):
+		return true
+	else:
+		return false
+		
+func is_colliding():
+	if ($SolidCheck.is_colliding() || $SolidCheck2.is_colliding()):
+		return true
+	else:
+		return false
 	
 func scr_dotaunt():
 	if Input.is_action_just_pressed("key_taunt"):
@@ -616,7 +663,7 @@ func scr_player_normal():
 		else:
 			$PeppinoSprite.animation = "shotgun_suplexdash"
 		movespeed = 6
-	if (Input.is_action_pressed("key_dash") && !is_on_wall() && !($SolidCheck.is_colliding() && $SolidCheck.get_collider().is_in_group("obj_solid"))):
+	if (Input.is_action_pressed("key_dash") && !is_on_wall() && !is_colliding_with_wall()):
 		movespeed = 6
 		$PeppinoSprite.animation = "mach1"
 		jumpAnim = 1
@@ -923,7 +970,7 @@ func scr_player_freefall():
 			movespeed += 0.25
 		if (movespeed > 7):
 			movespeed -= 0.05
-		if ($SolidCheck.is_colliding() && $SolidCheck.get_collider().is_in_group("obj_solid") && move != 0):
+		if (is_colliding_with_wall() && move != 0):
 			movespeed = 0
 		if (dir != xscale):
 			mach2 = 0
@@ -1043,7 +1090,20 @@ func scr_player_crouchslide():
 	$PeppinoSprite.speed_scale = 0.35
 	
 func scr_player_door():
-	pass
+	velocity.x = 0
+	mach2 = 0
+	jumpAnim = 1
+	landAnim = 0
+	moveAnim = 1
+	stopAnim = 1
+	crouchslideAnim = 1
+	crouchAnim = 1
+	machhitAnim = 0
+	$PeppinoSprite.speed_scale = 0.35
+	if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1):
+		$PeppinoSprite.speed_scale = 0
+	if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1 && (!utils.instance_exists("obj_fadeout")) && ($PeppinoSprite.animation == "uppizzabox" || $PeppinoSprite.animation == "downpizzabox")):
+		utils.instance_create(utils.get_gamenode().global_position.x, utils.get_gamenode().global_position.y, "res://Objects/Visuals/obj_fadeout.tscn")
 	
 func scr_player_handstandjump():
 	var move = ((-int(Input.is_action_pressed("key_left"))) + int(Input.is_action_pressed("key_right")))
@@ -1129,15 +1189,18 @@ func scr_player_hurt():
 	$HurtTimer2.start()
 	if (is_on_floor()):
 		velocity.y = -4
-	if ($SolidCheck.is_colliding()):
+	if (is_colliding()):
 		xscale *= -1
+		$SolidCheck.scale.x *= -1
+		$SolidCheck2.scale.x *= -1
+		$WallClimbCheck.scale.x *= -1
 	$PeppinoSprite.speed_scale = 0.35
 	
 func scr_player_mach1():
 	var move = ((-int(Input.is_action_pressed("key_left"))) + int(Input.is_action_pressed("key_right")))
 	dir = xscale
 	landAnim = 0
-	if ($SolidCheck.is_colliding() && $SolidCheck.get_collider().is_in_group("obj_solid")):
+	if (is_colliding_with_wall()):
 		mach2 = 0
 		state = global.states.normal
 		movespeed = 0
@@ -1178,7 +1241,7 @@ func scr_player_mach1():
 		jumpstop = 1
 	if (is_on_floor() && velocity.y >= 0):
 		jumpstop = 0
-	if ($SolidCheck.is_colliding() && $SolidCheck.get_collider().is_in_group("obj_solid")):
+	if (is_colliding_with_wall()):
 		state = global.states.normal
 		movespeed = 0
 	$PeppinoSprite.speed_scale = 0.5
@@ -1259,17 +1322,13 @@ func scr_player_mach2():
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_jumpdust.tscn")
 		state = global.states.machroll
 		velocity.y = 10
-	var solidcolider = $SolidCheck.get_collider()
-	var slopecolider = $SlopeCheck.get_collider()
-	if solidcolider != null:
-		if (!is_on_floor() && solidcolider.is_in_group("obj_solid") && $PeppinoSprite.animation != "walljumpstart"):
-			wallspeed = movespeed
-			state = global.states.climbwall
-		if slopecolider != null:
-			if (is_on_floor() && solidcolider.is_in_group("obj_solid") && slopecolider.is_in_group("obj_slope")):
-				wallspeed = movespeed
-				state = global.states.climbwall
-	if (is_on_floor() && ($SolidCheck.is_colliding() && $SolidCheck.get_collider().is_in_group("obj_solid")) && (!$SlopeCheck.is_colliding() || !$SlopeCheck.get_collider().is_in_group("obj_slope"))):
+	if (!is_on_floor() && is_wallclimbable() && $PeppinoSprite.animation != "walljumpstart"):
+		wallspeed = movespeed
+		state = global.states.climbwall
+	if (is_on_floor() && is_wallclimbable() && $SlopeCheck.is_colliding() && $SlopeCheck.get_collider().is_in_group("obj_slope")):
+		wallspeed = movespeed
+		state = global.states.climbwall
+	if (is_on_floor() && is_colliding_with_wall() && (!$SlopeCheck.is_colliding() || !$SlopeCheck.get_collider().is_in_group("obj_slope"))):
 		movespeed = 0
 		state = global.states.normal
 	if (!utils.instance_exists("obj_dashcloud") && is_on_floor()):
@@ -1363,17 +1422,13 @@ func scr_player_mach3():
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_jumpdust.tscn")
 		state = global.states.machroll
 		velocity.y = 10
-	var solidcolider = $SolidCheck.get_collider()
-	var slopecolider = $SlopeCheck.get_collider()
-	if solidcolider != null:
-		if (!is_on_floor() && solidcolider.is_in_group("obj_solid")):
-			wallspeed = 10
-			state = global.states.climbwall
-		if slopecolider != null:
-			if (is_on_floor() && solidcolider.is_in_group("obj_solid") && slopecolider.is_in_group("obj_slope")):
-				wallspeed = 10
-				state = global.states.climbwall
-	if (is_on_floor() && ($SolidCheck.is_colliding() && $SolidCheck.get_collider().is_in_group("obj_solid") && $PeppinoSprite.animation != "machslideboost" && $PeppinoSprite.animation != "machslideboost3") && (!$SlopeCheck.is_colliding() || !$SlopeCheck.get_collider().is_in_group("obj_slope"))):
+	if (!is_on_floor() && is_wallclimbable()):
+		wallspeed = 10
+		state = global.states.climbwall
+	if (is_on_floor() && is_wallclimbable() && $SlopeCheck.is_colliding() && $SlopeCheck.get_collider().is_in_group("obj_slope")):
+		wallspeed = 10
+		state = global.states.climbwall
+	if (is_on_floor() && (is_colliding_with_wall() && $PeppinoSprite.animation != "machslideboost" && $PeppinoSprite.animation != "machslideboost3") && (!$SlopeCheck.is_colliding() || !$SlopeCheck.get_collider().is_in_group("obj_slope"))):
 		$PeppinoSprite.animation = "hitwall"
 		$Groundpound.play()
 		$Bump.play()
@@ -1416,7 +1471,7 @@ func scr_player_machslide():
 		if ($PeppinoSprite.animation == "machslide"):
 			machslideAnim = 1
 		movespeed = 0
-	if (($SolidCheck.is_colliding() && $SolidCheck.get_collider().is_in_group("obj_solid")) && ($PeppinoSprite.animation == "machslide" || $PeppinoSprite.animation == "machslidestart")):
+	if (is_colliding_with_wall() && ($PeppinoSprite.animation == "machslide" || $PeppinoSprite.animation == "machslidestart")):
 		velocity.x = ((-xscale) * 2.5)
 		velocity.y = -4
 		state = global.states.bump
@@ -1424,6 +1479,8 @@ func scr_player_machslide():
 	if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1 && $PeppinoSprite.animation == "machslideboost"):
 		velocity.x = 0
 		$SolidCheck.scale.x *= -1
+		$SolidCheck2.scale.x *= -1
+		$WallClimbCheck.scale.x *= -1
 		xscale *= -1
 		movespeed = 8
 		state = global.states.mach2
@@ -1431,6 +1488,8 @@ func scr_player_machslide():
 		velocity.x = 0
 		$PeppinoSprite.animation = "mach4"
 		$SolidCheck.scale.x *= -1
+		$SolidCheck2.scale.x *= -1
+		$WallClimbCheck.scale.x *= -1
 		xscale *= -1
 		movespeed = 12
 		state = global.states.mach3
@@ -1481,7 +1540,7 @@ func scr_player_climbwall():
 		$Groundpound.play()
 		state = global.states.Sjumpland
 		machhitAnim = 0
-	if (!$WallClimbCheck.is_colliding() && !$SolidCheck.is_colliding()):
+	if (!is_collding_wallclimb()):
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_jumpdust.tscn")
 		velocity.y = 0
 		if (movespeed >= 8):
@@ -1901,6 +1960,128 @@ func scr_player_finishingblow():
 		utils.instance_create((global_position.x + 100), (global_position.y + 50), "res://Objects/Hitboxes/obj_swordhitbox.tscn")
 	$PeppinoSprite.speed_scale = 0.35
 	landAnim = 0
+	
+func scr_player_ladder():
+	jumpAnim = 1
+	landAnim = 0
+	moveAnim = 1
+	stopAnim = 1
+	crouchslideAnim = 1
+	crouchAnim = 0
+	machhitAnim = 0
+	jumpstop = 0
+	movespeed = 0
+	velocity.x = 0
+	if Input.is_action_pressed("key_up"):
+		$PeppinoSprite.animation = "laddermove"
+		velocity.y = -2
+		$PeppinoSprite.speed_scale = 0.35
+	elif Input.is_action_pressed("key_down"):
+		$PeppinoSprite.animation = "ladderdown"
+		velocity.y = 6
+		$PeppinoSprite.speed_scale = -0.35
+	else:
+		$PeppinoSprite.animation = "ladder"
+		velocity.y = 0
+	mach2 = 0
+	if (!$LadderCheck.is_colliding()):
+		landAnim = 0
+		jumpAnim = 0
+		state = global.states.normal
+		velocity.y = 0
+	if (Input.is_action_just_pressed("key_jump")):
+		$PeppinoSprite.animation = "jump"
+		ladderbuffer = 20
+		jumpAnim = 1
+		state = global.states.jump
+		velocity.y = -9
+	if (Input.is_action_pressed("key_down") && is_on_floor()):
+		state = global.states.normal
+	
+func scr_playerreset():
+	if (utils.instance_exists("obj_endlevelfade")):
+		for i in get_tree().get_nodes_in_group("obj_endlevelfade"):
+			i.queue_free()
+	global.secretfound = 0
+	global.hurtcounter = 0
+	for i in get_tree().get_nodes_in_group("obj_tv"):
+		i.shownranka = false
+		i.shownrankb = false
+		i.shownrankc = false
+	for i in get_tree().get_nodes_in_group("obj_music"):
+		i.musicnode.stop()
+	if (utils.instance_exists("obj_timesup")):
+		for i in get_tree().get_nodes_in_group("obj_timesup"):
+			i.queue_free()
+	global.seconds = 59
+	global.minutes = 1
+	state = global.states.normal
+	visible = true
+	global.saveroom.clear()
+	global.baddieroom.clear()
+	$HurtTimer.stop()
+	$HurtTimer2.stop()
+	grav = 0.5
+	velocity.x = 0
+	velocity.y = 0
+	xscale = 1
+	yscale = 1
+	position.x = backtohubstartx
+	position.y = backtohubstarty
+	shotgunAnim = 0
+	steppy = 0
+	jumpstop = 0
+	for i in get_tree().get_nodes_in_group("obj_camera"):
+		i.ded = 0
+	global.panic = false
+	jumpAnim = 1
+	landAnim = 0
+	machslideAnim = 0
+	moveAnim = 1
+	stopAnim = 1
+	crouchslideAnim = 1
+	crouchAnim = 1
+	machhitAnim = 0
+	stompAnim = 0
+	inv_frames = 0
+	hurted = 0
+	mach2 = 0
+	input_buffer_jump = 8
+	input_buffer_secondjump = 8
+	input_buffer_highjump = 8
+	global.key_inv = 0
+	global.shroomfollow = false
+	global.cheesefollow = false
+	global.tomatofollow = false
+	global.sausagefollow = false
+	global.pineapplefollow = false
+	global.collect = 0
+	global.treasure = false
+	global.combo = 0
+	global.combotime = 0
+	global.hit = 0
+	bounce = 0
+	idle = 0
+	superslam = 0
+	attacking = 0
+	machpunchAnim = 0
+	punch = 0
+	instakillmove = 0
+	windingAnim = 0
+	facestompAnim = 0
+	ladderbuffer = 0
+	toomuchalarm1 = 0
+	toomuchalarm2 = 0
+	idleanim = 0
+	momemtum = 0
+	cutscene = false
+	grabbing = 0
+	dir = xscale
+	fallinganimation = 0
+	bombpeptimer = 100
+	suplexmove = 0
+	anger = 0
+	angry = 0
 
 func scr_playersounds():
 	var move = ((-int(Input.is_action_pressed("key_left"))) + int(Input.is_action_pressed("key_right")))

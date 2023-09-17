@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/Level/sprites/ladder.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Level/obj_ladder.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 15.5 )
+
+[node name="obj_ladder" type="Area2D" groups=["obj_ladder"]]
+collision_layer = 8
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 16, 16.5 )
+shape = SubResource( 1 )
+
+[node name="PlayerCheck" type="RayCast2D" parent="."]
+position = Vector2( 16, 0 )
+enabled = true
+cast_to = Vector2( 0, -1 )

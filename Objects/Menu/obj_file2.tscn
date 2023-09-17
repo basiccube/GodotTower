@@ -1,0 +1,152 @@
+[gd_scene load_steps=120 format=2]
+
+[ext_resource path="res://Objects/Player/peppalette.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_73.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_64.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_75.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_86.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_69.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_60.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_76.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_78.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_67.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_56.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_72.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_83.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_88.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_57.png" type="Texture" id=15]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_62.png" type="Texture" id=16]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_81.png" type="Texture" id=17]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_89.png" type="Texture" id=18]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_79.png" type="Texture" id=19]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_80.png" type="Texture" id=20]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_84.png" type="Texture" id=21]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_90.png" type="Texture" id=22]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_74.png" type="Texture" id=23]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_87.png" type="Texture" id=24]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_58.png" type="Texture" id=25]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_61.png" type="Texture" id=26]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_55.png" type="Texture" id=27]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_63.png" type="Texture" id=28]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_66.png" type="Texture" id=29]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_65.png" type="Texture" id=30]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_77.png" type="Texture" id=31]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_59.png" type="Texture" id=32]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_68.png" type="Texture" id=33]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_71.png" type="Texture" id=34]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_85.png" type="Texture" id=35]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_70.png" type="Texture" id=36]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_82.png" type="Texture" id=37]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_5.png" type="Texture" id=38]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_16.png" type="Texture" id=39]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_7.png" type="Texture" id=40]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_26.png" type="Texture" id=41]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_27.png" type="Texture" id=42]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_21.png" type="Texture" id=43]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_1.png" type="Texture" id=44]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_17.png" type="Texture" id=45]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_14.png" type="Texture" id=46]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_7.png" type="Texture" id=47]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_18.png" type="Texture" id=48]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_23.png" type="Texture" id=49]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_6.png" type="Texture" id=50]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_12.png" type="Texture" id=51]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_13.png" type="Texture" id=52]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_9.png" type="Texture" id=53]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_3.png" type="Texture" id=54]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_13.png" type="Texture" id=55]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_17.png" type="Texture" id=56]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_10.png" type="Texture" id=57]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_20.png" type="Texture" id=58]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_28.png" type="Texture" id=59]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_19.png" type="Texture" id=60]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_6.png" type="Texture" id=61]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_14.png" type="Texture" id=62]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_2.png" type="Texture" id=63]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_12.png" type="Texture" id=64]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_8.png" type="Texture" id=65]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_15.png" type="Texture" id=66]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_4.png" type="Texture" id=67]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_4.png" type="Texture" id=68]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_8.png" type="Texture" id=69]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_18.png" type="Texture" id=70]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_16.png" type="Texture" id=71]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_10.png" type="Texture" id=72]
+[ext_resource path="res://Objects/Menu/sprites/file/file2empty_0.png" type="Texture" id=73]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_20.png" type="Texture" id=74]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_21.png" type="Texture" id=75]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_22.png" type="Texture" id=76]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_24.png" type="Texture" id=77]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_25.png" type="Texture" id=78]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_2.png" type="Texture" id=79]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_0.png" type="Texture" id=80]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_3.png" type="Texture" id=81]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_0.png" type="Texture" id=82]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_1.png" type="Texture" id=83]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_9.png" type="Texture" id=84]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_11.png" type="Texture" id=85]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_5.png" type="Texture" id=86]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_11.png" type="Texture" id=87]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_15.png" type="Texture" id=88]
+[ext_resource path="res://Objects/Menu/sprites/file/file2confirm_19.png" type="Texture" id=89]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_48.png" type="Texture" id=90]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_53.png" type="Texture" id=91]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_54.png" type="Texture" id=92]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_35.png" type="Texture" id=93]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_32.png" type="Texture" id=94]
+[ext_resource path="res://Shaders/PaletteSwap.gdshader" type="Shader" id=95]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_34.png" type="Texture" id=96]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_44.png" type="Texture" id=97]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_40.png" type="Texture" id=98]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_33.png" type="Texture" id=99]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_39.png" type="Texture" id=100]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_46.png" type="Texture" id=101]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_43.png" type="Texture" id=102]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_45.png" type="Texture" id=103]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_50.png" type="Texture" id=104]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_52.png" type="Texture" id=105]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_29.png" type="Texture" id=106]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_37.png" type="Texture" id=107]
+[ext_resource path="res://Objects/Menu/obj_file2.gd" type="Script" id=108]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_49.png" type="Texture" id=109]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_36.png" type="Texture" id=110]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_42.png" type="Texture" id=111]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_51.png" type="Texture" id=112]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_30.png" type="Texture" id=113]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_31.png" type="Texture" id=114]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_38.png" type="Texture" id=115]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_41.png" type="Texture" id=116]
+[ext_resource path="res://Objects/Menu/sprites/file/file2_47.png" type="Texture" id=117]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 95 )
+shader_param/skip_first_row = true
+shader_param/use_palette_alpha = false
+shader_param/fps = 0.0
+shader_param/palette = ExtResource( 1 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 82 ), ExtResource( 83 ), ExtResource( 63 ), ExtResource( 54 ), ExtResource( 68 ), ExtResource( 38 ), ExtResource( 50 ), ExtResource( 40 ), ExtResource( 69 ), ExtResource( 84 ), ExtResource( 57 ), ExtResource( 85 ), ExtResource( 51 ), ExtResource( 55 ), ExtResource( 46 ), ExtResource( 88 ), ExtResource( 39 ), ExtResource( 56 ), ExtResource( 70 ), ExtResource( 60 ), ExtResource( 58 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 49 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 59 ), ExtResource( 106 ), ExtResource( 113 ), ExtResource( 114 ), ExtResource( 94 ), ExtResource( 99 ), ExtResource( 96 ), ExtResource( 93 ), ExtResource( 110 ), ExtResource( 107 ), ExtResource( 115 ), ExtResource( 100 ), ExtResource( 98 ), ExtResource( 116 ), ExtResource( 111 ), ExtResource( 102 ), ExtResource( 97 ), ExtResource( 103 ), ExtResource( 101 ), ExtResource( 117 ), ExtResource( 90 ), ExtResource( 109 ), ExtResource( 104 ), ExtResource( 112 ), ExtResource( 105 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 27 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 25 ), ExtResource( 32 ), ExtResource( 7 ), ExtResource( 26 ), ExtResource( 16 ), ExtResource( 28 ), ExtResource( 3 ), ExtResource( 30 ), ExtResource( 29 ), ExtResource( 10 ), ExtResource( 33 ), ExtResource( 6 ), ExtResource( 36 ), ExtResource( 34 ), ExtResource( 12 ), ExtResource( 2 ), ExtResource( 23 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 31 ), ExtResource( 9 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 17 ), ExtResource( 37 ), ExtResource( 13 ), ExtResource( 21 ), ExtResource( 35 ), ExtResource( 5 ), ExtResource( 24 ), ExtResource( 14 ), ExtResource( 18 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "file2",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 80 ), ExtResource( 44 ), ExtResource( 79 ), ExtResource( 81 ), ExtResource( 67 ), ExtResource( 86 ), ExtResource( 61 ), ExtResource( 47 ), ExtResource( 65 ), ExtResource( 53 ), ExtResource( 72 ), ExtResource( 87 ), ExtResource( 64 ), ExtResource( 52 ), ExtResource( 62 ), ExtResource( 66 ), ExtResource( 71 ), ExtResource( 45 ), ExtResource( 48 ), ExtResource( 89 ), ExtResource( 74 ), ExtResource( 43 ) ],
+"loop": true,
+"name": "file2confirm",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 73 ) ],
+"loop": true,
+"name": "file2empty",
+"speed": 60.0
+} ]
+
+[node name="obj_file2" type="Node2D" groups=["obj_file2"]]
+script = ExtResource( 108 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+material = SubResource( 1 )
+frames = SubResource( 2 )
+animation = "file2empty"

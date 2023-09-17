@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Objects/Global/obj_debugcontroller.gd" type="Script" id=1]
+
+[node name="obj_debugcontroller" type="Node2D" groups=["obj_debugcontroller"]]
+script = ExtResource( 1 )

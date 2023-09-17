@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Objects/Visuals/obj_endlevelfade.gd" type="Script" id=1]
+
+[node name="obj_endlevelfade" type="Node2D" groups=["obj_endlevelfade"]]
+z_index = 4
+script = ExtResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

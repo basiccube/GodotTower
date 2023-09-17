@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Objects/Level/sprites/exitgate_1.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Level/sprites/exitgate_0.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Level/obj_exitgate.gd" type="Script" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 80, 128 )
+
+[node name="obj_exitgate" type="Area2D" groups=["obj_exitgate"]]
+z_index = -2
+script = ExtResource( 3 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+speed_scale = 0.0
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_obj_exitgate_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_obj_exitgate_body_exited"]

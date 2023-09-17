@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mu_rankd.ogg-c1040a206de256131c77947d754bd10f.oggstr"
+
+[deps]
+
+source_file="res://Music/mu_rankd.ogg"
+dest_files=[ "res://.import/mu_rankd.ogg-c1040a206de256131c77947d754bd10f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

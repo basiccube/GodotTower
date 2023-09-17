@@ -5,6 +5,7 @@ var shake_mag_acc = 0
 var chargecamera = 0
 var ded = 0
 onready var panictimer = $panictimer
+onready var dedtimer = $dedtimer
 
 func room_start():
 	position = utils.get_player().position
@@ -19,6 +20,11 @@ func _process(delta):
 		visible = false
 	else:
 		visible = true
+	if (global.debugview):
+		limit_left = -10000000
+		limit_top = -10000000
+		limit_right = 10000000
+		limit_bottom = 10000000
 	if (global.seconds <= 0 && global.minutes <= 0 && ded == 0):
 		$panictimer.stop()
 		$dedtimer.wait_time = 0.05
@@ -40,6 +46,8 @@ func _process(delta):
 		shake_mag_acc = (3 / 10)
 	if (shake_mag > 0):
 		shake_mag -= shake_mag_acc
+		if (shake_mag_acc == 0):
+			shake_mag -= 0.1
 		if (shake_mag < 0):
 			shake_mag = 0
 	if (utils.instance_exists("obj_player") && utils.get_player().state != global.states.timesup && utils.get_player().state != global.states.gameover):
@@ -127,21 +135,21 @@ func _process(delta):
 		else:
 			modulate.a = 1
 		if (global.panic):
-			$Label.visible = true
+			$TimeText.visible = true
 			if (global.seconds < 10):
 				if (global.minutes < 1):
-					$Label.add_color_override("font_color", Color(1,0,0))
+					$TimeText.add_color_override("font_color", Color(1,0,0))
 				else:
-					$Label.add_color_override("font_color", Color(1,1,1))
-				$Label.text = str(global.minutes) + ":0" + str(global.seconds)
+					$TimeText.add_color_override("font_color", Color(1,1,1))
+				$TimeText.text = str(global.minutes) + ":0" + str(global.seconds)
 			elif (global.seconds >= 10):
 				if (global.minutes < 1):
-					$Label.add_color_override("font_color", Color(1,0,0))
+					$TimeText.add_color_override("font_color", Color(1,0,0))
 				else:
-					$Label.add_color_override("font_color", Color(1,1,1))
-				$Label.text = str(global.minutes) + ":" + str(global.seconds)
+					$TimeText.add_color_override("font_color", Color(1,1,1))
+				$TimeText.text = str(global.minutes) + ":" + str(global.seconds)
 		else:
-			$Label.visible = false
+			$TimeText.visible = false
 		if (global.key_inv):
 			$Key.visible = true
 			$Key.playing = true

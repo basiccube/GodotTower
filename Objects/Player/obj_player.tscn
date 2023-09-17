@@ -1,4 +1,4 @@
-[gd_scene load_steps=1317 format=2]
+[gd_scene load_steps=1332 format=2]
 
 [ext_resource path="res://Objects/Player/sprites/idle_4.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/sprites/idle_0.png" type="Texture" id=2]
@@ -1286,7 +1286,6 @@
 [ext_resource path="res://Objects/Player/sprites/piledriverland_2.png" type="Texture" id=1284]
 [ext_resource path="res://Objects/Player/sprites/piledriverland_3.png" type="Texture" id=1285]
 [ext_resource path="res://Objects/Player/sprites/piledriverland_4.png" type="Texture" id=1286]
-[ext_resource path="res://Sounds/sfx_pephurt.ogg" type="AudioStream" id=1287]
 [ext_resource path="res://Objects/Player/sprites/jumphurt_0.png" type="Texture" id=1288]
 [ext_resource path="res://Objects/Player/sprites/jumphurt_7.png" type="Texture" id=1289]
 [ext_resource path="res://Objects/Player/sprites/hurt_10.png" type="Texture" id=1290]
@@ -1312,6 +1311,22 @@
 [ext_resource path="res://Objects/Player/sprites/hurt_2.png" type="Texture" id=1310]
 [ext_resource path="res://Sounds/sfx_bombpep2.ogg" type="AudioStream" id=1311]
 [ext_resource path="res://Sounds/sfx_bombpep1.ogg" type="AudioStream" id=1312]
+[ext_resource path="res://Objects/Player/sprites/lookdoor_2.png" type="Texture" id=1313]
+[ext_resource path="res://Objects/Player/sprites/lookdoor_3.png" type="Texture" id=1314]
+[ext_resource path="res://Objects/Player/sprites/lookdoor_4.png" type="Texture" id=1315]
+[ext_resource path="res://Objects/Player/sprites/lookdoor_1.png" type="Texture" id=1316]
+[ext_resource path="res://Objects/Player/sprites/lookdoor_0.png" type="Texture" id=1317]
+[ext_resource path="res://Objects/Player/sprites/ladder_0.png" type="Texture" id=1318]
+[ext_resource path="res://Objects/Player/sprites/laddermove_3.png" type="Texture" id=1319]
+[ext_resource path="res://Objects/Player/sprites/ladderdown_1.png" type="Texture" id=1320]
+[ext_resource path="res://Objects/Player/sprites/ladderdown_0.png" type="Texture" id=1321]
+[ext_resource path="res://Objects/Player/sprites/laddermove_1.png" type="Texture" id=1322]
+[ext_resource path="res://Objects/Player/sprites/laddermove_0.png" type="Texture" id=1323]
+[ext_resource path="res://Objects/Player/sprites/laddermove_2.png" type="Texture" id=1324]
+[ext_resource path="res://Objects/Player/sprites/laddermove_4.png" type="Texture" id=1325]
+[ext_resource path="res://Objects/Player/sprites/laddermove_5.png" type="Texture" id=1326]
+[ext_resource path="res://Objects/Player/sprites/laddermove_6.png" type="Texture" id=1327]
+[ext_resource path="res://Objects/Player/sprites/laddermove_7.png" type="Texture" id=1328]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 1204 )
@@ -1587,6 +1602,21 @@ animations = [ {
 "name": "jump2",
 "speed": 60.0
 }, {
+"frames": [ ExtResource( 1318 ) ],
+"loop": true,
+"name": "ladder",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1321 ), ExtResource( 1320 ) ],
+"loop": true,
+"name": "ladderdown",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1323 ), ExtResource( 1322 ), ExtResource( 1324 ), ExtResource( 1319 ), ExtResource( 1325 ), ExtResource( 1326 ), ExtResource( 1327 ), ExtResource( 1328 ) ],
+"loop": true,
+"name": "laddermove",
+"speed": 60.0
+}, {
 "frames": [ ExtResource( 54 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 51 ) ],
 "loop": true,
 "name": "land",
@@ -1600,6 +1630,11 @@ animations = [ {
 "frames": [ ExtResource( 499 ), ExtResource( 500 ), ExtResource( 501 ), ExtResource( 502 ), ExtResource( 508 ), ExtResource( 506 ), ExtResource( 505 ), ExtResource( 507 ), ExtResource( 504 ), ExtResource( 503 ), ExtResource( 494 ), ExtResource( 495 ), ExtResource( 497 ), ExtResource( 496 ), ExtResource( 498 ), ExtResource( 493 ), ExtResource( 535 ), ExtResource( 511 ), ExtResource( 529 ), ExtResource( 515 ), ExtResource( 518 ), ExtResource( 512 ), ExtResource( 530 ), ExtResource( 516 ), ExtResource( 533 ), ExtResource( 527 ), ExtResource( 524 ), ExtResource( 513 ), ExtResource( 525 ), ExtResource( 509 ), ExtResource( 519 ), ExtResource( 534 ), ExtResource( 532 ), ExtResource( 526 ), ExtResource( 521 ), ExtResource( 517 ), ExtResource( 510 ), ExtResource( 522 ), ExtResource( 531 ), ExtResource( 528 ), ExtResource( 520 ), ExtResource( 523 ), ExtResource( 514 ) ],
 "loop": true,
 "name": "levelcomplete",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1317 ), ExtResource( 1316 ), ExtResource( 1313 ), ExtResource( 1314 ), ExtResource( 1315 ) ],
+"loop": true,
+"name": "lookdoor",
 "speed": 60.0
 }, {
 "frames": [ ExtResource( 727 ), ExtResource( 724 ), ExtResource( 723 ), ExtResource( 726 ), ExtResource( 728 ), ExtResource( 729 ), ExtResource( 730 ), ExtResource( 725 ) ],
@@ -1960,8 +1995,28 @@ position = Vector2( 48, 68 )
 cast_to = Vector2( 0, -28 )
 collision_mask = 2
 
+[node name="CenterCheck" type="RayCast2D" parent="."]
+position = Vector2( 48, 68 )
+enabled = true
+cast_to = Vector2( 0, 0 )
+collision_mask = 14
+collide_with_areas = true
+
+[node name="LadderCheck" type="RayCast2D" parent="."]
+position = Vector2( 48, 68 )
+enabled = true
+cast_to = Vector2( 0, 28 )
+collision_mask = 8
+collide_with_areas = true
+
 [node name="SolidCheck" type="RayCast2D" parent="."]
 position = Vector2( 48, 40 )
+enabled = true
+cast_to = Vector2( 16, 0 )
+collision_mask = 2
+
+[node name="SolidCheck2" type="RayCast2D" parent="."]
+position = Vector2( 48, 68 )
 enabled = true
 cast_to = Vector2( 16, 0 )
 collision_mask = 2
@@ -1993,10 +2048,6 @@ bus = "SFX"
 
 [node name="Bump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1183 )
-bus = "SFX"
-
-[node name="PepHurt" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 1287 )
 bus = "SFX"
 
 [node name="Step" type="AudioStreamPlayer" parent="."]

@@ -7,6 +7,12 @@ var targetLevel = ""
 var targetRoom = ""
 var targetDoor = "A"
 
+var debugview = false
+var debugcollisions = true
+
+var option_resolution = 1
+var option_fullscreen = false
+
 var minutes = 0
 var seconds = 59
 
@@ -19,6 +25,15 @@ var golfhit = 0
 
 var hurtcounter = 0
 var hurtmilestone = 3
+
+var rank = ""
+var secretfound = 0
+var treasure = false
+var shroomfollow = false
+var cheesefollow = false
+var tomatofollow = false
+var sausagefollow = false
+var pineapplefollow = false
 
 var srank = 0
 var arank = 0
@@ -94,4 +109,7 @@ enum states {
 	cheesepepstick,
 	facestomp,
 	ejected,
+	ladder,
+	shotgun,
+	shotgunjump,
 }

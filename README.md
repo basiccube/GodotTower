@@ -7,7 +7,7 @@ Godot Tower is a work-in-progress rewrite of Pizza Tower (SAGE 2019 demo) in God
 The goal of Godot Tower is to recreate the Pizza Tower SAGE 2019 demo in Godot Engine as accurately as possible. This is done by taking the demo's code and rewriting it in GDScript.
 Rewriting the original GML code in GDScript means that the game plays very similarly to the actual game, however it will never be 100% accurate to the original due to how differently Godot works compared to GameMaker.
 
-In its current state, it is very buggy and unfinished, primarily due to certain functionality being incomplete and simply because Godot works differently from GameMaker.
+In its current state, while it does work and is playable, it is very buggy and unfinished, primarily due to certain functionality being incomplete and simply because Godot works differently from GameMaker.
 
 ## Credits
 

@@ -6,9 +6,7 @@ export(String) var targetRoom = "testroom_1"
 
 var highscore = 0
 var secretcount = 0
-var toppin = [
-	[false, false, false, false, false]
-]
+var toppin = [false, false, false, false, false]
 
 func loadleveldata():
 	var SaveManager = ConfigFile.new()

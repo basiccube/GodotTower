@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Rooms/loadingroom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Player/obj_player.tscn" type="PackedScene" id=2]
@@ -25,13 +25,28 @@
 [ext_resource path="res://Sounds/sfx_killingblow.ogg" type="AudioStream" id=23]
 [ext_resource path="res://Sounds/sfx_explosion.ogg" type="AudioStream" id=24]
 [ext_resource path="res://Sounds/sfx_escaperumble.ogg" type="AudioStream" id=25]
+[ext_resource path="res://Music/mu_ranks.ogg" type="AudioStream" id=26]
+[ext_resource path="res://Music/mu_ranka.ogg" type="AudioStream" id=27]
+[ext_resource path="res://Music/mu_rankc.ogg" type="AudioStream" id=28]
+[ext_resource path="res://Music/mu_rankd.ogg" type="AudioStream" id=29]
+[ext_resource path="res://Sounds/sfx_collecttoppin.ogg" type="AudioStream" id=30]
+[ext_resource path="res://Sounds/sfx_collectpizza.ogg" type="AudioStream" id=31]
+[ext_resource path="res://Sounds/sfx_collectgiantpizza.ogg" type="AudioStream" id=32]
+[ext_resource path="res://Sounds/sfx_secretfound.ogg" type="AudioStream" id=33]
+[ext_resource path="res://Sounds/sfx_breakmetal.ogg" type="AudioStream" id=34]
+[ext_resource path="res://Sounds/sfx_breakblock2.ogg" type="AudioStream" id=35]
+[ext_resource path="res://Sounds/sfx_breakblock1.ogg" type="AudioStream" id=36]
+[ext_resource path="res://Sounds/sfx_step.ogg" type="AudioStream" id=37]
+[ext_resource path="res://Sounds/sfx_enemyprojectile.ogg" type="AudioStream" id=38]
+[ext_resource path="res://Sounds/sfx_pephurt.ogg" type="AudioStream" id=39]
+[ext_resource path="res://Objects/Global/obj_debugcontroller.tscn" type="PackedScene" id=40]
 
 [node name="Game" type="Node2D"]
 
 [node name="level" parent="." instance=ExtResource( 1 )]
 
 [node name="obj_player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 128, 352 )
+position = Vector2( -768, 80 )
 
 [node name="obj_camera" parent="." instance=ExtResource( 3 )]
 
@@ -39,6 +54,8 @@ position = Vector2( 128, 352 )
 position = Vector2( 48, 0 )
 
 [node name="obj_music" parent="." instance=ExtResource( 5 )]
+
+[node name="obj_debugcontroller" parent="." instance=ExtResource( 40 )]
 
 [node name="Door" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
@@ -64,6 +81,22 @@ bus = "SFX"
 stream = ExtResource( 6 )
 volume_db = -4.0
 bus = "SFX"
+
+[node name="RankS" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
+bus = "Music"
+
+[node name="RankA" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 27 )
+bus = "Music"
+
+[node name="RankC" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 28 )
+bus = "Music"
+
+[node name="RankD" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 29 )
+bus = "Music"
 
 [node name="Scream1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
@@ -120,6 +153,11 @@ stream = ExtResource( 10 )
 volume_db = -4.0
 bus = "SFX"
 
+[node name="EnemyProjectile" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 38 )
+volume_db = -4.0
+bus = "SFX"
+
 [node name="KillingBlow" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 23 )
 volume_db = -4.0
@@ -130,8 +168,18 @@ stream = ExtResource( 7 )
 volume_db = -4.0
 bus = "SFX"
 
+[node name="PepHurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 39 )
+volume_db = -4.0
+bus = "SFX"
+
 [node name="Stomp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+volume_db = -4.0
+bus = "SFX"
+
+[node name="Step" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 37 )
 volume_db = -4.0
 bus = "SFX"
 
@@ -142,5 +190,40 @@ bus = "SFX"
 
 [node name="Collect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
+volume_db = -4.0
+bus = "SFX"
+
+[node name="CollectToppin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 30 )
+volume_db = -4.0
+bus = "SFX"
+
+[node name="CollectPizza" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 31 )
+volume_db = -4.0
+bus = "SFX"
+
+[node name="CollectGiantPizza" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 32 )
+volume_db = -4.0
+bus = "SFX"
+
+[node name="SecretFound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 33 )
+volume_db = -4.0
+bus = "SFX"
+
+[node name="BreakMetal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 34 )
+volume_db = -4.0
+bus = "SFX"
+
+[node name="BreakBlock1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 36 )
+volume_db = -4.0
+bus = "SFX"
+
+[node name="BreakBlock2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 35 )
 volume_db = -4.0
 bus = "SFX"

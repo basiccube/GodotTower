@@ -1,0 +1,50 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacollect1_0.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacollect1_1.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacollect1_2.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacollect3_0.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacollect3_1.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacollect2_1.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacollect2_2.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacollect2_0.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacollect3_2.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Collectibles/obj_pizzacollect.gd" type="Script" id=16]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "pizzacollect1",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "pizzacollect2",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "pizzacollect3",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 32, 32 )
+
+[node name="obj_pizzacollect" type="Area2D" groups=["obj_pizzacollect"]]
+z_index = -2
+collision_layer = 4
+script = ExtResource( 16 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
+animation = "pizzacollect2"
+speed_scale = 0.35
+centered = false
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 32, 32 )
+shape = SubResource( 4 )
+
+[connection signal="body_entered" from="." to="." method="_on_obj_collect_body_entered"]

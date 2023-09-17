@@ -33,7 +33,7 @@ collision_mask = 6
 [node name="PlatformCheck" type="RayCast2D" parent="."]
 position = Vector2( 16, 40 )
 enabled = true
-cast_to = Vector2( 0, 28 )
+cast_to = Vector2( 0, 56 )
 collision_mask = 2
 
 [node name="FloorCheck" type="RayCast2D" parent="."]

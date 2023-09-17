@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Objects/Menu/obj_mainmenuselect.gd" type="Script" id=1]
+
+[node name="obj_mainmenuselect" type="Node2D" groups=["obj_mainmenuselect"]]
+script = ExtResource( 1 )
+
+[node name="StartTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="OptionTimer" type="Timer" parent="."]
+wait_time = 0.083
+one_shot = true
+
+[node name="EraseTimer" type="Timer" parent="."]
+wait_time = 0.083
+one_shot = true
+
+[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
+[connection signal="timeout" from="OptionTimer" to="." method="_on_OptionTimer_timeout"]
+[connection signal="timeout" from="EraseTimer" to="." method="_on_EraseTimer_timeout"]

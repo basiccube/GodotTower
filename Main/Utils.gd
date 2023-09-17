@@ -85,3 +85,40 @@ func room_goto(levelname, roomname):
 	newroominstance.name = "level"
 	GameNode.add_child(newroominstance)
 	utils.get_instance("obj_music").room_start()
+	
+func savescore(levelname):
+	if (global.collect > global.srank):
+		global.rank = "s"
+		utils.playsound("RankS")
+	elif (global.collect > global.arank):
+		global.rank = "a"
+		utils.playsound("RankA")
+	elif (global.collect > global.brank):
+		global.rank = "b"
+		utils.playsound("RankC")
+	elif (global.collect > global.crank):
+		global.rank = "c"
+		utils.playsound("RankC")
+	else:
+		global.rank = "d"
+		utils.playsound("RankD")
+	var SaveManager = ConfigFile.new()
+	var SaveData = SaveManager.load("user://saveData.ini")
+	if (SaveManager.get_value("Highscore", levelname, 0) < global.collect):
+		SaveManager.set_value("Highscore", levelname, global.collect)
+	if (SaveManager.get_value("Treasure", levelname, false) == false):
+		SaveManager.set_value("Treasure", levelname, global.treasure)
+	if (SaveManager.get_value("Secret", levelname, 0) < global.secretfound):
+		SaveManager.set_value("Secret", levelname, global.secretfound)
+	if (SaveManager.get_value("Toppin", (levelname + "1"), false) == false):
+		SaveManager.set_value("Toppin", (levelname + "1"), global.shroomfollow)
+	if (SaveManager.get_value("Toppin", (levelname + "2"), false) == false):
+		SaveManager.set_value("Toppin", (levelname + "2"), global.cheesefollow)
+	if (SaveManager.get_value("Toppin", (levelname + "3"), false) == false):
+		SaveManager.set_value("Toppin", (levelname + "3"), global.tomatofollow)
+	if (SaveManager.get_value("Toppin", (levelname + "4"), false) == false):
+		SaveManager.set_value("Toppin", (levelname + "4"), global.sausagefollow)
+	if (SaveManager.get_value("Toppin", (levelname + "5"), false) == false):
+		SaveManager.set_value("Toppin", (levelname + "5"), global.pineapplefollow)
+	SaveManager.set_value("Ranks", levelname, global.rank)
+	SaveManager.save("user://saveData.ini")

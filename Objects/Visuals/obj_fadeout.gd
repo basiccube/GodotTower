@@ -21,7 +21,7 @@ func _process(delta):
 			if (fadein == 1 && (i.state == global.states.victory || i.state == global.states.door) && i.indoor == true):
 				i.state = global.states.comingoutdoor
 			if (fadein == 1 && i.state == global.states.door && (i.sprite_index == "downpizzabox" || i.sprite_index == "uppizzabox")):
-				i.state = global.states.comingoutdoor
+				i.state = global.states.normal
 	if (fadein == 1 && fadealpha < 0):
 		queue_free()
 	var obj_camera = utils.get_instance("obj_camera")
@@ -32,4 +32,5 @@ func _process(delta):
 	update()
 		
 func _draw():
-	draw_rect(rect, Color.black)
+	if (!global.debugview):
+		draw_rect(rect, Color.black)

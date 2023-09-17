@@ -10,6 +10,9 @@ onready var musicnode = $music
 # This array is arranged the following way:
 #   room name      song name      secret song name     set song position at previous songs position
 var room_arr = [
+	["Realtitlescreen", "mu_title", "mu_medievalsecret", false],
+	["Titlescreen", "mu_title", "mu_medievalsecret", false],
+	["hub_room1", "mu_hub", "mu_medievalsecret", false],
 	["testroom_1", "mu_medieval", "mu_medievalsecret", false]
 ]
 

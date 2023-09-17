@@ -29,7 +29,7 @@ func _process(delta):
 	else:
 		$ScoreLabel.visible = false
 	if (global.targetRoom == "rank_room" || global.targetRoom == "timesuproom" || global.targetRoom == "Realtitlescreen"):
-		$TVSprite.modulate.a = 0
+		modulate.a = 0
 	match global.targetRoom:
 		"entrance_1":
 			global.srank = 5750
@@ -52,7 +52,7 @@ func _process(delta):
 			global.brank = (global.srank - ((global.srank / 4) * 2))
 			global.crank = (global.srank - ((global.srank / 4) * 3))
 		"testroom_1":
-			global.srank = 10000
+			global.srank = 4500
 			global.arank = (global.srank - (global.srank / 4))
 			global.brank = (global.srank - ((global.srank / 4) * 2))
 			global.crank = (global.srank - ((global.srank / 4) * 3))
@@ -185,9 +185,9 @@ func _process(delta):
 		tvsprite = "banana"
 		$ResetTimer.wait_time = 0.03
 		$ResetTimer.start()
-		if (utils.instance_exists("obj_mainmenuselect")):
+		if (utils.instance_exists_level("obj_mainmenuselect")):
 			var obj_mainmenuselect = utils.get_instance_level("obj_mainmenuselect")
-			if (obj_mainmenuselect.selected == 0):
+			if (!obj_mainmenuselect.selected):
 				if (obj_mainmenuselect.optionselected == 0):
 					showtext = true
 					message = "START GAME"

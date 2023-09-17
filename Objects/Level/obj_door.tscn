@@ -1,0 +1,45 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Objects/Level/sprites/doorunvisited_6.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Level/sprites/doorunvisited_1.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Level/sprites/doorunvisited_5.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Level/sprites/doorunvisited_4.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Level/sprites/doorunvisited_0.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Level/sprites/doorunvisited_3.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Level/sprites/doorunvisited_7.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Level/sprites/doorunvisited_2.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Level/sprites/doorvisited_0.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Level/obj_door.gd" type="Script" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "unvisited",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "visited",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24, 42 )
+
+[node name="obj_door" type="Area2D" groups=["obj_door"]]
+z_index = -2
+collision_layer = 4
+script = ExtResource( 10 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "unvisited"
+centered = false
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 48, 54 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_obj_door_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_obj_door_body_exited"]
