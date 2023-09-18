@@ -17,6 +17,11 @@ func _process(delta):
 	$MessageLabel.text = message
 	$TVSprite.animation = tvsprite
 	$TVSprite.playing = true
+	$ComboLabel.modulate.a = $TVSprite.modulate.a
+	$ScoreLabel.modulate.a = $TVSprite.modulate.a
+	var obj_camera = utils.get_instance("obj_camera")
+	position.x = obj_camera.global_position.x + 48
+	position.y = obj_camera.global_position.y
 	if (global.combo != 0 && global.combotime != 0 && (tvsprite == "default" || tvsprite == "combo")):
 		$ComboLabel.visible = true
 		$ComboLabel.text = str(global.combo)
@@ -29,7 +34,7 @@ func _process(delta):
 	else:
 		$ScoreLabel.visible = false
 	if (global.targetRoom == "rank_room" || global.targetRoom == "timesuproom" || global.targetRoom == "Realtitlescreen"):
-		modulate.a = 0
+		$TVSprite.modulate.a = 0
 	match global.targetRoom:
 		"entrance_1":
 			global.srank = 5750
@@ -68,9 +73,9 @@ func _process(delta):
 	if (!(obj_player.state == global.states.knightpep && obj_player.state == global.states.knightpepattack && obj_player.state == global.states.knightpepslopes)):
 		once = false
 	if (obj_player.global_position.y < (global_position.y - 160) && obj_player.global_position.x > (global_position.x + 180)):
-		modulate.a = 0.5
+		$TVSprite.modulate.a = 0.5
 	elif (!(global.targetRoom == "rank_room" || global.targetRoom == "timesuproom" || global.targetRoom == "Realtitlescreen")):
-		modulate.a = 1
+		$TVSprite.modulate.a = 1
 	if (utils.instance_exists("obj_itspizzatime")):
 		$TVSprite.speed_scale = 0.25
 		message = "GET TO THE EXIT!!"

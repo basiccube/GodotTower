@@ -51,7 +51,7 @@ position = Vector2( -768, 80 )
 
 [node name="obj_camera" parent="." instance=ExtResource( 3 )]
 
-[node name="obj_tv" parent="obj_camera" instance=ExtResource( 11 )]
+[node name="obj_tv" parent="." instance=ExtResource( 11 )]
 position = Vector2( 48, 0 )
 
 [node name="obj_music" parent="." instance=ExtResource( 5 )]

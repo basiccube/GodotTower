@@ -67,6 +67,8 @@ func _process(delta):
 		if (Input.is_action_pressed("key_up") && obj_player.is_on_floor() && (obj_player.state == global.states.normal || obj_player.state == global.states.mach1 || obj_player.state == global.states.mach2 || obj_player.state == global.states.mach3) && !utils.instance_exists("obj_fadeout") && obj_player.state != global.states.victory && obj_player.state != global.states.comingoutdoor):
 			for i in get_tree().get_nodes_in_group("obj_music"):
 				i.musicnode.stop()
+			obj_player.movespeed = 0
+			obj_player.velocity.x = 0
 			obj_player.backtohubstartx = obj_player.position.x
 			obj_player.backtohubstarty = obj_player.position.y
 			obj_player.backtohubroom = global.targetRoom

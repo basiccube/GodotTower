@@ -14,7 +14,7 @@ volume_db = -6.0
 bus = "Music"
 
 [node name="RestartMusicTimer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.1
 one_shot = true
 
 [connection signal="timeout" from="RestartMusicTimer" to="." method="_on_RestartMusicTimer_timeout"]

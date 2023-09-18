@@ -37,6 +37,12 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1200, 1078 )
 
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 21 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 720984, 0, 327684, 720985, 0, 327685, 720986, 0, 458759, 720987, 0, 393223, 720988, 0, 393223, 720989, 0, 393223, 720990, 0, 393223, 720991, 0, 393223, 720992, 0, 393223, 720993, 0, 393223, 786520, 0, 327684, 786521, 0, 327685, 786522, 0, 458759, 786523, 0, 393223, 786524, 0, 393223, 786525, 0, 393223, 786526, 0, 393223, 786527, 0, 393223, 786528, 0, 393223, 786529, 0, 393223 )
+
 [node name="obj_solid" parent="." instance=ExtResource( 1 )]
 position = Vector2( -576, 416 )
 scale = Vector2( 40, 10 )
@@ -403,8 +409,8 @@ position = Vector2( 2912, 384 )
 [node name="obj_secretblock16" parent="." instance=ExtResource( 20 )]
 position = Vector2( 2912, 352 )
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 21 )
-cell_size = Vector2( 32, 32 )
-format = 1
-tile_data = PoolIntArray( 720984, 0, 327684, 720985, 0, 327685, 720986, 0, 458759, 720987, 0, 393223, 720988, 0, 393223, 720989, 0, 393223, 720990, 0, 393223, 720991, 0, 393223, 720992, 0, 393223, 786520, 0, 327684, 786521, 0, 327685, 786522, 0, 458759, 786523, 0, 393223, 786524, 0, 393223, 786525, 0, 393223, 786526, 0, 393223, 786527, 0, 393223, 786528, 0, 393223 )
+[node name="obj_secretblock19" parent="." instance=ExtResource( 20 )]
+position = Vector2( 3104, 352 )
+
+[node name="obj_secretblock20" parent="." instance=ExtResource( 20 )]
+position = Vector2( 3104, 384 )

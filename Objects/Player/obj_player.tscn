@@ -1,4 +1,4 @@
-[gd_scene load_steps=1332 format=2]
+[gd_scene load_steps=1340 format=2]
 
 [ext_resource path="res://Objects/Player/sprites/idle_4.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/sprites/idle_0.png" type="Texture" id=2]
@@ -1286,6 +1286,7 @@
 [ext_resource path="res://Objects/Player/sprites/piledriverland_2.png" type="Texture" id=1284]
 [ext_resource path="res://Objects/Player/sprites/piledriverland_3.png" type="Texture" id=1285]
 [ext_resource path="res://Objects/Player/sprites/piledriverland_4.png" type="Texture" id=1286]
+[ext_resource path="res://Objects/Player/sprites/tackle_1.png" type="Texture" id=1287]
 [ext_resource path="res://Objects/Player/sprites/jumphurt_0.png" type="Texture" id=1288]
 [ext_resource path="res://Objects/Player/sprites/jumphurt_7.png" type="Texture" id=1289]
 [ext_resource path="res://Objects/Player/sprites/hurt_10.png" type="Texture" id=1290]
@@ -1327,6 +1328,13 @@
 [ext_resource path="res://Objects/Player/sprites/laddermove_5.png" type="Texture" id=1326]
 [ext_resource path="res://Objects/Player/sprites/laddermove_6.png" type="Texture" id=1327]
 [ext_resource path="res://Objects/Player/sprites/laddermove_7.png" type="Texture" id=1328]
+[ext_resource path="res://Objects/Player/sprites/tackle_3.png" type="Texture" id=1329]
+[ext_resource path="res://Objects/Player/sprites/tackle_7.png" type="Texture" id=1330]
+[ext_resource path="res://Objects/Player/sprites/tackle_2.png" type="Texture" id=1331]
+[ext_resource path="res://Objects/Player/sprites/tackle_4.png" type="Texture" id=1332]
+[ext_resource path="res://Objects/Player/sprites/tackle_0.png" type="Texture" id=1333]
+[ext_resource path="res://Objects/Player/sprites/tackle_5.png" type="Texture" id=1334]
+[ext_resource path="res://Objects/Player/sprites/tackle_6.png" type="Texture" id=1335]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 1204 )
@@ -1902,6 +1910,11 @@ animations = [ {
 "name": "swingdingend",
 "speed": 60.0
 }, {
+"frames": [ ExtResource( 1333 ), ExtResource( 1287 ), ExtResource( 1331 ), ExtResource( 1329 ), ExtResource( 1332 ), ExtResource( 1334 ), ExtResource( 1335 ), ExtResource( 1330 ) ],
+"loop": true,
+"name": "tackle",
+"speed": 60.0
+}, {
 "frames": [ ExtResource( 440 ), ExtResource( 437 ), ExtResource( 438 ), ExtResource( 439 ), ExtResource( 442 ), ExtResource( 444 ), ExtResource( 446 ), ExtResource( 443 ), ExtResource( 447 ), ExtResource( 445 ), ExtResource( 441 ) ],
 "loop": true,
 "name": "taunt",
@@ -2013,6 +2026,12 @@ collide_with_areas = true
 position = Vector2( 48, 40 )
 enabled = true
 cast_to = Vector2( 16, 0 )
+collision_mask = 2
+
+[node name="ObjectCheck" type="RayCast2D" parent="."]
+position = Vector2( 48, 68 )
+enabled = true
+cast_to = Vector2( 96, 0 )
 collision_mask = 2
 
 [node name="SolidCheck2" type="RayCast2D" parent="."]

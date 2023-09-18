@@ -214,6 +214,7 @@ animations = [ {
 } ]
 
 [node name="obj_tv" type="Node2D" groups=["obj_tv"]]
+z_index = 1000
 script = ExtResource( 1 )
 
 [node name="TVSprite" type="AnimatedSprite" parent="."]

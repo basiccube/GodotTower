@@ -1,0 +1,59 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://Objects/Visuals/obj_parentparticle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Visuals/obj_debris.gd" type="Script" id=2]
+[ext_resource path="res://Objects/Visuals/sprites/debris/debris_4.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Visuals/sprites/debris/debris_1.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Visuals/sprites/debris/bigdebris_3.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Visuals/sprites/debris/debris_2.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Visuals/sprites/debris/debris_3.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Visuals/sprites/debris/bigdebris_4.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Visuals/sprites/debris/bigdebris_0.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Visuals/sprites/debris/bigdebris_5.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Visuals/sprites/debris/bigdebris_2.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Visuals/sprites/debris/debris_0.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Visuals/sprites/debris/debris_5.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Visuals/sprites/debris/bigdebris_1.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Visuals/sprites/debris/bigpizzadebris_2.png" type="Texture" id=15]
+[ext_resource path="res://Objects/Visuals/sprites/debris/pizzadebris_3.png" type="Texture" id=16]
+[ext_resource path="res://Objects/Visuals/sprites/debris/bigpizzadebris_0.png" type="Texture" id=17]
+[ext_resource path="res://Objects/Visuals/sprites/debris/bigpizzadebris_3.png" type="Texture" id=18]
+[ext_resource path="res://Objects/Visuals/sprites/debris/pizzadebris_0.png" type="Texture" id=19]
+[ext_resource path="res://Objects/Visuals/sprites/debris/pizzadebris_1.png" type="Texture" id=20]
+[ext_resource path="res://Objects/Visuals/sprites/debris/pizzadebris_2.png" type="Texture" id=21]
+[ext_resource path="res://Objects/Visuals/sprites/debris/bigpizzadebris_1.png" type="Texture" id=22]
+[ext_resource path="res://Objects/Visuals/sprites/debris/pizzadebris_5.png" type="Texture" id=23]
+[ext_resource path="res://Objects/Visuals/sprites/debris/bigpizzadebris_4.png" type="Texture" id=24]
+[ext_resource path="res://Objects/Visuals/sprites/debris/bigpizzadebris_5.png" type="Texture" id=25]
+[ext_resource path="res://Objects/Visuals/sprites/debris/pizzadebris_4.png" type="Texture" id=26]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "bigdebris",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 22 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "bigpizzadebris",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "debris",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 16 ), ExtResource( 26 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "pizzadebris",
+"speed": 60.0
+} ]
+
+[node name="obj_debris" groups=["obj_slapstar"] instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="1"]
+frames = SubResource( 1 )
+animation = "debris"
+speed_scale = 0.0
