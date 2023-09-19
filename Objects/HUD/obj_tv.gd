@@ -188,7 +188,7 @@ func _process(delta):
 	elif (global.targetRoom == "Realtitlescreen"):
 		$TVSprite.speed_scale = 0.1
 		tvsprite = "banana"
-		$ResetTimer.wait_time = 0.03
+		$ResetTimer.wait_time = 0.1
 		$ResetTimer.start()
 		if (utils.instance_exists_level("obj_mainmenuselect")):
 			var obj_mainmenuselect = utils.get_instance_level("obj_mainmenuselect")
