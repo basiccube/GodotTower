@@ -2004,6 +2004,7 @@ animation = "pepcooter"
 centered = false
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
 position = Vector2( 48, 68 )
 shape = SubResource( 2 )
 
@@ -2013,11 +2014,13 @@ shape = SubResource( 3 )
 disabled = true
 
 [node name="CrouchCheck" type="RayCast2D" parent="."]
+modulate = Color( 1, 1, 1, 0.854902 )
 position = Vector2( 48, 68 )
 cast_to = Vector2( 0, -28 )
 collision_mask = 2
 
 [node name="LadderCheck" type="RayCast2D" parent="."]
+modulate = Color( 1, 1, 1, 0.854902 )
 position = Vector2( 48, 68 )
 enabled = true
 cast_to = Vector2( 0, 28 )
@@ -2025,39 +2028,44 @@ collision_mask = 8
 collide_with_areas = true
 
 [node name="SolidCheck" type="RayCast2D" parent="."]
+modulate = Color( 1, 1, 1, 0.854902 )
 position = Vector2( 48, 40 )
 enabled = true
 cast_to = Vector2( 16, 0 )
 collision_mask = 2
 
 [node name="SolidCheck2" type="RayCast2D" parent="."]
+modulate = Color( 1, 1, 1, 0.854902 )
 position = Vector2( 48, 68 )
 enabled = true
 cast_to = Vector2( 16, 0 )
 collision_mask = 2
 
 [node name="WallClimbCheck" type="RayCast2D" parent="."]
+modulate = Color( 1, 1, 1, 0.854902 )
 position = Vector2( 48, 88 )
 enabled = true
 cast_to = Vector2( 16, 0 )
 collision_mask = 2
 
 [node name="SlopeCheck" type="RayCast2D" parent="."]
+modulate = Color( 1, 1, 1, 0.854902 )
 position = Vector2( 48, 96 )
 enabled = true
 cast_to = Vector2( 0, 32 )
 collision_mask = 2
 
 [node name="DestructibleArea" type="Area2D" parent="."]
+modulate = Color( 0.866667, 0.866667, 0.866667, 0.572549 )
 position = Vector2( 48, 32 )
 collision_mask = 2
-priority = 1.0
 
 [node name="Collision" type="CollisionShape2D" parent="DestructibleArea"]
 position = Vector2( 24, 32 )
 shape = SubResource( 5 )
 
 [node name="FallArea" type="Area2D" parent="."]
+modulate = Color( 0.866667, 0.866667, 0.866667, 0.572549 )
 position = Vector2( 48, 32 )
 collision_mask = 2
 priority = 1.0
@@ -2067,6 +2075,7 @@ position = Vector2( 0, 88 )
 shape = SubResource( 6 )
 
 [node name="JumpArea" type="Area2D" parent="."]
+modulate = Color( 0.866667, 0.866667, 0.866667, 0.572549 )
 position = Vector2( 48, 32 )
 collision_mask = 2
 priority = 1.0

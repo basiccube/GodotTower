@@ -154,6 +154,9 @@ func _process(delta):
 						destructible.destroy()
 				if (!destructible.is_in_group("obj_bigdestructibles")):
 					destructible.destroy()
+		if (destructible.is_in_group("obj_metalblock")):
+			if (state == global.states.mach3 || state == global.states.knightpepslopes):
+				destructible.destroy()
 	for destructible in $JumpArea.get_overlapping_bodies():
 		if (destructible.is_in_group("obj_destructibles")):
 			if (velocity.y <= 0.5 && (state == global.states.jump || state == global.states.climbwall || state == global.states.fireass || state == global.states.Sjump || state == global.states.mach2 || state == global.states.mach3)):
@@ -170,9 +173,12 @@ func _process(delta):
 						$PeppinoSprite.animation = "shotgunjump2"
 					state = global.states.freefallland
 				destructible.destroy()
+		if (destructible.is_in_group("obj_metalblock")):
 			if (state == global.states.freefall || state == global.states.freefallland):
-				if (destructible.is_in_group("obj_metalblock") && freefallsmash > 10):
+				if (freefallsmash >= 10):
 					destructible.destroy()
+			if (state == global.states.knightpep):
+				destructible.destroy()
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider != null:
@@ -508,7 +514,12 @@ func place_meeting(collisionpos: Vector2, object: String):
 			
 func is_colliding_with_wall():
 	if (state == global.states.mach1 || state == global.states.normal || state == global.states.machslide):
-		if ((($SolidCheck.is_colliding() && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_destructibles"))) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider().is_in_group("obj_solid"))) && !utils.instance_exists("obj_fadeout")):
+		if ((($SolidCheck.is_colliding() && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_destructibles") || $SolidCheck.get_collider().is_in_group("obj_metalblock"))) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider().is_in_group("obj_solid"))) && !utils.instance_exists("obj_fadeout")):
+			return true
+		else:
+			return false
+	elif (state == global.states.mach2):
+		if ((($SolidCheck.is_colliding() && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_metalblock"))) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider().is_in_group("obj_solid"))) && !utils.instance_exists("obj_fadeout")):
 			return true
 		else:
 			return false
@@ -1530,6 +1541,8 @@ func scr_player_machslide():
 		velocity.y = -4
 		state = global.states.bump
 		$PeppinoSprite.frame = 4
+	if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 2 && ($PeppinoSprite.animation == "machslideboost" || $PeppinoSprite.animation == "machslideboost3")):
+		$DestructibleArea.scale.x *= -1
 	if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1 && $PeppinoSprite.animation == "machslideboost"):
 		velocity.x = 0
 		$SolidCheck.scale.x *= -1
@@ -2090,6 +2103,7 @@ func scr_playerreset():
 	visible = true
 	targetLevel = ""
 	targetRoom = ""
+	indoor = false
 	global.saveroom.clear()
 	global.baddieroom.clear()
 	$HurtTimer.stop()

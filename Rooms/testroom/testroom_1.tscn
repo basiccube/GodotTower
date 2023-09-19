@@ -287,7 +287,7 @@ position = Vector2( 632, 208 )
 position = Vector2( 2408, -48 )
 
 [node name="obj_forknight" parent="." instance=ExtResource( 13 )]
-position = Vector2( 1104, 176 )
+position = Vector2( 1160, 176 )
 
 [node name="obj_forknight2" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1648, 688 )
