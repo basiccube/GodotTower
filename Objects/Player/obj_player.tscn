@@ -1,4 +1,4 @@
-[gd_scene load_steps=1343 format=2]
+[gd_scene load_steps=1344 format=2]
 
 [ext_resource path="res://Objects/Player/sprites/idle_4.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/sprites/idle_0.png" type="Texture" id=2]
@@ -1991,6 +1991,9 @@ extents = Vector2( 12, 24 )
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 12, 2 )
 
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 12, 18 )
+
 [node name="obj_player" type="KinematicBody2D" groups=["obj_player"]]
 z_index = 5
 collision_mask = 6
@@ -2083,6 +2086,16 @@ priority = 1.0
 [node name="Collision" type="CollisionShape2D" parent="JumpArea"]
 position = Vector2( 0, 6 )
 shape = SubResource( 7 )
+
+[node name="SJumpArea" type="Area2D" parent="."]
+modulate = Color( 0.866667, 0.866667, 0.866667, 0.572549 )
+position = Vector2( 48, 32 )
+collision_mask = 2
+priority = 1.0
+
+[node name="Collision" type="CollisionShape2D" parent="SJumpArea"]
+position = Vector2( 0, -14 )
+shape = SubResource( 8 )
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 366 )

@@ -67,6 +67,7 @@ var baddiegrabbed = ""
 var attacking = 0
 var inv_frames = 0
 var hurted = 0
+var box = false
 var cutscene = false
 var indoor = false
 var backtohubstartx = position.x
@@ -159,10 +160,13 @@ func _process(delta):
 				destructible.destroy()
 	for destructible in $JumpArea.get_overlapping_bodies():
 		if (destructible.is_in_group("obj_destructibles")):
-			if (velocity.y <= 0.5 && (state == global.states.jump || state == global.states.climbwall || state == global.states.fireass || state == global.states.Sjump || state == global.states.mach2 || state == global.states.mach3)):
+			if (velocity.y <= 0.5 && (state == global.states.jump || state == global.states.fireass || state == global.states.mach2 || state == global.states.mach3)):
 				destructible.destroy()
-				if (state != global.states.Sjump && state != global.states.climbwall):
-					velocity.y = 0
+				velocity.y = 0
+	for destructible in $SJumpArea.get_overlapping_bodies():
+		if (destructible.is_in_group("obj_destructibles")):
+			if (velocity.y <= 0.5 && (state == global.states.Sjump || state == global.states.climbwall)):
+				destructible.destroy()
 	for destructible in $FallArea.get_overlapping_bodies():
 		if (destructible.is_in_group("obj_destructibles")):
 			if (velocity.y >= 0 && (state == global.states.freefall || state == global.states.freefallland)):
@@ -485,10 +489,12 @@ func _process(delta):
 
 func _physics_process(delta):
 	var snap_vector = Vector2.ZERO
-	if ($SlopeCheck.is_colliding() && $SlopeCheck.get_collider().is_in_group("obj_slope") && !Input.is_action_pressed("key_jump") && (state != global.states.jump && state != global.states.climbwall)):
-		snap_vector = Vector2.DOWN * 20
+	if (!Input.is_action_pressed("key_jump") && (state != global.states.jump && state != global.states.climbwall && state != global.states.Sjump && state != global.states.Sjumpprep && state != global.states.bump && state != global.states.crouchjump && state != global.states.tumble)):
+		for slope in $FallArea.get_overlapping_bodies():
+			if (slope.is_in_group("obj_slope")):
+				snap_vector = Vector2.DOWN * 20
 	if state != global.states.titlescreen:
-		if state != global.states.backbreaker && state != global.states.Sjumpland && state != global.states.ladder:
+		if state != global.states.backbreaker && state != global.states.Sjumpland && state != global.states.ladder && (state != global.states.door && ($PeppinoSprite.animation != "downpizzabox" && $PeppinoSprite.animation != "uppizzabox")):
 			velocity.y += grav
 		velocity = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, true, 4, 1)
 		
@@ -2104,6 +2110,7 @@ func scr_playerreset():
 	targetLevel = ""
 	targetRoom = ""
 	indoor = false
+	box = false
 	global.saveroom.clear()
 	global.baddieroom.clear()
 	$HurtTimer.stop()

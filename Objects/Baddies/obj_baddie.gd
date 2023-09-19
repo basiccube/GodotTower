@@ -65,7 +65,8 @@ func _process(delta):
 		if collision.collider.is_in_group("obj_boilingsauce"):
 			destroy()
 		if collision.collider.is_in_group("obj_destructibles"):
-			collision.collider.destroy()
+			if (state == global.states.stun && thrown):
+				collision.collider.destroy()
 		if collision.collider.is_in_group("obj_baddie"):
 			if (state == global.states.stun && thrown):
 				destroy()

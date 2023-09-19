@@ -162,7 +162,7 @@ func _on_dedtimer_timeout():
 	if (global.seconds == 0 && global.minutes == 0):
 		$dedtimer.start()
 	if (global.collect > 0):
-		utils.instance_create(obj_player.global_position.x, obj_player.global_position.y, "res://Objects/Visuals/obj_pizzaloss.tscn")
+		utils.instance_create(obj_player.position.x + 50, obj_player.position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
 	if (global.collect > 0):
 		global.collect -= 5
 
