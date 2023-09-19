@@ -1,7 +1,6 @@
 extends StaticBody2D
 
 func _ready():
-	visible = false
 	if (global.saveroom.has(global.targetRoom + name)):
 		queue_free()
 	
