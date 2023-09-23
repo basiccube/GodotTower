@@ -31,6 +31,7 @@ var hurtmilestone = 3
 var rank = ""
 var secretfound = 0
 var treasure = false
+var toppintotal = 1
 var shroomfollow = false
 var cheesefollow = false
 var tomatofollow = false
@@ -104,6 +105,7 @@ enum states {
 	land,
 	hit,
 	charge,
+	chase,
 	pizzagoblinthrow,
 	throw,
 	cheesepep,

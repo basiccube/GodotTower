@@ -7,8 +7,8 @@
 [ext_resource path="res://Backgrounds/bg_scrollingforeground_0.png" type="Texture" id=5]
 [ext_resource path="res://Backgrounds/bg_title_0.png" type="Texture" id=6]
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Objects/Level/obj_door.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Objects/Level/obj_spawnpoint.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/Warps/obj_door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/Warps/obj_spawnpoint.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )

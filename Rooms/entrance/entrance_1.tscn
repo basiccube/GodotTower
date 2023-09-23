@@ -1,0 +1,192 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Misc/obj_doorblocked.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Level/obj_camlimit_left.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Level/obj_camlimit_right.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Level/obj_camlimit_bottom.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/Level/obj_exitgate.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/Warps/obj_spawnpoint.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Backgrounds/bg_tower_0.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Destructibles/obj_destroyable.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Objects/Destructibles/obj_destroyable3.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Objects/Collectibles/obj_pizzacollect.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Objects/Destructibles/obj_metalblock.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_cheeseslime.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Objects/Collectibles/obj_collect.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_minijohn.tscn" type="PackedScene" id=18]
+
+[node name="entrance_1" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.25, 1 )
+motion_mirroring = Vector2( 1200, 1078 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 10 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1200, 1078 )
+
+[node name="obj_solid" parent="." instance=ExtResource( 1 )]
+position = Vector2( -288, 448 )
+scale = Vector2( 109, 3 )
+
+[node name="obj_solid2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -288, 0 )
+scale = Vector2( 14, 14 )
+
+[node name="obj_solid3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2528, 64 )
+scale = Vector2( 21, 9 )
+
+[node name="obj_solid4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 0 )
+scale = Vector2( 83, 2 )
+
+[node name="obj_solid5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2432, 64 )
+scale = Vector2( 3, 10 )
+
+[node name="obj_solid6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1696, 416 )
+scale = Vector2( 4, 1 )
+
+[node name="obj_solid7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1120, 64 )
+scale = Vector2( 6, 10 )
+
+[node name="obj_solid8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 672, 256 )
+scale = Vector2( 8, 6 )
+
+[node name="obj_platform" parent="." instance=ExtResource( 2 )]
+position = Vector2( 608, 256 )
+scale = Vector2( 2, 1 )
+
+[node name="obj_platform2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 608, 352 )
+scale = Vector2( 2, 1 )
+
+[node name="obj_platform3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 928, 352 )
+scale = Vector2( 2, 1 )
+
+[node name="obj_platform4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 928, 256 )
+scale = Vector2( 2, 1 )
+
+[node name="obj_camlimit_left" parent="." instance=ExtResource( 4 )]
+
+[node name="obj_camlimit_top" parent="." instance=ExtResource( 7 )]
+
+[node name="obj_camlimit_bottom" parent="." instance=ExtResource( 6 )]
+position = Vector2( 0, 540 )
+
+[node name="obj_camlimit_right" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2800, 0 )
+
+[node name="obj_doorblocked" parent="." instance=ExtResource( 3 )]
+position = Vector2( 208, 352 )
+
+[node name="obj_spawnpoint2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 208, 352 )
+
+[node name="obj_exitgate" parent="." instance=ExtResource( 8 )]
+position = Vector2( 448, 320 )
+
+[node name="obj_destroyable" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1120, 384 )
+
+[node name="obj_destroyable2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1120, 416 )
+
+[node name="obj_destroyable3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1152, 416 )
+
+[node name="obj_destroyable4" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1152, 384 )
+
+[node name="obj_destroyable5" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1184, 384 )
+
+[node name="obj_destroyable6" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1216, 384 )
+
+[node name="obj_destroyable7" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1216, 416 )
+
+[node name="obj_destroyable8" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1184, 416 )
+
+[node name="obj_destroyable10" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1440, 384 )
+
+[node name="obj_destroyable11" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1440, 416 )
+
+[node name="obj_destroyable12" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1472, 416 )
+
+[node name="obj_destroyable13" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1472, 384 )
+
+[node name="obj_destroyable14" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1504, 384 )
+
+[node name="obj_destroyable15" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1536, 384 )
+
+[node name="obj_destroyable16" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1536, 416 )
+
+[node name="obj_destroyable17" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1504, 416 )
+
+[node name="obj_destroyable9" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1248, 384 )
+
+[node name="obj_metalblock" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2432, 384 )
+
+[node name="obj_pizzacollect" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1728, 160 )
+
+[node name="obj_cheeseslime" parent="." instance=ExtResource( 15 )]
+position = Vector2( 768, 208 )
+
+[node name="obj_cheeseslime2" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1744, 368 )
+
+[node name="obj_collect" parent="." instance=ExtResource( 16 )]
+position = Vector2( 704, 192 )
+
+[node name="obj_collect2" parent="." instance=ExtResource( 16 )]
+position = Vector2( 768, 192 )
+
+[node name="obj_collect3" parent="." instance=ExtResource( 16 )]
+position = Vector2( 832, 192 )
+
+[node name="obj_collect4" parent="." instance=ExtResource( 16 )]
+position = Vector2( 2336, 384 )
+
+[node name="obj_collect5" parent="." instance=ExtResource( 16 )]
+position = Vector2( 2272, 384 )
+
+[node name="obj_collect6" parent="." instance=ExtResource( 16 )]
+position = Vector2( 2208, 384 )
+
+[node name="obj_hallway" parent="." instance=ExtResource( 17 )]
+position = Vector2( 2848, 352 )
+scale = Vector2( 2, 1.5 )
+targetDoor = "B"
+targetLevel = "entrance"
+targetRoom = "entrance_2"
+
+[node name="obj_minijohn" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1920, 400 )

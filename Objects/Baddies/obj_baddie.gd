@@ -26,13 +26,14 @@ var ministun = false
 var stunned = 0
 var attack = false
 var movespeed = 0
+var momentum = 0
 const FLOOR_NORMAL = Vector2.UP
 var velocity = Vector2.ZERO
 var thrown = false
 var straightthrow = false
 var hp = 1
 var grav = 0.5
-var xscale = -1
+export(int) var xscale = -1
 var sprite_index
 var screenvisible = false
 onready var macheffecttimer = $MachEffectTimer
@@ -51,11 +52,13 @@ func _process(delta):
 		$WallCheck.scale.x = 1
 		$OppositeWallCheck.scale.x = 1
 		$PlatformCheck.position.x = 16
+		$SlopeCheck.position.x = -8
 	elif (xscale == -1):
 		$Sprite.flip_h = true
 		$WallCheck.scale.x = -1
 		$OppositeWallCheck.scale.x = -1
 		$PlatformCheck.position.x = -16
+		$SlopeCheck.position.x = 8
 	position.x += velocity.x
 	position.y += velocity.y
 	for i in get_slide_count():
@@ -209,9 +212,10 @@ func scr_enemy_walk():
 			$WallCheck.scale.x *= -1
 			$OppositeWallCheck.scale.x *= -1
 			$PlatformCheck.position.x *= -1
+			$SlopeCheck.position.x *= -1
 			xscale *= -1
 	if (!is_in_group("obj_ancho")):
-		if (!$PlatformCheck.is_colliding()):
+		if (!$PlatformCheck.is_colliding() && (!$SlopeCheck.is_colliding() || !$SlopeCheck.get_collider().is_in_group("obj_slope"))):
 			if (movespeed > 0 && is_on_floor()):
 				if (is_in_group("obj_forknight")):
 					xscale *= -1
@@ -219,7 +223,6 @@ func scr_enemy_walk():
 					state = global.states.idle
 				else:
 					xscale *= -1
-					
 func scr_enemy_turn():
 	$Sprite.animation = spr_turn
 	$Sprite.speed_scale = 0.35
@@ -527,6 +530,7 @@ func scr_enemy_charge():
 			$WallCheck.scale.x *= -1
 			$OppositeWallCheck.scale.x *= -1
 			$PlatformCheck.position.x *= -1
+			$SlopeCheck.position.x *= -1
 			xscale *= -1
 		if (!$PlatformCheck.is_colliding() && movespeed > 0):
 			xscale *= -1
@@ -544,10 +548,26 @@ func scr_enemy_charge():
 			$WallCheck.scale.x *= -1
 			$OppositeWallCheck.scale.x *= -1
 			$PlatformCheck.position.x *= -1
+			$SlopeCheck.position.x *= -1
 			xscale *= -1
 	if (is_in_group("obj_ancho")):
 		velocity.x = (xscale * movespeed)
 		if ($WallCheck.is_colliding() && $WallCheck.get_collider().is_in_group("obj_solid")):
 			state = global.states.stun
 			stunned = 100
+			
+func scr_pizzagoblin_throw():
+	pass
+
+func scr_enemy_chase():
+	var obj_player = utils.get_player()
+	if (position.x != obj_player.position.x - 50 && (!(xscale == -(sign((position.x - obj_player.position.x - 50)))))):
+		movespeed = 7
+		xscale = (-(sign((position.x - obj_player.position.x - 50))))
+		momentum = ((-xscale) * (movespeed + 4))
+	velocity.x = ((xscale * movespeed) + momentum)
+	if (momentum > 0):
+		momentum -= 0.1
+	if (momentum <= 0):
+		momentum += 0.1
 

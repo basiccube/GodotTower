@@ -6,6 +6,7 @@
 extents = Vector2( 16, 16 )
 
 [node name="obj_platform" type="StaticBody2D" groups=["obj_platform"]]
+z_index = -5
 collision_layer = 2
 collision_mask = 0
 

@@ -129,6 +129,9 @@ position = Vector2( 0, 24 )
 [node name="OppositeWallCheck" parent="." index="4"]
 position = Vector2( 0, 24 )
 
-[node name="Collision" parent="." index="8"]
+[node name="PlatformCheck" parent="." index="5"]
+cast_to = Vector2( 0, 32 )
+
+[node name="Collision" parent="." index="9"]
 position = Vector2( 4, 34 )
 shape = SubResource( 6 )

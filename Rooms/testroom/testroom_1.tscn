@@ -7,8 +7,8 @@
 [ext_resource path="res://Objects/Level/obj_camlimit_right.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Level/obj_camlimit_bottom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Objects/Level/obj_hallway.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Objects/Level/obj_spawnpoint.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/Warps/obj_spawnpoint.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objects/Collectibles/obj_collect.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_pizzaboy.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_cheeseslime.tscn" type="PackedScene" id=12]
@@ -27,9 +27,8 @@
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.25, 0.25 )
-motion_offset = Vector2( 0, 300 )
-motion_mirroring = Vector2( 600, 539 )
+motion_scale = Vector2( 0.25, 1 )
+motion_mirroring = Vector2( 1200, 1078 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource( 19 )

@@ -4,7 +4,7 @@
 [ext_resource path="res://Objects/Level/obj_camlimit_bottom.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Level/obj_camlimit_right.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Objects/Level/obj_boxofpizza.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Warps/obj_boxofpizza.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Collision/obj_slope.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/Level/obj_camlimit_left.tscn" type="PackedScene" id=8]
@@ -16,16 +16,15 @@
 [ext_resource path="res://Objects/Destructibles/obj_destroyable2escape.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Objects/Destructibles/obj_destroyable2_bigescape.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Objects/Destructibles/obj_destroyableescape.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Objects/Level/obj_hallway.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=17]
 
 [node name="testroom_2" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.25, 0.25 )
-motion_offset = Vector2( 0, 300 )
-motion_mirroring = Vector2( 600, 539 )
+motion_scale = Vector2( 0.25, 1 )
+motion_mirroring = Vector2( 1200, 1078 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource( 1 )

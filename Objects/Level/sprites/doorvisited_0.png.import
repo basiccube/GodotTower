@@ -2,16 +2,11 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/doorvisited_0.png-c753e70642839fd40403e1737cba5c4e.stex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Objects/Level/sprites/doorvisited_0.png"
-dest_files=[ "res://.import/doorvisited_0.png-c753e70642839fd40403e1737cba5c4e.stex" ]
-
 [params]
 
 compress/mode=0

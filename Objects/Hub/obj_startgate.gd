@@ -40,6 +40,12 @@ func _process(delta):
 		$ScoreLabel.text = str(highscore)
 		$SecretLabel.text = str(secretcount) + " OF 6 SECRET"
 		match targetLevel:
+			"testroom":
+				for obj in get_tree().get_nodes_in_group("obj_tv"):
+					obj.message = "TEST LEVEL"
+					obj.showtext = true
+					obj.resettimer.wait_time = 0.03
+					obj.resettimer.start()
 			"entrance":
 				for obj in get_tree().get_nodes_in_group("obj_tv"):
 					obj.message = "ENTRANCE"

@@ -8,7 +8,7 @@
 [ext_resource path="res://Objects/Level/obj_camlimit_bottom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Tilesets/tile_tower.tres" type="TileSet" id=8]
-[ext_resource path="res://Objects/Level/obj_spawnpoint.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/Warps/obj_spawnpoint.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Backgrounds/bg_tower_0.png" type="Texture" id=10]
 
 [node name="hub_room1" type="Node2D"]
@@ -17,7 +17,7 @@
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.25, 1 )
-motion_mirroring = Vector2( 600, 539 )
+motion_mirroring = Vector2( 1200, 1078 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource( 10 )
@@ -53,7 +53,6 @@ position = Vector2( 2400, 128 )
 scale = Vector2( 12, 10 )
 
 [node name="obj_camlimit_left" parent="." instance=ExtResource( 4 )]
-position = Vector2( -48, 0 )
 
 [node name="obj_camlimit_top" parent="." instance=ExtResource( 7 )]
 
@@ -65,6 +64,11 @@ position = Vector2( 2500, 0 )
 
 [node name="obj_startgate" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1056, 320 )
+
+[node name="obj_startgate2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1344, 320 )
+targetLevel = "entrance"
+targetRoom = "entrance_1"
 
 [node name="obj_doorblocked" parent="." instance=ExtResource( 3 )]
 position = Vector2( 320, 352 )

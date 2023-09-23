@@ -1,0 +1,56 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Objects/Collectibles/sprites/treasure1_7.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Collectibles/sprites/treasure1_8.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Collectibles/sprites/treasure1_6.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Collectibles/sprites/treasure1_9.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Collectibles/sprites/treasure1_3.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Collectibles/sprites/treasure1_5.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Collectibles/sprites/treasure1_10.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Collectibles/sprites/treasure1_11.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Collectibles/sprites/treasure1_1.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Collectibles/sprites/treasure1_2.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Collectibles/sprites/treasure1_4.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Collectibles/sprites/treasure1_0.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Collectibles/sprites/treasure1pick_0.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Collectibles/sprites/treasure1pick_1.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Collectibles/sprites/treasure1pick_2.png" type="Texture" id=15]
+[ext_resource path="res://Objects/Collectibles/obj_treasure.gd" type="Script" id=16]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "treasure1",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "treasure1pick",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 19, 24 )
+
+[node name="obj_treasure" type="Area2D" groups=["obj_treasure"]]
+z_index = -2
+collision_layer = 4
+script = ExtResource( 16 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
+animation = "treasure1"
+speed_scale = 0.35
+centered = false
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 51, 56 )
+shape = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_obj_treasure_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

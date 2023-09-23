@@ -36,6 +36,8 @@ func _process(delta):
 			scr_enemy_hit()
 		global.states.stun:
 			scr_enemy_stun()
+		global.states.pizzagoblinthrow:
+			scr_pizzagoblin_throw()
 		global.states.grabbed:
 			scr_enemy_grabbed()
 	var obj_player = utils.get_player()

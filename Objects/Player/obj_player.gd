@@ -133,7 +133,7 @@ func _process(delta):
 		$CrouchCheck.enabled = false
 	for destructible in $DestructibleArea.get_overlapping_bodies():
 		if (destructible.is_in_group("obj_destructibles")):
-			if (state == global.states.mach2 || state == global.states.mach3 || state == global.states.machroll || state == global.states.knightpepslopes || state == global.states.tumble):
+			if (state == global.states.mach2 || state == global.states.mach3 || state == global.states.machroll || state == global.states.knightpepslopes || state == global.states.tumble || state == global.states.crouchslide):
 				destructible.destroy()
 				if (state == global.states.mach2):
 					machpunchAnim = 1
@@ -224,6 +224,8 @@ func _process(delta):
 				elif (state != global.states.hurt && hurted == 0 && state != global.states.bump && !cutscene):
 					if collision.collider.is_in_group("obj_forkhitbox"):
 						position.x += (8 * (-xscale))
+					if (collision.collider.is_in_group("obj_minijohn_hitbox") && (instakillmove == 1 || state == global.states.punch || state == global.states.handstandjump)):
+						break
 					utils.playsound("PepHurt")
 					$HurtTimer.wait_time = 1
 					$HurtTimer.start()
@@ -277,6 +279,11 @@ func _process(delta):
 							suplexmove = 0
 							velocity.y = -11
 						baddie.destroy()
+					if (state == global.states.slipnslide):
+						utils.playsound("Punch")
+						global.hit += 1
+						global.combotime = 60
+						baddie.destroy()
 					if (global_position.y < baddie.global_position.y && attacking == 0 && $PeppinoSprite.animation != "mach2jump" && (state == global.states.jump || state == global.states.mach1 || state == global.states.grab) && velocity.y >= 0 && baddie.velocity.y >= 0 && $PeppinoSprite.animation != "stompprep"):
 						utils.playsound("Stomp")
 						baddie.state = global.states.stun
@@ -294,7 +301,7 @@ func _process(delta):
 							velocity.y = -9
 							if (state != global.states.grab):
 								$PeppinoSprite.animation = "stompprep"
-					if (baddie.state != global.states.pizzagoblinthrow && baddie.velocity.y >= 0 && state != global.states.tackle && state != global.states.superslam && state != global.states.machslide && state != global.states.freefall && state != global.states.mach2 && state != global.states.handstandjump && state != global.states.mach3 && state != global.states.machroll):
+					if (baddie.state != global.states.pizzagoblinthrow && baddie.velocity.y >= 0 && state != global.states.tackle && state != global.states.superslam && state != global.states.machslide && state != global.states.freefall && state != global.states.mach2 && state != global.states.handstandjump && state != global.states.mach3 && state != global.states.machroll && state != global.states.slipnslide):
 						utils.playsound("Bump")
 						if (state != global.states.bombpep && state != global.states.mach1):
 							movespeed = 0
@@ -402,6 +409,10 @@ func _process(delta):
 			scr_player_ladder()
 		global.states.tackle:
 			scr_player_tackle()
+		global.states.gottreasure:
+			scr_player_gottreasure()
+		global.states.slipnslide:
+			scr_player_slipnslide()
 	scr_playersounds()
 	if (is_on_floor() && state != global.states.handstandjump):
 		suplexmove = 0
@@ -490,11 +501,14 @@ func _process(delta):
 func _physics_process(delta):
 	var snap_vector = Vector2.ZERO
 	if (!Input.is_action_pressed("key_jump") && (state != global.states.jump && state != global.states.climbwall && state != global.states.Sjump && state != global.states.Sjumpprep && state != global.states.bump && state != global.states.crouchjump && state != global.states.tumble)):
-		for slope in $FallArea.get_overlapping_bodies():
+		for slope in $SlopeArea.get_overlapping_bodies():
 			if (slope.is_in_group("obj_slope")):
+				if (state == global.states.mach2 || state == global.states.mach3 || state == global.states.tumble):
+					if (velocity.y < -6):
+						velocity.y = 0
 				snap_vector = Vector2.DOWN * 20
 	if state != global.states.titlescreen:
-		if state != global.states.backbreaker && state != global.states.Sjumpland && state != global.states.ladder && (state != global.states.door && ($PeppinoSprite.animation != "downpizzabox" && $PeppinoSprite.animation != "uppizzabox")):
+		if state != global.states.backbreaker && state != global.states.gottreasure && state != global.states.Sjumpland && state != global.states.ladder && (state != global.states.door && ($PeppinoSprite.animation != "downpizzabox" && $PeppinoSprite.animation != "uppizzabox")):
 			velocity.y += grav
 		velocity = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, true, 4, 1)
 		
@@ -833,7 +847,7 @@ func scr_player_jump():
 		xscale = move
 	$PeppinoSprite.speed_scale = 0.35
 	if (is_on_floor() && ($PeppinoSprite.animation == "facestomp" || $PeppinoSprite.animation == "freefall")):
-		for i in utils.get_tree().get_nodes_in_group("obj_baddie"):
+		for i in get_tree().get_nodes_in_group("obj_baddie"):
 			if (i.is_on_floor() && i.screenvisible):
 				i.velocity.y = -7
 				i.velocity.x = 0
@@ -1996,7 +2010,7 @@ func scr_player_superslam():
 		effectid.scale.x = xscale
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_landcloud.tscn")
 		freefallstart = 0
-		for i in utils.get_tree().get_nodes_in_group("obj_baddie"):
+		for i in get_tree().get_nodes_in_group("obj_baddie"):
 			if (i.is_on_floor() && i.screenvisible):
 				i.velocity.y = -7
 				i.velocity.x = 0
@@ -2088,6 +2102,49 @@ func scr_player_tackle():
 		state = global.states.normal
 	$PeppinoSprite.speed_scale = 0.35
 	
+func scr_player_gottreasure():
+	mach2 = 0
+	$PeppinoSprite.animation = "gottreasure"
+	$PeppinoSprite.speed_scale = 0.2
+	
+func scr_player_slipnslide():
+	mach2 = 0
+	jumpAnim = 1
+	landAnim = 0
+	moveAnim = 1
+	stopAnim = 1
+	crouchslideAnim = 1
+	crouchAnim = 0
+	machhitAnim = 0
+	velocity.x = (xscale * movespeed)
+	if ($SlopeCheck.is_colliding() && $SlopeCheck.get_collider().is_in_group("obj_slope")):
+		movespeed += 0.2
+	else:
+		if (movespeed > 0):
+			movespeed -= 0.2
+	if (movespeed <= 0):
+		for slope in $SlopeArea.get_overlapping_bodies():
+			if (!slope.is_in_group("obj_slope")):
+				state = global.states.normal
+				movespeed = 0
+				mach2 = 0
+	if (is_colliding_with_wall()):
+		state = global.states.bump
+		velocity.x = (2 * (-xscale))
+		velocity.y = -3
+		mach2 = 0
+		utils.instance_create(position.x + 10, position.y + 10, "res://Objects/Visuals/obj_bumpeffect.tscn")
+	$PeppinoSprite.animation = "slipnslide"
+	$PeppinoSprite.speed_scale = 0.35
+	if (!utils.instance_exists("obj_slidecloud") && is_on_floor() && movespeed > 1.5):
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_slidecloud.tscn")
+		for i in get_tree().get_nodes_in_group("obj_slidecloud"):
+			if xscale == 1:
+				i.sprite.flip_h = false
+			elif xscale == -1:
+				i.sprite.flip_h = true
+		
+	
 func scr_playerreset():
 	if (utils.instance_exists("obj_endlevelfade")):
 		for i in get_tree().get_nodes_in_group("obj_endlevelfade"):
@@ -2144,6 +2201,7 @@ func scr_playerreset():
 	input_buffer_secondjump = 8
 	input_buffer_highjump = 8
 	global.key_inv = 0
+	global.toppintotal = 1
 	global.shroomfollow = false
 	global.cheesefollow = false
 	global.tomatofollow = false

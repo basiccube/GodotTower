@@ -35,6 +35,8 @@ func _process(delta):
 			scr_enemy_hit()
 		global.states.stun:
 			scr_enemy_stun()
+		global.states.pizzagoblinthrow:
+			scr_pizzagoblin_throw()
 		global.states.grabbed:
 			scr_enemy_grabbed()
 	if (state == global.states.walk):

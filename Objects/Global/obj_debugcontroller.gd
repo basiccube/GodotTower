@@ -11,3 +11,9 @@ func _process(delta):
 		i.visible = global.debugcollisions
 	for i in get_tree().get_nodes_in_group("obj_platform"):
 		i.visible = global.debugcollisions
+	for i in get_tree().get_nodes_in_group("obj_secretblock"):
+		i.visible = global.debugcollisions
+	for i in get_tree().get_nodes_in_group("obj_secretbigblock"):
+		i.visible = global.debugcollisions
+	for i in get_tree().get_nodes_in_group("obj_secretmetalblock"):
+		i.visible = global.debugcollisions

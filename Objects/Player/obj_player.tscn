@@ -1,4 +1,4 @@
-[gd_scene load_steps=1344 format=2]
+[gd_scene load_steps=1357 format=2]
 
 [ext_resource path="res://Objects/Player/sprites/idle_4.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/sprites/idle_0.png" type="Texture" id=2]
@@ -1335,6 +1335,18 @@
 [ext_resource path="res://Objects/Player/sprites/tackle_0.png" type="Texture" id=1333]
 [ext_resource path="res://Objects/Player/sprites/tackle_5.png" type="Texture" id=1334]
 [ext_resource path="res://Objects/Player/sprites/tackle_6.png" type="Texture" id=1335]
+[ext_resource path="res://Objects/Player/sprites/gottreasure_0.png" type="Texture" id=1336]
+[ext_resource path="res://Objects/Player/sprites/gottreasure_1.png" type="Texture" id=1337]
+[ext_resource path="res://Objects/Player/sprites/gottreasure_2.png" type="Texture" id=1338]
+[ext_resource path="res://Objects/Player/sprites/slipnslide_0.png" type="Texture" id=1339]
+[ext_resource path="res://Objects/Player/sprites/slipnslide_1.png" type="Texture" id=1340]
+[ext_resource path="res://Objects/Player/sprites/slipnslide_2.png" type="Texture" id=1341]
+[ext_resource path="res://Objects/Player/sprites/slipnslide_4.png" type="Texture" id=1342]
+[ext_resource path="res://Objects/Player/sprites/slipnslide_5.png" type="Texture" id=1343]
+[ext_resource path="res://Objects/Player/sprites/slipnslide_7.png" type="Texture" id=1344]
+[ext_resource path="res://Objects/Player/sprites/slipnslide_6.png" type="Texture" id=1345]
+[ext_resource path="res://Objects/Player/sprites/slipnslide_8.png" type="Texture" id=1346]
+[ext_resource path="res://Objects/Player/sprites/slipnslide_3.png" type="Texture" id=1347]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 1204 )
@@ -1508,6 +1520,11 @@ animations = [ {
 "frames": [ ExtResource( 368 ), ExtResource( 367 ), ExtResource( 369 ) ],
 "loop": true,
 "name": "freefall",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1336 ), ExtResource( 1337 ), ExtResource( 1338 ) ],
+"loop": true,
+"name": "gottreasure",
 "speed": 60.0
 }, {
 "frames": [ ExtResource( 72 ), ExtResource( 146 ), ExtResource( 128 ), ExtResource( 145 ), ExtResource( 149 ), ExtResource( 127 ), ExtResource( 139 ), ExtResource( 141 ), ExtResource( 138 ), ExtResource( 140 ), ExtResource( 142 ), ExtResource( 151 ), ExtResource( 150 ), ExtResource( 147 ), ExtResource( 129 ), ExtResource( 143 ), ExtResource( 130 ), ExtResource( 148 ), ExtResource( 131 ), ExtResource( 135 ), ExtResource( 132 ), ExtResource( 137 ), ExtResource( 144 ), ExtResource( 136 ), ExtResource( 133 ), ExtResource( 134 ) ],
@@ -1845,6 +1862,11 @@ animations = [ {
 "name": "shotgunjump3",
 "speed": 60.0
 }, {
+"frames": [ ExtResource( 1339 ), ExtResource( 1340 ), ExtResource( 1341 ), ExtResource( 1347 ), ExtResource( 1342 ), ExtResource( 1343 ), ExtResource( 1345 ), ExtResource( 1344 ), ExtResource( 1346 ) ],
+"loop": true,
+"name": "slipnslide",
+"speed": 60.0
+}, {
 "frames": [ ExtResource( 414 ), ExtResource( 415 ), ExtResource( 413 ) ],
 "loop": true,
 "name": "stomp",
@@ -1988,6 +2010,9 @@ extents = Vector2( 24, 32 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 12, 24 )
 
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 48, 16 )
+
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 12, 2 )
 
@@ -2071,17 +2096,24 @@ shape = SubResource( 5 )
 modulate = Color( 0.866667, 0.866667, 0.866667, 0.572549 )
 position = Vector2( 48, 32 )
 collision_mask = 2
-priority = 1.0
 
 [node name="Collision" type="CollisionShape2D" parent="FallArea"]
 position = Vector2( 0, 88 )
 shape = SubResource( 6 )
 
+[node name="SlopeArea" type="Area2D" parent="."]
+modulate = Color( 0.866667, 0.866667, 0.866667, 0.572549 )
+position = Vector2( 48, 32 )
+collision_mask = 2
+
+[node name="Collision" type="CollisionShape2D" parent="SlopeArea"]
+position = Vector2( 0, 80 )
+shape = SubResource( 9 )
+
 [node name="JumpArea" type="Area2D" parent="."]
 modulate = Color( 0.866667, 0.866667, 0.866667, 0.572549 )
 position = Vector2( 48, 32 )
 collision_mask = 2
-priority = 1.0
 
 [node name="Collision" type="CollisionShape2D" parent="JumpArea"]
 position = Vector2( 0, 6 )
@@ -2091,7 +2123,6 @@ shape = SubResource( 7 )
 modulate = Color( 0.866667, 0.866667, 0.866667, 0.572549 )
 position = Vector2( 48, 32 )
 collision_mask = 2
-priority = 1.0
 
 [node name="Collision" type="CollisionShape2D" parent="SJumpArea"]
 position = Vector2( 0, -14 )
