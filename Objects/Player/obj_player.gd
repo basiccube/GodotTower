@@ -534,23 +534,23 @@ func place_meeting(collisionpos: Vector2, object: String):
 			
 func is_colliding_with_wall():
 	if (state == global.states.mach1 || state == global.states.normal || state == global.states.machslide):
-		if ((($SolidCheck.is_colliding() && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_destructibles") || $SolidCheck.get_collider().is_in_group("obj_metalblock"))) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider().is_in_group("obj_solid"))) && !utils.instance_exists("obj_fadeout")):
+		if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_destructibles") || $SolidCheck.get_collider().is_in_group("obj_metalblock"))) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider() != null && $SolidCheck2.get_collider().is_in_group("obj_solid"))) && !utils.instance_exists("obj_fadeout")):
 			return true
 		else:
 			return false
 	elif (state == global.states.mach2):
-		if ((($SolidCheck.is_colliding() && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_metalblock"))) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider().is_in_group("obj_solid"))) && !utils.instance_exists("obj_fadeout")):
+		if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_metalblock"))) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider() != null && $SolidCheck2.get_collider().is_in_group("obj_solid"))) && !utils.instance_exists("obj_fadeout")):
 			return true
 		else:
 			return false
 	else:
-		if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider().is_in_group("obj_solid")) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider().is_in_group("obj_solid"))) && !utils.instance_exists("obj_fadeout")):
+		if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && $SolidCheck.get_collider().is_in_group("obj_solid")) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider() != null && $SolidCheck2.get_collider().is_in_group("obj_solid"))) && !utils.instance_exists("obj_fadeout")):
 			return true
 		else:
 			return false
 		
 func is_wallclimbable():
-	if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider().is_in_group("obj_solid")) || ($WallClimbCheck.is_colliding() && $WallClimbCheck.get_collider().is_in_group("obj_solid")))):
+	if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && $SolidCheck.get_collider().is_in_group("obj_solid")) || ($WallClimbCheck.is_colliding() && $WallClimbCheck.get_collider() != null && $WallClimbCheck.get_collider().is_in_group("obj_solid")))):
 		return true
 	else:
 		return false

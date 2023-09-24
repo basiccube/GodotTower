@@ -2,6 +2,13 @@ extends Node
 
 onready var GameNode = get_node(@"/root/Game")
 
+# These variables are simply used to preload any objects
+# that are known to freeze the game constantly.
+# The variables themselves aren't used for any other purpose.
+var preload_debris = preload("res://Objects/Visuals/obj_debris.tscn")
+var preload_baddiedead = preload("res://Objects/Baddies/obj_sausageman_dead.tscn")
+var preload_baddiegibs = preload("res://Objects/Baddies/obj_baddiegibs.tscn")
+
 func randi_range(from, to):
 	if from > to:
 		var old_from = from
@@ -12,6 +19,12 @@ func randi_range(from, to):
 func instance_create(x, y, scene):
 	var loadedscene = load(scene)
 	var id = loadedscene.instance()
+	GameNode.add_child(id)
+	id.position = Vector2(x, y)
+	return id
+	
+func instance_create_preload(x, y, preloadobject):
+	var id = preloadobject.instance()
 	GameNode.add_child(id)
 	id.position = Vector2(x, y)
 	return id

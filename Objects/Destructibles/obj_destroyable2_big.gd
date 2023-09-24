@@ -20,9 +20,9 @@ func destroy():
 	var debris7 = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_debris.tscn")
 	debris7.sprite_index = "bigpizzadebris"
 	var pizzaslice1 = utils.instance_create_level(global_position.x + 32, global_position.y + 32, "res://Objects/Collectibles/obj_pizzaslice.tscn")
-	pizzaslice1.speed = 2
+	pizzaslice1.xscale = 1
 	var pizzaslice2 = utils.instance_create_level(global_position.x + 32, global_position.y + 32, "res://Objects/Collectibles/obj_pizzaslice.tscn")
-	pizzaslice2.speed = -2
+	pizzaslice2.xscale = -1
 	if (utils.soundplaying("BreakBlock1") || utils.soundplaying("BreakBlock2")):
 		utils.stopsound("BreakBlock1")
 		utils.stopsound("BreakBlock2")

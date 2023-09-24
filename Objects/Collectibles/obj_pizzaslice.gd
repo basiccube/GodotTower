@@ -20,7 +20,7 @@ func _process(delta):
 		$WallCheck.scale.x = -1
 	position.x += velocity.x
 	position.y += velocity.y
-	if ($WallCheck.is_colliding() && ($WallCheck.get_collider().is_in_group("obj_solid") || $WallCheck.get_collider().is_in_group("obj_destructibles") || $WallCheck.get_collider().is_in_group("obj_metalblock"))):
+	if ($WallCheck.is_colliding() && $WallCheck.get_collider() != null && ($WallCheck.get_collider().is_in_group("obj_solid") || $WallCheck.get_collider().is_in_group("obj_destructibles") || $WallCheck.get_collider().is_in_group("obj_metalblock"))):
 		$WallCheck.scale.x *= -1
 		xscale *= -1
 	

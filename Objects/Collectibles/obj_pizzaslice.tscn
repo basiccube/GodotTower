@@ -48,9 +48,9 @@ position = Vector2( 0, 8 )
 shape = SubResource( 2 )
 
 [node name="WallCheck" type="RayCast2D" parent="."]
-position = Vector2( 0, 8 )
+position = Vector2( 8, 8 )
 enabled = true
-cast_to = Vector2( 16, 0 )
+cast_to = Vector2( 8, 0 )
 collision_mask = 2
 
 [node name="PizzasliceArea" type="Area2D" parent="."]
