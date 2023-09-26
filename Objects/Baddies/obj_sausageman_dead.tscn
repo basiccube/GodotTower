@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Objects/Baddies/sprites/sausageman/sausageman_shot_0.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Baddies/obj_sausageman_dead.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Objects/Baddies/sprites/forknight/forknight_dead_0.png" type="Texture" id=5]
 [ext_resource path="res://Objects/Level/sprites/hungrypillar_dead_0.png" type="Texture" id=6]
 [ext_resource path="res://Objects/Baddies/sprites/minijohn/minijohn_dead_0.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Baddies/sprites/swedishmonkey/swedishmonkey_dead_0.png" type="Texture" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -39,6 +40,11 @@ animations = [ {
 "loop": true,
 "name": "slimedead",
 "speed": 60.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "swedishmonkey_dead",
+"speed": 60.0
 } ]
 
 [node name="obj_sausageman_dead" type="Node2D" groups=["obj_sausageman_dead"]]
@@ -46,7 +52,7 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "minijohn_dead"
+animation = "swedishmonkey_dead"
 
 [node name="MachAllTimer" type="Timer" parent="."]
 wait_time = 0.083

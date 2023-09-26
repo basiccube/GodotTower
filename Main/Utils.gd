@@ -8,6 +8,12 @@ onready var GameNode = get_node(@"/root/Game")
 var preload_debris = preload("res://Objects/Visuals/obj_debris.tscn")
 var preload_baddiedead = preload("res://Objects/Baddies/obj_sausageman_dead.tscn")
 var preload_baddiegibs = preload("res://Objects/Baddies/obj_baddiegibs.tscn")
+var preload_taunteffect = preload("res://Objects/Visuals/obj_taunteffect.tscn")
+var preload_pizzakinshroom = preload("res://Objects/Collectibles/obj_pizzakinshroom.tscn")
+var preload_pizzakincheese = preload("res://Objects/Collectibles/obj_pizzakincheese.tscn")
+var preload_pizzakintomato = preload("res://Objects/Collectibles/obj_pizzakintomato.tscn")
+var preload_pizzakinsausage = preload("res://Objects/Collectibles/obj_pizzakinsausage.tscn")
+var preload_pizzakinpineapple = preload("res://Objects/Collectibles/obj_pizzakinpineapple.tscn")
 
 func randi_range(from, to):
 	if from > to:

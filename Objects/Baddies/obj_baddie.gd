@@ -33,6 +33,7 @@ var thrown = false
 var straightthrow = false
 var hp = 1
 var grav = 0.5
+var bombreset = 0
 export(int) var xscale = -1
 var sprite_index
 var screenvisible = false
@@ -557,7 +558,105 @@ func scr_enemy_charge():
 			stunned = 100
 			
 func scr_pizzagoblin_throw():
-	pass
+	var throw_frame = 0
+	var throw_sprite = "throw"
+	var reset_timer = 0
+	if (is_in_group("obj_pizzagoblin")):
+		throw_frame = 2
+		throw_sprite = "throwbomb"
+		reset_timer = 200
+	elif (is_in_group("obj_cheeserobot")):
+		throw_frame = 6
+		throw_sprite = "attack"
+		reset_timer = 200
+	elif (is_in_group("obj_spitcheese")):
+		throw_frame = 2
+		throw_sprite = "spit"
+		reset_timer = 100
+	elif (is_in_group("obj_trash")):
+		throw_frame = 2
+		throw_sprite = "throw"
+		reset_timer = 100
+	elif (is_in_group("obj_invtrash")):
+		throw_frame = 2
+		throw_sprite = "throw"
+		reset_timer = 100
+	elif (is_in_group("obj_robot")):
+		throw_frame = 2
+		throw_sprite = "attack"
+		reset_timer = 200
+	elif (is_in_group("obj_kentukykenny")):
+		throw_frame = 8
+		throw_sprite = "throw"
+		reset_timer = 200
+	elif (is_in_group("obj_pizzard")):
+		throw_frame = 6
+		throw_sprite = "shoot"
+		reset_timer = 100
+	elif (is_in_group("obj_pepgoblin")):
+		throw_frame = 1
+		throw_sprite = "kick"
+		reset_timer = 100
+	elif (is_in_group("obj_swedishmonkey")):
+		throw_frame = 15
+		throw_sprite = "eat"
+		reset_timer = 200
+	velocity.x = 0
+	if ($Sprite.frame == $Sprite.frames.get_frame_count($Sprite.animation) - 1):
+		state = global.states.walk
+	if (bombreset == 0 && $Sprite.frame == throw_frame):
+		bombreset = reset_timer
+		$Sprite.animation = throw_sprite
+		if ($ScreenVisibility.is_on_screen()):
+			utils.playsound("EnemyProjectile")
+		if (is_in_group("obj_pizzagoblin")):
+			var bombid = utils.instance_create_level(position.x, position.y, "res://Objects/BaddieObjects/obj_pizzagoblinbomb.tscn")
+			bombid.velocity.x = (xscale * 10)
+			bombid.velocity.y = -8
+		elif (is_in_group("obj_cheeserobot")):
+			var blobid = utils.instance_create_level(position.x, position.y, "res://Objects/BaddieObjects/obj_cheeseblob.tscn")
+			blobid.sprite_index = "goop"
+			blobid.scale.x = xscale
+			blobid.velocity.x = (xscale * 8)
+			blobid.velocity.y = 0
+			blobid.grav = 0
+		elif (is_in_group("obj_spitcheese")):
+			var blobid = utils.instance_create_level(position.x + (xscale * 6), position.y - 6, "res://Objects/BaddieObjects/obj_spitcheesespike.tscn")
+			blobid.scale.x = xscale
+			blobid.velocity.x = (xscale * 5)
+			blobid.velocity.y = -6
+		elif (is_in_group("obj_trash") || is_in_group("obj_invtrash")):
+			var blobid = utils.instance_create_level(position.x + (xscale * 6), position.y - 6, "res://Objects/BaddieObjects/obj_cheeseball.tscn")
+			blobid.scale.x = xscale
+			blobid.velocity.x = (xscale * 5)
+			blobid.velocity.y = -4
+		elif (is_in_group("obj_robot")):
+			var blobid = utils.instance_create_level(position.x, position.y, "res://Objects/BaddieObjects/obj_robotknife.tscn")
+			blobid.scale.x = xscale
+			blobid.velocity.x = (xscale * 5)
+		elif (is_in_group("obj_kentukykenny")):
+			var blobid = utils.instance_create_level(position.x, position.y, "res://Objects/BaddieObjects/obj_kentukykenny_projectile.tscn")
+			blobid.scale.x = xscale
+		elif (is_in_group("obj_pizzard")):
+			var blobid = utils.instance_create_level(position.x, position.y, "res://Objects/BaddieObjects/obj_pizzard_bolt.tscn")
+			blobid.scale.x = xscale
+		elif (is_in_group("obj_swedishmonkey")):
+			var blobid = utils.instance_create_level(position.x, position.y, "res://Objects/Level/obj_slipnslide.tscn")
+			blobid.baddieid = name
+			blobid.scale.x = xscale
+			blobid.velocity.x = ((-xscale) * 4)
+			blobid.velocity.y = -4
+			for i in get_tree().get_nodes_in_group("obj_slipnslide"):
+				if (i.baddieid == name):
+					i.banana += 1
+		elif (is_in_group("obj_pepgoblin")):
+			var blobid = utils.instance_create_level(position.x, position.y, "res://Objects/Hitboxes/obj_pepgoblin_kickhitbox.tscn")
+			blobid.scale.x = xscale
+			blobid.baddieid = name
+	if (!is_on_floor() && velocity.x < 0):
+		velocity.x += 0.1
+	elif (!is_on_floor() && velocity.x > 0):
+		velocity.x -= 0.1
 
 func scr_enemy_chase():
 	var obj_player = utils.get_player()

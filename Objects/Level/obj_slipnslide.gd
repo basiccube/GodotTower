@@ -5,12 +5,13 @@ var velocity = Vector2.ZERO
 var grav = 0.4
 var drop = false
 var banana = 0
+var baddieid = ""
 
 func destroy():
-	utils.instance_create((position.x + utils.randi_range(-10, 10)), (position.y + utils.randi_range(-10, 10)), "res://Objects/Visuals/obj_cloudeffect.tscn")
-	utils.instance_create((position.x + utils.randi_range(-10, 10)), (position.y + utils.randi_range(-10, 10)), "res://Objects/Visuals/obj_cloudeffect.tscn")
-	utils.instance_create((position.x + utils.randi_range(-10, 10)), (position.y + utils.randi_range(-10, 10)), "res://Objects/Visuals/obj_cloudeffect.tscn")
-	utils.instance_create((position.x + utils.randi_range(-10, 10)), (position.y + utils.randi_range(-10, 10)), "res://Objects/Visuals/obj_cloudeffect.tscn")
+	utils.instance_create(((position.x - 50) + utils.randi_range(-10, 10)), ((position.y - 32) + utils.randi_range(-10, 10)), "res://Objects/Visuals/obj_cloudeffect.tscn")
+	utils.instance_create(((position.x - 50) + utils.randi_range(-10, 10)), ((position.y - 32) + utils.randi_range(-10, 10)), "res://Objects/Visuals/obj_cloudeffect.tscn")
+	utils.instance_create(((position.x - 50) + utils.randi_range(-10, 10)), ((position.y - 32) + utils.randi_range(-10, 10)), "res://Objects/Visuals/obj_cloudeffect.tscn")
+	utils.instance_create(((position.x - 50) + utils.randi_range(-10, 10)), ((position.y - 32) + utils.randi_range(-10, 10)), "res://Objects/Visuals/obj_cloudeffect.tscn")
 	queue_free()
 
 func _process(delta):

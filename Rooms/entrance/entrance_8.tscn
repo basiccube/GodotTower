@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Objects/Baddies/Enemies/obj_cheeseslime.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Objects/Warps/obj_teleporter.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Objects/Collectibles/obj_pizzabox.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_swedishmonkey.tscn" type="PackedScene" id=19]
 
 [node name="entrance_2" type="Node2D"]
 
@@ -585,3 +586,9 @@ portal = true
 [node name="obj_pizzabox" parent="." instance=ExtResource( 18 )]
 position = Vector2( 3872, 576 )
 content = "sausage"
+
+[node name="obj_swedishmonkey" parent="." instance=ExtResource( 19 )]
+position = Vector2( 3040, 528 )
+
+[node name="obj_swedishmonkey2" parent="." instance=ExtResource( 19 )]
+position = Vector2( 5232, 528 )
