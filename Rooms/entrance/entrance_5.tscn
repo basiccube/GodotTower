@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Objects/Baddies/Enemies/obj_cheeseslime.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Objects/Warps/obj_door.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Objects/Collectibles/obj_pizzabox.tscn" type="PackedScene" id=20]
 
 [node name="entrance_2" type="Node2D"]
 
@@ -201,3 +202,7 @@ position = Vector2( 1792, 64 )
 targetDoor = "C"
 targetLevel = "entrance"
 targetRoom = "entrance_secret3"
+
+[node name="obj_pizzabox" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1408, 160 )
+content = "cheese"

@@ -1,0 +1,75 @@
+[gd_scene load_steps=37 format=2]
+
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_0.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_intro_11.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_panic_3.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_intro_10.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_run_4.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_intro_2.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_run_0.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_intro_0.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_5.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_intro_3.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_4.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_intro_5.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_2.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_intro_13.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_3.png" type="Texture" id=15]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_intro_6.png" type="Texture" id=16]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_intro_14.png" type="Texture" id=17]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_panic_1.png" type="Texture" id=18]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_panic_5.png" type="Texture" id=19]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_intro_4.png" type="Texture" id=20]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_intro_8.png" type="Texture" id=21]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_intro_9.png" type="Texture" id=22]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_1.png" type="Texture" id=23]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_intro_12.png" type="Texture" id=24]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_intro_1.png" type="Texture" id=25]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_panic_2.png" type="Texture" id=26]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_panic_4.png" type="Texture" id=27]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_intro_7.png" type="Texture" id=28]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_run_1.png" type="Texture" id=29]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_panic_0.png" type="Texture" id=30]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_run_3.png" type="Texture" id=31]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_run_5.png" type="Texture" id=32]
+[ext_resource path="res://Objects/Collectibles/sprites/toppins/toppincheese_run_2.png" type="Texture" id=33]
+[ext_resource path="res://Objects/Collectibles/obj_pizzakincheese.gd" type="Script" id=34]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 23 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "idle",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 25 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 20 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 28 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 24 ), ExtResource( 14 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "intro",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 18 ), ExtResource( 26 ), ExtResource( 3 ), ExtResource( 27 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "panic",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 29 ), ExtResource( 33 ), ExtResource( 31 ), ExtResource( 5 ), ExtResource( 32 ) ],
+"loop": true,
+"name": "run",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 16 )
+
+[node name="obj_pizzakincheese" type="Area2D" groups=["obj_pizzakincheese"]]
+z_index = 4
+collision_layer = 8
+script = ExtResource( 34 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
+animation = "idle"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 16 )
+shape = SubResource( 2 )

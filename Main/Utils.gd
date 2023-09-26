@@ -105,6 +105,17 @@ func room_goto(levelname, roomname):
 	newroominstance.name = "level"
 	GameNode.add_child(newroominstance)
 	utils.get_instance("obj_music").room_start()
+	if (roomname != "rank_room" && roomname != "timesuproom" && roomname != "Realtitlescreen"):
+		if (global.shroomfollow):
+			instance_create_level(utils.get_player().position.x + 50, utils.get_player().position.y + 64, "res://Objects/Collectibles/obj_pizzakinshroom.tscn")
+		if (global.cheesefollow):
+			instance_create_level(utils.get_player().position.x + 50, utils.get_player().position.y + 64, "res://Objects/Collectibles/obj_pizzakincheese.tscn")
+		if (global.tomatofollow):
+			instance_create_level(utils.get_player().position.x + 50, utils.get_player().position.y + 64, "res://Objects/Collectibles/obj_pizzakintomato.tscn")
+		if (global.sausagefollow):
+			instance_create_level(utils.get_player().position.x + 50, utils.get_player().position.y + 64, "res://Objects/Collectibles/obj_pizzakinsausage.tscn")
+		if (global.pineapplefollow):
+			instance_create_level(utils.get_player().position.x + 50, utils.get_player().position.y + 64, "res://Objects/Collectibles/obj_pizzakinpineapple.tscn")
 	
 func delete_tile_at(position):
 	var level_tilemap = utils.get_instance_level("TileMap")

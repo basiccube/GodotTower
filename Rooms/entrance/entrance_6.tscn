@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Objects/Warps/obj_boxofpizza.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_cheeseslime.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_minijohn.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Objects/Collectibles/obj_pizzabox.tscn" type="PackedScene" id=18]
 
 [node name="entrance_2" type="Node2D"]
 
@@ -250,3 +251,7 @@ position = Vector2( 816, 400 )
 
 [node name="obj_minijohn2" parent="." instance=ExtResource( 17 )]
 position = Vector2( 944, 400 )
+
+[node name="obj_pizzabox" parent="." instance=ExtResource( 18 )]
+position = Vector2( 320, 160 )
+content = "tomato"

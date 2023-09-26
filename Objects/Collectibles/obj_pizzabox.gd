@@ -22,28 +22,23 @@ func _process(delta):
 		global.collect += 1000
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_taunteffect.tscn")
 		if (content == "shroom"):
-			var pizzakinid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Misc/obj_pizzakinshroom.tscn")
-			pizzakinid.sprite_index = "intro"
+			var pizzakinid = utils.instance_create_level(global_position.x, global_position.y, "res://Objects/Collectibles/obj_pizzakinshroom.tscn")
 			global.shroomfollow = true
 		if (content == "sausage"):
-			var pizzakinid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Misc/obj_pizzakinsausage.tscn")
-			pizzakinid.sprite_index = "intro"
+			var pizzakinid = utils.instance_create_level(global_position.x, global_position.y, "res://Objects/Collectibles/obj_pizzakinsausage.tscn")
 			global.sausagefollow = true
 		if (content == "cheese"):
-			var pizzakinid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Misc/obj_pizzakincheese.tscn")
-			pizzakinid.sprite_index = "intro"
+			var pizzakinid = utils.instance_create_level(global_position.x, global_position.y, "res://Objects/Collectibles/obj_pizzakincheese.tscn")
 			global.cheesefollow = true
 		if (content == "tomato"):
-			var pizzakinid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Misc/obj_pizzakintomato.tscn")
-			pizzakinid.sprite_index = "intro"
+			var pizzakinid = utils.instance_create_level(global_position.x, global_position.y, "res://Objects/Collectibles/obj_pizzakintomato.tscn")
 			global.tomatofollow = true
 		if (content == "pineapple"):
-			var pizzakinid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Misc/obj_pizzakinpineapple.tscn")
-			pizzakinid.sprite_index = "intro"
+			var pizzakinid = utils.instance_create_level(global_position.x, global_position.y, "res://Objects/Collectibles/obj_pizzakinpineapple.tscn")
 			global.pineapplefollow = true
 		var obj_tv = utils.get_instance("obj_tv")
 		if (global.toppintotal < 5):
-			obj_tv.message = "YOU NEED " + str(5 - global.toppintotal) + " MOVE TOPPINS!"
+			obj_tv.message = "YOU NEED " + str(5 - global.toppintotal) + " MORE TOPPINS!"
 		if (global.toppintotal == 5):
 			obj_tv.message = "YOU HAVE ALL TOPPINS!"
 		obj_tv.showtext = true
@@ -51,5 +46,5 @@ func _process(delta):
 		obj_tv.resettimer.start()
 		global.toppintotal += 1
 		$Sprite.animation = "open"
-	if ($Sprite.animation == "open" && $Sprite.frame == "16"):
+	if ($Sprite.animation == "open" && $Sprite.frame == 16):
 		destroy()
