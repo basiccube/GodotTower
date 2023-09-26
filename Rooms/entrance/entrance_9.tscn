@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=2]
@@ -9,7 +9,7 @@
 [ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/Blocks/obj_minipillar.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Backgrounds/bg_tower_0.png" type="Texture" id=10]
+[ext_resource path="res://Backgrounds/bg_entrance2_0.png" type="Texture" id=10]
 [ext_resource path="res://Objects/Level/obj_ladder.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/Destructibles/obj_secretbigblock.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Objects/Destructibles/obj_destroyable3.tscn" type="PackedScene" id=13]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Objects/Collectibles/obj_pizzabox.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_swedishmonkey.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Backgrounds/bg_entrance1_0.png" type="Texture" id=21]
 
 [node name="entrance_2" type="Node2D"]
 
@@ -27,13 +28,19 @@
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.25, 1 )
-motion_mirroring = Vector2( 1200, 1078 )
+motion_mirroring = Vector2( 1920, 1024 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 21 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 1024 )
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource( 10 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 0, 0, 1200, 1078 )
+region_rect = Rect2( 0, 0, 1920, 1024 )
 
 [node name="obj_camlimit_left" parent="." instance=ExtResource( 4 )]
 

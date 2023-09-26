@@ -9,7 +9,7 @@
 [ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/Destructibles/obj_secretbigblock.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/Destructibles/obj_destroyable.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Backgrounds/bg_tower_0.png" type="Texture" id=10]
+[ext_resource path="res://Backgrounds/bg_entrance3_0.png" type="Texture" id=10]
 [ext_resource path="res://Objects/Destructibles/obj_destroyable2.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/Collectibles/obj_collect.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=13]
@@ -25,13 +25,13 @@
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.25, 1 )
-motion_mirroring = Vector2( 1200, 1078 )
+motion_mirroring = Vector2( 1920, 1024 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource( 10 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 0, 0, 1200, 1078 )
+region_rect = Rect2( 0, 0, 1920, 1024 )
 
 [node name="obj_camlimit_left" parent="." instance=ExtResource( 4 )]
 
