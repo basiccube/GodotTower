@@ -3,6 +3,7 @@ shader_type canvas_item;
 uniform sampler2D palette;
 uniform bool skip_first_row = true;
 uniform bool use_palette_alpha = false;
+uniform int current_palette = 0;
 uniform float fps = 6;
 
 void fragment() {
@@ -25,7 +26,7 @@ void fragment() {
 	if (idx >= 0.0) {
 		vec2 uv;
 		uv.x = idx / float(color_count.x - 1);
-		uv.y = (mod(TIME * fps, max(float(color_count.y - 1 - int(skip_first_row)), 1.0)) + float(skip_first_row))  / float(color_count.y - 1);
+		uv.y = (mod(TIME * fps, max(float(color_count.y - 1 - int(skip_first_row)), 1.0)) + float(skip_first_row) + float(current_palette))  / float(color_count.y - 1);
 		
 		vec4 palette_color = texture(palette, uv);
 		COLOR = vec4(palette_color.rgb, mix(original_color.a, palette_color.a, float(use_palette_alpha)));

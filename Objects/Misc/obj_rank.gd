@@ -30,6 +30,7 @@ func _process(delta):
 			$Sprite.animation = "rankNC"
 		if (global.rank == "d"):
 			$Sprite.animation = "rankND"
+	$Sprite.material.set_shader_param("current_palette", global.peppalette)
 
 func _on_Timer_timeout():
 	utils.stopsound("RankS")

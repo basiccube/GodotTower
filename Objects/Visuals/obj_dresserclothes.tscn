@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Objects/Visuals/sprites/dresserclothes.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Visuals/obj_dresserclothes.gd" type="Script" id=2]
+[ext_resource path="res://Shaders/PaletteSwap.gdshader" type="Shader" id=3]
+[ext_resource path="res://Objects/Player/peppalette.png" type="Texture" id=4]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 3 )
+shader_param/skip_first_row = true
+shader_param/use_palette_alpha = false
+shader_param/current_palette = 0
+shader_param/fps = 0.0
+shader_param/palette = ExtResource( 4 )
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "dresserclothes",
+"speed": 60.0
+} ]
+
+[node name="obj_dresserclothes" type="Node2D" groups=["obj_dresserclothes"]]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+material = SubResource( 2 )
+frames = SubResource( 1 )
+animation = "dresserclothes"
+
+[node name="CamVisibility" type="VisibilityNotifier2D" parent="."]
+rect = Rect2( -128, -128, 256, 256 )

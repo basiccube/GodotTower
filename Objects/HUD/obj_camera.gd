@@ -111,6 +111,7 @@ func _process(delta):
 			$FaceHUD.animation = "menacing"
 		else:
 			$FaceHUD.animation = "idle"
+		$FaceHUD.material.set_shader_param("current_palette", global.peppalette)
 		# Speedbar code
 		if (obj_player.movespeed < 2.4 || (!(obj_player.state == global.states.mach1 || obj_player.state == global.states.mach2 || obj_player.state == global.states.mach3 || obj_player.state == global.states.climbwall || obj_player.state == global.states.machslide || obj_player.state == global.states.machroll || obj_player.state == global.states.handstandjump))):
 			$Speedbar.frame = 0

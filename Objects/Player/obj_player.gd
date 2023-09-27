@@ -102,6 +102,7 @@ func _ready():
 func _process(delta):
 	$PeppinoSprite.playing = true
 	sprite_index = $PeppinoSprite.animation
+	$PeppinoSprite.material.set_shader_param("current_palette", global.peppalette)
 	position.x += velocity.x
 	position.y += velocity.y
 	if xscale == 1:

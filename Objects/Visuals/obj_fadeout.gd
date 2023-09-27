@@ -25,10 +25,10 @@ func _process(delta):
 	if (fadein == 1 && fadealpha < 0):
 		queue_free()
 	var obj_camera = utils.get_instance("obj_camera")
-	rect.position.x = obj_camera.global_position.x - 540
-	rect.position.y = obj_camera.global_position.y - 270
-	rect.end.x = obj_camera.global_position.x + 540
-	rect.end.y = obj_camera.global_position.y + 270
+	rect.position.x = obj_camera.global_position.x - 50000
+	rect.position.y = obj_camera.global_position.y - 50000
+	rect.end.x = obj_camera.global_position.x + 50000
+	rect.end.y = obj_camera.global_position.y + 50000
 	update()
 		
 func _draw():

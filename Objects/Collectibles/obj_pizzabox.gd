@@ -20,7 +20,7 @@ func _process(delta):
 		var smallnumbid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_smallnumber.tscn")
 		smallnumbid.number = "1000"
 		global.collect += 1000
-		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_taunteffect.tscn")
+		#utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_taunteffect.tscn")
 		if (content == "shroom"):
 			var pizzakinid = utils.instance_create_level(global_position.x, global_position.y, "res://Objects/Collectibles/obj_pizzakinshroom.tscn")
 			global.shroomfollow = true

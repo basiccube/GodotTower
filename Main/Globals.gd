@@ -43,6 +43,8 @@ var arank = 0
 var brank = 0
 var crank = 0
 
+var peppalette = 0
+
 var bigfont = load("res://Objects/HUD/font.tres")
 var smallnumberfont = load("res://Objects/HUD/smallnumber.tres")
 

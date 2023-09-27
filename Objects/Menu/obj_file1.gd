@@ -14,3 +14,4 @@ func _process(delta):
 	else:
 		visible = false
 		utils.get_level().phone.animation = "phone"
+	$Sprite.material.set_shader_param("current_palette", global.peppalette)

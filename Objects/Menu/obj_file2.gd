@@ -12,3 +12,4 @@ func _process(delta):
 		$Sprite.animation = "file2"
 	else:
 		$Sprite.animation = "file2empty"
+	$Sprite.material.set_shader_param("current_palette", global.peppalette)

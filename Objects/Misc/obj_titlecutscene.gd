@@ -21,6 +21,7 @@ func _process(delta):
 		utils.get_player().targetRoom = "Titlescreen"
 	if ($Sprite.animation == "pepcooter" && !utils.instance_exists("obj_superdashcloud")):
 		utils.instance_create(position.x - 120, position.y - 50, "res://Objects/Visuals/obj_superdashcloud.tscn")
+	$Sprite.material.set_shader_param("current_palette", global.peppalette)
 
 func rockcollision():
 	var obj_rockcutscene = utils.get_instance_level("obj_rockcutscene")
