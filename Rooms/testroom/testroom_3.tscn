@@ -23,7 +23,7 @@
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.25, 1 )
+motion_scale = Vector2( 0.85, 0.85 )
 motion_mirroring = Vector2( 1200, 1078 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
