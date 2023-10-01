@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Objects/Visuals/sprites/thunder_0.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Visuals/sprites/thunder_1.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Visuals/sprites/thunder_2.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Visuals/obj_thunder.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 12, 44 )
+
+[node name="obj_thunder" type="Area2D" groups=["obj_thunder"]]
+collision_layer = 8
+script = ExtResource( 4 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )

@@ -25,6 +25,8 @@ func _process(delta):
 	match state:
 		global.states.idle:
 			scr_enemy_idle()
+		global.states.charge:
+			scr_enemy_charge()
 		global.states.turn:
 			scr_enemy_turn()
 		global.states.walk:

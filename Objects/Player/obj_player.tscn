@@ -1,4 +1,4 @@
-[gd_scene load_steps=1357 format=2]
+[gd_scene load_steps=1500 format=2]
 
 [ext_resource path="res://Objects/Player/sprites/idle_4.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/sprites/idle_0.png" type="Texture" id=2]
@@ -1347,11 +1347,155 @@
 [ext_resource path="res://Objects/Player/sprites/slipnslide_6.png" type="Texture" id=1345]
 [ext_resource path="res://Objects/Player/sprites/slipnslide_8.png" type="Texture" id=1346]
 [ext_resource path="res://Objects/Player/sprites/slipnslide_3.png" type="Texture" id=1347]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_40.png" type="Texture" id=1348]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_8.png" type="Texture" id=1349]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_20.png" type="Texture" id=1350]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_0.png" type="Texture" id=1351]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_2.png" type="Texture" id=1352]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_5.png" type="Texture" id=1353]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_11.png" type="Texture" id=1354]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_12.png" type="Texture" id=1355]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_13.png" type="Texture" id=1356]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_4.png" type="Texture" id=1357]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_17.png" type="Texture" id=1358]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_18.png" type="Texture" id=1359]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_27.png" type="Texture" id=1360]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_23.png" type="Texture" id=1361]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_28.png" type="Texture" id=1362]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_29.png" type="Texture" id=1363]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_16.png" type="Texture" id=1364]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_22.png" type="Texture" id=1365]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_10.png" type="Texture" id=1366]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_3.png" type="Texture" id=1367]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_31.png" type="Texture" id=1368]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_19.png" type="Texture" id=1369]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_14.png" type="Texture" id=1370]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_21.png" type="Texture" id=1371]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_33.png" type="Texture" id=1372]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_35.png" type="Texture" id=1373]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_37.png" type="Texture" id=1374]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_6.png" type="Texture" id=1375]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_9.png" type="Texture" id=1376]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_15.png" type="Texture" id=1377]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_24.png" type="Texture" id=1378]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_25.png" type="Texture" id=1379]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_32.png" type="Texture" id=1380]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_36.png" type="Texture" id=1381]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_26.png" type="Texture" id=1382]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_30.png" type="Texture" id=1383]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_34.png" type="Texture" id=1384]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_38.png" type="Texture" id=1385]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_1.png" type="Texture" id=1386]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_7.png" type="Texture" id=1387]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_39.png" type="Texture" id=1388]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_41.png" type="Texture" id=1389]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_42.png" type="Texture" id=1390]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_start_43.png" type="Texture" id=1391]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_thunder_1.png" type="Texture" id=1392]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_thunder_2.png" type="Texture" id=1393]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_thunder_3.png" type="Texture" id=1394]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_thunder_0.png" type="Texture" id=1395]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_walk_2.png" type="Texture" id=1396]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_thunder_7.png" type="Texture" id=1397]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_thunder_11.png" type="Texture" id=1398]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_walk_5.png" type="Texture" id=1399]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_thunder_13.png" type="Texture" id=1400]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_walk_0.png" type="Texture" id=1401]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_walk_7.png" type="Texture" id=1402]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_walk_12.png" type="Texture" id=1403]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_walk_8.png" type="Texture" id=1404]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_thunder_9.png" type="Texture" id=1405]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_walk_9.png" type="Texture" id=1406]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_thunder_14.png" type="Texture" id=1407]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_walk_6.png" type="Texture" id=1408]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_thunder_6.png" type="Texture" id=1409]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_thunder_18.png" type="Texture" id=1410]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_walk_3.png" type="Texture" id=1411]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_walk_1.png" type="Texture" id=1412]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_walk_13.png" type="Texture" id=1413]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_thunder_17.png" type="Texture" id=1414]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_thunder_16.png" type="Texture" id=1415]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_walk_11.png" type="Texture" id=1416]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_thunder_4.png" type="Texture" id=1417]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_thunder_5.png" type="Texture" id=1418]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_walk_4.png" type="Texture" id=1419]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_thunder_12.png" type="Texture" id=1420]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_thunder_19.png" type="Texture" id=1421]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_walk_10.png" type="Texture" id=1422]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_walk_14.png" type="Texture" id=1423]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_thunder_8.png" type="Texture" id=1424]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_thunder_10.png" type="Texture" id=1425]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_thunder_15.png" type="Texture" id=1426]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_5.png" type="Texture" id=1427]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_16.png" type="Texture" id=1428]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_18.png" type="Texture" id=1429]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_21.png" type="Texture" id=1430]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_10.png" type="Texture" id=1431]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_19.png" type="Texture" id=1432]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_9.png" type="Texture" id=1433]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_6.png" type="Texture" id=1434]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_8.png" type="Texture" id=1435]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_3.png" type="Texture" id=1436]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_12.png" type="Texture" id=1437]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_13.png" type="Texture" id=1438]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_14.png" type="Texture" id=1439]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_22.png" type="Texture" id=1440]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_24.png" type="Texture" id=1441]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_1.png" type="Texture" id=1442]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_2.png" type="Texture" id=1443]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_4.png" type="Texture" id=1444]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_17.png" type="Texture" id=1445]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_23.png" type="Texture" id=1446]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_25.png" type="Texture" id=1447]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_0.png" type="Texture" id=1448]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_26.png" type="Texture" id=1449]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_27.png" type="Texture" id=1450]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_28.png" type="Texture" id=1451]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_29.png" type="Texture" id=1452]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_30.png" type="Texture" id=1453]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_31.png" type="Texture" id=1454]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_7.png" type="Texture" id=1455]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_11.png" type="Texture" id=1456]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_20.png" type="Texture" id=1457]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_jumpstart_0.png" type="Texture" id=1458]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_idle_15.png" type="Texture" id=1459]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_land_1.png" type="Texture" id=1460]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_jumpstart_1.png" type="Texture" id=1461]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_attack_1.png" type="Texture" id=1462]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_attack_2.png" type="Texture" id=1463]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_fall_0.png" type="Texture" id=1464]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_jump_5.png" type="Texture" id=1465]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_downslope_1.png" type="Texture" id=1466]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_downslope_2.png" type="Texture" id=1467]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_jump_6.png" type="Texture" id=1468]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_jump_0.png" type="Texture" id=1469]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_charge_1.png" type="Texture" id=1470]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_charge_0.png" type="Texture" id=1471]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_attack_0.png" type="Texture" id=1472]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_jump_3.png" type="Texture" id=1473]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_land_4.png" type="Texture" id=1474]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_attack_4.png" type="Texture" id=1475]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_jump_1.png" type="Texture" id=1476]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_land_2.png" type="Texture" id=1477]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_charge_2.png" type="Texture" id=1478]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_attack_3.png" type="Texture" id=1479]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_downslope_0.png" type="Texture" id=1480]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_land_3.png" type="Texture" id=1481]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_land_5.png" type="Texture" id=1482]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_fall_1.png" type="Texture" id=1483]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_jump_4.png" type="Texture" id=1484]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_fall_2.png" type="Texture" id=1485]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_jump_2.png" type="Texture" id=1486]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_land_0.png" type="Texture" id=1487]
+[ext_resource path="res://Objects/Player/sprites/knightpep/knightpep_attack_5.png" type="Texture" id=1488]
+[ext_resource path="res://Sounds/sfx_knightslide.ogg" type="AudioStream" id=1489]
+[ext_resource path="res://Objects/Player/sprites/taunt_11.png" type="Texture" id=1490]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 1204 )
 shader_param/skip_first_row = true
 shader_param/use_palette_alpha = false
+shader_param/current_palette = 0
 shader_param/fps = 0.0
 shader_param/palette = ExtResource( 1205 )
 
@@ -1625,6 +1769,61 @@ animations = [ {
 "frames": [ ExtResource( 302 ), ExtResource( 303 ), ExtResource( 307 ), ExtResource( 313 ), ExtResource( 309 ), ExtResource( 304 ), ExtResource( 312 ), ExtResource( 310 ), ExtResource( 305 ), ExtResource( 306 ), ExtResource( 308 ), ExtResource( 311 ) ],
 "loop": true,
 "name": "jump2",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1472 ), ExtResource( 1462 ), ExtResource( 1463 ), ExtResource( 1479 ), ExtResource( 1475 ), ExtResource( 1488 ) ],
+"loop": true,
+"name": "knightpep_attack",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1471 ), ExtResource( 1470 ), ExtResource( 1478 ) ],
+"loop": true,
+"name": "knightpep_charge",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1480 ), ExtResource( 1466 ), ExtResource( 1467 ) ],
+"loop": true,
+"name": "knightpep_downslope",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1464 ), ExtResource( 1483 ), ExtResource( 1485 ) ],
+"loop": true,
+"name": "knightpep_fall",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1448 ), ExtResource( 1442 ), ExtResource( 1443 ), ExtResource( 1436 ), ExtResource( 1444 ), ExtResource( 1427 ), ExtResource( 1434 ), ExtResource( 1455 ), ExtResource( 1435 ), ExtResource( 1433 ), ExtResource( 1431 ), ExtResource( 1456 ), ExtResource( 1437 ), ExtResource( 1438 ), ExtResource( 1439 ), ExtResource( 1459 ), ExtResource( 1428 ), ExtResource( 1445 ), ExtResource( 1429 ), ExtResource( 1432 ), ExtResource( 1457 ), ExtResource( 1430 ), ExtResource( 1440 ), ExtResource( 1446 ), ExtResource( 1441 ), ExtResource( 1447 ), ExtResource( 1449 ), ExtResource( 1450 ), ExtResource( 1451 ), ExtResource( 1452 ), ExtResource( 1453 ), ExtResource( 1454 ) ],
+"loop": true,
+"name": "knightpep_idle",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1469 ), ExtResource( 1476 ), ExtResource( 1486 ), ExtResource( 1473 ), ExtResource( 1484 ), ExtResource( 1465 ), ExtResource( 1468 ) ],
+"loop": true,
+"name": "knightpep_jump",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1458 ), ExtResource( 1461 ) ],
+"loop": true,
+"name": "knightpep_jumpstart",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1487 ), ExtResource( 1460 ), ExtResource( 1477 ), ExtResource( 1481 ), ExtResource( 1474 ), ExtResource( 1482 ) ],
+"loop": true,
+"name": "knightpep_land",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1351 ), ExtResource( 1386 ), ExtResource( 1352 ), ExtResource( 1367 ), ExtResource( 1357 ), ExtResource( 1353 ), ExtResource( 1375 ), ExtResource( 1387 ), ExtResource( 1349 ), ExtResource( 1376 ), ExtResource( 1366 ), ExtResource( 1354 ), ExtResource( 1355 ), ExtResource( 1356 ), ExtResource( 1370 ), ExtResource( 1377 ), ExtResource( 1364 ), ExtResource( 1358 ), ExtResource( 1359 ), ExtResource( 1369 ), ExtResource( 1350 ), ExtResource( 1371 ), ExtResource( 1365 ), ExtResource( 1361 ), ExtResource( 1378 ), ExtResource( 1379 ), ExtResource( 1382 ), ExtResource( 1360 ), ExtResource( 1362 ), ExtResource( 1363 ), ExtResource( 1383 ), ExtResource( 1368 ), ExtResource( 1380 ), ExtResource( 1372 ), ExtResource( 1384 ), ExtResource( 1373 ), ExtResource( 1381 ), ExtResource( 1374 ), ExtResource( 1385 ), ExtResource( 1388 ), ExtResource( 1348 ), ExtResource( 1389 ), ExtResource( 1390 ), ExtResource( 1391 ) ],
+"loop": true,
+"name": "knightpep_start",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1395 ), ExtResource( 1392 ), ExtResource( 1393 ), ExtResource( 1394 ), ExtResource( 1417 ), ExtResource( 1418 ), ExtResource( 1409 ), ExtResource( 1397 ), ExtResource( 1424 ), ExtResource( 1405 ), ExtResource( 1425 ), ExtResource( 1398 ), ExtResource( 1420 ), ExtResource( 1400 ), ExtResource( 1407 ), ExtResource( 1426 ), ExtResource( 1415 ), ExtResource( 1414 ), ExtResource( 1410 ), ExtResource( 1421 ) ],
+"loop": true,
+"name": "knightpep_thunder",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1401 ), ExtResource( 1412 ), ExtResource( 1396 ), ExtResource( 1411 ), ExtResource( 1419 ), ExtResource( 1399 ), ExtResource( 1408 ), ExtResource( 1402 ), ExtResource( 1404 ), ExtResource( 1406 ), ExtResource( 1422 ), ExtResource( 1416 ), ExtResource( 1403 ), ExtResource( 1413 ), ExtResource( 1423 ) ],
+"loop": true,
+"name": "knightpep_walk",
 "speed": 60.0
 }, {
 "frames": [ ExtResource( 1318 ) ],
@@ -1937,7 +2136,7 @@ animations = [ {
 "name": "tackle",
 "speed": 60.0
 }, {
-"frames": [ ExtResource( 440 ), ExtResource( 437 ), ExtResource( 438 ), ExtResource( 439 ), ExtResource( 442 ), ExtResource( 444 ), ExtResource( 446 ), ExtResource( 443 ), ExtResource( 447 ), ExtResource( 445 ), ExtResource( 441 ) ],
+"frames": [ ExtResource( 440 ), ExtResource( 437 ), ExtResource( 438 ), ExtResource( 439 ), ExtResource( 442 ), ExtResource( 444 ), ExtResource( 446 ), ExtResource( 443 ), ExtResource( 447 ), ExtResource( 445 ), ExtResource( 441 ), ExtResource( 1490 ) ],
 "loop": true,
 "name": "taunt",
 "speed": 60.0
@@ -2161,6 +2360,11 @@ bus = "SFX"
 
 [node name="Bombpep2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1311 )
+volume_db = -4.0
+bus = "SFX"
+
+[node name="KnightSlide" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1489 )
 volume_db = -4.0
 bus = "SFX"
 

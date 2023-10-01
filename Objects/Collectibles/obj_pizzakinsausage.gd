@@ -53,4 +53,4 @@ func _process(delta):
 			$Sprite.animation = "intro"
 			global.combotime = 60
 			global.saveroom.append(global.targetRoom + name)
-			global.sausagefollow = true
+			#global.sausagefollow = true

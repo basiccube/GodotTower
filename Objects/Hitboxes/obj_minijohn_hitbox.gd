@@ -14,7 +14,7 @@ func _process(delta):
 			position.x = (baddie.position.x + 50)
 		position.y = (baddie.position.y - 50)
 		var obj_player = utils.get_player()
-		if (obj_player.instakillmove == 1 || obj_player.state == global.states.punch || obj_player.state == global.states.handstandjump):
+		if (obj_player.instakillmove == 1 || obj_player.state == global.states.punch || obj_player.state == global.states.handstandjump || obj_player.state == global.states.knightpep || obj_player.state == global.states.knightpepslopes):
 			set_collision_mask_bit(0, false)
 		else:
 			set_collision_mask_bit(0, true)

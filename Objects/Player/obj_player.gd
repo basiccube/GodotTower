@@ -122,8 +122,13 @@ func _process(delta):
 			$PeppinoSprite.position.x = -20
 		elif ($PeppinoSprite.flip_h):
 			$PeppinoSprite.position.x = -80
+		$PeppinoSprite.position.y = 0
+	elif ("knightpep" in $PeppinoSprite.animation):
+		$PeppinoSprite.position.x = -25
+		$PeppinoSprite.position.y = -25
 	else:
 		$PeppinoSprite.position.x = 0
+		$PeppinoSprite.position.y = 0
 	if crouchmask:
 		$CrouchCollision.set_deferred("disabled", false)
 		$PlayerCollision.set_deferred("disabled", true)
@@ -414,6 +419,12 @@ func _process(delta):
 			scr_player_gottreasure()
 		global.states.slipnslide:
 			scr_player_slipnslide()
+		global.states.knightpep:
+			scr_player_knightpep()
+		global.states.knightpepattack:
+			scr_player_knightpepattack()
+		global.states.knightpepslopes:
+			scr_player_knightpepslopes()
 	scr_playersounds()
 	if (is_on_floor() && state != global.states.handstandjump):
 		suplexmove = 0
@@ -461,7 +472,7 @@ func _process(delta):
 		facehurt = 0
 	if state != global.states.normal:
 		machslideAnim = 0
-	if state != global.states.normal && state != global.states.jump && state != global.states.mach1 && state != global.states.mach2 && state != global.states.mach3 && state != global.states.handstandjump && state != global.states.freefallprep:
+	if (state != global.states.normal && state != global.states.jump && state != global.states.mach1 && state != global.states.mach2 && state != global.states.mach3 && state != global.states.handstandjump && state != global.states.freefallprep && state != global.states.knightpep && state != global.states.shotgun && state != global.states.knightpepslopes):
 		momemtum = 0
 	if state != global.states.normal:
 		idle = 0
@@ -484,7 +495,7 @@ func _process(delta):
 			utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_mach3effect.tscn")
 			toomuchalarm1 = 6
 	if (!$CrouchCheck.is_colliding()):
-		if (state != global.states.bump && state != global.states.tumble && state != global.states.fireass && state != global.states.crouch && state != global.states.machroll && state != global.states.hurt && state != global.states.crouchslide && state != global.states.crouchjump):
+		if (state != global.states.bump && $PeppinoSprite.animation != "bombpep_intro" && $PeppinoSprite.animation != "knightpep_thunder" && state != global.states.tumble && state != global.states.fireass && state != global.states.crouch && state != global.states.machroll && state != global.states.hurt && state != global.states.crouchslide && state != global.states.crouchjump):
 			crouchmask = false
 		else:
 			crouchmask = true
@@ -952,6 +963,10 @@ func scr_player_crouch():
 		if collision.collider.is_in_group("obj_slope") && Input.is_action_pressed("key_down"):
 			movespeed = 14
 			xscale = (-sign(collision.collider.scale.x))
+			$SolidCheck.scale.x *= -1
+			$SolidCheck2.scale.x *= -1
+			$DestructibleArea.scale.x *= -1
+			$WallClimbCheck.scale.x *= -1
 			state = global.states.tumble
 			$PeppinoSprite.animation = "tumblestart"
 	$PeppinoSprite.speed_scale = 0.45
@@ -1988,7 +2003,9 @@ func scr_player_grab():
 	if ($PeppinoSprite.animation != "swingding"):
 		$PeppinoSprite.speed_scale = 0.35
 	else:
-		$PeppinoSprite.speed_scale = (swingdingbuffer / 600)
+		# I don't know what's wrong here so I'll leave it like this for the time being
+		#$PeppinoSprite.speed_scale = (swingdingbuffer / 600)
+		$PeppinoSprite.speed_scale = 0.35
 	
 func scr_player_superslam():
 	var move = 0
@@ -2145,6 +2162,128 @@ func scr_player_slipnslide():
 			elif xscale == -1:
 				i.sprite.flip_h = true
 		
+func scr_player_knightpep():
+	$HurtTimer2.start()
+	var move = 0
+	if ($PeppinoSprite.animation == "knightpep_walk" || $PeppinoSprite.animation == "knightpep_jump" || $PeppinoSprite.animation == "knightpep_fall" || $PeppinoSprite.animation == "knightpep_idle"):
+		move = ((-int(Input.is_action_pressed("key_left"))) + int(Input.is_action_pressed("key_right")))
+		velocity.x = (move * movespeed)
+	elif (is_on_floor()):
+		move = 0
+		velocity.x = 0
+	if (Input.is_action_just_pressed("key_jump")):
+		input_buffer_jump = 0
+	if (!Input.is_action_pressed("key_jump") && jumpstop == 0 && velocity.y < 0.5 && stompAnim == 0):
+		velocity.y /= 2
+		jumpstop = 1
+	if (is_on_floor() && velocity.y >= 0):
+		jumpstop = 0
+	if (dir != xscale):
+		dir = xscale
+		movespeed = 0
+	if (is_on_floor() && move != 0 && $PeppinoSprite.animation == "knightpep_idle"):
+		$PeppinoSprite.animation = "knightpep_walk"
+	elif (is_on_floor() && move == 0 && $PeppinoSprite.animation == "knightpep_walk"):
+		$PeppinoSprite.animation = "knightpep_idle"
+	if (input_buffer_jump < 8 && velocity.y >= 0 && is_on_floor() && ($PeppinoSprite.animation == "knightpep_idle" || $PeppinoSprite.animation == "knightpep_walk")):
+		$PeppinoSprite.animation = "knightpep_jumpstart"
+	if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1 && $PeppinoSprite.animation == "knightpep_jumpstart"):
+		$Jump.play()
+		velocity.y = -11
+		if (Input.is_action_pressed("key_right")):
+			velocity.x = 4
+		if (Input.is_action_pressed("key_left")):
+			velocity.x = -4
+		$PeppinoSprite.animation = "knightpep_jump"
+	if (($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1 && $PeppinoSprite.animation == "knightpep_jump") || (!is_on_floor() && $PeppinoSprite.animation != "knightpep_jump" && $PeppinoSprite.animation != "knightpep_thunder")):
+		$PeppinoSprite.animation = "knightpep_fall"
+	if ($PeppinoSprite.animation == "knightpep_fall" && is_on_floor() && velocity.y >= 0):
+		for i in get_tree().get_nodes_in_group("obj_baddie"):
+			if (i.is_on_floor() && i.screenvisible):
+				i.velocity.y = -7
+				i.velocity.x = 0
+		for i in get_tree().get_nodes_in_group("obj_camera"):
+			i.shake_mag = 10
+			i.shake_mag_acc = (30 / 30)
+		bounce = 0
+		freefallstart = 0
+		momemtum = 0
+		$Groundpound.play()
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_landcloud.tscn")
+		$PeppinoSprite.animation = "knightpep_land"
+	if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1 && $PeppinoSprite.animation == "knightpep_land"):
+		$PeppinoSprite.animation = "knightpep_idle"
+	if (move != 0):
+		xscale = move
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if (collision.collider != null):
+			if collision.collider.is_in_group("obj_slope") && $PeppinoSprite.animation != "knightpep_thunder":
+				xscale = (-sign(collision.collider.scale.x))
+				$SolidCheck.scale.x *= -1
+				$SolidCheck2.scale.x *= -1
+				$DestructibleArea.scale.x *= -1
+				$WallClimbCheck.scale.x *= -1
+				state = global.states.knightpepslopes
+				$PeppinoSprite.animation = "knightpep_downslope"
+	if (move != 0):
+		if (movespeed < 6):
+			movespeed += 0.5
+		elif (movespeed == 6):
+			movespeed = 6
+	else:
+		movespeed = 0
+	if (move != 0 && velocity.x != 0):
+		if (movespeed < 1):
+			$PeppinoSprite.speed_scale = 0.15
+		elif (movespeed > 1 && movespeed < 4):
+			$PeppinoSprite.speed_scale = 0.35
+		else:
+			$PeppinoSprite.speed_scale = 0.6
+	else:
+		$PeppinoSprite.speed_scale = 0.35
+	if ($PeppinoSprite.frame == 4 && $PeppinoSprite.animation == "knightpep_start"):
+		utils.instance_create(position.x + 50, position.y - 600, "res://Objects/Visuals/obj_thunder.tscn")
+	if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1 && $PeppinoSprite.animation == "knightpep_thunder"):
+		$PeppinoSprite.animation = "knightpep_idle"
+	if (!utils.instance_exists("obj_cloudeffect") && is_on_floor() && move != 0 && ($PeppinoSprite.frame == 4 || $PeppinoSprite.frame == 10)):
+		utils.instance_create(position.x, (position.y + 43), "res://Objects/Visuals/obj_cloudeffect.tscn")
+	
+func scr_player_knightpepattack():
+	pass
+	
+func scr_player_knightpepslopes():
+	$HurtTimer2.start()
+	hurted = 1
+	velocity.x = (xscale * movespeed)
+	if ($PeppinoSprite.animation == "knightpep_downslope"):
+		movespeed = 15
+	if (!$SlopeCheck.is_colliding() || !$SlopeCheck.get_collider().is_in_group("obj_slope")):
+		$PeppinoSprite.animation = "knightpep_charge"
+	if ($SlopeCheck.is_colliding() && $SlopeCheck.get_collider() != null && $SlopeCheck.get_collider().is_in_group("obj_slope")):
+		$PeppinoSprite.animation = "knightpep_downslope"
+	if (is_colliding_with_wall()):
+		var debris1 = utils.instance_create(global_position.x + 50, global_position.y + 50, "res://Objects/Visuals/obj_knightdebris.tscn")
+		debris1.sprite.frame = 0
+		var debris2 = utils.instance_create(global_position.x + 50, global_position.y + 50, "res://Objects/Visuals/obj_knightdebris.tscn")
+		debris2.sprite.frame = 1
+		var debris3 = utils.instance_create(global_position.x + 50, global_position.y + 50, "res://Objects/Visuals/obj_knightdebris.tscn")
+		debris3.sprite.frame = 2
+		var debris4 = utils.instance_create(global_position.x + 50, global_position.y + 50, "res://Objects/Visuals/obj_knightdebris.tscn")
+		debris4.sprite.frame = 3
+		var debris5 = utils.instance_create(global_position.x + 50, global_position.y + 50, "res://Objects/Visuals/obj_knightdebris.tscn")
+		debris5.sprite.frame = 4
+		var debris6 = utils.instance_create(global_position.x + 50, global_position.y + 50, "res://Objects/Visuals/obj_knightdebris.tscn")
+		debris6.sprite.frame = 5
+		velocity.x = (5 * xscale)
+		velocity.y = -3
+		$Bump.play()
+		utils.playsound("LoseKnight")
+		state = global.states.bump
+	if (movespeed <= 0 && $PeppinoSprite.animation == "knightpep_charge"):
+		$PeppinoSprite.animation = "knightpep_idle"
+		state = global.states.knightpep
+	$PeppinoSprite.speed_scale = 0.4
 	
 func scr_playerreset():
 	if (utils.instance_exists("obj_endlevelfade")):
@@ -2254,6 +2393,14 @@ func scr_playersounds():
 		$Mach4.play()
 	elif ($PeppinoSprite.animation != "crazyrun"):
 		$Mach4.stop()
+	if (state == global.states.knightpepslopes && !$KnightSlide.playing):
+		$KnightSlide.play()
+	elif (state != global.states.knightpepslopes && $KnightSlide.playing):
+		$KnightSlide.stop()
+	if (($PeppinoSprite.animation == "bombpep_run" || $PeppinoSprite.animation == "bombpep_runabouttoexplode") && !$Bombpep1.playing):
+		$Bombpep1.play()
+	elif (($PeppinoSprite.animation != "bombpep_run" && $PeppinoSprite.animation != "bombpep_runabouttoexplode") && $Bombpep1.playing):
+		$Bombpep1.stop()
 	if (state != global.states.Sjumpprep && $SuperJumpPrep.playing):
 		$SuperJumpPrep.stop()
 	if (state != global.states.Sjumpprep && $SuperJumpHold.playing):

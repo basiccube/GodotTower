@@ -40,7 +40,7 @@ func _process(delta):
 		global.states.grabbed:
 			scr_enemy_grabbed()
 	var obj_player = utils.get_player()
-	if (obj_player.position.x > (position.x - 400) && obj_player.position.x < (position.x + 400) && position.y <= (obj_player.position.y + 60) && position.y >= (obj_player.position.y - 60)):
+	if (obj_player.position.x > (position.x - 450) && obj_player.position.x < (position.x + 450) && position.y <= (obj_player.position.y + 110) && position.y >= (obj_player.position.y - 110)):
 		if (state != global.states.idle && obj_player.state == global.states.mach3):
 			state = global.states.idle
 			$Sprite.animation = spr_scared

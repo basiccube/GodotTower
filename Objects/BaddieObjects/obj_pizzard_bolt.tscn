@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Objects/BaddieObjects/sprites/pizzard_bolt_0.png" type="Texture" id=1]
+[ext_resource path="res://Objects/BaddieObjects/sprites/pizzard_bolt_1.png" type="Texture" id=2]
+[ext_resource path="res://Objects/BaddieObjects/sprites/pizzard_bolt_2.png" type="Texture" id=3]
+[ext_resource path="res://Objects/BaddieObjects/sprites/pizzard_bolt_3.png" type="Texture" id=4]
+[ext_resource path="res://Objects/BaddieObjects/obj_pizzard_bolt.gd" type="Script" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "bolt",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 48, 16 )
+
+[node name="obj_pizzard_bolt" type="Area2D" groups=["obj_pizzard_bolt"]]
+z_index = -2
+collision_layer = 8
+script = ExtResource( 5 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "bolt"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 16 )
+shape = SubResource( 2 )
+
+[node name="ScreenVisibility" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 7.62939e-06, 16 )
+scale = Vector2( 16, 14.4 )
+
+[node name="SolidCheck" type="RayCast2D" parent="."]
+position = Vector2( 0, 16 )
+enabled = true
+cast_to = Vector2( 48, 0 )
+collision_mask = 2

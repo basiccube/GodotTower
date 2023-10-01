@@ -37,7 +37,7 @@ func _process(delta):
 		$TVSprite.modulate.a = 0
 	match global.targetRoom:
 		"entrance_1":
-			global.srank = 5750
+			global.srank = 11500
 			global.arank = (global.srank - (global.srank / 4))
 			global.brank = (global.srank - ((global.srank / 4) * 2))
 			global.crank = (global.srank - ((global.srank / 4) * 3))
@@ -53,6 +53,11 @@ func _process(delta):
 			global.crank = (global.srank - ((global.srank / 4) * 3))
 		"dungeon_1":
 			global.srank = 10400
+			global.arank = (global.srank - (global.srank / 4))
+			global.brank = (global.srank - ((global.srank / 4) * 2))
+			global.crank = (global.srank - ((global.srank / 4) * 3))
+		"chateau_1":
+			global.srank = 11000
 			global.arank = (global.srank - (global.srank / 4))
 			global.brank = (global.srank - ((global.srank / 4) * 2))
 			global.crank = (global.srank - ((global.srank / 4) * 3))
