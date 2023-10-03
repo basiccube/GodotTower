@@ -2204,7 +2204,7 @@ extents = Vector2( 12, 28 )
 extents = Vector2( 12, 14 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 24, 32 )
+extents = Vector2( 24, 31 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 12, 24 )
@@ -2288,7 +2288,7 @@ position = Vector2( 48, 32 )
 collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="DestructibleArea"]
-position = Vector2( 24, 32 )
+position = Vector2( 24, 33 )
 shape = SubResource( 5 )
 
 [node name="FallArea" type="Area2D" parent="."]

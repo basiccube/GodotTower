@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_slope.tscn" type="PackedScene" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Objects/Level/obj_swordstone.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Backgrounds/bg_medievalinterior_0.png" type="Texture" id=19]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_pizzard.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Objects/Warps/obj_boxofpizza.tscn" type="PackedScene" id=21]
 
 [node name="medieval_3" type="Node2D"]
 
@@ -298,3 +299,8 @@ position = Vector2( 1536, 592 )
 
 [node name="obj_pizzard3" parent="." instance=ExtResource( 20 )]
 position = Vector2( 2592, 592 )
+
+[node name="obj_boxofpizza" parent="." instance=ExtResource( 21 )]
+position = Vector2( 2464, 672 )
+targetLevel = "medieval"
+targetRoom = "medieval_secret3"
