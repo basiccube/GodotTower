@@ -1,0 +1,207 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Backgrounds/bg_medieval1_0.png" type="Texture" id=2]
+[ext_resource path="res://Backgrounds/bg_medieval2_0.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Level/obj_camlimit_left.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Level/obj_camlimit_right.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Level/obj_camlimit_bottom.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Shaders/TextureScroll.tres" type="Shader" id=8]
+[ext_resource path="res://Objects/Warps/obj_door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Backgrounds/bg_medieval3_0.png" type="Texture" id=10]
+[ext_resource path="res://Collision/obj_slope.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=30]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 8 )
+shader_param/motion = Vector2( -50, 0 )
+shader_param/scale = 1.0
+shader_param/offset = Vector2( 0, 0 )
+
+[node name="medieval_2" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0.75 )
+motion_mirroring = Vector2( 1920, 1080 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 10 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 1080 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.85, 0.85 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="ParallaxLayerSky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1218, 1000 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayerSky"]
+material = SubResource( 1 )
+texture = ExtResource( 3 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1218, 1000 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.95, 0.95 )
+motion_mirroring = Vector2( 1500, 2000 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1500, 2000 )
+
+[node name="ParallaxLayerGround1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="ParallaxLayerGround2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="ParallaxLayerSky2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="ParallaxLayerH1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="obj_camlimit_bottom" parent="." instance=ExtResource( 6 )]
+position = Vector2( 0, 1200 )
+
+[node name="obj_camlimit_left" parent="." instance=ExtResource( 4 )]
+
+[node name="obj_camlimit_right" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3600, 0 )
+
+[node name="obj_camlimit_top" parent="." instance=ExtResource( 7 )]
+
+[node name="obj_hallway" parent="." instance=ExtResource( 30 )]
+position = Vector2( -32, 832 )
+scale = Vector2( -2, 1.5 )
+targetDoor = "B"
+targetLevel = "medieval"
+targetRoom = "medieval_1"
+
+[node name="obj_solid" parent="." instance=ExtResource( 1 )]
+position = Vector2( -512, 928 )
+scale = Vector2( 87, 10 )
+
+[node name="obj_solid2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2272, 928 )
+scale = Vector2( 63, 10 )
+
+[node name="obj_solid3" parent="." instance=ExtResource( 1 )]
+position = Vector2( -512, 576 )
+scale = Vector2( 20, 8 )
+
+[node name="obj_solid4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 352 )
+scale = Vector2( 39, 7 )
+
+[node name="obj_solid5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1184, 224 )
+scale = Vector2( 2, 4 )
+
+[node name="obj_solid6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1184, 96 )
+scale = Vector2( 28, 4 )
+
+[node name="obj_solid7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1248, 352 )
+scale = Vector2( 5, 12 )
+
+[node name="obj_solid8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1248, 768 )
+scale = Vector2( 4, 4 )
+
+[node name="obj_solid9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1376, 768 )
+scale = Vector2( 7, 3 )
+
+[node name="obj_solid10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1920, 864 )
+scale = Vector2( 11, 2 )
+
+[node name="obj_solid11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1408, 640 )
+scale = Vector2( 40, 2 )
+
+[node name="obj_solid12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2688, 640 )
+scale = Vector2( 3, 7 )
+
+[node name="obj_solid13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1824, 192 )
+scale = Vector2( 26, 10 )
+
+[node name="obj_solid14" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1920, 448 )
+scale = Vector2( 12, 4 )
+
+[node name="obj_solid15" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2656, 192 )
+scale = Vector2( 4, 13 )
+
+[node name="obj_solid16" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2784, 416 )
+scale = Vector2( 20, 4 )
+
+[node name="obj_solid17" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3136, 736 )
+scale = Vector2( 36, 6 )
+
+[node name="obj_solid18" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3424, 256 )
+scale = Vector2( 27, 13 )
+
+[node name="obj_platform" parent="." instance=ExtResource( 28 )]
+position = Vector2( 480, 832 )
+scale = Vector2( 9, 1 )
+
+[node name="obj_platform2" parent="." instance=ExtResource( 28 )]
+position = Vector2( 960, 768 )
+scale = Vector2( 9, 1 )
+
+[node name="obj_platform3" parent="." instance=ExtResource( 28 )]
+position = Vector2( 2784, 640 )
+scale = Vector2( 8, 1 )
+
+[node name="obj_platform4" parent="." instance=ExtResource( 28 )]
+position = Vector2( 1408, 544 )
+scale = Vector2( 5, 1 )
+
+[node name="obj_platform5" parent="." instance=ExtResource( 28 )]
+position = Vector2( 1408, 352 )
+scale = Vector2( 5, 1 )
+
+[node name="obj_platform6" parent="." instance=ExtResource( 28 )]
+position = Vector2( 1664, 448 )
+scale = Vector2( 5, 1 )
+
+[node name="obj_slope" parent="." instance=ExtResource( 15 )]
+position = Vector2( 2944, 736 )
+scale = Vector2( 6, 6 )
+
+[node name="obj_door" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1280, 256 )
+targetDoor = "C"
+targetLevel = "medieval"
+targetRoom = "medieval_3"
+
+[node name="obj_hallway2" parent="." instance=ExtResource( 30 )]
+position = Vector2( 3648, 672 )
+scale = Vector2( 2, 1 )
+targetLevel = "medieval"
+targetRoom = "medieval_secret2"

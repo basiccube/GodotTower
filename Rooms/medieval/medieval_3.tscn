@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_slope.tscn" type="PackedScene" id=2]
@@ -8,7 +8,7 @@
 [ext_resource path="res://Objects/Level/obj_camlimit_bottom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/Level/obj_ladder.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Objects/Warps/obj_spawnpoint.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/Warps/obj_door.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Backgrounds/bg_medieval3_0.png" type="Texture" id=10]
 [ext_resource path="res://Objects/Collectibles/obj_pizzabox.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/Destructibles/obj_destroyable3.tscn" type="PackedScene" id=12]
@@ -17,7 +17,6 @@
 [ext_resource path="res://Objects/Baddies/Enemies/obj_cheeseslime.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Objects/Collectibles/obj_collect.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Objects/Level/obj_swordstone.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Backgrounds/bg_medievalinterior_0.png" type="Texture" id=19]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_pizzard.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Objects/Warps/obj_boxofpizza.tscn" type="PackedScene" id=21]
@@ -188,9 +187,6 @@ scale = Vector2( -5, 5 )
 position = Vector2( 1824, 640 )
 scale = Vector2( 4, 4 )
 
-[node name="obj_spawnpoint" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1280, 288 )
-
 [node name="obj_platform" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1152, 384 )
 scale = Vector2( 2, 1 )
@@ -288,9 +284,6 @@ position = Vector2( 2368, 400 )
 [node name="obj_forknight2" parent="." instance=ExtResource( 17 )]
 position = Vector2( 2368, 208 )
 
-[node name="obj_swordstone" parent="." instance=ExtResource( 18 )]
-position = Vector2( 2144, 112 )
-
 [node name="obj_pizzard" parent="." instance=ExtResource( 20 )]
 position = Vector2( 688, 656 )
 
@@ -304,3 +297,15 @@ position = Vector2( 2592, 592 )
 position = Vector2( 2464, 672 )
 targetLevel = "medieval"
 targetRoom = "medieval_secret3"
+
+[node name="obj_door" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1280, 288 )
+targetDoor = "C"
+targetLevel = "medieval"
+targetRoom = "medieval_2"
+
+[node name="obj_door2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1024, 864 )
+targetDoor = "B"
+targetLevel = "medieval"
+targetRoom = "medieval_4"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Backgrounds/bg_medieval1_0.png" type="Texture" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Objects/Warps/obj_boxofpizza.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=30]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 8 )
@@ -69,7 +70,7 @@ region_rect = Rect2( 0, 0, 1218, 1000 )
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.95, 0.95 )
-motion_mirroring = Vector2( 0, 1000 )
+motion_mirroring = Vector2( 1500, 2000 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
 texture = ExtResource( 2 )
@@ -456,3 +457,10 @@ position = Vector2( 1056, 768 )
 targetDoor = "C"
 targetLevel = "medieval"
 targetRoom = "medieval_secret1"
+
+[node name="obj_hallway" parent="." instance=ExtResource( 30 )]
+position = Vector2( 2528, 480 )
+scale = Vector2( 2, 1.5 )
+targetDoor = "B"
+targetLevel = "medieval"
+targetRoom = "medieval_2"
