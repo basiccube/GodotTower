@@ -21,7 +21,8 @@ var seconds = 59
 var combo = 0
 var combotime = 0
 var collect = 0
-var key_inv = 0
+var key_inv = false
+var keyget = false
 var hit = 0
 var golfhit = 0
 

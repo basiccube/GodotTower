@@ -425,6 +425,8 @@ func _process(delta):
 			scr_player_knightpepattack()
 		global.states.knightpepslopes:
 			scr_player_knightpepslopes()
+		global.states.keyget:
+			scr_player_keyget()
 	scr_playersounds()
 	if (is_on_floor() && state != global.states.handstandjump):
 		suplexmove = 0
@@ -520,7 +522,7 @@ func _physics_process(delta):
 						velocity.y = 0
 				snap_vector = Vector2.DOWN * 20
 	if state != global.states.titlescreen:
-		if state != global.states.backbreaker && state != global.states.gottreasure && state != global.states.Sjumpland && state != global.states.ladder && (state != global.states.door && ($PeppinoSprite.animation != "downpizzabox" && $PeppinoSprite.animation != "uppizzabox")):
+		if state != global.states.backbreaker && state != global.states.gottreasure && state != global.states.Sjumpland && state != global.states.ladder && state != global.states.keyget && (state != global.states.door && ($PeppinoSprite.animation != "downpizzabox" && $PeppinoSprite.animation != "uppizzabox")):
 			velocity.y += grav
 		velocity = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, true, 4, 1)
 		
@@ -2285,6 +2287,24 @@ func scr_player_knightpepslopes():
 		state = global.states.knightpep
 	$PeppinoSprite.speed_scale = 0.4
 	
+func scr_player_keyget():
+	velocity.x = 0
+	velocity.y = 0
+	$PeppinoSprite.speed_scale = 0.35
+	movespeed = 0
+	mach2 = 0
+	jumpAnim = 1
+	landAnim = 0
+	moveAnim = 1
+	stopAnim = 1
+	crouchslideAnim = 1
+	crouchAnim = 1
+	machhitAnim = 0
+	$PeppinoSprite.animation = "keyget"
+	if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1):
+		global.keyget = false
+		state = global.states.normal
+	
 func scr_playerreset():
 	if (utils.instance_exists("obj_endlevelfade")):
 		for i in get_tree().get_nodes_in_group("obj_endlevelfade"):
@@ -2340,7 +2360,8 @@ func scr_playerreset():
 	input_buffer_jump = 8
 	input_buffer_secondjump = 8
 	input_buffer_highjump = 8
-	global.key_inv = 0
+	global.key_inv = false
+	global.keyget = false
 	global.toppintotal = 1
 	global.shroomfollow = false
 	global.cheesefollow = false

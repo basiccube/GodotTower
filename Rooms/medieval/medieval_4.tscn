@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_slope.tscn" type="PackedScene" id=2]
@@ -11,8 +11,18 @@
 [ext_resource path="res://Objects/Warps/obj_door.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Backgrounds/bg_medieval3_0.png" type="Texture" id=10]
 [ext_resource path="res://Objects/Level/obj_ladder.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Objects/Collectibles/obj_pizzabox.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Objects/Blocks/obj_minipillar.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Objects/Destructibles/obj_secretbigblock.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Objects/Collectibles/obj_collect.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Objects/Destructibles/obj_metalblock.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Objects/Destructibles/obj_destroyable2escape.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Objects/Destructibles/obj_destroyable3.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Backgrounds/bg_medievalinterior_0.png" type="Texture" id=19]
+[ext_resource path="res://Objects/Destructibles/obj_destroyableescape.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Objects/Warps/obj_boxofpizza.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_cheeseslime.tscn" type="PackedScene" id=23]
 
 [node name="medieval_3" type="Node2D"]
 
@@ -181,3 +191,105 @@ position = Vector2( 1808, 112 )
 position = Vector2( 1664, 256 )
 scale = Vector2( 1, 9 )
 z_index = -2
+
+[node name="obj_minipillar" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1376, 192 )
+z_index = 1
+
+[node name="obj_minipillar2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1376, 224 )
+z_index = 1
+
+[node name="obj_pizzabox" parent="." instance=ExtResource( 12 )]
+position = Vector2( 2720, 416 )
+content = "tomato"
+
+[node name="obj_secretbigblock" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1344, 192 )
+
+[node name="obj_secretbigblock2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1280, 192 )
+
+[node name="obj_secretbigblock3" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1216, 192 )
+
+[node name="obj_secretbigblock4" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1152, 192 )
+
+[node name="obj_collect" parent="." instance=ExtResource( 15 )]
+position = Vector2( 512, 480 )
+
+[node name="obj_collect2" parent="." instance=ExtResource( 15 )]
+position = Vector2( 544, 480 )
+
+[node name="obj_collect3" parent="." instance=ExtResource( 15 )]
+position = Vector2( 2080, 192 )
+
+[node name="obj_collect4" parent="." instance=ExtResource( 15 )]
+position = Vector2( 2048, 192 )
+
+[node name="obj_metalblock" parent="." instance=ExtResource( 16 )]
+position = Vector2( 2592, 352 )
+
+[node name="obj_destroyable2escape" parent="." instance=ExtResource( 17 )]
+position = Vector2( 864, 512 )
+
+[node name="obj_destroyable2escape2" parent="." instance=ExtResource( 17 )]
+position = Vector2( 896, 512 )
+
+[node name="obj_destroyable2escape3" parent="." instance=ExtResource( 17 )]
+position = Vector2( 1248, 512 )
+
+[node name="obj_destroyable2escape4" parent="." instance=ExtResource( 17 )]
+position = Vector2( 1280, 512 )
+
+[node name="obj_destroyable3" parent="." instance=ExtResource( 18 )]
+position = Vector2( 608, 480 )
+
+[node name="obj_destroyableescape" parent="." instance=ExtResource( 20 )]
+position = Vector2( 864, 384 )
+
+[node name="obj_destroyableescape2" parent="." instance=ExtResource( 20 )]
+position = Vector2( 896, 384 )
+
+[node name="obj_destroyableescape3" parent="." instance=ExtResource( 20 )]
+position = Vector2( 864, 416 )
+
+[node name="obj_destroyableescape4" parent="." instance=ExtResource( 20 )]
+position = Vector2( 896, 416 )
+
+[node name="obj_destroyableescape5" parent="." instance=ExtResource( 20 )]
+position = Vector2( 864, 448 )
+
+[node name="obj_destroyableescape6" parent="." instance=ExtResource( 20 )]
+position = Vector2( 896, 448 )
+
+[node name="obj_destroyableescape7" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1248, 384 )
+
+[node name="obj_destroyableescape8" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1280, 384 )
+
+[node name="obj_destroyableescape9" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1248, 416 )
+
+[node name="obj_destroyableescape10" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1280, 416 )
+
+[node name="obj_destroyableescape11" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1248, 448 )
+
+[node name="obj_destroyableescape12" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1280, 448 )
+
+[node name="obj_cheeseslime" parent="." instance=ExtResource( 23 )]
+position = Vector2( 768, 496 )
+
+[node name="obj_forknight" parent="." instance=ExtResource( 22 )]
+position = Vector2( 1088, 496 )
+
+[node name="obj_forknight2" parent="." instance=ExtResource( 22 )]
+position = Vector2( 1488, 208 )
+
+[node name="obj_forknight3" parent="." instance=ExtResource( 22 )]
+position = Vector2( 1984, 208 )

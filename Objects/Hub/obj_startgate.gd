@@ -81,6 +81,10 @@ func _process(delta):
 			obj_player.mach2 = 0
 			for i in get_tree().get_nodes_in_group("obj_camera"):
 				i.chargecamera = 0
+			if (obj_player.position.x > position.x + 40):
+				obj_player.position.x -= 40
+			if (obj_player.position.x < position.x - 40):
+				obj_player.position.x += 40
 			obj_player.state = global.states.victory
 			obj_player.set_animation("entergate")
 		if (obj_player.pepsprite.frame == obj_player.pepsprite.frames.get_frame_count(obj_player.pepsprite.animation) - 1 && obj_player.state == global.states.victory):
