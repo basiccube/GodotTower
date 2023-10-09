@@ -78,16 +78,16 @@ func _process(delta):
 		if collision.collider.is_in_group("obj_player"):
 			var obj_player = utils.get_player()
 			if (state != global.states.pizzagoblinthrow && velocity.y >= 0 && obj_player.state != global.states.tackle && obj_player.state != global.states.superslam && obj_player.state != global.states.machslide && obj_player.state != global.states.freefall && obj_player.state != global.states.mach2 && obj_player.state != global.states.handstandjump && obj_player.state != global.states.mach3 && obj_player.state != global.states.machroll):
-					utils.playsound("Bump")
-					if (obj_player.state != global.states.bombpep && obj_player.state != global.states.mach1):
-						obj_player.movespeed = 0
-					if (is_in_group("obj_pizzaball")):
-						global.golfhit += 1
-					if (stunned < 100):
-						stunned = 100
-					velocity.y = -5
-					velocity.x = ((-xscale) * 2)
-					state = global.states.stun
+				utils.playsound("Bump")
+				if (obj_player.state != global.states.bombpep && obj_player.state != global.states.mach1):
+					obj_player.movespeed = 0
+				if (is_in_group("obj_pizzaball")):
+					global.golfhit += 1
+				if (stunned < 100):
+					stunned = 100
+				velocity.y = -5
+				velocity.x = ((-xscale) * 2)
+				state = global.states.stun
 
 func _physics_process(delta):
 	if (state != global.states.grabbed):
@@ -307,7 +307,7 @@ func scr_enemy_grabbed():
 			position.y = (obj_player.position.y - 10)
 		xscale = (-obj_player.xscale)
 	if (!(obj_player.state == global.states.grab || obj_player.state == global.states.finishingblow || obj_player.state == global.states.grabbing || obj_player.state == global.states.throw || obj_player.state == global.states.slam || obj_player.state == global.states.punch || obj_player.state == global.states.superslam || obj_player.state == global.states.backkick || obj_player.state == global.states.uppunch || obj_player.state == global.states.shoulder)):
-		position.x = (obj_player.position.x)
+		position.x = (obj_player.position.x + 50)
 		position.y = (obj_player.position.y + 50)
 		state = global.states.stun
 		$Sprite.frame = 0
@@ -323,8 +323,8 @@ func scr_enemy_grabbed():
 		$MachEffectTimer.wait_time = 0.083
 		$MachEffectTimer.start()
 		thrown = true
-		position.x = obj_player.position.x
-		position.y = obj_player.position.y
+		position.x = obj_player.position.x + 50
+		position.y = obj_player.position.y + 50
 		velocity.y = 0
 		state = global.states.stun
 		velocity.x = ((-xscale) * 25)
@@ -340,7 +340,7 @@ func scr_enemy_grabbed():
 			position.x = (obj_player.position.x + 100)
 		elif (obj_player.xscale == -1):
 			position.x = (obj_player.position.x - 10)
-		position.y = (obj_player.position.y + 50)
+		position.y = (obj_player.position.y + 30)
 	if (obj_player.state == global.states.backkick):
 		$BangEffectTimer.wait_time = 0.05
 		$BangEffectTimer.start()
@@ -352,8 +352,8 @@ func scr_enemy_grabbed():
 		$MachEffectTimer.wait_time = 0.083
 		$MachEffectTimer.start()
 		thrown = true
-		position.x = obj_player.position.x
-		position.y = obj_player.position.y
+		position.x = obj_player.position.x + 50
+		position.y = obj_player.position.y + 50
 		state = global.states.stun
 		xscale *= -1
 		velocity.y = -7
@@ -385,7 +385,7 @@ func scr_enemy_grabbed():
 		thrown = true
 		if (obj_player.sprite_index == "uppercutfinishingblow"):
 			velocity.x = 0
-			velocity.y = -25
+			velocity.y = -35
 		else:
 			velocity.x = ((obj_player.xscale) * 25)
 			velocity.y = -6
@@ -397,8 +397,8 @@ func scr_enemy_grabbed():
 		$MachEffectTimer.wait_time = 0.083
 		$MachEffectTimer.start()
 		thrown = true
-		position.x = obj_player.position.x
-		position.y = obj_player.position.y
+		position.x = obj_player.position.x + 50
+		position.y = obj_player.position.y + 50
 		state = global.states.stun
 		velocity.x = ((-xscale) * 8)
 		velocity.y = -6
@@ -413,8 +413,8 @@ func scr_enemy_grabbed():
 		$MachEffectTimer.wait_time = 0.083
 		$MachEffectTimer.start()
 		thrown = true
-		position.x = obj_player.position.x
-		position.y = obj_player.position.y
+		position.x = obj_player.position.x + 50
+		position.y = obj_player.position.y + 50
 		state = global.states.stun
 		velocity.y = -20
 		velocity.x = ((-xscale) * 2)
@@ -483,40 +483,40 @@ func scr_enemy_grabbed():
 		if (obj_player.character == "P"):
 			if (floor(obj_player.get_frame()) == 0):
 				z_index = 8
-				position.x = (obj_player.position.x + (obj_player.xscale * 25))
-				position.y = obj_player.position.y
+				position.x = (obj_player.position.x + (obj_player.xscale * 25) + 50)
+				position.y = obj_player.position.y + 50
 			if (floor(obj_player.get_frame()) == 1):
 				z_index = 8
-				position.x = obj_player.position.x
-				position.y = obj_player.position.y
+				position.x = obj_player.position.x + 50
+				position.y = obj_player.position.y + 50
 			if (floor(obj_player.get_frame()) == 2):
 				z_index = 8
-				position.x = (obj_player.position.x + (obj_player.xscale * -25))
-				position.y = obj_player.position.y
+				position.x = (obj_player.position.x + (obj_player.xscale * -25) + 50)
+				position.y = obj_player.position.y + 50
 			if (floor(obj_player.get_frame()) == 3):
 				z_index = 0
-				position.x = (obj_player.position.x + (obj_player.xscale * -50))
-				position.y = obj_player.position.y
+				position.x = (obj_player.position.x + (obj_player.xscale * -50) + 50)
+				position.y = obj_player.position.y + 50
 			if (floor(obj_player.get_frame()) == 4):
 				z_index = 0
-				position.x = (obj_player.position.x + (obj_player.xscale * -25))
-				position.y = obj_player.position.y
+				position.x = (obj_player.position.x + (obj_player.xscale * -25) + 50)
+				position.y = obj_player.position.y + 50
 			if (floor(obj_player.get_frame()) == 5):
 				z_index = 0
-				position.x = obj_player.position.x
-				position.y = obj_player.position.y
+				position.x = obj_player.position.x + 50
+				position.y = obj_player.position.y + 50
 			if (floor(obj_player.get_frame()) == 6):
 				z_index = 0
-				position.x = (obj_player.position.x + (obj_player.xscale * 25))
-				position.y = obj_player.position.y
+				position.x = (obj_player.position.x + (obj_player.xscale * 25) + 50)
+				position.y = obj_player.position.y + 50
 			if (floor(obj_player.get_frame()) == 7):
 				z_index = 0
-				position.x = (obj_player.position.x + (obj_player.xscale * 50))
-				position.y = obj_player.position.y
+				position.x = (obj_player.position.x + (obj_player.xscale * 50) + 50)
+				position.y = obj_player.position.y + 50
 		else:
 			z_index = 7
-			position.x = obj_player.position.x
-			position.y = (obj_player.position.y - 40)
+			position.x = obj_player.position.x + 50
+			position.y = (obj_player.position.y - 40 + 50)
 	$Sprite.animation = spr_grabbed
 	$Sprite.speed_scale = 0.35
 	
