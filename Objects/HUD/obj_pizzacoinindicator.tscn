@@ -1,0 +1,44 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacoin_12.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacoin_9.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacoin_1.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacoin_11.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacoin_10.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacoin_13.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacoin_3.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacoin_0.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacoin_5.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacoin_7.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacoin_14.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacoin_2.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacoin_4.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacoin_6.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Collectibles/sprites/pizzacoin_8.png" type="Texture" id=15]
+[ext_resource path="res://Objects/HUD/smallnumber.tres" type="BitmapFont" id=16]
+[ext_resource path="res://Objects/HUD/obj_pizzacoinindicator.gd" type="Script" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 12 ), ExtResource( 7 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 14 ), ExtResource( 10 ), ExtResource( 15 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "pizzacoin",
+"speed": 60.0
+} ]
+
+[node name="obj_pizzacoinindicator" type="Node2D" groups=["obj_pizzacoinindicator"]]
+z_index = 100
+script = ExtResource( 17 )
+
+[node name="PizzacoinSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "pizzacoin"
+centered = false
+
+[node name="PizzacoinCounter" type="Label" parent="."]
+margin_left = 32.0
+margin_right = 72.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 16 )
+text = "0"
+align = 1

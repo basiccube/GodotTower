@@ -2369,6 +2369,7 @@ func scr_playerreset():
 	global.sausagefollow = false
 	global.pineapplefollow = false
 	global.collect = 0
+	global.pizzacoin = 0
 	global.treasure = false
 	global.combo = 0
 	global.combotime = 0

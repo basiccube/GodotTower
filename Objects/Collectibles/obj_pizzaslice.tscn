@@ -34,7 +34,7 @@ extents = Vector2( 0, 24 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16, 24 )
 
-[node name="obj_pizzaslice" type="KinematicBody2D"]
+[node name="obj_pizzaslice" type="KinematicBody2D" groups=["obj_pizzaslice"]]
 collision_layer = 8
 collision_mask = 2
 collision/safe_margin = 0.001

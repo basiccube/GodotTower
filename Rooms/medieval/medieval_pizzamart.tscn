@@ -1,13 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
+[ext_resource path="res://Backgrounds/bg_medievallibrairy2_0.png" type="Texture" id=1]
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Backgrounds/bg_medievallibrairy1_0.png" type="Texture" id=3]
 [ext_resource path="res://Objects/Level/obj_camlimit_left.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Level/obj_camlimit_right.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Level/obj_camlimit_bottom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Backgrounds/bg_pizzamartinterior.png" type="Texture" id=8]
 [ext_resource path="res://Objects/Warps/obj_door.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Backgrounds/bg_medieval3_0.png" type="Texture" id=10]
-[ext_resource path="res://Backgrounds/bg_medievalinterior_0.png" type="Texture" id=19]
+[ext_resource path="res://Objects/Misc/sprites/shootsign.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Level/obj_weaponmachine.tscn" type="PackedScene" id=11]
 
 [node name="medieval_pizzamart" type="Node2D"]
 
@@ -15,27 +18,33 @@
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.75, 0.75 )
-motion_mirroring = Vector2( 1920, 1080 )
+motion_mirroring = Vector2( 1920, 1024 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource( 10 )
+texture = ExtResource( 1 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 0, 0, 1920, 1080 )
+region_rect = Rect2( 0, 0, 1920, 1024 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.85, 0.85 )
 motion_mirroring = Vector2( 1920, 1024 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-texture = ExtResource( 19 )
+texture = ExtResource( 3 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1920, 1024 )
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.95, 0.95 )
-motion_mirroring = Vector2( 1920, 1024 )
+motion_mirroring = Vector2( 1000, 1000 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1000, 1000 )
 
 [node name="ParallaxLayerGround1" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.75, 0 )
@@ -87,3 +96,14 @@ position = Vector2( 672, 384 )
 targetDoor = "B"
 targetLevel = "medieval"
 targetRoom = "medieval_8"
+
+[node name="ShootSign" type="Sprite" parent="."]
+position = Vector2( 544, 160 )
+texture = ExtResource( 10 )
+centered = false
+
+[node name="obj_weaponmachine" parent="." instance=ExtResource( 11 )]
+position = Vector2( 425, 333 )
+
+[node name="obj_weaponmachine2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 265, 333 )
