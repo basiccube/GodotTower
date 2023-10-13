@@ -307,7 +307,7 @@ func _process(delta):
 							velocity.y = -9
 							if (state != global.states.grab):
 								$PeppinoSprite.animation = "stompprep"
-					if (baddie.state != global.states.pizzagoblinthrow && baddie.velocity.y >= 0 && state != global.states.tackle && state != global.states.superslam && state != global.states.machslide && state != global.states.freefall && state != global.states.mach2 && state != global.states.handstandjump && state != global.states.mach3 && state != global.states.machroll && state != global.states.slipnslide):
+					if (baddie.state != global.states.pizzagoblinthrow && baddie.velocity.y >= 0 && state != global.states.tackle && state != global.states.superslam && state != global.states.machslide && state != global.states.freefall && state != global.states.mach2 && state != global.states.handstandjump && state != global.states.mach3 && state != global.states.machroll && state != global.states.slipnslide && state != global.states.knightpepslopes):
 						utils.playsound("Bump")
 						if (state != global.states.bombpep && state != global.states.mach1):
 							movespeed = 0

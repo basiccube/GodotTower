@@ -43,6 +43,7 @@ script = ExtResource( 19 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "key"
+offset = Vector2( 0, -2 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )

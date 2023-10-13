@@ -1,0 +1,35 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Objects/Level/sprites/spring_0.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Level/sprites/spring_2.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Level/sprites/spring_1.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Level/sprites/spring_5.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Level/sprites/spring_4.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Level/sprites/spring_3.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Level/obj_superspring.gd" type="Script" id=7]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "spring",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 16, 32 )
+
+[node name="obj_superspring" type="Area2D" groups=["obj_superspring"]]
+script = ExtResource( 7 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
+animation = "spring"
+centered = false
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 16, 32 )
+shape = SubResource( 4 )
+
+[connection signal="body_entered" from="." to="." method="_on_obj_superspring_body_entered"]
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]

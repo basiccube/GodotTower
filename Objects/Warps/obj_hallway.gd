@@ -8,7 +8,8 @@ func _ready():
 	if global.targetDoor != "" && global.targetDoor == targetDoor:
 		var obj_player = utils.get_player()
 		obj_player.position.x = (position.x + ((-scale.x) * 100))
-		obj_player.position.y = (position.y + (16 * scale.y))
+		obj_player.position.y = (position.y + (16 * (scale.y - 1)))
+		print(str(position.y + (16 * (scale.y - 1))))
 		obj_player.xscale = (-sign(scale.x))
 
 

@@ -1,0 +1,83 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://Objects/Baddies/obj_baddie.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_2.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_6.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_7.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_8.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_9.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_3.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_5.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_10.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_dead_0.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_1.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_kick_0.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_4.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_0.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_kick_1.png" type="Texture" id=15]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_kick_7.png" type="Texture" id=16]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_scared_1.png" type="Texture" id=17]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblinstun_1.png" type="Texture" id=18]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_scared_2.png" type="Texture" id=19]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblinstun_0.png" type="Texture" id=20]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_kick_4.png" type="Texture" id=21]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblinstun_2.png" type="Texture" id=22]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_scared_3.png" type="Texture" id=23]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_kick_2.png" type="Texture" id=24]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_kick_6.png" type="Texture" id=25]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_scared_0.png" type="Texture" id=26]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_kick_8.png" type="Texture" id=27]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_kick_5.png" type="Texture" id=28]
+[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_kick_3.png" type="Texture" id=29]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_pepgoblin.gd" type="Script" id=30]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "idle",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 15 ), ExtResource( 24 ), ExtResource( 29 ), ExtResource( 21 ), ExtResource( 28 ), ExtResource( 25 ), ExtResource( 16 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "kick",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "pepgoblin_dead",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "scared",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 18 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "stun",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 31 )
+
+[node name="obj_pepgoblin" groups=["obj_pepgoblin"] instance=ExtResource( 1 )]
+script = ExtResource( 30 )
+
+[node name="Sprite" parent="." index="2"]
+frames = SubResource( 1 )
+animation = "idle"
+
+[node name="WallCheck" parent="." index="3"]
+position = Vector2( 0, 24 )
+
+[node name="OppositeWallCheck" parent="." index="4"]
+position = Vector2( 0, 24 )
+
+[node name="PlatformCheck" parent="." index="5"]
+cast_to = Vector2( 0, 32 )
+
+[node name="Collision" parent="." index="9"]
+position = Vector2( 0, 15 )
+shape = SubResource( 2 )

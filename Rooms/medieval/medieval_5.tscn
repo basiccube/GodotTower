@@ -1,13 +1,21 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Level/obj_ladder.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Level/obj_camlimit_left.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Level/obj_camlimit_right.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Level/obj_camlimit_bottom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/Collectibles/obj_collect.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/Warps/obj_door.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Backgrounds/bg_medieval3_0.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Destructibles/obj_destroyable2_bigescape.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Objects/Destructibles/obj_destroyable3.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Objects/Level/obj_slipnslide.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_cheeseslime.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_pepgoblin.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Backgrounds/bg_medievalinterior_0.png" type="Texture" id=19]
 
 [node name="medieval_3" type="Node2D"]
@@ -105,6 +113,147 @@ scale = Vector2( 12, 10 )
 position = Vector2( 128, -64 )
 scale = Vector2( 79, 3 )
 
+[node name="obj_solid6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 96, -64 )
+scale = Vector2( 1, 18 )
+
+[node name="obj_solid7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2656, -64 )
+scale = Vector2( 1, 18 )
+
+[node name="obj_solid8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 640, 512 )
+scale = Vector2( 7, 5 )
+
+[node name="obj_solid9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1056, 512 )
+scale = Vector2( 7, 5 )
+
+[node name="obj_solid10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1504, 512 )
+scale = Vector2( 7, 5 )
+
+[node name="obj_solid11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1920, 512 )
+scale = Vector2( 7, 5 )
+
+[node name="obj_ladder" parent="." instance=ExtResource( 2 )]
+position = Vector2( 480, 512 )
+scale = Vector2( 1, 7 )
+z_index = -2
+
 [node name="obj_platform" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2400, 192 )
 scale = Vector2( 8, 1 )
+
+[node name="obj_platform2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 480, 512 )
+scale = Vector2( 2, 1 )
+
+[node name="obj_collect" parent="." instance=ExtResource( 8 )]
+position = Vector2( 608, 384 )
+
+[node name="obj_collect2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 576, 384 )
+
+[node name="obj_collect3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 544, 384 )
+
+[node name="obj_collect4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 800, 448 )
+
+[node name="obj_collect5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 768, 448 )
+
+[node name="obj_collect6" parent="." instance=ExtResource( 8 )]
+position = Vector2( 736, 448 )
+
+[node name="obj_collect7" parent="." instance=ExtResource( 8 )]
+position = Vector2( 992, 384 )
+
+[node name="obj_collect8" parent="." instance=ExtResource( 8 )]
+position = Vector2( 960, 384 )
+
+[node name="obj_collect9" parent="." instance=ExtResource( 8 )]
+position = Vector2( 928, 384 )
+
+[node name="obj_collect10" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1184, 448 )
+
+[node name="obj_collect11" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1152, 448 )
+
+[node name="obj_collect12" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1120, 448 )
+
+[node name="obj_collect13" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1440, 384 )
+
+[node name="obj_collect14" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1408, 384 )
+
+[node name="obj_collect15" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1376, 384 )
+
+[node name="obj_collect16" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1632, 448 )
+
+[node name="obj_collect17" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1600, 448 )
+
+[node name="obj_collect18" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1568, 448 )
+
+[node name="obj_collect19" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1888, 384 )
+
+[node name="obj_collect20" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1856, 384 )
+
+[node name="obj_collect21" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1824, 384 )
+
+[node name="obj_collect22" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2048, 448 )
+
+[node name="obj_collect23" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2016, 448 )
+
+[node name="obj_collect24" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1984, 448 )
+
+[node name="obj_collect25" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2272, 384 )
+
+[node name="obj_collect26" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2240, 384 )
+
+[node name="obj_collect27" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2208, 384 )
+
+[node name="obj_destroyable2_bigescape" parent="." instance=ExtResource( 11 )]
+position = Vector2( 672, 448 )
+
+[node name="obj_destroyable2_bigescape2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1088, 448 )
+
+[node name="obj_destroyable2_bigescape3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1536, 448 )
+
+[node name="obj_destroyable2_bigescape4" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1952, 448 )
+
+[node name="obj_destroyable3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1216, 448 )
+
+[node name="obj_slipnslide" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1600, 480 )
+
+[node name="obj_cheeseslime" parent="." instance=ExtResource( 14 )]
+position = Vector2( 768, 464 )
+
+[node name="obj_forknight" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1696, 464 )
+
+[node name="obj_pepgoblin" parent="." instance=ExtResource( 16 )]
+position = Vector2( 2096, 464 )

@@ -67,12 +67,23 @@ position = Vector2( 960, 0 )
 
 [node name="obj_camlimit_top" parent="." instance=ExtResource( 7 )]
 
+[node name="obj_solid" parent="." instance=ExtResource( 2 )]
+position = Vector2( 96, 480 )
+scale = Vector2( 27, 2 )
+
+[node name="obj_solid2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 864, 0 )
+scale = Vector2( 3, 15 )
+
+[node name="obj_solid3" parent="." instance=ExtResource( 2 )]
+scale = Vector2( 3, 17 )
+
+[node name="obj_solid4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 96, 0 )
+scale = Vector2( 24, 2 )
+
 [node name="obj_door" parent="." instance=ExtResource( 9 )]
 position = Vector2( 672, 384 )
 targetDoor = "B"
 targetLevel = "medieval"
 targetRoom = "medieval_8"
-
-[node name="obj_solid" parent="." instance=ExtResource( 2 )]
-position = Vector2( 96, 480 )
-scale = Vector2( 27, 2 )

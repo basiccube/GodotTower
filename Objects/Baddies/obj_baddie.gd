@@ -64,30 +64,31 @@ func _process(delta):
 	position.y += velocity.y
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		if collision.collider.is_in_group("obj_spike"):
-			destroy()
-		if collision.collider.is_in_group("obj_boilingsauce"):
-			destroy()
-		if collision.collider.is_in_group("obj_destructibles"):
-			if (state == global.states.stun && thrown):
-				collision.collider.destroy()
-		if collision.collider.is_in_group("obj_baddie"):
-			if (state == global.states.stun && thrown):
+		if (collision.collider != null):
+			if collision.collider.is_in_group("obj_spike"):
 				destroy()
-				collision.collider.destroy()
-		if collision.collider.is_in_group("obj_player"):
-			var obj_player = utils.get_player()
-			if (state != global.states.pizzagoblinthrow && velocity.y >= 0 && obj_player.state != global.states.tackle && obj_player.state != global.states.superslam && obj_player.state != global.states.machslide && obj_player.state != global.states.freefall && obj_player.state != global.states.mach2 && obj_player.state != global.states.handstandjump && obj_player.state != global.states.mach3 && obj_player.state != global.states.machroll):
-				utils.playsound("Bump")
-				if (obj_player.state != global.states.bombpep && obj_player.state != global.states.mach1):
-					obj_player.movespeed = 0
-				if (is_in_group("obj_pizzaball")):
-					global.golfhit += 1
-				if (stunned < 100):
-					stunned = 100
-				velocity.y = -5
-				velocity.x = ((-xscale) * 2)
-				state = global.states.stun
+			if collision.collider.is_in_group("obj_boilingsauce"):
+				destroy()
+			if collision.collider.is_in_group("obj_destructibles"):
+				if (state == global.states.stun && thrown):
+					collision.collider.destroy()
+			if collision.collider.is_in_group("obj_baddie"):
+				if (state == global.states.stun && thrown):
+					destroy()
+					collision.collider.destroy()
+			if collision.collider.is_in_group("obj_player"):
+				var obj_player = utils.get_player()
+				if (state != global.states.pizzagoblinthrow && velocity.y >= 0 && obj_player.state != global.states.tackle && obj_player.state != global.states.superslam && obj_player.state != global.states.machslide && obj_player.state != global.states.freefall && obj_player.state != global.states.mach2 && obj_player.state != global.states.handstandjump && obj_player.state != global.states.mach3 && obj_player.state != global.states.machroll):
+					utils.playsound("Bump")
+					if (obj_player.state != global.states.bombpep && obj_player.state != global.states.mach1):
+						obj_player.movespeed = 0
+					if (is_in_group("obj_pizzaball")):
+						global.golfhit += 1
+					if (stunned < 100):
+						stunned = 100
+					velocity.y = -5
+					velocity.x = ((-xscale) * 2)
+					state = global.states.stun
 
 func _physics_process(delta):
 	if (state != global.states.grabbed):
