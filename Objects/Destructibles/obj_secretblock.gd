@@ -23,6 +23,6 @@ func destroy():
 	global.saveroom.append(global.targetRoom + name)
 	var pizzacoin = utils.randi_range(1, 100)
 	if (pizzacoin >= 90):
-		var pizzacoininst = utils.instance_create(global_position.x, global_position.y, "res://Objects/Collectibles/obj_pizzacoin.tscn")
+		var pizzacoininst = utils.instance_create_level(global_position.x, global_position.y, "res://Objects/Collectibles/obj_pizzacoin.tscn")
 		pizzacoininst.velocity.x = 2
 	queue_free()
