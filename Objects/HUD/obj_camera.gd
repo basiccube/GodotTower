@@ -72,6 +72,10 @@ func _process(delta):
 	if (shake_mag != 0):
 		global_position.y = clamp(global_position.y, (limit_top + 270 + utils.randi_range((-shake_mag), shake_mag)), (limit_bottom - 270 + utils.randi_range((-shake_mag), shake_mag)))
 	var obj_player = utils.get_player()
+	if (obj_player.backupweapon):
+		$BackupShotgun.visible = true
+	else:
+		$BackupShotgun.visible = false
 	if (obj_player.state != global.states.gameover):
 		# Character face HUD code
 		$FaceHUD.playing = true

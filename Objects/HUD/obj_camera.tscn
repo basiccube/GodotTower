@@ -1,4 +1,4 @@
-[gd_scene load_steps=182 format=2]
+[gd_scene load_steps=184 format=2]
 
 [ext_resource path="res://Objects/HUD/obj_camera.gd" type="Script" id=1]
 [ext_resource path="res://Objects/HUD/sprites/speedbar_1.png" type="Texture" id=2]
@@ -177,11 +177,21 @@
 [ext_resource path="res://Objects/HUD/sprites/peppino/pepinoHUDmenacing_2.png" type="Texture" id=175]
 [ext_resource path="res://Shaders/PaletteSwap.gdshader" type="Shader" id=176]
 [ext_resource path="res://Objects/Player/peppalette.png" type="Texture" id=177]
+[ext_resource path="res://Objects/HUD/sprites/shotgunbackup_0.png" type="Texture" id=178]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 178 ) ],
+"loop": true,
+"name": "backupshotgun",
+"speed": 60.0
+} ]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 176 )
 shader_param/skip_first_row = true
 shader_param/use_palette_alpha = false
+shader_param/current_palette = 0
 shader_param/fps = 0.0
 shader_param/palette = ExtResource( 177 )
 
@@ -299,6 +309,12 @@ z_index = 1000
 offset = Vector2( 48, 0 )
 current = true
 script = ExtResource( 1 )
+
+[node name="BackupShotgun" type="AnimatedSprite" parent="."]
+position = Vector2( -414, -200 )
+frames = SubResource( 5 )
+animation = "backupshotgun"
+centered = false
 
 [node name="FaceHUD" type="AnimatedSprite" parent="."]
 material = SubResource( 4 )

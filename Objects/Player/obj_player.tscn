@@ -1,4 +1,4 @@
-[gd_scene load_steps=1528 format=2]
+[gd_scene load_steps=1551 format=2]
 
 [ext_resource path="res://Objects/Player/sprites/idle_4.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/sprites/idle_0.png" type="Texture" id=2]
@@ -1518,6 +1518,29 @@
 [ext_resource path="res://Objects/Player/sprites/keyget_2.png" type="Texture" id=1516]
 [ext_resource path="res://Objects/Player/sprites/keyget_14.png" type="Texture" id=1517]
 [ext_resource path="res://Objects/Player/sprites/keyget_6.png" type="Texture" id=1518]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_0.png" type="Texture" id=1519]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_1.png" type="Texture" id=1520]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_2.png" type="Texture" id=1521]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_3.png" type="Texture" id=1522]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_4.png" type="Texture" id=1523]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_5.png" type="Texture" id=1524]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_6.png" type="Texture" id=1525]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_7.png" type="Texture" id=1526]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_8.png" type="Texture" id=1527]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_9.png" type="Texture" id=1528]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_19.png" type="Texture" id=1529]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_12.png" type="Texture" id=1530]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_15.png" type="Texture" id=1531]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_10.png" type="Texture" id=1532]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_14.png" type="Texture" id=1533]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_20.png" type="Texture" id=1534]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_22.png" type="Texture" id=1535]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_21.png" type="Texture" id=1536]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_18.png" type="Texture" id=1537]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_13.png" type="Texture" id=1538]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_11.png" type="Texture" id=1539]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_17.png" type="Texture" id=1540]
+[ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_16.png" type="Texture" id=1541]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 1204 )
@@ -2067,6 +2090,11 @@ animations = [ {
 "frames": [ ExtResource( 317 ), ExtResource( 319 ), ExtResource( 321 ), ExtResource( 320 ), ExtResource( 318 ) ],
 "loop": true,
 "name": "shotgun_land",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1519 ), ExtResource( 1520 ), ExtResource( 1521 ), ExtResource( 1522 ), ExtResource( 1523 ), ExtResource( 1524 ), ExtResource( 1525 ), ExtResource( 1526 ), ExtResource( 1527 ), ExtResource( 1528 ), ExtResource( 1532 ), ExtResource( 1539 ), ExtResource( 1530 ), ExtResource( 1538 ), ExtResource( 1533 ), ExtResource( 1531 ), ExtResource( 1541 ), ExtResource( 1540 ), ExtResource( 1537 ), ExtResource( 1529 ), ExtResource( 1534 ), ExtResource( 1536 ), ExtResource( 1535 ) ],
+"loop": true,
+"name": "shotgun_pullout",
 "speed": 60.0
 }, {
 "frames": [ ExtResource( 1193 ), ExtResource( 1198 ), ExtResource( 1196 ), ExtResource( 1188 ), ExtResource( 1189 ), ExtResource( 1190 ), ExtResource( 1199 ), ExtResource( 1200 ), ExtResource( 1192 ), ExtResource( 1197 ), ExtResource( 1194 ), ExtResource( 1195 ), ExtResource( 1191 ) ],

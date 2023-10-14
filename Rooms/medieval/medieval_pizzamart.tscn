@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Backgrounds/bg_medievallibrairy2_0.png" type="Texture" id=1]
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Objects/Warps/obj_door.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objects/Misc/sprites/shootsign.png" type="Texture" id=10]
 [ext_resource path="res://Objects/Level/obj_weaponmachine.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Objects/Collectibles/obj_shotgun.tscn" type="PackedScene" id=12]
 
 [node name="medieval_pizzamart" type="Node2D"]
 
@@ -107,3 +108,9 @@ position = Vector2( 425, 333 )
 
 [node name="obj_weaponmachine2" parent="." instance=ExtResource( 11 )]
 position = Vector2( 265, 333 )
+
+[node name="obj_shotgun" parent="." instance=ExtResource( 12 )]
+position = Vector2( 384, 320 )
+
+[node name="obj_shotgun2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 224, 320 )

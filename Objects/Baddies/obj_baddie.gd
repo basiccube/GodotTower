@@ -69,6 +69,25 @@ func _process(delta):
 				destroy()
 			if collision.collider.is_in_group("obj_boilingsauce"):
 				destroy()
+			if collision.collider.is_in_group("obj_shotgunbullet"):
+				if (hp <= 1):
+					collision.collider.destroy()
+					destroy()
+				else:
+					hp -= 1
+					utils.playsound("HitEnemy")
+					utils.playsound("Punch")
+					global.hit += 1
+					global.combotime = 60
+					utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
+					utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
+					state = global.states.stun
+					if (stunned < 100):
+						stunned = 100
+					utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_bumpeffect.tscn")
+					utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_bangeffect.tscn")
+					velocity.y = -4
+					velocity.x = collision.collider.scale.x * 5
 			if collision.collider.is_in_group("obj_destructibles"):
 				if (state == global.states.stun && thrown):
 					collision.collider.destroy()

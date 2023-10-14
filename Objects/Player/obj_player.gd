@@ -16,6 +16,7 @@ var targetRoom = ""
 
 var sprite_index
 
+# TODO: Replace these with bools
 var facehurt = 1
 var steppy = 0
 var jumpstop = 0
@@ -27,6 +28,7 @@ var machhitAnim = 0
 var machpunchAnim = 0
 var moveAnim = 1
 var shotgunAnim = 0
+var backupweapon = false
 var windingAnim = 0
 var stompAnim = 0
 var stopAnim = 1
@@ -126,6 +128,9 @@ func _process(delta):
 	elif ("knightpep" in $PeppinoSprite.animation):
 		$PeppinoSprite.position.x = -25
 		$PeppinoSprite.position.y = -25
+	elif ($PeppinoSprite.animation == "shotgun_pullout" || $PeppinoSprite.animation == "shotgun"):
+		$PeppinoSprite.position.x = -100
+		$PeppinoSprite.position.y = 0
 	else:
 		$PeppinoSprite.position.x = 0
 		$PeppinoSprite.position.y = 0
@@ -147,7 +152,7 @@ func _process(delta):
 				destructible.destroy()
 			if (state == global.states.handstandjump):
 				if (destructible.is_in_group("obj_bigdestructibles")):
-					if (!shotgunAnim):
+					if (shotgunAnim == 0):
 						$PeppinoSprite.animation = "tackle"
 						state = global.states.tackle
 						movespeed = 3
@@ -155,9 +160,13 @@ func _process(delta):
 						destructible.destroy()
 					else:
 						state = global.states.shotgun
+						$PeppinoSprite.position.x = -100
 						$PeppinoSprite.animation = "shotgun"
-						var bullet = utils.instance_create(position.x + 70, position.y + 70, "res://Objects/Visuals/obj_spikehurteffect.tscn")
-						bullet.spdh = 4
+						utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+						var bulletid = utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+						bulletid.spdh = 4
+						var bulletid2 = utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+						bulletid2.spdh = -4
 						destructible.destroy()
 				if (!destructible.is_in_group("obj_bigdestructibles")):
 					destructible.destroy()
@@ -177,7 +186,7 @@ func _process(delta):
 		if (destructible.is_in_group("obj_destructibles")):
 			if (velocity.y >= 0 && (state == global.states.freefall || state == global.states.freefallland)):
 				if (destructible.is_in_group("obj_bigdestructibles")):
-					if (!shotgunAnim):
+					if (shotgunAnim == 0):
 						$PeppinoSprite.animation = "bodyslamland"
 					else:
 						$PeppinoSprite.animation = "shotgunjump2"
@@ -266,8 +275,12 @@ func _process(delta):
 							utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
 							utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
 					elif (character == "P"):
-						$PeppinoSprite.animation = "shotgunback"
-						shotgunAnim = 0
+						var shotgunid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_sausageman_dead.tscn")
+						shotgunid.sprite_index = "shotgunback"
+						if (backupweapon):
+							backupweapon = false
+						else:
+							shotgunAnim = 0
 			if collision.collider.is_in_group("obj_baddie"):
 				var baddie = collision.collider
 				if (baddie.state != global.states.grabbed && !cutscene):
@@ -342,8 +355,19 @@ func _process(delta):
 							state = global.states.grab
 							baddie.state = global.states.grabbed
 						else:
-							pass
-							# insert code for shotgun
+							state = global.states.shotgun
+							var effectid = utils.instance_create(global_position.x + 50, global_position.y + 50, "res://Objects/Visuals/obj_pistoleffect.tscn")
+							effectid.xscale = xscale
+							$PeppinoSprite.position.x = -100
+							$PeppinoSprite.animation = "shotgun"
+							utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+							var bulletid = utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+							bulletid.spdh = 4
+							var bulletid2 = utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+							bulletid2.spdh = -4
+							baddie.destroy()
+							global.hit += 1
+							global.combotime = 60
 	match state:
 		global.states.normal:
 			scr_player_normal()
@@ -427,6 +451,8 @@ func _process(delta):
 			scr_player_knightpepslopes()
 		global.states.keyget:
 			scr_player_keyget()
+		global.states.shotgun:
+			scr_player_shotgun()
 	scr_playersounds()
 	if (is_on_floor() && state != global.states.handstandjump):
 		suplexmove = 0
@@ -472,7 +498,7 @@ func _process(delta):
 		fallinganimation = 0
 	if state != global.states.normal:
 		facehurt = 0
-	if state != global.states.normal:
+	if state != global.states.normal && state != global.states.machslide:
 		machslideAnim = 0
 	if (state != global.states.normal && state != global.states.jump && state != global.states.mach1 && state != global.states.mach2 && state != global.states.mach3 && state != global.states.handstandjump && state != global.states.freefallprep && state != global.states.knightpep && state != global.states.shotgun && state != global.states.knightpepslopes):
 		momemtum = 0
@@ -601,7 +627,7 @@ func scr_player_normal():
 	mach2 = 0
 	var move = ((-int(Input.is_action_pressed("key_left"))) + int(Input.is_action_pressed("key_right")))
 	velocity.x = (move * movespeed)
-	if (!machslideAnim && !landAnim && !shotgunAnim):
+	if (machslideAnim == 0 && landAnim == 0 && shotgunAnim == 0):
 		if (move == 0):
 			if (idle < 400):
 				idle += 1
@@ -761,6 +787,18 @@ func scr_player_normal():
 		else:
 			$PeppinoSprite.animation = "shotgun_suplexdash"
 		movespeed = 6
+	if (Input.is_action_just_pressed("key_grab") && character == "P" && shotgunAnim == 1 && Input.is_action_pressed("key_up")):
+		utils.playsound("KillingBlow")
+		state = global.states.shotgun
+		var effectid = utils.instance_create(global_position.x + 50, global_position.y + 50, "res://Objects/Visuals/obj_pistoleffect.tscn")
+		effectid.xscale = xscale
+		$PeppinoSprite.position.x = -100
+		$PeppinoSprite.animation = "shotgun"
+		utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+		var bulletid = utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+		bulletid.spdh = 4
+		var bulletid2 = utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+		bulletid2.spdh = -4
 	if (Input.is_action_pressed("key_dash") && !is_on_wall() && !is_colliding_with_wall()):
 		movespeed = 6
 		$PeppinoSprite.animation = "mach1"
@@ -855,8 +893,23 @@ func scr_player_jump():
 			state = global.states.freefallprep
 			$PeppinoSprite.animation = "bodyslamstart"
 			velocity.y = -5
-		#else:
-			#TODO: Implement shotgun bodyslam
+		else:
+			utils.playsound("KillingBlow")
+			state = global.states.freefallprep
+			$PeppinoSprite.animation = "shotgunjump1"
+			velocity.y = -5
+			var bulletid = utils.instance_create((global_position.x + 50), global_position.y + 110, "res://Objects/Misc/obj_shotgunbullet.tscn")
+			bulletid.sprite = "shotgunbullet2"
+			bulletid.spdh = -10
+			bulletid.spd = 0
+			var bulletid2 = utils.instance_create((global_position.x + 50), global_position.y + 110, "res://Objects/Misc/obj_shotgunbullet.tscn")
+			bulletid2.sprite = "shotgunbullet2"
+			bulletid2.spdh = -10
+			bulletid2.spd = 5
+			var bulletid3 = utils.instance_create((global_position.x + 50), global_position.y + 110, "res://Objects/Misc/obj_shotgunbullet.tscn")
+			bulletid3.sprite = "shotgunbullet2"
+			bulletid3.spdh = -10
+			bulletid3.spd = -5
 	if (move != 0):
 		xscale = move
 	$PeppinoSprite.speed_scale = 0.35
@@ -878,6 +931,18 @@ func scr_player_jump():
 		$PeppinoSprite.animation = "suplexdashjumpstart"
 		velocity.y = -4
 		movespeed = 6
+	if (Input.is_action_just_pressed("key_grab") && character == "P" && shotgunAnim == 1 && Input.is_action_pressed("key_up")):
+		utils.playsound("KillingBlow")
+		state = global.states.shotgun
+		var effectid = utils.instance_create(global_position.x + 50, global_position.y + 50, "res://Objects/Visuals/obj_pistoleffect.tscn")
+		effectid.xscale = xscale
+		$PeppinoSprite.position.x = -100
+		$PeppinoSprite.animation = "shotgun"
+		utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+		var bulletid = utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+		bulletid.spdh = 4
+		var bulletid2 = utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+		bulletid2.spdh = -4
 	if (!Input.is_action_pressed("key_dash") && move != xscale):
 		mach2 = 0
 	if (Input.is_action_pressed("key_dash") && is_on_floor() && fallinganimation < 40):
@@ -1372,8 +1437,22 @@ func scr_player_mach1():
 			state = global.states.freefallprep
 			$PeppinoSprite.animation = "bodyslamstart"
 			velocity.y = -5
-		#else:
-			#TODO: Implement shotgun bodyslam
+		else:
+			state = global.states.freefallprep
+			$PeppinoSprite.animation = "shotgunjump1"
+			velocity.y = -5
+			var bulletid = utils.instance_create((global_position.x + 50), global_position.y + 110, "res://Objects/Misc/obj_shotgunbullet.tscn")
+			bulletid.sprite = "shotgunbullet2"
+			bulletid.spdh = -10
+			bulletid.spd = 0
+			var bulletid2 = utils.instance_create((global_position.x + 50), global_position.y + 110, "res://Objects/Misc/obj_shotgunbullet.tscn")
+			bulletid2.sprite = "shotgunbullet2"
+			bulletid2.spdh = -10
+			bulletid2.spd = 5
+			var bulletid3 = utils.instance_create((global_position.x + 50), global_position.y + 110, "res://Objects/Misc/obj_shotgunbullet.tscn")
+			bulletid3.sprite = "shotgunbullet2"
+			bulletid3.spdh = -10
+			bulletid3.spd = -5
 	scr_dotaunt()
 	
 func scr_player_mach2():
@@ -1571,7 +1650,7 @@ func scr_player_machslide():
 	landAnim = 0
 	if (movespeed <= 0 && ($PeppinoSprite.animation == "machslide" || $PeppinoSprite.animation == "crouchslide")):
 		state = global.states.normal
-		if ($PeppinoSprite.animation == "machslide"):
+		if ($PeppinoSprite.animation == "machslide" && shotgunAnim == 0):
 			machslideAnim = 1
 		movespeed = 0
 	if (is_colliding_with_wall() && ($PeppinoSprite.animation == "machslide" || $PeppinoSprite.animation == "machslidestart")):
@@ -2304,6 +2383,23 @@ func scr_player_keyget():
 	if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1):
 		global.keyget = false
 		state = global.states.normal
+		
+func scr_player_shotgun():
+	velocity.x = (xscale * movespeed)
+	dir = xscale
+	movespeed = 0
+	landAnim = 0
+	momemtum = 1
+	if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1):
+		if (is_on_floor()):
+			$PeppinoSprite.animation = "shotgun_idle"
+			state = global.states.normal
+		else:
+			$PeppinoSprite.animation = "shotgun_fall"
+			state = global.states.jump
+	$PeppinoSprite.speed_scale = 0.4
+	if (!utils.instance_exists("obj_slidecloud") && is_on_floor() && movespeed > 4):
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_slidecloud.tscn")
 	
 func scr_playerreset():
 	if (utils.instance_exists("obj_endlevelfade")):
@@ -2373,6 +2469,7 @@ func scr_playerreset():
 	global.treasure = false
 	global.combo = 0
 	global.combotime = 0
+	backupweapon = false
 	global.hit = 0
 	bounce = 0
 	idle = 0

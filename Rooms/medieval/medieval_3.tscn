@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_slope.tscn" type="PackedScene" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Objects/Baddies/Enemies/obj_pizzard.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Objects/Warps/obj_boxofpizza.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Objects/Warps/obj_keydoor.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Objects/Blocks/obj_minipillar.tscn" type="PackedScene" id=23]
 
 [node name="medieval_3" type="Node2D"]
 
@@ -314,3 +315,23 @@ targetRoom = "medieval_4"
 
 [node name="obj_key" parent="." instance=ExtResource( 18 )]
 position = Vector2( 2144, 128 )
+
+[node name="obj_minipillar" parent="." instance=ExtResource( 23 )]
+position = Vector2( 1216, 480 )
+z_index = 1
+
+[node name="obj_minipillar2" parent="." instance=ExtResource( 23 )]
+position = Vector2( 1216, 512 )
+z_index = 1
+
+[node name="obj_minipillar3" parent="." instance=ExtResource( 23 )]
+position = Vector2( 1216, 544 )
+z_index = 1
+
+[node name="obj_minipillar4" parent="." instance=ExtResource( 23 )]
+position = Vector2( 1216, 576 )
+z_index = 1
+
+[node name="obj_minipillar5" parent="." instance=ExtResource( 23 )]
+position = Vector2( 1216, 608 )
+z_index = 1
