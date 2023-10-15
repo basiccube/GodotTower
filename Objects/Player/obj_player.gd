@@ -78,6 +78,9 @@ var backtohubroom = "Realtitlescreen"
 var lastroom = ""
 var lastroom_x = 0
 var lastroom_y = 0
+var roomstartx = 0
+var roomstarty = 0
+
 onready var hurttimer = $HurtTimer
 onready var hurttimer2 = $HurtTimer2
 onready var pepsprite = $PeppinoSprite

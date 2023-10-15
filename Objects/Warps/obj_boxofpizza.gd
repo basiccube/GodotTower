@@ -12,6 +12,8 @@ func _ready():
 			obj_player.position.y = (position.y - 96)
 		if (scale.y == -1):
 			obj_player.position.y = (position.y - 50)
+		obj_player.roomstartx = obj_player.position.x
+		obj_player.roomstarty = obj_player.position.y
 		obj_player.xscale = (-sign(scale.x))
 		obj_player.box = false
 

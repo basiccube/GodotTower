@@ -9,6 +9,8 @@ func _ready():
 		var obj_player = utils.get_player()
 		obj_player.position.x = (position.x + ((-scale.x) * 100))
 		obj_player.position.y = (position.y + (16 * (scale.y - 1)))
+		obj_player.roomstartx = obj_player.position.x
+		obj_player.roomstarty = obj_player.position.y
 		obj_player.xscale = (-sign(scale.x))
 
 
