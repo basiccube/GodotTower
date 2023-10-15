@@ -632,7 +632,9 @@ position = Vector2( 5232, 528 )
 [node name="obj_baddiespawner" parent="." instance=ExtResource( 21 )]
 position = Vector2( 3008, 224 )
 content = ExtResource( 19 )
+baddie = true
 
 [node name="obj_baddiespawner2" parent="." instance=ExtResource( 21 )]
 position = Vector2( 6112, 224 )
 content = ExtResource( 19 )
+baddie = true

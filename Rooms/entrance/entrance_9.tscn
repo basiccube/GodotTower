@@ -531,7 +531,9 @@ position = Vector2( 1504, 400 )
 [node name="obj_baddiespawner" parent="." instance=ExtResource( 22 )]
 position = Vector2( 992, 160 )
 content = ExtResource( 20 )
+baddie = true
 
 [node name="obj_baddiespawner2" parent="." instance=ExtResource( 22 )]
 position = Vector2( 1504, 160 )
 content = ExtResource( 20 )
+baddie = true

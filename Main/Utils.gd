@@ -29,9 +29,15 @@ func instance_create(x, y, scene):
 	id.position = Vector2(x, y)
 	return id
 	
-func instance_create_preload(x, y, preloadobject):
-	var id = preloadobject.instance()
+func instance_create_scene(x, y, scene):
+	var id = scene.instance()
 	GameNode.add_child(id)
+	id.position = Vector2(x, y)
+	return id
+	
+func instance_create_level_scene(x, y, scene):
+	var id = scene.instance()
+	get_level().add_child(id)
 	id.position = Vector2(x, y)
 	return id
 	

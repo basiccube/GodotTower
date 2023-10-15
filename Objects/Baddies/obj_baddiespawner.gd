@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 export(PackedScene) var content
+export(bool) var baddie = false
 var baddieid = ""
 var refresh = 20
 
@@ -19,16 +20,16 @@ func _process(delta):
 		$Sprite.speed_scale = 0.35
 		if ($Sprite.frame == 5):
 			var spawnid = content.instance()
+			spawnid.name = name + str(content) + str(utils.randi_range(0, 10000))
 			utils.get_level().add_child(spawnid)
 			spawnid.position = position
-			spawnid.xscale = scale.x
-			spawnid.state = global.states.stun
-			spawnid.stunned = 50
-			spawnid.velocity.y = -5
-			print(str(content))
-			spawnid.name = str(content)
+			if (baddie):
+				spawnid.xscale = scale.x
+				spawnid.state = global.states.stun
+				spawnid.stunned = 50
+				spawnid.velocity.y = -5
+				spawnid.important = true
 			baddieid = spawnid.name
-			spawnid.important = true
 			refresh = 100
 	position.x += velocity.x
 	position.y += velocity.y
