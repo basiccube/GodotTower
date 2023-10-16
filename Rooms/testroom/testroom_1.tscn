@@ -37,6 +37,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 1200, 1078 )
 
 [node name="TileMap" type="TileMap" parent="."]
+z_index = -50
 tile_set = ExtResource( 21 )
 cell_size = Vector2( 32, 32 )
 format = 1
