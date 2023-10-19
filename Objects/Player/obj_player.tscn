@@ -1,4 +1,4 @@
-[gd_scene load_steps=1551 format=2]
+[gd_scene load_steps=1598 format=2]
 
 [ext_resource path="res://Objects/Player/sprites/idle_4.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/sprites/idle_0.png" type="Texture" id=2]
@@ -1541,6 +1541,53 @@
 [ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_11.png" type="Texture" id=1539]
 [ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_17.png" type="Texture" id=1540]
 [ext_resource path="res://Objects/Player/sprites/shotgun/shotgun_pullout_16.png" type="Texture" id=1541]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_17.png" type="Texture" id=1542]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_intro_10.png" type="Texture" id=1543]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_5.png" type="Texture" id=1544]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_11.png" type="Texture" id=1545]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_12.png" type="Texture" id=1546]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_7.png" type="Texture" id=1547]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_3.png" type="Texture" id=1548]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_6.png" type="Texture" id=1549]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_intro_4.png" type="Texture" id=1550]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_intro_6.png" type="Texture" id=1551]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_intro_12.png" type="Texture" id=1552]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_2.png" type="Texture" id=1553]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_9.png" type="Texture" id=1554]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_15.png" type="Texture" id=1555]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_18.png" type="Texture" id=1556]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_20.png" type="Texture" id=1557]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_21.png" type="Texture" id=1558]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_intro_0.png" type="Texture" id=1559]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_intro_5.png" type="Texture" id=1560]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_23.png" type="Texture" id=1561]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_10.png" type="Texture" id=1562]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_13.png" type="Texture" id=1563]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_24.png" type="Texture" id=1564]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_16.png" type="Texture" id=1565]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_0.png" type="Texture" id=1566]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_1.png" type="Texture" id=1567]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_14.png" type="Texture" id=1568]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_intro_8.png" type="Texture" id=1569]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_intro_11.png" type="Texture" id=1570]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_8.png" type="Texture" id=1571]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_19.png" type="Texture" id=1572]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_intro_3.png" type="Texture" id=1573]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_intro_7.png" type="Texture" id=1574]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_intro_1.png" type="Texture" id=1575]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_22.png" type="Texture" id=1576]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_4.png" type="Texture" id=1577]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_end_25.png" type="Texture" id=1578]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_intro_13.png" type="Texture" id=1579]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_intro_14.png" type="Texture" id=1580]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_intro_9.png" type="Texture" id=1581]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_intro_2.png" type="Texture" id=1582]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_run_0.png" type="Texture" id=1583]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_run_2.png" type="Texture" id=1584]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_run_1.png" type="Texture" id=1585]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_runabouttoexplode_0.png" type="Texture" id=1586]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_runabouttoexplode_1.png" type="Texture" id=1587]
+[ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_runabouttoexplode_2.png" type="Texture" id=1588]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 1204 )
@@ -1585,6 +1632,26 @@ animations = [ {
 "frames": [ ExtResource( 419 ), ExtResource( 416 ), ExtResource( 424 ), ExtResource( 426 ), ExtResource( 425 ), ExtResource( 427 ), ExtResource( 420 ), ExtResource( 421 ), ExtResource( 422 ) ],
 "loop": true,
 "name": "bodyslamstart",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1566 ), ExtResource( 1567 ), ExtResource( 1553 ), ExtResource( 1548 ), ExtResource( 1577 ), ExtResource( 1544 ), ExtResource( 1549 ), ExtResource( 1547 ), ExtResource( 1571 ), ExtResource( 1554 ), ExtResource( 1562 ), ExtResource( 1545 ), ExtResource( 1546 ), ExtResource( 1563 ), ExtResource( 1568 ), ExtResource( 1555 ), ExtResource( 1565 ), ExtResource( 1542 ), ExtResource( 1556 ), ExtResource( 1572 ), ExtResource( 1557 ), ExtResource( 1558 ), ExtResource( 1576 ), ExtResource( 1561 ), ExtResource( 1564 ), ExtResource( 1578 ) ],
+"loop": true,
+"name": "bombpep_end",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1559 ), ExtResource( 1575 ), ExtResource( 1582 ), ExtResource( 1573 ), ExtResource( 1550 ), ExtResource( 1560 ), ExtResource( 1551 ), ExtResource( 1574 ), ExtResource( 1569 ), ExtResource( 1581 ), ExtResource( 1543 ), ExtResource( 1570 ), ExtResource( 1552 ), ExtResource( 1579 ), ExtResource( 1580 ) ],
+"loop": true,
+"name": "bombpep_intro",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1583 ), ExtResource( 1585 ), ExtResource( 1584 ) ],
+"loop": true,
+"name": "bombpep_run",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1586 ), ExtResource( 1587 ), ExtResource( 1588 ) ],
+"loop": true,
+"name": "bombpep_runabouttoexplode",
 "speed": 60.0
 }, {
 "frames": [ ExtResource( 684 ), ExtResource( 690 ), ExtResource( 693 ), ExtResource( 691 ), ExtResource( 692 ), ExtResource( 685 ), ExtResource( 689 ), ExtResource( 694 ), ExtResource( 686 ), ExtResource( 683 ), ExtResource( 687 ), ExtResource( 688 ) ],

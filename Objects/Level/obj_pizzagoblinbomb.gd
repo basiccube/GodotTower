@@ -16,8 +16,19 @@ func _process(delta):
 	countdown -= 0.5
 	if (countdown < 50):
 		$Sprite.animation = "bomblit"
-	if (countdown == 0):
+	if (countdown <= 0):
+		queue_free()
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_bombexplosion.tscn")
+	if ($PickupArea.overlaps_body(utils.get_player())):
+		var obj_player = utils.get_player()
+		if (!obj_player.cutscene && is_on_floor() && obj_player.state != global.states.bombpep && obj_player.state == global.states.handstandjump):
+			obj_player.bombpeptimer = 100
+			obj_player.state = global.states.bombpep
+			obj_player.set_animation("bombpep_intro")
+			queue_free()
+		if (obj_player.hurted == 0 && !is_on_floor()):
+			queue_free()
+			utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_bombexplosion.tscn")
 	
 func _physics_process(delta):
 	velocity.y += grav

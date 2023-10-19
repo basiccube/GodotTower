@@ -73,9 +73,14 @@ targetLevel = "entrance"
 targetRoom = "entrance_1"
 
 [node name="obj_startgate3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1664, 320 )
+position = Vector2( 1632, 320 )
 targetLevel = "medieval"
 targetRoom = "medieval_1"
+
+[node name="obj_startgate4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1920, 320 )
+targetLevel = "ruin"
+targetRoom = "ruin_1"
 
 [node name="obj_doorblocked" parent="." instance=ExtResource( 3 )]
 position = Vector2( 320, 352 )

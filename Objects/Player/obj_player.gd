@@ -452,6 +452,8 @@ func _process(delta):
 			scr_player_knightpepattack()
 		global.states.knightpepslopes:
 			scr_player_knightpepslopes()
+		global.states.bombpep:
+			scr_player_bombpep()
 		global.states.keyget:
 			scr_player_keyget()
 		global.states.shotgun:
@@ -2368,6 +2370,68 @@ func scr_player_knightpepslopes():
 		$PeppinoSprite.animation = "knightpep_idle"
 		state = global.states.knightpep
 	$PeppinoSprite.speed_scale = 0.4
+	
+func scr_player_bombpep():
+	if (Input.is_action_just_pressed("key_jump")):
+		input_buffer_jump = 0
+	if (!Input.is_action_pressed("key_jump") && jumpstop == 0 && velocity.y < 0.5 && stompAnim == 0):
+		velocity.y /= 2
+		jumpstop = 1
+	if (is_on_floor() && velocity.y >= 0):
+		jumpstop = 0
+	mach2 = 0
+	landAnim = 0
+	if ($PeppinoSprite.animation == "bombpep_intro" && $PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1):
+		$PeppinoSprite.animation = "bombpep_run"
+	if ($PeppinoSprite.animation == "bombpep_run" || $PeppinoSprite.animation == "bombpep_runabouttoexplode"):
+		if (movespeed <= 8):
+			movespeed += 0.2
+		var move = ((-int(Input.is_action_pressed("key_left"))) + int(Input.is_action_pressed("key_right")))
+		if (is_on_floor()):
+			if (move != 0 && !utils.instance_exists("obj_cloudeffect")):
+				xscale = move
+		velocity.x = (xscale * movespeed)
+	else:
+		velocity.x = 0
+		movespeed = 0
+	if (bombpeptimer < 20 && bombpeptimer != 0):
+		$PeppinoSprite.animation = "bombpep_runabouttoexplode"
+	if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1 && $PeppinoSprite.animation == "bombpep_end"):
+		$HurtTimer2.wait_time = 1
+		$HurtTimer2.start()
+		hurted = 1
+		state = global.states.normal
+		$PeppinoSprite.animation = "idle"
+	if (bombpeptimer == 0 && $PeppinoSprite.animation == "bombpep_runabouttoexplode"):
+		$Bombpep2.play()
+		hurted = 1
+		utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_bombexplosion.tscn")
+		$PeppinoSprite.animation = "bombpep_end"
+	if (bombpeptimer > 0):
+		bombpeptimer -= 0.5
+	if (is_colliding_with_wall()):
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_bumpeffect.tscn")
+		xscale *= -1
+		$SolidCheck.scale.x *= -1
+		$SolidCheck2.scale.x *= -1
+		$DestructibleArea.scale.x *= -1
+		$WallClimbCheck.scale.x *= -1
+	if (input_buffer_jump < 8 && is_on_floor() && velocity.x != 0):
+		velocity.y = -9
+	if (movespeed < 4):
+		$PeppinoSprite.speed_scale = 0.35
+	elif (movespeed > 4 && movespeed < 8):
+		$PeppinoSprite.speed_scale = 0.45
+	else:
+		$PeppinoSprite.speed_scale = 0.6
+	if (!utils.instance_exists("obj_dashcloud") && is_on_floor() && velocity.x != 0):
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_dashcloud.tscn")
+		for i in get_tree().get_nodes_in_group("obj_dashcloud"):
+			if xscale == 1:
+				i.sprite.flip_h = false
+			elif xscale == -1:
+				i.sprite.flip_h = true
+	
 	
 func scr_player_keyget():
 	velocity.x = 0
