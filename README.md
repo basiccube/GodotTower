@@ -1,14 +1,19 @@
-![The Godot Tower logo.](GodotTowerLogo.png)
-# Godot Tower
+<p align=center>
+    <img align=center src="GodotTowerLogo.png"/>
+</p>
 
-Godot Tower is a work-in-progress rewrite of Pizza Tower (SAGE 2019 demo) in Godot Engine (3.x).
+<p align=center>
+    Godot Tower is a work-in-progress port/rewrite of Pizza Tower (SAGE 2019 demo) in Godot Engine (3.x).
+</p>
 
 ## Info
 
-The current goal of Godot Tower is to recreate the Pizza Tower SAGE 2019 demo in Godot Engine as accurately as possible. This is done by taking the demo's code and rewriting it in GDScript.
-Rewriting the original GML code in GDScript means that the game plays very similarly to the actual game, however it will never be 100% accurate to the original due to how differently Godot works compared to GameMaker.
+The goal of Godot Tower is to recreate the Pizza Tower SAGE 2019 demo in Godot Engine as accurately as possible.  
+In its current state, while it does work and is playable, it is very buggy, primarily due to various differences between Godot and GameMaker.
 
-In its current state, while it does work and is playable, it is very buggy, primarily due to certain functionality being incomplete and simply because Godot works differently from GameMaker.
+## How was this done?
+
+This is done by rewriting the original demo's code in GDScript. Obviously, the code simply rewritten won't fully work properly due to various functions missing and differences between GameMaker and Godot in general. Making the code work as intended requires a lot of guesswork and also fixing the rewritten code, with anything collision related being the hardest part of making it work properly.
 
 ## Credits
 
@@ -17,8 +22,8 @@ I do not own and didn't make any of the assets and music that are used in this p
 * Pizza Tower is made by Tour De Pizza. (McPig and Sertif)
 * Pizza Tower's composers are: Mr. Sauceman, ClascyJitto and POST ELVIS.
 
-If you don't own Pizza Tower on Steam yet, you can support the developers by buying the game.  
-Come on, just [buy the game](https://store.steampowered.com/app/2231450/Pizza_Tower/)! You know you want it!
+If you don't own [Pizza Tower on Steam](https://store.steampowered.com/app/2231450/Pizza_Tower/) yet, you can [support the developers](https://store.steampowered.com/app/2231450/Pizza_Tower/) by [buying the game](https://store.steampowered.com/app/2231450/Pizza_Tower/).  
+Come on, just [buy the game](https://store.steampowered.com/app/2231450/Pizza_Tower/)! You know you want [it](https://store.steampowered.com/app/2231450/Pizza_Tower/)!
 
 The following projects are used, which are both licensed under the MIT License:
 
