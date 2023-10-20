@@ -1,0 +1,163 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Collision/obj_slope.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Warps/obj_spawnpoint.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Level/obj_camlimit_left.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Level/obj_camlimit_right.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Level/obj_camlimit_bottom.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/Misc/obj_doorblocked.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/Level/obj_exitgate.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Backgrounds/bg_medieval3_0.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Destructibles/obj_destroyable3.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Objects/Destructibles/obj_destroyable3escape.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Backgrounds/bg_medievalinterior_0.png" type="Texture" id=19]
+[ext_resource path="res://Objects/Warps/obj_boxofpizza.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Objects/Blocks/obj_minipillar.tscn" type="PackedScene" id=23]
+
+[node name="dungeon_1" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0.75 )
+motion_mirroring = Vector2( 1920, 1080 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 10 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 1080 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.85, 0.85 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource( 19 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 1024 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.95, 0.95 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="ParallaxLayerGround1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="ParallaxLayerGround2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="ParallaxLayerSky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.15, 0.15 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="ParallaxLayerSky2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="ParallaxLayerH1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="obj_camlimit_bottom" parent="." instance=ExtResource( 6 )]
+position = Vector2( 0, 1000 )
+
+[node name="obj_camlimit_left" parent="." instance=ExtResource( 4 )]
+
+[node name="obj_camlimit_right" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2500, 0 )
+
+[node name="obj_camlimit_top" parent="." instance=ExtResource( 7 )]
+
+[node name="obj_solid" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 448 )
+scale = Vector2( 30, 15 )
+
+[node name="obj_solid2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 32 )
+scale = Vector2( 2, 13 )
+
+[node name="obj_solid3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 32 )
+scale = Vector2( 64, 1 )
+
+[node name="obj_solid4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1120, 832 )
+scale = Vector2( 21, 3 )
+
+[node name="obj_solid5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 800, 384 )
+scale = Vector2( 10, 2 )
+
+[node name="obj_solid6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1280, 512 )
+scale = Vector2( 25, 4 )
+
+[node name="obj_solid7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1600, 32 )
+scale = Vector2( 3, 12 )
+
+[node name="obj_solid8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2016, 64 )
+scale = Vector2( 2, 14 )
+
+[node name="obj_solid9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1920, 640 )
+scale = Vector2( 5, 9 )
+
+[node name="obj_solid10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1600, 928 )
+scale = Vector2( 15, 1 )
+
+[node name="obj_slope" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1184, 768 )
+rotation = 3.14159
+scale = Vector2( 2, -2 )
+
+[node name="obj_doorblocked" parent="." instance=ExtResource( 8 )]
+position = Vector2( 384, 352 )
+
+[node name="obj_spawnpoint" parent="." instance=ExtResource( 3 )]
+position = Vector2( 384, 352 )
+
+[node name="obj_exitgate" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1856, 384 )
+
+[node name="obj_minipillar" parent="." instance=ExtResource( 23 )]
+position = Vector2( 1632, 416 )
+z_index = 1
+Reverse = true
+
+[node name="obj_minipillar2" parent="." instance=ExtResource( 23 )]
+position = Vector2( 1632, 448 )
+z_index = 1
+Reverse = true
+
+[node name="obj_minipillar3" parent="." instance=ExtResource( 23 )]
+position = Vector2( 1632, 480 )
+z_index = 1
+Reverse = true
+
+[node name="obj_destroyable3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 864, 320 )
+
+[node name="obj_forknight" parent="." instance=ExtResource( 17 )]
+position = Vector2( 1008, 336 )
+
+[node name="obj_destroyable3escape" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1120, 480 )
+
+[node name="obj_destroyable3escape2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1120, 640 )
+
+[node name="obj_boxofpizza" parent="." instance=ExtResource( 21 )]
+position = Vector2( 1856, 864 )
+targetDoor = "B"
+targetLevel = "dungeon"
+targetRoom = "dungeon_2"

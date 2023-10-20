@@ -82,6 +82,11 @@ position = Vector2( 1920, 320 )
 targetLevel = "ruin"
 targetRoom = "ruin_1"
 
+[node name="obj_startgate5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2208, 320 )
+targetLevel = "dungeon"
+targetRoom = "dungeon_1"
+
 [node name="obj_doorblocked" parent="." instance=ExtResource( 3 )]
 position = Vector2( 320, 352 )
 

@@ -65,10 +65,6 @@ func _process(delta):
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if (collision.collider != null):
-			if collision.collider.is_in_group("obj_spike"):
-				destroy()
-			if collision.collider.is_in_group("obj_boilingsauce"):
-				destroy()
 			if collision.collider.is_in_group("obj_shotgunbullet"):
 				if (hp <= 1):
 					collision.collider.destroy()

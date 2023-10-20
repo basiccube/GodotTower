@@ -1,4 +1,4 @@
-[gd_scene load_steps=1598 format=2]
+[gd_scene load_steps=1641 format=2]
 
 [ext_resource path="res://Objects/Player/sprites/idle_4.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/sprites/idle_0.png" type="Texture" id=2]
@@ -1588,6 +1588,49 @@
 [ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_runabouttoexplode_0.png" type="Texture" id=1586]
 [ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_runabouttoexplode_1.png" type="Texture" id=1587]
 [ext_resource path="res://Objects/Player/sprites/bombpep/bombpep_runabouttoexplode_2.png" type="Texture" id=1588]
+[ext_resource path="res://Objects/Player/sprites/fireassend_5.png" type="Texture" id=1589]
+[ext_resource path="res://Objects/Player/sprites/fireassend_7.png" type="Texture" id=1590]
+[ext_resource path="res://Objects/Player/sprites/fireassend_8.png" type="Texture" id=1591]
+[ext_resource path="res://Objects/Player/sprites/fireassend_6.png" type="Texture" id=1592]
+[ext_resource path="res://Objects/Player/sprites/fireassend_13.png" type="Texture" id=1593]
+[ext_resource path="res://Objects/Player/sprites/fireassend_20.png" type="Texture" id=1594]
+[ext_resource path="res://Objects/Player/sprites/fireass_4.png" type="Texture" id=1595]
+[ext_resource path="res://Objects/Player/sprites/fireassend_12.png" type="Texture" id=1596]
+[ext_resource path="res://Objects/Player/sprites/fireassend_18.png" type="Texture" id=1597]
+[ext_resource path="res://Objects/Player/sprites/fireassend_14.png" type="Texture" id=1598]
+[ext_resource path="res://Objects/Player/sprites/fireassground_11.png" type="Texture" id=1599]
+[ext_resource path="res://Objects/Player/sprites/fireassend_10.png" type="Texture" id=1600]
+[ext_resource path="res://Objects/Player/sprites/fireassground_4.png" type="Texture" id=1601]
+[ext_resource path="res://Objects/Player/sprites/fireassground_7.png" type="Texture" id=1602]
+[ext_resource path="res://Objects/Player/sprites/fireassend_19.png" type="Texture" id=1603]
+[ext_resource path="res://Objects/Player/sprites/fireassend_21.png" type="Texture" id=1604]
+[ext_resource path="res://Objects/Player/sprites/fireassend_22.png" type="Texture" id=1605]
+[ext_resource path="res://Objects/Player/sprites/fireassend_23.png" type="Texture" id=1606]
+[ext_resource path="res://Objects/Player/sprites/fireass_1.png" type="Texture" id=1607]
+[ext_resource path="res://Objects/Player/sprites/fireassground_10.png" type="Texture" id=1608]
+[ext_resource path="res://Objects/Player/sprites/fireassend_17.png" type="Texture" id=1609]
+[ext_resource path="res://Objects/Player/sprites/fireassend_9.png" type="Texture" id=1610]
+[ext_resource path="res://Objects/Player/sprites/fireassend_24.png" type="Texture" id=1611]
+[ext_resource path="res://Objects/Player/sprites/fireassend_15.png" type="Texture" id=1612]
+[ext_resource path="res://Objects/Player/sprites/fireassend_11.png" type="Texture" id=1613]
+[ext_resource path="res://Objects/Player/sprites/fireassend_16.png" type="Texture" id=1614]
+[ext_resource path="res://Objects/Player/sprites/fireass_3.png" type="Texture" id=1615]
+[ext_resource path="res://Objects/Player/sprites/fireassground_5.png" type="Texture" id=1616]
+[ext_resource path="res://Objects/Player/sprites/fireassground_2.png" type="Texture" id=1617]
+[ext_resource path="res://Objects/Player/sprites/fireassground_8.png" type="Texture" id=1618]
+[ext_resource path="res://Objects/Player/sprites/fireassground_9.png" type="Texture" id=1619]
+[ext_resource path="res://Objects/Player/sprites/fireass_2.png" type="Texture" id=1620]
+[ext_resource path="res://Objects/Player/sprites/fireass_0.png" type="Texture" id=1621]
+[ext_resource path="res://Objects/Player/sprites/fireassground_0.png" type="Texture" id=1622]
+[ext_resource path="res://Objects/Player/sprites/fireassground_6.png" type="Texture" id=1623]
+[ext_resource path="res://Objects/Player/sprites/fireassend_2.png" type="Texture" id=1624]
+[ext_resource path="res://Objects/Player/sprites/fireassend_3.png" type="Texture" id=1625]
+[ext_resource path="res://Objects/Player/sprites/fireassground_3.png" type="Texture" id=1626]
+[ext_resource path="res://Objects/Player/sprites/fireassend_0.png" type="Texture" id=1627]
+[ext_resource path="res://Objects/Player/sprites/fireassend_4.png" type="Texture" id=1628]
+[ext_resource path="res://Objects/Player/sprites/fireassground_1.png" type="Texture" id=1629]
+[ext_resource path="res://Objects/Player/sprites/fireassend_1.png" type="Texture" id=1630]
+[ext_resource path="res://Sounds/sfx_fireassend.ogg" type="AudioStream" id=1631]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 1204 )
@@ -1777,6 +1820,21 @@ animations = [ {
 "frames": [ ExtResource( 892 ), ExtResource( 895 ), ExtResource( 896 ), ExtResource( 898 ), ExtResource( 893 ), ExtResource( 899 ), ExtResource( 887 ), ExtResource( 894 ), ExtResource( 897 ), ExtResource( 891 ), ExtResource( 889 ), ExtResource( 888 ), ExtResource( 890 ) ],
 "loop": true,
 "name": "finishingblow5",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1621 ), ExtResource( 1607 ), ExtResource( 1620 ), ExtResource( 1615 ), ExtResource( 1595 ) ],
+"loop": true,
+"name": "fireass",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1627 ), ExtResource( 1630 ), ExtResource( 1624 ), ExtResource( 1625 ), ExtResource( 1628 ), ExtResource( 1589 ), ExtResource( 1592 ), ExtResource( 1590 ), ExtResource( 1591 ), ExtResource( 1610 ), ExtResource( 1600 ), ExtResource( 1613 ), ExtResource( 1596 ), ExtResource( 1593 ), ExtResource( 1598 ), ExtResource( 1612 ), ExtResource( 1614 ), ExtResource( 1609 ), ExtResource( 1597 ), ExtResource( 1603 ), ExtResource( 1594 ), ExtResource( 1604 ), ExtResource( 1605 ), ExtResource( 1606 ), ExtResource( 1611 ) ],
+"loop": true,
+"name": "fireassend",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1622 ), ExtResource( 1629 ), ExtResource( 1617 ), ExtResource( 1626 ), ExtResource( 1601 ), ExtResource( 1616 ), ExtResource( 1623 ), ExtResource( 1602 ), ExtResource( 1618 ), ExtResource( 1619 ), ExtResource( 1608 ), ExtResource( 1599 ) ],
+"loop": true,
+"name": "fireassground",
 "speed": 60.0
 }, {
 "frames": [ ExtResource( 368 ), ExtResource( 367 ), ExtResource( 369 ) ],
@@ -2555,6 +2613,11 @@ bus = "SFX"
 
 [node name="Mach4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 734 )
+volume_db = -5.0
+bus = "SFX"
+
+[node name="FireassEnd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1631 )
 volume_db = -5.0
 bus = "SFX"
 

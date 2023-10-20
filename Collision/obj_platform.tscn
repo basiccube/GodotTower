@@ -18,4 +18,4 @@ centered = false
 position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 one_way_collision = true
-one_way_collision_margin = 16.0
+one_way_collision_margin = 20.0

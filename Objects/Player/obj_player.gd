@@ -222,68 +222,8 @@ func _process(delta):
 					movespeed = 0
 				if (instakillmove == 1):
 					collision.collider.destroy()
-			if collision.collider.is_in_group("obj_spike"):
-				if (state == global.states.bombpep && hurted == 0):
-					$Bombpep2.play()
-					hurted = 1
-					velocity.y = -4
-					$PeppinoSprite.animation = "bombpepend"
-					state = global.states.bombpep
-					bombpeptimer = 0
 			if collision.collider.is_in_group("obj_hurtbox"):
-				if ((state == global.states.knightpep || state == global.states.knightpepattack || state == global.states.knightpepslopes) && !cutscene):
-					pass
-				elif (state == global.states.bombpep && hurted == 0):
-					pass
-				elif (state == global.states.tumble):
-					pass
-				elif (state == global.states.cheesepep || state == global.states.cheesepepstick):
-					pass
-				elif (state != global.states.hurt && hurted == 0 && state != global.states.bump && !cutscene):
-					if collision.collider.is_in_group("obj_forkhitbox"):
-						position.x += (8 * (-xscale))
-					if (collision.collider.is_in_group("obj_minijohn_hitbox") && (instakillmove == 1 || state == global.states.punch || state == global.states.handstandjump)):
-						break
-					utils.playsound("PepHurt")
-					$HurtTimer.wait_time = 1
-					$HurtTimer.start()
-					$HurtTimer2.wait_time = 2
-					$HurtTimer2.start()
-					hurted = 1
-					if (xscale == collision.collider.scale.x):
-						$PeppinoSprite.animation = "hurtjump"
-					else:
-						$PeppinoSprite.animation = "hurt"
-					movespeed = 8
-					velocity.y = -5
-					utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_spikehurteffect.tscn")
-					state = global.states.hurt
-					if (shotgunAnim == 0 && character == "P"):
-						global.hurtcounter += 1
-						if (global.collect > 100):
-							global.collect -= 100
-						else:
-							global.collect = 0
-						if (global.collect != 0):
-							utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-							utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-							utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-							utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-							utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-							utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-							utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-							utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-							utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-							utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-							utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-							utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-					elif (character == "P"):
-						var shotgunid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_sausageman_dead.tscn")
-						shotgunid.sprite_index = "shotgunback"
-						if (backupweapon):
-							backupweapon = false
-						else:
-							shotgunAnim = 0
+				destroy(collision.collider)
 			if collision.collider.is_in_group("obj_baddie"):
 				var baddie = collision.collider
 				if (baddie.state != global.states.grabbed && !cutscene):
@@ -583,7 +523,7 @@ func is_colliding_with_wall():
 			return true
 		else:
 			return false
-	elif (state == global.states.mach2):
+	elif (state == global.states.mach2 || state == global.states.machroll):
 		if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_metalblock"))) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider() != null && $SolidCheck2.get_collider().is_in_group("obj_solid"))) && !utils.instance_exists("obj_fadeout")):
 			return true
 		else:
@@ -611,6 +551,67 @@ func is_colliding():
 		return true
 	else:
 		return false
+		
+func destroy(collider):
+	if ((state == global.states.knightpep || state == global.states.knightpepattack || state == global.states.knightpepslopes) && !cutscene):
+		pass
+	elif (state == global.states.bombpep && hurted == 0):
+		if (collider.is_in_group("obj_spike")):
+			$Bombpep2.play()
+			hurted = 1
+			velocity.y = -4
+			$PeppinoSprite.animation = "bombpepend"
+			state = global.states.bombpep
+			bombpeptimer = 0
+	elif (state == global.states.tumble):
+		pass
+	elif (state == global.states.cheesepep || state == global.states.cheesepepstick):
+		pass
+	elif (state != global.states.hurt && hurted == 0 && state != global.states.bump && !cutscene):
+		if collider.is_in_group("obj_forkhitbox"):
+			position.x += (8 * (-xscale))
+		if (collider.is_in_group("obj_minijohn_hitbox") && (instakillmove == 1 || state == global.states.punch || state == global.states.handstandjump)):
+			return
+		utils.playsound("PepHurt")
+		$HurtTimer.wait_time = 1
+		$HurtTimer.start()
+		$HurtTimer2.wait_time = 2
+		$HurtTimer2.start()
+		hurted = 1
+		if (xscale == collider.scale.x):
+			$PeppinoSprite.animation = "hurtjump"
+		else:
+			$PeppinoSprite.animation = "hurt"
+		movespeed = 8
+		velocity.y = -5
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_spikehurteffect.tscn")
+		state = global.states.hurt
+		if (shotgunAnim == 0 && character == "P"):
+			global.hurtcounter += 1
+			if (global.collect > 100):
+				global.collect -= 100
+			else:
+				global.collect = 0
+			if (global.collect != 0):
+				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
+		elif (character == "P"):
+			var shotgunid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_sausageman_dead.tscn")
+			shotgunid.sprite_index = "shotgunback"
+			if (backupweapon):
+				backupweapon = false
+			else:
+				shotgunAnim = 0
 	
 func scr_dotaunt():
 	if Input.is_action_just_pressed("key_taunt"):
@@ -1361,7 +1362,7 @@ func scr_player_hurt():
 	$HurtTimer2.start()
 	if (is_on_floor()):
 		velocity.y = -4
-	if (is_colliding()):
+	if (is_colliding_with_wall()):
 		xscale *= -1
 		$SolidCheck.scale.x *= -1
 		$SolidCheck2.scale.x *= -1
@@ -1758,7 +1759,7 @@ func scr_player_machroll():
 	velocity.x = (xscale * movespeed)
 	mach2 = 100
 	machslideAnim = 1
-	if ($WallClimbCheck.is_colliding() && $WallClimbCheck.get_collider().is_in_group("obj_solid") && is_on_wall()):
+	if (is_colliding_with_wall() && is_on_wall()):
 		$Bump.play()
 		velocity.x = 0
 		$PeppinoSprite.speed_scale = 0.35
@@ -1911,7 +1912,37 @@ func scr_player_Sjumpprep():
 	$PeppinoSprite.speed_scale = 0.35
 	
 func scr_player_fireass():
-	pass
+	$PeppinoSprite.speed_scale = 0.35
+	if ($PeppinoSprite.animation == "fireass"):
+		var move = ((-int(Input.is_action_pressed("key_left"))) + int(Input.is_action_pressed("key_right")))
+		#if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1):
+			#var impactid = utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_balloonpop.tscn")
+			#impactid.sprite = "shotgunimpact"
+		if (move != 0):
+			xscale = move
+		velocity.x = (move * movespeed)
+		movespeed = 4
+		if (is_on_floor() && velocity.y >= 0):
+			movespeed = 6
+			$PeppinoSprite.animation = "fireassground"
+	if ($PeppinoSprite.animation == "fireassground"):
+		velocity.x = (xscale * movespeed)
+		if (movespeed > 0):
+			movespeed -= 0.25
+		if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1 || is_colliding_with_wall()):
+			$FireassEnd.play()
+			$PeppinoSprite.animation = "fireassend"
+			velocity.x = 0
+	if ($PeppinoSprite.animation == "fireassend"):
+		if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1):
+			movespeed = 0
+			landAnim = 0
+			$HurtTimer2.wait_time = 1
+			$HurtTimer2.start()
+			hurted = 1
+			state = global.states.normal
+			$PeppinoSprite.animation = "idle"
+	
 	
 func scr_player_timesup():
 	pass
