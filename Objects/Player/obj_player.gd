@@ -523,7 +523,7 @@ func is_colliding_with_wall():
 			return true
 		else:
 			return false
-	elif (state == global.states.mach2 || state == global.states.machroll):
+	elif (state == global.states.mach2 || state == global.states.machroll || state == global.states.tumble):
 		if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_metalblock"))) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider() != null && $SolidCheck2.get_collider().is_in_group("obj_solid"))) && !utils.instance_exists("obj_fadeout")):
 			return true
 		else:
@@ -1795,7 +1795,7 @@ func scr_player_tumble():
 			$PeppinoSprite.frame = 11
 	if ($PeppinoSprite.animation == "tumblestart" && $PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1):
 		$PeppinoSprite.animation = "tumble"
-	if ($WallClimbCheck.is_colliding() && $WallClimbCheck.get_collider().is_in_group("obj_solid") && is_on_wall()):
+	if (is_colliding_with_wall() && is_on_wall()):
 		$Tumble4.play()
 		velocity.x = 0
 		movespeed = 0
