@@ -7,19 +7,19 @@ func _ready():
 		queue_free()
 	
 func destroy():
-	var debris1 = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_debris.tscn")
+	var debris1 = utils.instance_create_level(global_position.x + 32, global_position.y + 32, "res://Objects/Visuals/obj_debris.tscn")
 	debris1.sprite_index = "bigpizzadebrisescape"
-	var debris2 = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_debris.tscn")
+	var debris2 = utils.instance_create_level(global_position.x + 32, global_position.y + 32, "res://Objects/Visuals/obj_debris.tscn")
 	debris2.sprite_index = "bigpizzadebrisescape"
-	var debris3 = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_debris.tscn")
+	var debris3 = utils.instance_create_level(global_position.x + 32, global_position.y + 32, "res://Objects/Visuals/obj_debris.tscn")
 	debris3.sprite_index = "bigpizzadebrisescape"
-	var debris4 = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_debris.tscn")
+	var debris4 = utils.instance_create_level(global_position.x + 32, global_position.y + 32, "res://Objects/Visuals/obj_debris.tscn")
 	debris4.sprite_index = "bigpizzadebrisescape"
-	var debris5 = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_debris.tscn")
+	var debris5 = utils.instance_create_level(global_position.x + 32, global_position.y + 32, "res://Objects/Visuals/obj_debris.tscn")
 	debris5.sprite_index = "bigpizzadebrisescape"
-	var debris6 = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_debris.tscn")
+	var debris6 = utils.instance_create_level(global_position.x + 32, global_position.y + 32, "res://Objects/Visuals/obj_debris.tscn")
 	debris6.sprite_index = "bigpizzadebrisescape"
-	var debris7 = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_debris.tscn")
+	var debris7 = utils.instance_create_level(global_position.x + 32, global_position.y + 32, "res://Objects/Visuals/obj_debris.tscn")
 	debris7.sprite_index = "bigpizzadebrisescape"
 	var pizzaslice1 = utils.instance_create_level(global_position.x + 32, global_position.y + 32, "res://Objects/Collectibles/obj_pizzaslice.tscn")
 	pizzaslice1.xscale = 1

@@ -61,6 +61,11 @@ func _process(delta):
 			global.arank = (global.srank - (global.srank / 4))
 			global.brank = (global.srank - ((global.srank / 4) * 2))
 			global.crank = (global.srank - ((global.srank / 4) * 3))
+		"trickytreat_2":
+			global.srank = 3000
+			global.arank = (global.srank - (global.srank / 4))
+			global.brank = (global.srank - ((global.srank / 4) * 2))
+			global.crank = (global.srank - ((global.srank / 4) * 3))
 		"testroom_1":
 			global.srank = 4500
 			global.arank = (global.srank - (global.srank / 4))
@@ -88,7 +93,7 @@ func _process(delta):
 		$ResetTimer.start()
 		showtext = true
 		tvsprite = "exit"
-	elif (global.collect > global.arank && !shownranka):
+	elif (global.collect > global.arank && !shownranka && !global.timeattack):
 		$TVSprite.speed_scale = 0
 		message = "YOU GOT ENOUGH FOR RANK A"
 		showtext = true
@@ -96,7 +101,7 @@ func _process(delta):
 		$ResetTimer.start()
 		tvsprite = "ranka"
 		shownranka = true
-	elif (global.collect > global.brank && !shownrankb):
+	elif (global.collect > global.brank && !shownrankb && !global.timeattack):
 		$TVSprite.speed_scale = 0
 		message = "YOU GOT ENOUGH FOR RANK b"
 		showtext = true
@@ -104,7 +109,7 @@ func _process(delta):
 		$ResetTimer.start()
 		tvsprite = "rankb"
 		shownrankb = true
-	elif (global.collect > global.crank && !shownrankc):
+	elif (global.collect > global.crank && !shownrankc && !global.timeattack):
 		$TVSprite.speed_scale = 0
 		message = "YOU GOT ENOUGH FOR RANK C"
 		showtext = true

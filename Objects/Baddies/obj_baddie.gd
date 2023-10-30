@@ -84,7 +84,7 @@ func _process(delta):
 					utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_bangeffect.tscn")
 					velocity.y = -4
 					velocity.x = collision.collider.scale.x * 5
-			if collision.collider.is_in_group("obj_destructibles"):
+			if (collision.collider.is_in_group("obj_destructibles") && !collision.collider.is_in_group("obj_specialdestructibles")):
 				if (state == global.states.stun && thrown):
 					collision.collider.destroy()
 			if collision.collider.is_in_group("obj_baddie"):

@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Objects/Collectibles/sprites/clockcollectible1_2.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Collectibles/sprites/clockcollectible1_0.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Collectibles/sprites/clockcollectible1_1.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Collectibles/obj_timebonus.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "clockcollectible",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 16, 16 )
+
+[node name="obj_timebonus" type="Area2D" groups=["obj_timebonus"]]
+z_index = -2
+collision_layer = 4
+script = ExtResource( 4 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 5 )
+animation = "clockcollectible"
+frame = 2
+speed_scale = 0.35
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 6 )
+
+[connection signal="body_entered" from="." to="." method="_on_obj_timebonus_body_entered"]

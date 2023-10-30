@@ -7,13 +7,13 @@ func _ready():
 		queue_free()
 	
 func destroy():
-	var debris1 = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_debris.tscn")
+	var debris1 = utils.instance_create_level(global_position.x + 16, global_position.y + 16, "res://Objects/Visuals/obj_debris.tscn")
 	debris1.sprite_index = "debrisescape"
-	var debris2 = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_debris.tscn")
+	var debris2 = utils.instance_create_level(global_position.x + 16, global_position.y + 16, "res://Objects/Visuals/obj_debris.tscn")
 	debris2.sprite_index = "debrisescape"
-	var debris3 = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_debris.tscn")
+	var debris3 = utils.instance_create_level(global_position.x + 16, global_position.y + 16, "res://Objects/Visuals/obj_debris.tscn")
 	debris3.sprite_index = "debrisescape"
-	var debris4 = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_debris.tscn")
+	var debris4 = utils.instance_create_level(global_position.x + 16, global_position.y + 16, "res://Objects/Visuals/obj_debris.tscn")
 	debris4.sprite_index = "debrisescape"
 	if (utils.soundplaying("BreakBlock1") || utils.soundplaying("BreakBlock2")):
 		utils.stopsound("BreakBlock1")

@@ -1,0 +1,68 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Objects/Blocks/obj_destructibleplatform.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Blocks/sprites/cheeseblock_5.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Blocks/sprites/cheeseblock_0.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Blocks/sprites/cheeseblock_6.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Blocks/sprites/cheeseblock_1.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Blocks/sprites/cheeseblock_2.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Blocks/sprites/cheeseblock_4.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Blocks/sprites/cheeseblock_3.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Blocks/sprites/cheeseblock_9.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Blocks/sprites/cheeseblockreform_2.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Blocks/sprites/cheeseblock_7.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Blocks/sprites/cheeseblockreform_0.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Blocks/sprites/cheeseblock_8.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Blocks/sprites/cheeseblockreform_1.png" type="Texture" id=14]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "cheeseblock",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 14 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "cheeseblockreform",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 16, 8 )
+
+[node name="obj_destructibleplatform" type="StaticBody2D" groups=["obj_destructibleplatform", "obj_solid"]]
+z_index = 1
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 5 )
+animation = "cheeseblock"
+speed_scale = 0.35
+centered = false
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 16, 16 )
+shape = SubResource( 4 )
+
+[node name="PlayerCheck" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="Collision" type="CollisionShape2D" parent="PlayerCheck"]
+position = Vector2( 16, 16 )
+shape = SubResource( 6 )
+
+[node name="PlayerStandingCheck" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="Collision" type="CollisionShape2D" parent="PlayerStandingCheck"]
+position = Vector2( 16, -8 )
+shape = SubResource( 7 )

@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Objects/Misc/sprites/crashingplane_2.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Misc/sprites/crashingplane_1.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Misc/sprites/crashingplane_0.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Misc/obj_crashingplane.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "plane",
+"speed": 60.0
+} ]
+
+[node name="obj_crashingplane" type="Node2D" groups=["obj_crashingplane"]]
+z_index = -4
+script = ExtResource( 4 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "plane"
+speed_scale = 0.35

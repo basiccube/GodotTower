@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/Destructibles/sprites/onewaybigblock.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Destructibles/obj_onewaybigblock.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 32 )
+
+[node name="obj_onewaybigblock" type="StaticBody2D" groups=["obj_bigdestructibles", "obj_destructibles", "obj_onewaybigblock"]]
+collision_layer = 2
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 60, 32 )
+shape = SubResource( 1 )

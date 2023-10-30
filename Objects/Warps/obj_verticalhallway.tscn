@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/Warps/sprites/hallway_vertical.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Warps/obj_verticalhallway.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 16 )
+
+[node name="obj_verticalhallway" type="Area2D" groups=["obj_hallway", "obj_verticalhallway"]]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 32, 16 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_obj_hallway_body_entered"]

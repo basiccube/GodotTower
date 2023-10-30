@@ -24,4 +24,4 @@ script = ExtResource( 8 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-centered = false
+offset = Vector2( -10, 0 )

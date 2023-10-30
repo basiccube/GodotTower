@@ -17,11 +17,11 @@ func _ready():
 		obj_player.roomstarty = obj_player.position.y
 		obj_player.xscale = 1
 		visited = true
-	if (global.saveroom.has(global.targetRoom + name)):
+	if (global.saveroom.has(global.targetRoom + name) && $Sprite.animation == "unvisited"):
 		$Sprite.animation = "visited"
 		
 func _process(delta):
-	if (visited):
+	if (visited && $Sprite.animation == "unvisited"):
 		$Sprite.animation = "visited"
 	var obj_player = utils.get_player()
 	if (overlaps_body(obj_player)):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Rooms/Titlescreen.gd" type="Script" id=1]
 [ext_resource path="res://Backgrounds/bg_sky2_0.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/Warps/obj_door.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/Warps/obj_spawnpoint.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/Misc/obj_crashplaneblock.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
@@ -20,7 +21,7 @@ shader_param/offset = Vector2( 0, 0 )
 script = ExtResource( 1 )
 
 [node name="Sky" type="Sprite" parent="."]
-z_index = -2
+z_index = -4
 texture = ExtResource( 2 )
 centered = false
 
@@ -65,3 +66,7 @@ position = Vector2( 444, 352 )
 targetDoor = "C"
 targetLevel = ""
 targetRoom = "hub_room1"
+
+[node name="obj_crashplaneblock" parent="." instance=ExtResource( 10 )]
+position = Vector2( -32, -512 )
+scale = Vector2( 16, 1.5 )

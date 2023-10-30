@@ -21,7 +21,7 @@ func _process(delta):
 	position.y += (-spdh)
 
 func _on_obj_shotgunbullet_body_entered(body):
-	if body.is_in_group("obj_destructibles"):
+	if body.is_in_group("obj_destructibles") && !body.is_in_group("obj_specialdestructibles"):
 		body.destroy()
 	if body is obj_baddie:
 		if (body.hp <= 1):

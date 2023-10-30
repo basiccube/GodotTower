@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mu_trickytreat.ogg-34bbd632f11db00e6ee5869e5a8cb0d5.oggstr"
+
+[deps]
+
+source_file="res://Music/mu_trickytreat.ogg"
+dest_files=[ "res://.import/mu_trickytreat.ogg-34bbd632f11db00e6ee5869e5a8cb0d5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=42.716

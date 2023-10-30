@@ -2472,6 +2472,7 @@ collision_mask = 2
 modulate = Color( 0.866667, 0.866667, 0.866667, 0.572549 )
 position = Vector2( 48, 32 )
 collision_mask = 2
+priority = 5.0
 
 [node name="Collision" type="CollisionShape2D" parent="DestructibleArea"]
 position = Vector2( 24, 33 )

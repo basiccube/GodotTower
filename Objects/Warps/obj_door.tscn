@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Objects/Warps/sprites/door/doorunvisited_6.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Warps/sprites/door/doorunvisited_1.png" type="Texture" id=2]
@@ -10,9 +10,15 @@
 [ext_resource path="res://Objects/Warps/sprites/door/doorunvisited_2.png" type="Texture" id=8]
 [ext_resource path="res://Objects/Warps/sprites/door/doorvisited_0.png" type="Texture" id=9]
 [ext_resource path="res://Objects/Warps/obj_door.gd" type="Script" id=10]
+[ext_resource path="res://Objects/Warps/sprites/pumpkingate.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "pumpkingate",
+"speed": 60.0
+}, {
 "frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "unvisited",

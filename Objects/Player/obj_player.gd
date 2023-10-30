@@ -48,6 +48,7 @@ var fallinganimation = 0
 var momemtum = 0
 var superslam = 0
 var swingdingbuffer = 0
+var crouchslipbuffer = 0
 var punch = 0
 var anger = 0
 var angry = 0
@@ -147,46 +148,50 @@ func _process(delta):
 		$CrouchCheck.enabled = false
 	for destructible in $DestructibleArea.get_overlapping_bodies():
 		if (destructible.is_in_group("obj_destructibles")):
-			if (state == global.states.mach2 || state == global.states.mach3 || state == global.states.machroll || state == global.states.knightpepslopes || state == global.states.tumble || state == global.states.crouchslide):
-				destructible.destroy()
-				if (state == global.states.mach2):
-					machpunchAnim = 1
-			if ((state == global.states.knightpep || state == global.states.superslam) && velocity.y > 0):
-				destructible.destroy()
-			if (state == global.states.handstandjump):
-				if (destructible.is_in_group("obj_bigdestructibles")):
-					if (shotgunAnim == 0):
-						$PeppinoSprite.animation = "tackle"
-						state = global.states.tackle
-						movespeed = 3
-						velocity.y = -3
+			if (!destructible.is_in_group("obj_specialdestructibles")):
+				if (state == global.states.mach2 || state == global.states.mach3 || state == global.states.machroll || state == global.states.knightpepslopes || state == global.states.tumble || state == global.states.crouchslide):
+					destructible.destroy()
+					if (state == global.states.mach2):
+						machpunchAnim = 1
+				if ((state == global.states.knightpep || state == global.states.superslam) && velocity.y > 0):
+					destructible.destroy()
+				if (state == global.states.handstandjump):
+					if (destructible.is_in_group("obj_bigdestructibles")):
+						if (shotgunAnim == 0):
+							$PeppinoSprite.animation = "tackle"
+							state = global.states.tackle
+							movespeed = 3
+							velocity.y = -3
+							destructible.destroy()
+						else:
+							state = global.states.shotgun
+							$PeppinoSprite.position.x = -100
+							$PeppinoSprite.animation = "shotgun"
+							utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+							var bulletid = utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+							bulletid.spdh = 4
+							var bulletid2 = utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+							bulletid2.spdh = -4
+							destructible.destroy()
+					if (!destructible.is_in_group("obj_bigdestructibles")):
 						destructible.destroy()
-					else:
-						state = global.states.shotgun
-						$PeppinoSprite.position.x = -100
-						$PeppinoSprite.animation = "shotgun"
-						utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
-						var bulletid = utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
-						bulletid.spdh = 4
-						var bulletid2 = utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
-						bulletid2.spdh = -4
-						destructible.destroy()
-				if (!destructible.is_in_group("obj_bigdestructibles")):
+			if (destructible.is_in_group("obj_specialdestructibles")):
+				if (destructible.is_in_group("obj_rollblock") && state == global.states.tumble):
 					destructible.destroy()
 		if (destructible.is_in_group("obj_metalblock")):
 			if (state == global.states.mach3 || state == global.states.knightpepslopes):
 				destructible.destroy()
 	for destructible in $JumpArea.get_overlapping_bodies():
-		if (destructible.is_in_group("obj_destructibles")):
+		if (destructible.is_in_group("obj_destructibles") && !destructible.is_in_group("obj_specialdestructibles")):
 			if (velocity.y <= 0.5 && (state == global.states.jump || state == global.states.fireass || state == global.states.mach2 || state == global.states.mach3)):
 				destructible.destroy()
 				velocity.y = 0
 	for destructible in $SJumpArea.get_overlapping_bodies():
-		if (destructible.is_in_group("obj_destructibles")):
+		if (destructible.is_in_group("obj_destructibles") && !destructible.is_in_group("obj_specialdestructibles")):
 			if (velocity.y <= 0.5 && (state == global.states.Sjump || state == global.states.climbwall)):
 				destructible.destroy()
 	for destructible in $FallArea.get_overlapping_bodies():
-		if (destructible.is_in_group("obj_destructibles")):
+		if (destructible.is_in_group("obj_destructibles") && !destructible.is_in_group("obj_specialdestructibles")):
 			if (velocity.y >= 0 && (state == global.states.freefall || state == global.states.freefallland)):
 				if (destructible.is_in_group("obj_bigdestructibles")):
 					if (shotgunAnim == 0):
@@ -481,7 +486,7 @@ func _process(delta):
 	if (indoor && !utils.instance_exists("obj_uparrow")):
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_uparrow.tscn")
 	if (state == global.states.mach2 && (!utils.instance_exists("obj_speedlines"))):
-		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_speedlines.tscn")
+		utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_speedlines.tscn")
 
 func _physics_process(delta):
 	var snap_vector = Vector2.ZERO
@@ -494,7 +499,8 @@ func _physics_process(delta):
 				snap_vector = Vector2.DOWN * 20
 	if state != global.states.titlescreen:
 		if state != global.states.backbreaker && state != global.states.gottreasure && state != global.states.Sjumpland && state != global.states.ladder && state != global.states.keyget && (state != global.states.door && ($PeppinoSprite.animation != "downpizzabox" && $PeppinoSprite.animation != "uppizzabox")):
-			velocity.y += grav
+			if (velocity.y < 30):
+				velocity.y += grav
 		velocity = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, true, 4, 1)
 		
 func get_sprite_frame():
@@ -661,7 +667,7 @@ func scr_player_normal():
 						movespeed = 0
 						if (global.minutes == 0 && global.seconds == 0):
 							$PeppinoSprite.animation = "hurtidle"
-						elif (global.panic):
+						elif (global.panic || global.timeattack):
 							$PeppinoSprite.animation = "panic"
 						elif (angry):
 							$PeppinoSprite.animation = "3hpidle"
@@ -1231,13 +1237,13 @@ func scr_player_crouchslide():
 	if (movespeed >= 0):
 		movespeed -= 0.2
 	crouchmask = true
-	if (mach2 >= 35 && !Input.is_action_pressed("key_down") && Input.is_action_pressed("key_dash")):
-		if (character == "P"):
-			$PeppinoSprite.animation = "machhit"
-		mach2 = 35
+	if (crouchslipbuffer > 0):
+		crouchslipbuffer -= 1
+	if (movespeed > 0 && !Input.is_action_pressed("key_down") && Input.is_action_pressed("key_dash") && !$CrouchCheck.is_colliding() && crouchslipbuffer <= 0):
+		$PeppinoSprite.animation = "machhit"
 		state = global.states.mach2
-		if (movespeed < 10):
-			movespeed = 10
+		if (movespeed < 8):
+			movespeed = 8
 	if (velocity.x == 0 || movespeed <= 0):
 		state = global.states.crouch
 		movespeed = 0
@@ -1306,8 +1312,9 @@ func scr_player_handstandjump():
 			$PeppinoSprite.animation = "crouchslip"
 			if (character == "P"):
 				machhitAnim = 0
+			crouchslipbuffer = 20
 			state = global.states.crouchslide
-			movespeed = 15
+			movespeed = 12
 		if (!is_on_floor() && ($PeppinoSprite.animation == "suplexdash" || $PeppinoSprite.animation == "shotgun_suplexdash")):
 			$PeppinoSprite.animation = "suplexdashjumpstart"
 		if (Input.is_action_just_pressed("key_jump")):
@@ -2516,6 +2523,9 @@ func scr_playerreset():
 			i.queue_free()
 	global.seconds = 59
 	global.minutes = 1
+	global.taminutes = 0
+	global.taseconds = 0
+	global.timeattack = false
 	state = global.states.normal
 	visible = true
 	targetLevel = ""
@@ -2598,9 +2608,9 @@ func scr_playersounds():
 		$Mach1.play()
 	elif (state != global.states.mach1 || !is_on_floor() || move == (-xscale)):
 		$Mach1.stop()
-	if (($PeppinoSprite.animation == "mach" || state == global.states.climbwall) && !$Mach2.playing):
+	if ((($PeppinoSprite.animation == "mach" || $PeppinoSprite.animation == "machhit") || state == global.states.climbwall) && !$Mach2.playing):
 		$Mach2.play()
-	elif ($PeppinoSprite.animation != "mach" && state != global.states.climbwall):
+	elif (($PeppinoSprite.animation != "mach" && $PeppinoSprite.animation != "machhit") && state != global.states.climbwall):
 		$Mach2.stop()
 	if ((state == global.states.mach3 || $PeppinoSprite.animation == "machslideboost3") && $PeppinoSprite.animation != "crazyrun" && !$Mach3.playing):
 		$Mach3.play()

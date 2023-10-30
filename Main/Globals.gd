@@ -18,6 +18,10 @@ var option_fullscreen = false
 var minutes = 0
 var seconds = 59
 
+var taminutes = 0
+var taseconds = 0
+var timeattack = false
+
 var combo = 0
 var combotime = 0
 var collect = 0

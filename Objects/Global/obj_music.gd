@@ -13,12 +13,15 @@ var room_arr = [
 	["Realtitlescreen", "mu_title", "mu_medievalsecret", false],
 	["Titlescreen", "mu_title", "mu_medievalsecret", false],
 	["hub_room1", "mu_hub", "mu_medievalsecret", false],
+	["hub_special", "mu_hub", "mu_medievalsecret", false],
 	["entrance_1", "mu_entrance", "mu_medievalsecret", false],
 	["medieval_1", "mu_medievalentrance", "mu_medievalsecret", false],
 	["medieval_2", "mu_medievalentrance", "mu_medievalsecret", true],
 	["medieval_3", "mu_medievalremix", "mu_medievalsecret", true],
 	["medieval_5", "mu_medievalremix", "mu_medievalsecret", true],
 	["medieval_6", "mu_medieval", "mu_medievalsecret", true],
+	["trickytreat_1", "mu_hub", "mu_medievalsecret", false],
+	["trickytreat_2", "mu_trickytreat", "mu_medievalsecret", false],
 	["testroom_1", "mu_medieval", "mu_medievalsecret", false]
 ]
 

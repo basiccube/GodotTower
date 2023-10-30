@@ -5,19 +5,19 @@ func _ready():
 		queue_free()
 	
 func destroy():
-	var debris1 = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_debris.tscn")
+	var debris1 = utils.instance_create_level(global_position.x + 32, global_position.y + 32, "res://Objects/Visuals/obj_debris.tscn")
 	debris1.sprite_index = "bigdebris"
-	var debris2 = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_debris.tscn")
+	var debris2 = utils.instance_create_level(global_position.x + 32, global_position.y + 32, "res://Objects/Visuals/obj_debris.tscn")
 	debris2.sprite_index = "bigdebris"
-	var debris3 = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_debris.tscn")
+	var debris3 = utils.instance_create_level(global_position.x + 32, global_position.y + 32, "res://Objects/Visuals/obj_debris.tscn")
 	debris3.sprite_index = "bigdebris"
-	var debris4 = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_debris.tscn")
+	var debris4 = utils.instance_create_level(global_position.x + 32, global_position.y + 32, "res://Objects/Visuals/obj_debris.tscn")
 	debris4.sprite_index = "bigdebris"
-	var debris5 = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_debris.tscn")
+	var debris5 = utils.instance_create_level(global_position.x + 32, global_position.y + 32, "res://Objects/Visuals/obj_debris.tscn")
 	debris5.sprite_index = "bigdebris"
-	var debris6 = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_debris.tscn")
+	var debris6 = utils.instance_create_level(global_position.x + 32, global_position.y + 32, "res://Objects/Visuals/obj_debris.tscn")
 	debris6.sprite_index = "bigdebris"
-	var debris7 = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_debris.tscn")
+	var debris7 = utils.instance_create_level(global_position.x + 32, global_position.y + 32, "res://Objects/Visuals/obj_debris.tscn")
 	debris7.sprite_index = "bigdebris"
 	if (utils.soundplaying("BreakBlock1") || utils.soundplaying("BreakBlock2")):
 		utils.stopsound("BreakBlock1")
@@ -30,6 +30,6 @@ func destroy():
 	global.saveroom.append(global.targetRoom + name)
 	var pizzacoin = utils.randi_range(1, 100)
 	if (pizzacoin >= 90):
-		var pizzacoininst = utils.instance_create_level(global_position.x, global_position.y, "res://Objects/Collectibles/obj_pizzacoin.tscn")
+		var pizzacoininst = utils.instance_create_level(global_position.x + 32, global_position.y + 32, "res://Objects/Collectibles/obj_pizzacoin.tscn")
 		pizzacoininst.velocity.x = 2
 	queue_free()

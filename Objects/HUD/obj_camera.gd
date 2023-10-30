@@ -32,12 +32,20 @@ func _process(delta):
 		for i in get_tree().get_nodes_in_group("obj_music"):
 			i.musicnode.stop()
 		ded = 1
+	if (global.timeattack && $panictimer.is_stopped()):
+		$panictimer.start()
 	if (global.seconds < 0):
 		global.seconds = 59
 		global.minutes -= 1
 	if (global.seconds > 59):
 		global.minutes += 1
 		global.seconds -= 59
+	if (global.taseconds < 0):
+		global.taseconds = 59
+		global.taminutes -= 1
+	if (global.taseconds > 59):
+		global.taminutes += 1
+		global.taseconds -= 59
 	if ((global.panic && global.minutes < 1) || utils.get_player().sprite_index == "timesup"):
 		shake_mag = 2
 		shake_mag_acc = (3 / 10)
@@ -153,6 +161,16 @@ func _process(delta):
 				else:
 					$TimeText.add_color_override("font_color", Color(1,1,1))
 				$TimeText.text = str(global.minutes) + ":" + str(global.seconds)
+		elif (global.timeattack):
+			$TimeText.visible = true
+			if (global.taseconds < 10):
+				$TimeText.text = str(global.taminutes) + ":0" + str(global.taseconds)
+			elif (global.taseconds >= 10):
+				$TimeText.text = str(global.taminutes) + ":" + str(global.taseconds)
+			if (global.taseconds == 0 && global.taminutes == 0):
+				$TimeText.add_color_override("font_color", Color(1,0,0))
+			else:
+				$TimeText.add_color_override("font_color", Color(1,1,1))
 		else:
 			$TimeText.visible = false
 		if (global.key_inv):
@@ -179,4 +197,19 @@ func _on_panictimer_timeout():
 		if (global.seconds < 0):
 			global.seconds = 59
 			global.minutes -= 1
+	if (global.timeattack):
+		if (global.taseconds == 0 && global.taminutes == 0):
+			if (global.collect >= 100):
+				global.collect -= 100
+			elif (global.collect < 100):
+				global.collect = 0
+		if (global.taminutes >= 0 && global.taseconds > 0):
+			if (global.collect >= 5):
+				global.collect -= 5
+			elif (global.collect < 5):
+				global.collect = 0
+			global.taseconds -= 1
+			if (global.taseconds < 0):
+				global.taseconds = 59
+				global.taminutes -= 1
 	$panictimer.start()

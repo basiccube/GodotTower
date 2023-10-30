@@ -8,7 +8,7 @@
 
 ## Info
 
-The goal of Godot Tower is to recreate the Pizza Tower SAGE 2019 demo in Godot Engine as accurately as possible.  
+The goal of Godot Tower is to recreate the Pizza Tower SAGE 2019 demo in Godot Engine. In addition to it being a port/recreation of the SAGE 2019 demo, it also aims to be a mod focused on cut content and early versions of content that did make it into the game.  
 In its current state, while it does work and is playable, it is very buggy, primarily due to various differences between Godot and GameMaker.
 
 ## How was this done?

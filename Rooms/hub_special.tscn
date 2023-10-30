@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Warps/obj_verticalhallway.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Warps/obj_door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Level/obj_camlimit_left.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Level/obj_camlimit_right.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Level/obj_camlimit_bottom.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Tilesets/tile_tower.tres" type="TileSet" id=8]
+[ext_resource path="res://Backgrounds/bg_tower_0.png" type="Texture" id=10]
+
+[node name="hub_special" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0.75 )
+motion_mirroring = Vector2( 1200, 1078 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 10 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1200, 1078 )
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -50
+tile_set = ExtResource( 8 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( 0, 0, 458759, 1, 0, 458759, 2, 0, 458759, 3, 0, 458759, 4, 0, 458759, 5, 0, 458759, 6, 0, 458759, 7, 0, 458759, 8, 0, 458759, 9, 0, 458759, 10, 0, 458759, 11, 0, 458759, 12, 0, 458759, 13, 0, 458759, 14, 0, 458759, 15, 0, 458759, 16, 0, 458759, 17, 0, 458759, 18, 0, 458759, 19, 0, 458759, 20, 0, 458759, 21, 0, 458759, 22, 0, 458759, 23, 0, 458759, 24, 0, 458759, 25, 0, 458759, 26, 0, 458759, 27, 0, 458759, 28, 0, 458759, 29, 0, 458759, 30, 0, 458759, 65536, 0, 458759, 65537, 0, 327685, 65538, 0, 393221, 65539, 0, 393221, 65540, 0, 393221, 65541, 0, 393221, 65542, 0, 393221, 65543, 0, 393221, 65544, 0, 393221, 65545, 0, 393221, 65546, 0, 393221, 65547, 0, 393221, 65548, 0, 393221, 65549, 0, 393221, 65550, 0, 393221, 65551, 0, 393221, 65552, 0, 393221, 65553, 0, 393221, 65554, 0, 393221, 65555, 0, 393221, 65556, 0, 393221, 65557, 0, 393221, 65558, 0, 393221, 65559, 0, 393221, 65560, 0, 393221, 65561, 0, 393221, 65562, 0, 393221, 65563, 0, 393221, 65564, 0, 393221, 65565, 0, 327685, 65566, 0, 458759, 131072, 0, 458759, 131073, 0, 327686, 131101, 0, 327684, 131102, 0, 458759, 196608, 0, 458759, 196609, 0, 327686, 196637, 0, 327684, 196638, 0, 458759, 262144, 0, 458759, 262145, 0, 327686, 262173, 0, 327684, 262174, 0, 458759, 327680, 0, 458759, 327681, 0, 327686, 327709, 0, 327684, 327710, 0, 458759, 393216, 0, 458759, 393217, 0, 327686, 393245, 0, 327684, 393246, 0, 458759, 458752, 0, 458759, 458753, 0, 327686, 458781, 0, 327684, 458782, 0, 458759, 524288, 0, 458759, 524289, 0, 327686, 524317, 0, 327684, 524318, 0, 458759, 589824, 0, 458759, 589825, 0, 327686, 589853, 0, 327684, 589854, 0, 458759, 655360, 0, 458759, 655361, 0, 327686, 655389, 0, 327684, 655390, 0, 458759, 720896, 0, 458759, 720897, 0, 327686, 720925, 0, 327684, 720926, 0, 458759, 786432, 0, 458759, 786433, 0, 327686, 786461, 0, 327684, 786462, 0, 458759, 851968, 0, 458759, 851969, 0, 327686, 851997, 0, 327684, 851998, 0, 458759, 917504, 0, 458759, 917505, 0, 327686, 917533, 0, 327684, 917534, 0, 458759, 983040, 0, 458759, 983041, 0, 327685, 983042, 0, 262149, 983043, 0, 262150, 983046, 0, 262148, 983047, 0, 262149, 983048, 0, 262149, 983049, 0, 262149, 983050, 0, 262149, 983051, 0, 262149, 983052, 0, 262149, 983053, 0, 262149, 983054, 0, 262149, 983055, 0, 262149, 983056, 0, 262149, 983057, 0, 262149, 983058, 0, 262149, 983059, 0, 262149, 983060, 0, 262149, 983061, 0, 262149, 983062, 0, 262149, 983063, 0, 262149, 983064, 0, 262149, 983065, 0, 262149, 983066, 0, 262149, 983067, 0, 262149, 983068, 0, 262149, 983069, 0, 327685, 983070, 0, 458759, 1048576, 0, 458759, 1048577, 0, 458759, 1048578, 0, 458759, 1048579, 0, 327686, 1048582, 0, 327684, 1048583, 0, 458759, 1048584, 0, 458759, 1048585, 0, 458759, 1048586, 0, 458759, 1048587, 0, 458759, 1048588, 0, 458759, 1048589, 0, 458759, 1048590, 0, 458759, 1048591, 0, 458759, 1048592, 0, 458759, 1048593, 0, 458759, 1048594, 0, 458759, 1048595, 0, 458759, 1048596, 0, 458759, 1048597, 0, 458759, 1048598, 0, 458759, 1048599, 0, 458759, 1048600, 0, 458759, 1048601, 0, 458759, 1048602, 0, 458759, 1048603, 0, 458759, 1048604, 0, 458759, 1048605, 0, 458759, 1048606, 0, 458759, 1114112, 0, 393223, 1114113, 0, 393223, 1114114, 0, 458759, 1114115, 0, 327686, 1114118, 0, 327684, 1114119, 0, 458759, 1114120, 0, 393223, 1114121, 0, 393223, 1114122, 0, 393223, 1114123, 0, 393223, 1114124, 0, 393223, 1114125, 0, 393223, 1114126, 0, 393223, 1114127, 0, 393223, 1114128, 0, 393223, 1114129, 0, 393223, 1114130, 0, 393223, 1114131, 0, 393223, 1114132, 0, 393223, 1114133, 0, 393223, 1114134, 0, 393223, 1114135, 0, 393223, 1114136, 0, 393223, 1114137, 0, 393223, 1114138, 0, 393223, 1114139, 0, 393223, 1114140, 0, 393223, 1114141, 0, 393223, 1114142, 0, 393223 )
+
+[node name="obj_camlimit_left" parent="." instance=ExtResource( 4 )]
+
+[node name="obj_camlimit_top" parent="." instance=ExtResource( 7 )]
+
+[node name="obj_camlimit_bottom" parent="." instance=ExtResource( 6 )]
+position = Vector2( 0, 540 )
+
+[node name="obj_camlimit_right" parent="." instance=ExtResource( 5 )]
+position = Vector2( 960, 0 )
+
+[node name="obj_verticalhallway" parent="." instance=ExtResource( 2 )]
+position = Vector2( 128, 608 )
+targetDoor = "E"
+targetLevel = ""
+targetRoom = "hub_room1"
+
+[node name="obj_solid" parent="." instance=ExtResource( 1 )]
+position = Vector2( 192, 480 )
+scale = Vector2( 23, 8 )
+
+[node name="obj_solid4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 64, 480 )
+scale = Vector2( 2, 8 )
+
+[node name="obj_solid5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 64, 0 )
+scale = Vector2( 27, 2 )
+
+[node name="obj_solid2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 928, 0 )
+scale = Vector2( 2, 20 )
+
+[node name="obj_solid3" parent="." instance=ExtResource( 1 )]
+scale = Vector2( 2, 23 )
+
+[node name="obj_door" parent="." instance=ExtResource( 3 )]
+position = Vector2( 640, 384 )
+targetDoor = "B"
+targetLevel = "trickytreat"
+targetRoom = "trickytreat_1"
+
+[node name="Sprite" parent="obj_door" index="0"]
+animation = "pumpkingate"
+
+[editable path="obj_door"]
