@@ -51,9 +51,6 @@ var crank = 0
 
 var peppalette = 0
 
-var bigfont = load("res://Objects/HUD/font.tres")
-var smallnumberfont = load("res://Objects/HUD/smallnumber.tres")
-
 enum states {
 	normal,
 	jump,
