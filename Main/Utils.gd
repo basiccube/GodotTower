@@ -138,7 +138,10 @@ func delete_tile_at(position):
 	
 func savescore(levelname):
 	if (global.collect > global.srank):
-		global.rank = "s"
+		if (!global.combodropped):
+			global.rank = "p"
+		else:
+			global.rank = "s"
 		utils.playsound("RankS")
 	elif (global.collect > global.arank):
 		global.rank = "a"

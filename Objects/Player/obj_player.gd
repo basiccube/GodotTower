@@ -428,8 +428,12 @@ func _process(delta):
 	if ($PeppinoSprite.animation == "winding" && state != global.states.normal):
 		windingAnim = 0
 	if (global.combotime > 0):
-		global.combotime -= 0.5
-	if (global.combotime == 0 && global.combo != 0):
+		global.combotime -= 0.15
+	global.combotime = clamp(global.combotime, 0, 60)
+	if (global.combotime <= 0 && global.combo != 0):
+		global.combotime = 0
+		if (!global.combodropped):
+			global.combodropped = true
 		global.combo = 0
 	if (input_buffer_jump < 8):
 		input_buffer_jump += 1
@@ -2584,6 +2588,7 @@ func scr_playerreset():
 	global.treasure = false
 	global.combo = 0
 	global.combotime = 0
+	global.combodropped = false
 	backupweapon = false
 	global.hit = 0
 	bounce = 0

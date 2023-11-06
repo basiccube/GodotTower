@@ -12,6 +12,8 @@ func _ready():
 func _process(delta):
 	if ($Sprite.animation == spr_got && utils.get_player().state != global.states.gottreasure):
 		destroy()
+	if ($Sprite.animation == spr_got):
+		global.combotime = 60
 	if ($Sprite.animation != spr_got):
 		$Sprite.animation = spr_idle
 
@@ -43,5 +45,6 @@ func _on_Timer_timeout():
 	obj_player.state = global.states.normal
 	var smallnumbid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_smallnumber.tscn")
 	smallnumbid.number = "1000"
+	global.combotime = 60
 	global.collect += 1000
 	destroy()

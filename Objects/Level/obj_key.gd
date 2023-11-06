@@ -44,6 +44,7 @@ func _on_CollectArea_body_entered(body):
 		&& obj_player.state != global.states.knightpepattack
 		&& obj_player.state != global.states.knightpepslopes
 		&& obj_player.state != global.states.hurt):
+			global.combotime = 60
 			global.key_inv = true
 			for i in 5:
 				utils.instance_create(utils.randi_range((obj_player.position.x + 50) + 25, (obj_player.position.x + 50) - 25), utils.randi_range((obj_player.position.y + 50) + 35, (obj_player.position.y + 50) - 25), "res://Objects/Visuals/obj_keyeffect.tscn")

@@ -13,6 +13,7 @@ func destroy():
 func _on_obj_giantcollect_body_entered(body):
 	if body is obj_player:
 		utils.playsound("CollectGiantPizza")
+		global.combotime = 60
 		global.collect += 1000
 		var smallnumbid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_smallnumber.tscn")
 		smallnumbid.number = "1000"

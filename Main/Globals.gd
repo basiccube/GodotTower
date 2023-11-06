@@ -24,6 +24,7 @@ var timeattack = false
 
 var combo = 0
 var combotime = 0
+var combodropped = false
 var collect = 0
 var pizzacoin = 0
 var key_inv = false

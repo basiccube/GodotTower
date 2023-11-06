@@ -19,6 +19,7 @@ func _process(delta):
 			utils.playsound("CollectToppin")
 		var smallnumbid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_smallnumber.tscn")
 		smallnumbid.number = "1000"
+		global.combotime = 60
 		global.collect += 1000
 		#utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_taunteffect.tscn")
 		if (content == "shroom"):
