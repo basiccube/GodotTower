@@ -178,6 +178,13 @@ func _process(delta):
 			if (destructible.is_in_group("obj_specialdestructibles")):
 				if (destructible.is_in_group("obj_rollblock") && state == global.states.tumble):
 					destructible.destroy()
+				if (destructible.is_in_group("obj_bombblock") && state == global.states.bombpep && $PeppinoSprite.animation != "bombpep_end"):
+					destructible.destroy()
+					hurted = 1
+					velocity.y = -4
+					utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_bombexplosion.tscn")
+					$PeppinoSprite.animation = "bombpep_end"
+					bombpeptimer = 0
 		if (destructible.is_in_group("obj_metalblock")):
 			if (state == global.states.mach3 || state == global.states.knightpepslopes):
 				destructible.destroy()

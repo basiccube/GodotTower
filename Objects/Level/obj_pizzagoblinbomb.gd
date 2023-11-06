@@ -36,6 +36,7 @@ func _physics_process(delta):
 
 func _on_PickupArea_body_entered(body):
 	if body.is_in_group("obj_bombblock"):
+		body.destroy()
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_bombexplosion.tscn")
 
 func _on_PickupArea_area_entered(area):

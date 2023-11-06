@@ -626,7 +626,7 @@ func scr_pizzagoblin_throw():
 		if ($ScreenVisibility.is_on_screen()):
 			utils.playsound("EnemyProjectile")
 		if (is_in_group("obj_pizzagoblin")):
-			var bombid = utils.instance_create_level(position.x, position.y, "res://Objects/BaddieObjects/obj_pizzagoblinbomb.tscn")
+			var bombid = utils.instance_create_level(position.x, position.y, "res://Objects/Level/obj_pizzagoblinbomb.tscn")
 			bombid.velocity.x = (xscale * 10)
 			bombid.velocity.y = -8
 		elif (is_in_group("obj_cheeserobot")):

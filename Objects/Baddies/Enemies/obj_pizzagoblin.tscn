@@ -1,0 +1,166 @@
+[gd_scene load_steps=101 format=2]
+
+[ext_resource path="res://Objects/Baddies/obj_baddie.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_0.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_24.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_32.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_15.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_fall_0.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_2.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_fall_1.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_7.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_30.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_6.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_fall_2.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_11.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_28.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_0.png" type="Texture" id=15]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_2.png" type="Texture" id=16]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_3.png" type="Texture" id=17]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_9.png" type="Texture" id=18]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_25.png" type="Texture" id=19]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_29.png" type="Texture" id=20]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_20.png" type="Texture" id=21]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_4.png" type="Texture" id=22]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_4.png" type="Texture" id=23]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_5.png" type="Texture" id=24]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_6.png" type="Texture" id=25]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_7.png" type="Texture" id=26]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_3.png" type="Texture" id=27]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_5.png" type="Texture" id=28]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_8.png" type="Texture" id=29]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_9.png" type="Texture" id=30]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_10.png" type="Texture" id=31]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_33.png" type="Texture" id=32]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_11.png" type="Texture" id=33]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_34.png" type="Texture" id=34]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_13.png" type="Texture" id=35]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_14.png" type="Texture" id=36]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_19.png" type="Texture" id=37]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_dead_0.png" type="Texture" id=38]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_1.png" type="Texture" id=39]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_8.png" type="Texture" id=40]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_1.png" type="Texture" id=41]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_10.png" type="Texture" id=42]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_16.png" type="Texture" id=43]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_17.png" type="Texture" id=44]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_18.png" type="Texture" id=45]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_12.png" type="Texture" id=46]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_23.png" type="Texture" id=47]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_22.png" type="Texture" id=48]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_26.png" type="Texture" id=49]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_31.png" type="Texture" id=50]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_21.png" type="Texture" id=51]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_idle_27.png" type="Texture" id=52]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_walk_9.png" type="Texture" id=53]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_throwbomb_3.png" type="Texture" id=54]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_throwbomb_16.png" type="Texture" id=55]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_walk_2.png" type="Texture" id=56]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_16.png" type="Texture" id=57]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_throwbomb_7.png" type="Texture" id=58]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_stun_2.png" type="Texture" id=59]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_13.png" type="Texture" id=60]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_throwbomb_13.png" type="Texture" id=61]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_throwbomb_5.png" type="Texture" id=62]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_throwbomb_4.png" type="Texture" id=63]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_throwbomb_8.png" type="Texture" id=64]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_walk_4.png" type="Texture" id=65]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_scared_2.png" type="Texture" id=66]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_walk_1.png" type="Texture" id=67]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_21.png" type="Texture" id=68]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_walk_8.png" type="Texture" id=69]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_15.png" type="Texture" id=70]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_stun_0.png" type="Texture" id=71]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_throwbomb_11.png" type="Texture" id=72]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_throwbomb_1.png" type="Texture" id=73]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_walk_0.png" type="Texture" id=74]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_throwbomb_6.png" type="Texture" id=75]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_walk_5.png" type="Texture" id=76]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_17.png" type="Texture" id=77]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_18.png" type="Texture" id=78]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_throwbomb_0.png" type="Texture" id=79]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_throwbomb_15.png" type="Texture" id=80]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_throwbomb_10.png" type="Texture" id=81]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_walk_7.png" type="Texture" id=82]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_scared_0.png" type="Texture" id=83]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_stun_1.png" type="Texture" id=84]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_throwbomb_14.png" type="Texture" id=85]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_throwbomb_17.png" type="Texture" id=86]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_walk_6.png" type="Texture" id=87]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_scared_1.png" type="Texture" id=88]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_12.png" type="Texture" id=89]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_14.png" type="Texture" id=90]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_scared_3.png" type="Texture" id=91]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_19.png" type="Texture" id=92]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_recovery_20.png" type="Texture" id=93]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_throwbomb_2.png" type="Texture" id=94]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_throwbomb_9.png" type="Texture" id=95]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_throwbomb_12.png" type="Texture" id=96]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_walk_3.png" type="Texture" id=97]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_pizzagoblin.gd" type="Script" id=98]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 8 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "fall",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 41 ), ExtResource( 7 ), ExtResource( 27 ), ExtResource( 22 ), ExtResource( 28 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 40 ), ExtResource( 18 ), ExtResource( 42 ), ExtResource( 13 ), ExtResource( 46 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 5 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 37 ), ExtResource( 21 ), ExtResource( 51 ), ExtResource( 48 ), ExtResource( 47 ), ExtResource( 3 ), ExtResource( 19 ), ExtResource( 49 ), ExtResource( 52 ), ExtResource( 14 ), ExtResource( 20 ), ExtResource( 10 ), ExtResource( 50 ), ExtResource( 4 ), ExtResource( 32 ), ExtResource( 34 ) ],
+"loop": true,
+"name": "idle",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 38 ) ],
+"loop": true,
+"name": "pizzagoblin_dead",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 39 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 33 ), ExtResource( 89 ), ExtResource( 60 ), ExtResource( 90 ), ExtResource( 70 ), ExtResource( 57 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 68 ) ],
+"loop": true,
+"name": "recovery",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 83 ), ExtResource( 88 ), ExtResource( 66 ), ExtResource( 91 ) ],
+"loop": true,
+"name": "scared",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 71 ), ExtResource( 84 ), ExtResource( 59 ) ],
+"loop": true,
+"name": "stun",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 79 ), ExtResource( 73 ), ExtResource( 94 ), ExtResource( 54 ), ExtResource( 63 ), ExtResource( 62 ), ExtResource( 75 ), ExtResource( 58 ), ExtResource( 64 ), ExtResource( 95 ), ExtResource( 81 ), ExtResource( 72 ), ExtResource( 96 ), ExtResource( 61 ), ExtResource( 85 ), ExtResource( 80 ), ExtResource( 55 ), ExtResource( 86 ) ],
+"loop": true,
+"name": "throwbomb",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 74 ), ExtResource( 67 ), ExtResource( 56 ), ExtResource( 97 ), ExtResource( 65 ), ExtResource( 76 ), ExtResource( 87 ), ExtResource( 82 ), ExtResource( 69 ), ExtResource( 53 ) ],
+"loop": true,
+"name": "walk",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 31 )
+
+[node name="obj_pizzagoblin" groups=["obj_pizzagoblin"] instance=ExtResource( 1 )]
+script = ExtResource( 98 )
+
+[node name="Sprite" parent="." index="2"]
+frames = SubResource( 3 )
+animation = "idle"
+
+[node name="WallCheck" parent="." index="3"]
+position = Vector2( 0, 24 )
+
+[node name="OppositeWallCheck" parent="." index="4"]
+position = Vector2( 0, 24 )
+
+[node name="PlatformCheck" parent="." index="5"]
+cast_to = Vector2( 0, 32 )
+
+[node name="Collision" parent="." index="9"]
+position = Vector2( 0, 15 )
+shape = SubResource( 2 )

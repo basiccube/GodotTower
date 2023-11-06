@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Backgrounds/bg_ruin_0.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Objects/Blocks/obj_minipillar.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Objects/Blocks/obj_destructibleplatform.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Collision/obj_slope.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Objects/Misc/obj_doorblocked.tscn" type="PackedScene" id=24]
 
 [sub_resource type="ShaderMaterial" id=1]
@@ -236,3 +237,28 @@ position = Vector2( 640, 544 )
 
 [node name="obj_destructibleplatform9" parent="." instance=ExtResource( 14 )]
 position = Vector2( 672, 544 )
+
+[node name="obj_hallway" parent="." instance=ExtResource( 16 )]
+position = Vector2( 2528, 704 )
+scale = Vector2( 2, 1.5 )
+targetDoor = "B"
+targetLevel = "ruin"
+targetRoom = "ruin_2"
+
+[node name="obj_hallway2" parent="." instance=ExtResource( 16 )]
+position = Vector2( 2560, 128 )
+scale = Vector2( 2, 1.5 )
+targetDoor = "C"
+targetLevel = "ruin"
+targetRoom = "ruin_4"
+
+[node name="obj_hallway3" parent="." instance=ExtResource( 16 )]
+position = Vector2( -32, 704 )
+scale = Vector2( -2, 1.5 )
+targetDoor = "D"
+targetLevel = "ruin"
+targetRoom = "ruin_5"
+
+[node name="obj_solid10" parent="." instance=ExtResource( 1 )]
+position = Vector2( -32, 704 )
+scale = Vector2( 1, 3 )

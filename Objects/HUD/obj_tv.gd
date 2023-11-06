@@ -103,7 +103,7 @@ func _process(delta):
 		shownranka = true
 	elif (global.collect > global.brank && !shownrankb && !global.timeattack):
 		$TVSprite.speed_scale = 0
-		message = "YOU GOT ENOUGH FOR RANK b"
+		message = "YOU GOT ENOUGH FOR RANK B"
 		showtext = true
 		$ResetTimer.wait_time = 3.33
 		$ResetTimer.start()

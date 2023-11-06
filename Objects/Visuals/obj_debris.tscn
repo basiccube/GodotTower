@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Objects/Visuals/obj_parentparticle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Visuals/obj_debris.gd" type="Script" id=2]
@@ -54,10 +54,6 @@
 [ext_resource path="res://Objects/Visuals/sprites/debris/pumpkinchunks_0.png" type="Texture" id=52]
 [ext_resource path="res://Objects/Visuals/sprites/debris/pumpkinchunks_3.png" type="Texture" id=53]
 [ext_resource path="res://Objects/Visuals/sprites/debris/pumpkinchunks_2.png" type="Texture" id=54]
-[ext_resource path="res://Objects/Visuals/sprites/debris/bombdebris_1.png" type="Texture" id=55]
-[ext_resource path="res://Objects/Visuals/sprites/debris/bombdebris_2.png" type="Texture" id=56]
-[ext_resource path="res://Objects/Visuals/sprites/debris/bombdebris_3.png" type="Texture" id=57]
-[ext_resource path="res://Objects/Visuals/sprites/debris/bombdebris_0.png" type="Texture" id=58]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -79,11 +75,6 @@ animations = [ {
 "frames": [ ExtResource( 34 ), ExtResource( 50 ), ExtResource( 36 ), ExtResource( 49 ), ExtResource( 37 ), ExtResource( 35 ) ],
 "loop": true,
 "name": "bigpizzadebrisescape",
-"speed": 60.0
-}, {
-"frames": [ ExtResource( 58 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ) ],
-"loop": true,
-"name": "bombblock",
 "speed": 60.0
 }, {
 "frames": [ ExtResource( 12 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 13 ) ],

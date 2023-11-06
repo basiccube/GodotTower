@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Objects/Baddies/sprites/sausageman/sausageman_shot_0.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Baddies/obj_sausageman_dead.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Objects/Baddies/sprites/pizzard/pizzard_dead_0.png" type="Texture" id=9]
 [ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_dead_0.png" type="Texture" id=10]
 [ext_resource path="res://Objects/Collectibles/sprites/shotgun/shotgunback_0.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_dead_0.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -37,6 +38,11 @@ animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "pizzaboy",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "pizzagoblin_dead",
 "speed": 60.0
 }, {
 "frames": [ ExtResource( 9 ) ],
