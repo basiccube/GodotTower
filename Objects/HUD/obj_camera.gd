@@ -198,13 +198,13 @@ func _process(delta):
 			$HeatMeter.visible = true
 			$HeatMeter.playing = true
 			$HeatMeter/HeatMeterBar.value = global.combotime
-			if (global.combo < 4 && $HeatMeter.animation != "mild" && $HeatMeter.animation != "mildpop"):
+			if (global.combo < 8 && $HeatMeter.animation != "mild" && $HeatMeter.animation != "mildpop"):
 				$HeatMeter.animation = "mildpop"
-			if (global.combo > 4 && global.combo < 8 && $HeatMeter.animation != "antsy" && $HeatMeter.animation != "antsypop"):
+			if (global.combo > 8 && global.combo < 16 && $HeatMeter.animation != "antsy" && $HeatMeter.animation != "antsypop"):
 				$HeatMeter.animation = "antsypop"
-			if (global.combo > 8 && global.combo < 16 && $HeatMeter.animation != "mad" && $HeatMeter.animation != "madpop"):
+			if (global.combo > 16 && global.combo < 32 && $HeatMeter.animation != "mad" && $HeatMeter.animation != "madpop"):
 				$HeatMeter.animation = "madpop"
-			if (global.combo > 16 && $HeatMeter.animation != "crazy" && $HeatMeter.animation != "crazypop"):
+			if (global.combo > 32 && $HeatMeter.animation != "crazy" && $HeatMeter.animation != "crazypop"):
 				$HeatMeter.animation = "crazypop"
 			if ($HeatMeter.animation == "mildpop" && $HeatMeter.frame == $HeatMeter.frames.get_frame_count($HeatMeter.animation) - 1):
 				$HeatMeter.animation = "mild"

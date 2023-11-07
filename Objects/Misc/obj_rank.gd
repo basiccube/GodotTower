@@ -9,6 +9,8 @@ func _process(delta):
 	if ($Sprite.frame == $Sprite.frames.get_frame_count($Sprite.animation) - 1):
 		$Sprite.speed_scale = 0
 	if (utils.get_player().character == "P"):
+		if (global.rank == "p"):
+			$Sprite.animation = "rankP"
 		if (global.rank == "s"):
 			$Sprite.animation = "rankS"
 		if (global.rank == "a"):
@@ -20,7 +22,7 @@ func _process(delta):
 		if (global.rank == "d"):
 			$Sprite.animation = "rankD"
 	else:
-		if (global.rank == "s"):
+		if (global.rank == "s" || global.rank == "p"):
 			$Sprite.animation = "rankNS"
 		if (global.rank == "a"):
 			$Sprite.animation = "rankNA"
@@ -33,6 +35,7 @@ func _process(delta):
 	$Sprite.material.set_shader_param("current_palette", global.peppalette)
 
 func _on_Timer_timeout():
+	utils.stopsound("RankP")
 	utils.stopsound("RankS")
 	utils.stopsound("RankA")
 	utils.stopsound("RankC")

@@ -185,10 +185,14 @@ func _process(delta):
 	elif (global.combo != 0 && global.combotime != 0 && (tvsprite == "default" || tvsprite == "combo" || tvsprite == "escape")):
 		tvsprite = "combo"
 		$TVSprite.speed_scale = 0
-		if (global.combo >= 4):
+		if (global.combo <= 8):
+			imageindexstore = 0
+		if (global.combo > 8 && global.combo <= 16):
+			imageindexstore = 1
+		if (global.combo > 16 && global.combo <= 32):
+			imageindexstore = 2
+		if (global.combo > 32):
 			imageindexstore = 3
-		else:
-			imageindexstore = (global.combo - 1)
 	elif (global.combotime == 0 && tvsprite == "combo"):
 		tvsprite = "comboresult"
 		$TVSprite.speed_scale = 0

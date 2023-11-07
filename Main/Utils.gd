@@ -140,9 +140,10 @@ func savescore(levelname):
 	if (global.collect > global.srank):
 		if (!global.combodropped):
 			global.rank = "p"
+			utils.playsound("RankP")
 		else:
 			global.rank = "s"
-		utils.playsound("RankS")
+			utils.playsound("RankS")
 	elif (global.collect > global.arank):
 		global.rank = "a"
 		utils.playsound("RankA")

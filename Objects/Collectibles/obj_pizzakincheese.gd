@@ -29,7 +29,7 @@ func _process(delta):
 				$Sprite.animation = "run"
 			else:
 				$Sprite.animation = "idle"
-		if (global.shroomfollow):
+		if (global.shroomfollow && utils.instance_exists_level("obj_pizzakinshroom")):
 			followQueue.push_front(utils.get_instance_level("obj_pizzakinshroom").position.x + (scale.x * 4))
 			followQueue.push_front(utils.get_instance_level("obj_pizzakinshroom").position.y - 2)
 		else:

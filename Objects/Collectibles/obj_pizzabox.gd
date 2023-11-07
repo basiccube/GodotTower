@@ -9,7 +9,6 @@ func _ready():
 		queue_free()
 	
 func destroy():
-	global.saveroom.append(global.targetRoom + name)
 	queue_free()
 
 func _process(delta):
@@ -45,6 +44,7 @@ func _process(delta):
 		obj_tv.showtext = true
 		obj_tv.resettimer.wait_time = 2.5
 		obj_tv.resettimer.start()
+		global.saveroom.append(global.targetRoom + name)
 		global.toppintotal += 1
 		$Sprite.animation = "open"
 	if ($Sprite.animation == "open" && $Sprite.frame == 16):

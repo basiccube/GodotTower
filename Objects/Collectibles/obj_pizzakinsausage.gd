@@ -29,13 +29,13 @@ func _process(delta):
 				$Sprite.animation = "run"
 			else:
 				$Sprite.animation = "idle"
-		if (global.tomatofollow):
+		if (global.tomatofollow && utils.instance_exists_level("obj_pizzakintomato")):
 			followQueue.push_front(utils.get_instance_level("obj_pizzakintomato").position.x + (scale.x * 4))
 			followQueue.push_front(utils.get_instance_level("obj_pizzakintomato").position.y - 2)
-		elif (global.cheesefollow):
+		elif (global.cheesefollow && utils.instance_exists_level("obj_pizzakincheese")):
 			followQueue.push_front(utils.get_instance_level("obj_pizzakincheese").position.x + (scale.x * 4))
 			followQueue.push_front(utils.get_instance_level("obj_pizzakincheese").position.y - 2)
-		elif (global.shroomfollow):
+		elif (global.shroomfollow && utils.instance_exists_level("obj_pizzakinshroom")):
 			followQueue.push_front(utils.get_instance_level("obj_pizzakinshroom").position.x + (scale.x * 4))
 			followQueue.push_front(utils.get_instance_level("obj_pizzakinshroom").position.y - 2)
 		else:

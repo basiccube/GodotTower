@@ -416,9 +416,9 @@ speed_scale = 0.35
 centered = false
 
 [node name="HeatMeterBar" type="TextureProgress" parent="HeatMeter"]
-margin_left = 45.0
+margin_left = 46.0
 margin_top = 66.0
-margin_right = 105.0
+margin_right = 106.0
 margin_bottom = 106.0
 max_value = 50.0
 texture_under = ExtResource( 206 )

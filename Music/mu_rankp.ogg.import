@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mu_rankp.ogg-1709950af23b1bbb85752dc4eefce282.oggstr"
+
+[deps]
+
+source_file="res://Music/mu_rankp.ogg"
+dest_files=[ "res://.import/mu_rankp.ogg-1709950af23b1bbb85752dc4eefce282.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
