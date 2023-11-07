@@ -62,6 +62,8 @@ func _process(delta):
 		$SlopeCheck.position.x = 8
 	position.x += velocity.x
 	position.y += velocity.y
+	velocity.x = clamp(velocity.x, -50, 50)
+	velocity.y = clamp(velocity.y, -50, 50)
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if (collision.collider != null):
@@ -102,12 +104,13 @@ func _process(delta):
 					if (stunned < 100):
 						stunned = 100
 					velocity.y = -5
-					velocity.x = ((-xscale) * 2)
+					velocity.x = ((-xscale) * 5)
 					state = global.states.stun
 
 func _physics_process(delta):
 	if (state != global.states.grabbed):
-		velocity.y += grav
+		if (velocity.y < 30):
+			velocity.y += grav
 		velocity = move_and_slide(velocity, FLOOR_NORMAL, false)
 		
 func _ready():

@@ -111,6 +111,8 @@ func _process(delta):
 	$PeppinoSprite.material.set_shader_param("current_palette", global.peppalette)
 	position.x += velocity.x
 	position.y += velocity.y
+	velocity.x = clamp(velocity.x, -500, 500)
+	velocity.y = clamp(velocity.y, -50, 50)
 	if xscale == 1:
 		$PeppinoSprite.flip_h = false
 		$SolidCheck.scale.x = 1
@@ -284,7 +286,7 @@ func _process(delta):
 						if (baddie.stunned < 100):
 							baddie.stunned = 100
 						baddie.velocity.y = -5
-						baddie.velocity.x = ((-xscale) * 2)
+						baddie.velocity.x = ((xscale) * 5)
 						baddie.state = global.states.stun
 					if (state == global.states.superslam || state == global.states.freefall):
 						utils.playsound("HitEnemy")
