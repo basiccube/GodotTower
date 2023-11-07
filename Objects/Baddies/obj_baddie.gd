@@ -326,7 +326,7 @@ func scr_enemy_grabbed():
 			position.y = (obj_player.position.y - 10)
 		xscale = (-obj_player.xscale)
 	if (!(obj_player.state == global.states.grab || obj_player.state == global.states.finishingblow || obj_player.state == global.states.grabbing || obj_player.state == global.states.throw || obj_player.state == global.states.slam || obj_player.state == global.states.punch || obj_player.state == global.states.superslam || obj_player.state == global.states.backkick || obj_player.state == global.states.uppunch || obj_player.state == global.states.shoulder)):
-		position.x = (obj_player.position.x + 50)
+		position.x = (obj_player.position.x + 50 + (50 * obj_player.xscale))
 		position.y = (obj_player.position.y + 50)
 		state = global.states.stun
 		$Sprite.frame = 0
@@ -494,7 +494,7 @@ func scr_enemy_grabbed():
 		$MachEffectTimer.start()
 		thrown = true
 		position.x = (obj_player.position.x + 50)
-		position.y = (obj_player.position.y - 20)
+		position.y = (obj_player.position.y - 30)
 		state = global.states.stun
 		velocity.x = ((-xscale) * 10)
 		velocity.y = -10

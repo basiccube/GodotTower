@@ -913,7 +913,7 @@ func scr_player_jump():
 	if (stompAnim == 1):
 		if ($PeppinoSprite.animation == "stompprep" && $PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1):
 			$PeppinoSprite.animation = "stomp"
-	if (Input.is_action_pressed("key_down")):
+	if (Input.is_action_pressed("key_down") && ladderbuffer <= 0):
 		if (shotgunAnim == 0):
 			state = global.states.freefallprep
 			$PeppinoSprite.animation = "bodyslamstart"
