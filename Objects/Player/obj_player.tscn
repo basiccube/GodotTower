@@ -2408,6 +2408,7 @@ extents = Vector2( 12, 18 )
 z_index = 5
 collision_mask = 6
 collision/safe_margin = 0.001
+moving_platform_apply_velocity_on_leave = 2
 script = ExtResource( 55 )
 
 [node name="PeppinoSprite" type="AnimatedSprite" parent="."]
