@@ -1,4 +1,4 @@
-[gd_scene load_steps=196 format=2]
+[gd_scene load_steps=179 format=2]
 
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankS_2.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankS_1.png" type="Texture" id=2]
@@ -134,7 +134,6 @@
 [ext_resource path="res://Objects/Player/peppalette.png" type="Texture" id=132]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_38.png" type="Texture" id=133]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_42.png" type="Texture" id=134]
-[ext_resource path="res://Objects/Misc/sprites/ranks/rankP_46.png" type="Texture" id=135]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_28.png" type="Texture" id=136]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_34.png" type="Texture" id=137]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_11.png" type="Texture" id=138]
@@ -152,16 +151,9 @@
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_15.png" type="Texture" id=150]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_40.png" type="Texture" id=151]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_43.png" type="Texture" id=152]
-[ext_resource path="res://Objects/Misc/sprites/ranks/rankP_49.png" type="Texture" id=153]
-[ext_resource path="res://Objects/Misc/sprites/ranks/rankP_50.png" type="Texture" id=154]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_12.png" type="Texture" id=155]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_3.png" type="Texture" id=156]
-[ext_resource path="res://Objects/Misc/sprites/ranks/rankP_52.png" type="Texture" id=157]
-[ext_resource path="res://Objects/Misc/sprites/ranks/rankP_54.png" type="Texture" id=158]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_32.png" type="Texture" id=159]
-[ext_resource path="res://Objects/Misc/sprites/ranks/rankP_48.png" type="Texture" id=160]
-[ext_resource path="res://Objects/Misc/sprites/ranks/rankP_47.png" type="Texture" id=161]
-[ext_resource path="res://Objects/Misc/sprites/ranks/rankP_53.png" type="Texture" id=162]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_8.png" type="Texture" id=163]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_20.png" type="Texture" id=164]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_26.png" type="Texture" id=165]
@@ -173,9 +165,6 @@
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_19.png" type="Texture" id=171]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_36.png" type="Texture" id=172]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_41.png" type="Texture" id=173]
-[ext_resource path="res://Objects/Misc/sprites/ranks/rankP_44.png" type="Texture" id=174]
-[ext_resource path="res://Objects/Misc/sprites/ranks/rankP_51.png" type="Texture" id=175]
-[ext_resource path="res://Objects/Misc/sprites/ranks/rankP_45.png" type="Texture" id=176]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_17.png" type="Texture" id=177]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_9.png" type="Texture" id=178]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_22.png" type="Texture" id=179]
@@ -187,12 +176,6 @@
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_30.png" type="Texture" id=185]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_0.png" type="Texture" id=186]
 [ext_resource path="res://Objects/Misc/sprites/ranks/rankP_33.png" type="Texture" id=187]
-[ext_resource path="res://Objects/Misc/sprites/ranks/rankP_58.png" type="Texture" id=188]
-[ext_resource path="res://Objects/Misc/sprites/ranks/rankP_60.png" type="Texture" id=189]
-[ext_resource path="res://Objects/Misc/sprites/ranks/rankP_59.png" type="Texture" id=190]
-[ext_resource path="res://Objects/Misc/sprites/ranks/rankP_55.png" type="Texture" id=191]
-[ext_resource path="res://Objects/Misc/sprites/ranks/rankP_56.png" type="Texture" id=192]
-[ext_resource path="res://Objects/Misc/sprites/ranks/rankP_57.png" type="Texture" id=193]
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 131 )
@@ -249,7 +232,7 @@ animations = [ {
 "name": "rankNS",
 "speed": 60.0
 }, {
-"frames": [ ExtResource( 186 ), ExtResource( 169 ), ExtResource( 140 ), ExtResource( 156 ), ExtResource( 143 ), ExtResource( 182 ), ExtResource( 167 ), ExtResource( 139 ), ExtResource( 163 ), ExtResource( 178 ), ExtResource( 141 ), ExtResource( 138 ), ExtResource( 155 ), ExtResource( 170 ), ExtResource( 142 ), ExtResource( 150 ), ExtResource( 148 ), ExtResource( 177 ), ExtResource( 149 ), ExtResource( 171 ), ExtResource( 164 ), ExtResource( 183 ), ExtResource( 179 ), ExtResource( 144 ), ExtResource( 184 ), ExtResource( 145 ), ExtResource( 165 ), ExtResource( 146 ), ExtResource( 136 ), ExtResource( 166 ), ExtResource( 185 ), ExtResource( 168 ), ExtResource( 159 ), ExtResource( 187 ), ExtResource( 137 ), ExtResource( 147 ), ExtResource( 172 ), ExtResource( 180 ), ExtResource( 133 ), ExtResource( 181 ), ExtResource( 151 ), ExtResource( 173 ), ExtResource( 134 ), ExtResource( 152 ), ExtResource( 174 ), ExtResource( 176 ), ExtResource( 135 ), ExtResource( 161 ), ExtResource( 160 ), ExtResource( 153 ), ExtResource( 154 ), ExtResource( 175 ), ExtResource( 157 ), ExtResource( 162 ), ExtResource( 158 ), ExtResource( 191 ), ExtResource( 192 ), ExtResource( 193 ), ExtResource( 188 ), ExtResource( 190 ), ExtResource( 189 ) ],
+"frames": [ ExtResource( 186 ), ExtResource( 169 ), ExtResource( 140 ), ExtResource( 156 ), ExtResource( 143 ), ExtResource( 182 ), ExtResource( 167 ), ExtResource( 139 ), ExtResource( 163 ), ExtResource( 178 ), ExtResource( 141 ), ExtResource( 138 ), ExtResource( 155 ), ExtResource( 170 ), ExtResource( 142 ), ExtResource( 150 ), ExtResource( 148 ), ExtResource( 177 ), ExtResource( 149 ), ExtResource( 171 ), ExtResource( 164 ), ExtResource( 183 ), ExtResource( 179 ), ExtResource( 144 ), ExtResource( 184 ), ExtResource( 145 ), ExtResource( 165 ), ExtResource( 146 ), ExtResource( 136 ), ExtResource( 166 ), ExtResource( 185 ), ExtResource( 168 ), ExtResource( 159 ), ExtResource( 187 ), ExtResource( 137 ), ExtResource( 147 ), ExtResource( 172 ), ExtResource( 180 ), ExtResource( 133 ), ExtResource( 181 ), ExtResource( 151 ), ExtResource( 173 ), ExtResource( 134 ), ExtResource( 152 ) ],
 "loop": true,
 "name": "rankP",
 "speed": 60.0
