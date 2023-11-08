@@ -29,8 +29,6 @@ func _process(delta):
 		$panictimer.stop()
 		$dedtimer.wait_time = 0.05
 		$dedtimer.start()
-		for i in get_tree().get_nodes_in_group("obj_music"):
-			i.musicnode.stop()
 		ded = 1
 	if (global.timeattack && $panictimer.is_stopped()):
 		$panictimer.start()
@@ -217,12 +215,9 @@ func _process(delta):
 
 func _on_dedtimer_timeout():
 	var obj_player = utils.get_player()
-	if (global.seconds == 0 && global.minutes == 0):
-		$dedtimer.start()
-	if (global.collect > 0):
-		utils.instance_create(obj_player.position.x + 50, obj_player.position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-	if (global.collect > 0):
-		global.collect -= 5
+	if (global.panic && !utils.instance_exists("obj_pizzaface")):
+		utils.instance_create(obj_player.position.x + 50, obj_player.position.y + 50, "res://Objects/Misc/obj_pizzaface.tscn")
+		utils.playsound("Pizzaface")
 
 func _on_panictimer_timeout():
 	if (global.panic):

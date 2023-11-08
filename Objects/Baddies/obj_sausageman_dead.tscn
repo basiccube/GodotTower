@@ -1,82 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Objects/Baddies/sprites/sausageman/sausageman_shot_0.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Baddies/obj_sausageman_dead.gd" type="Script" id=2]
-[ext_resource path="res://Objects/Baddies/sprites/pizzaboy/pizzaboy.png" type="Texture" id=3]
-[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimedead_0.png" type="Texture" id=4]
-[ext_resource path="res://Objects/Baddies/sprites/forknight/forknight_dead_0.png" type="Texture" id=5]
-[ext_resource path="res://Objects/Level/sprites/hungrypillar_dead_0.png" type="Texture" id=6]
-[ext_resource path="res://Objects/Baddies/sprites/minijohn/minijohn_dead_0.png" type="Texture" id=7]
-[ext_resource path="res://Objects/Baddies/sprites/swedishmonkey/swedishmonkey_dead_0.png" type="Texture" id=8]
-[ext_resource path="res://Objects/Baddies/sprites/pizzard/pizzard_dead_0.png" type="Texture" id=9]
-[ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_dead_0.png" type="Texture" id=10]
-[ext_resource path="res://Objects/Collectibles/sprites/shotgun/shotgunback_0.png" type="Texture" id=11]
-[ext_resource path="res://Objects/Baddies/sprites/pizzagoblin/pizzagoblin_dead_0.png" type="Texture" id=12]
-
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "forknight_dead",
-"speed": 60.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "hungrypillar_dead",
-"speed": 60.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "minijohn_dead",
-"speed": 60.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "pepgoblin_dead",
-"speed": 60.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "pizzaboy",
-"speed": 60.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "pizzagoblin_dead",
-"speed": 60.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "pizzard_dead",
-"speed": 60.0
-}, {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "sausageman_shot",
-"speed": 60.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "shotgunback",
-"speed": 60.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "slimedead",
-"speed": 60.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "swedishmonkey_dead",
-"speed": 60.0
-} ]
 
 [node name="obj_sausageman_dead" type="Node2D" groups=["obj_sausageman_dead"]]
 script = ExtResource( 2 )
 
-[node name="Sprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 1 )
-animation = "sausageman_shot"
+[node name="Sprite" type="Sprite" parent="."]
 
 [node name="MachAllTimer" type="Timer" parent="."]
 wait_time = 0.083
@@ -85,5 +14,4 @@ one_shot = true
 [node name="CamVisibility" type="VisibilityNotifier2D" parent="."]
 rect = Rect2( -128, -128, 256, 256 )
 
-[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
 [connection signal="timeout" from="MachAllTimer" to="." method="_on_MachAllTimer_timeout"]

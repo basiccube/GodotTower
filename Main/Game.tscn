@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Rooms/loadingroom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Player/obj_player.tscn" type="PackedScene" id=2]
@@ -52,6 +52,9 @@
 [ext_resource path="res://Sounds/sfx_shotgungot.ogg" type="AudioStream" id=50]
 [ext_resource path="res://Sounds/sfx_timebonus.ogg" type="AudioStream" id=51]
 [ext_resource path="res://Music/mu_rankp.ogg" type="AudioStream" id=52]
+[ext_resource path="res://Sounds/sfx_pizzaface.ogg" type="AudioStream" id=53]
+[ext_resource path="res://Sounds/sfx_groundpound.ogg" type="AudioStream" id=54]
+[ext_resource path="res://Music/mu_timesup.ogg" type="AudioStream" id=55]
 
 [node name="Game" type="Node2D"]
 
@@ -97,6 +100,10 @@ bus = "SFX"
 pause_mode = 2
 stream = ExtResource( 24 )
 volume_db = -4.0
+bus = "SFX"
+
+[node name="Groundpound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 54 )
 bus = "SFX"
 
 [node name="LoseKnight" type="AudioStreamPlayer" parent="."]
@@ -148,6 +155,12 @@ bus = "Music"
 [node name="RankD" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 29 )
+bus = "Music"
+
+[node name="TimesUp" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 55 )
+volume_db = -5.0
 bus = "Music"
 
 [node name="Scream1" type="AudioStreamPlayer" parent="."]
@@ -207,6 +220,12 @@ bus = "SFX"
 [node name="Scream10" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 22 )
+volume_db = -16.0
+bus = "SFX"
+
+[node name="Pizzaface" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 53 )
 volume_db = -16.0
 bus = "SFX"
 

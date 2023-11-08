@@ -152,7 +152,7 @@ func destroy():
 			obj.shake_mag = 3
 			obj.shake_mag_acc = 0.1
 		var deadbaddieid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_sausageman_dead.tscn")
-		deadbaddieid.sprite_index = spr_dead
+		deadbaddieid.sprite_index = $Sprite.frames.get_frame(spr_dead, 0)
 		global.baddieroom.append(global.targetRoom + name)
 		for obj in get_tree().get_nodes_in_group("obj_tv"):
 			obj.sprite.frame = utils.randi_range(0, 4)
@@ -185,7 +185,7 @@ func destroy():
 			obj.shake_mag = 3
 			obj.shake_mag_acc = (3 / 10)
 		var deadbaddieid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_sausageman_dead.tscn")
-		deadbaddieid.sprite_index = spr_dead
+		deadbaddieid.sprite_index = $Sprite.frames.get_frame(spr_dead, 0)
 	queue_free()
 
 func _on_MachEffectTimer_timeout():

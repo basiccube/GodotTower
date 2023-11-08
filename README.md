@@ -25,9 +25,10 @@ I do not own and didn't make any of the assets and music that are used in this p
 If you don't own [Pizza Tower on Steam](https://store.steampowered.com/app/2231450/Pizza_Tower/) yet, you can [support the developers](https://store.steampowered.com/app/2231450/Pizza_Tower/) by [buying the game](https://store.steampowered.com/app/2231450/Pizza_Tower/).  
 Come on, just [buy the game](https://store.steampowered.com/app/2231450/Pizza_Tower/)! You know you want [it](https://store.steampowered.com/app/2231450/Pizza_Tower/)!
 
-The following projects are used, which are both licensed under the MIT License:
+The following projects are used, which are licensed under the MIT License:
 
 * [Godot Palette Swap Shader (Godot 3.x version)](https://github.com/KoBeWi/Godot-Palette-Swap-Shader/tree/3.x)
 * [BitmapTextureFont](https://github.com/Digital-Sin/BitmapTextureFont)
+* [Godot Console](https://github.com/quentincaffeino/godot-console)
 
 The licenses for these projects can be found in their respective folders.

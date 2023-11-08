@@ -510,7 +510,7 @@ func _physics_process(delta):
 					if (velocity.y < -6):
 						velocity.y = 0
 				snap_vector = Vector2.DOWN * 20
-	if state != global.states.titlescreen:
+	if state != global.states.titlescreen && state != global.states.gameover:
 		if state != global.states.backbreaker && state != global.states.gottreasure && state != global.states.Sjumpland && state != global.states.ladder && state != global.states.keyget && (state != global.states.door && ($PeppinoSprite.animation != "downpizzabox" && $PeppinoSprite.animation != "uppizzabox")):
 			if (velocity.y < 30):
 				velocity.y += grav
@@ -626,7 +626,7 @@ func destroy(collider):
 				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
 		elif (character == "P"):
 			var shotgunid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_sausageman_dead.tscn")
-			shotgunid.sprite_index = "shotgunback"
+			shotgunid.sprite_index = load("res://Objects/Collectibles/sprites/shotgun/shotgunback_0.png")
 			if (backupweapon):
 				backupweapon = false
 			else:
@@ -913,7 +913,7 @@ func scr_player_jump():
 	if (stompAnim == 1):
 		if ($PeppinoSprite.animation == "stompprep" && $PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1):
 			$PeppinoSprite.animation = "stomp"
-	if (Input.is_action_pressed("key_down") && ladderbuffer <= 0):
+	if (Input.is_action_just_pressed("key_down")):
 		if (shotgunAnim == 0):
 			state = global.states.freefallprep
 			$PeppinoSprite.animation = "bodyslamstart"
@@ -1965,10 +1965,30 @@ func scr_player_fireass():
 	
 	
 func scr_player_timesup():
-	pass
+	xscale = 1
+	inv_frames = 0
+	$PeppinoSprite.animation = "timesup"
+	$HurtTimer.stop()
+	$HurtTimer2.stop()
+	if (global.targetRoom == "timesuproom"):
+		position.x = 430
+		position.y = 220
+	if ($PeppinoSprite.frame == 9):
+		$PeppinoSprite.speed_scale = 0
 	
 func scr_player_gameover():
-	pass
+	$PeppinoSprite.speed_scale = 0.35
+	cutscene = true
+	hurted = 0
+	inv_frames = 0
+	if (velocity.y < 30):
+		velocity.y += grav
+	if (position.y > 1080):
+		global.roomtorestart = ""
+		global.leveltorestart = ""
+		scr_playerreset()
+		global.targetDoor = "A"
+		utils.room_goto("", "hub_room1")
 
 func scr_player_victory():
 	velocity.x = 0
@@ -2534,6 +2554,9 @@ func scr_playerreset():
 	if (utils.instance_exists("obj_timesup")):
 		for i in get_tree().get_nodes_in_group("obj_timesup"):
 			i.queue_free()
+	if (utils.instance_exists("obj_pizzaface")):
+		for i in get_tree().get_nodes_in_group("obj_pizzaface"):
+			i.destroy()
 	global.seconds = 59
 	global.minutes = 1
 	global.taminutes = 0

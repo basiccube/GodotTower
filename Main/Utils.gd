@@ -73,6 +73,13 @@ func get_instance_level(node):
 	var instancenode = get_level().get_node_or_null(node)
 	return instancenode
 	
+# https://ask.godotengine.org/132513/how-to-get-all-nodes-in-the-tree
+func get_all_nodes(var node = get_tree().root, var nodelist = []):
+	nodelist.append(node)
+	for childnode in node.get_children():
+		get_all_nodes(childnode, nodelist)
+	return nodelist
+	
 func get_gamenode():
 	return GameNode
 	
@@ -116,7 +123,9 @@ func room_goto(levelname, roomname):
 	yield(get_tree().create_timer(0.01), "timeout")
 	newroominstance.name = "level"
 	GameNode.add_child(newroominstance)
-	utils.get_instance("obj_music").room_start()
+	for i in get_all_nodes():
+		if (i.has_method("room_start")):
+			i.call("room_start")
 	if (roomname != "rank_room" && roomname != "timesuproom" && roomname != "Realtitlescreen"):
 		if (global.shroomfollow):
 			instance_create_level(utils.get_player().position.x + 50, utils.get_player().position.y + 64, "res://Objects/Collectibles/obj_pizzakinshroom.tscn")
@@ -176,3 +185,14 @@ func savescore(levelname):
 		SaveManager.set_value("Toppin", (levelname + "5"), global.pineapplefollow)
 	SaveManager.set_value("Ranks", levelname, global.rank)
 	SaveManager.save("user://saveData.ini")
+
+func debug_panic():
+	for i in get_tree().get_nodes_in_group("obj_camera"):
+		i.panictimer.start()
+	global.panic = true
+	
+func debug_showcollisions():
+	global.debugcollisions = !global.debugcollisions
+
+func debug_view():
+	global.debugview = !global.debugview

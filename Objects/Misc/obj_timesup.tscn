@@ -1,0 +1,43 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Objects/Misc/sprites/timesup_1.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Misc/sprites/timesup_0.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Misc/sprites/timesup_4.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Misc/sprites/timesup_2.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Misc/sprites/timesup_8.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Misc/sprites/timesup_5.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Misc/sprites/timesup_3.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Misc/sprites/timesup_7.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Misc/sprites/timesup_6.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Misc/obj_timesup.gd" type="Script" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "timesup",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 264, 56 )
+
+[node name="obj_timesup" type="Area2D" groups=["obj_timesup"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 10 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "timesup"
+speed_scale = 0.0
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( -8, 40 )
+shape = SubResource( 2 )
+
+[node name="FallTimer" type="Timer" parent="."]
+wait_time = 0.667
+one_shot = true
+
+[connection signal="timeout" from="FallTimer" to="." method="_on_FallTimer_timeout"]

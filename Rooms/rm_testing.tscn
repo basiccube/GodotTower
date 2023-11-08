@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Objects/Warps/obj_spawnpoint.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Level/obj_exitgate.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Level/obj_camlimit_left.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Level/obj_camlimit_right.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Level/obj_camlimit_bottom.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Backgrounds/bg_hubworld1back.png" type="Texture" id=8]
+[ext_resource path="res://Rooms/rm_testing.gd" type="Script" id=9]
+
+[node name="rm_testing" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0.75 )
+motion_mirroring = Vector2( 2000, 2000 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 2000, 2000 )
+
+[node name="obj_camlimit_left" parent="." instance=ExtResource( 4 )]
+
+[node name="obj_camlimit_top" parent="." instance=ExtResource( 7 )]
+
+[node name="obj_camlimit_bottom" parent="." instance=ExtResource( 6 )]
+position = Vector2( 0, 600 )
+
+[node name="obj_camlimit_right" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1200, 0 )
+
+[node name="obj_spawnpoint" parent="." instance=ExtResource( 1 )]
+position = Vector2( 128, 160 )
+
+[node name="obj_solid" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 256 )
+scale = Vector2( 12, 4 )
+
+[node name="obj_solid2" parent="." instance=ExtResource( 2 )]
+scale = Vector2( 2, 12 )
+
+[node name="obj_solid3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 384 )
+scale = Vector2( 40, 4 )
+
+[node name="obj_solid4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1152, 0 )
+scale = Vector2( 4, 16 )
+
+[node name="obj_solid5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 64, 0 )
+scale = Vector2( 38, 2 )
+
+[node name="obj_exitgate" parent="." instance=ExtResource( 3 )]
+position = Vector2( 512, 256 )

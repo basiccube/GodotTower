@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mu_timesup.ogg-6095d3a7f9153b930b21abaacab6ee18.oggstr"
+
+[deps]
+
+source_file="res://Music/mu_timesup.ogg"
+dest_files=[ "res://.import/mu_timesup.ogg-6095d3a7f9153b930b21abaacab6ee18.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
