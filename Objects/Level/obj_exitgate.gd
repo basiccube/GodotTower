@@ -19,7 +19,6 @@ func _process(delta):
 			if (!utils.instance_exists("obj_endlevelfade")):
 				utils.instance_create(utils.get_gamenode().global_position.x, utils.get_gamenode().global_position.y, "res://Objects/Visuals/obj_endlevelfade.tscn")
 			for i in get_tree().get_nodes_in_group("obj_endlevelfade"):
-				i.timer.wait_time = 3
 				if (i.timer.is_stopped()):
 					i.timer.start()
 			obj_player.state = global.states.door

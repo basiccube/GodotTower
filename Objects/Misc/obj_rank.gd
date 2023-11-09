@@ -3,6 +3,10 @@ extends Node2D
 func _ready():
 	$Sprite.playing = true
 	$Sprite.speed_scale = 0.5
+	if (global.rank == "p"):
+		$Timer.wait_time = 10
+	else:
+		$Timer.wait_time = 8.5
 	$Timer.start()
 	
 func _process(delta):

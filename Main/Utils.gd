@@ -14,6 +14,7 @@ var preload_pizzakincheese = preload("res://Objects/Collectibles/obj_pizzakinche
 var preload_pizzakintomato = preload("res://Objects/Collectibles/obj_pizzakintomato.tscn")
 var preload_pizzakinsausage = preload("res://Objects/Collectibles/obj_pizzakinsausage.tscn")
 var preload_pizzakinpineapple = preload("res://Objects/Collectibles/obj_pizzakinpineapple.tscn")
+var preload_rank = preload("res://Objects/Misc/obj_rank.tscn")
 
 func randi_range(from, to):
 	if from > to:
