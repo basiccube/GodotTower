@@ -1848,7 +1848,7 @@ func scr_player_tumble():
 func scr_player_titlescreen():
 	global.targetDoor = "A"
 	if ($PeppinoSprite.animation == "pepcooter" && (!utils.instance_exists("obj_superdashcloud"))):
-		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_superdashcloud.tscn")
+		utils.instance_create(position.x - 120, position.y, "res://Objects/Visuals/obj_superdashcloud.tscn")
 	$PeppinoSprite.speed_scale = 0.35
 	
 func scr_player_Sjump():

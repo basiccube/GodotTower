@@ -95,6 +95,7 @@ func _debugview():
 # Go to test room
 func _loadtest():
 	global.targetDoor = "A"
+	utils.get_player().state = global.states.normal
 	utils.room_goto("", "rm_testing")
 
 # Prints out engine version.
