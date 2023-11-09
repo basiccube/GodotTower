@@ -29,6 +29,7 @@ script = ExtResource( 4 )
 frames = SubResource( 1 )
 animation = "dashpad"
 speed_scale = 0.5
+playing = true
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 24 )

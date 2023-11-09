@@ -1638,6 +1638,7 @@ shader_param/skip_first_row = true
 shader_param/use_palette_alpha = false
 shader_param/current_palette = 0
 shader_param/fps = 0.0
+shader_param/flash = false
 shader_param/palette = ExtResource( 1205 )
 
 [sub_resource type="SpriteFrames" id=1]
@@ -2630,5 +2631,20 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
+[node name="FlashEffectOffTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="FlashEffectOnTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="WhiteFlashTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
 [connection signal="timeout" from="HurtTimer" to="." method="_on_HurtTimer_timeout"]
 [connection signal="timeout" from="HurtTimer2" to="." method="_on_HurtTimer2_timeout"]
+[connection signal="timeout" from="FlashEffectOffTimer" to="." method="_on_FlashEffectOffTimer_timeout"]
+[connection signal="timeout" from="FlashEffectOnTimer" to="." method="_on_FlashEffectOnTimer_timeout"]
+[connection signal="timeout" from="WhiteFlashTimer" to="." method="_on_WhiteFlashTimer_timeout"]

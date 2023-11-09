@@ -69,6 +69,7 @@ var bombpeptimer = 100
 var baddiegrabbed = ""
 var attacking = 0
 var inv_frames = 0
+var flash = false
 var hurted = 0
 var box = false
 var cutscene = false
@@ -109,6 +110,7 @@ func _process(delta):
 	$PeppinoSprite.playing = true
 	sprite_index = $PeppinoSprite.animation
 	$PeppinoSprite.material.set_shader_param("current_palette", global.peppalette)
+	$PeppinoSprite.material.set_shader_param("flash", flash)
 	position.x += velocity.x
 	position.y += velocity.y
 	velocity.x = clamp(velocity.x, -500, 500)
@@ -457,6 +459,9 @@ func _process(delta):
 		instakillmove = 1
 	else:
 		instakillmove = 0
+	if (flash && $WhiteFlashTimer.is_stopped()):
+		$WhiteFlashTimer.wait_time = 0.1
+		$WhiteFlashTimer.start()
 	if ((state != global.states.jump && state != global.states.crouchjump) || velocity.y < 0):
 		fallinganimation = 0
 	if state != global.states.normal:
@@ -1378,6 +1383,8 @@ func scr_player_hurt():
 	crouchAnim = 0
 	machhitAnim = 0
 	hurted = 1
+	$FlashEffectOffTimer.wait_time = 0.05
+	$FlashEffectOffTimer.start()
 	$HurtTimer2.wait_time = 1
 	$HurtTimer2.start()
 	if (is_on_floor()):
@@ -1521,6 +1528,7 @@ func scr_player_mach2():
 			movespeed = 12
 			machhitAnim = 0
 			state = global.states.mach3
+			flash = true
 			if ($PeppinoSprite.animation != "rollgetup"):
 				$PeppinoSprite.animation = "mach4"
 			utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_jumpdust.tscn")
@@ -1528,6 +1536,7 @@ func scr_player_mach2():
 		input_buffer_jump = 0
 	if (Input.is_action_pressed("key_down")):
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_jumpdust.tscn")
+		flash = false
 		state = global.states.machroll
 		velocity.y = 10
 	if (!is_on_floor() && is_wallclimbable() && $PeppinoSprite.animation != "walljumpstart"):
@@ -1601,6 +1610,7 @@ func scr_player_mach3():
 	if ($PeppinoSprite.animation == "mach2jump" && is_on_floor() && velocity.y >= 0):
 		$PeppinoSprite.animation = "mach4"
 	if (movespeed > 20 && $PeppinoSprite.animation != "crazyrun"):
+		flash = true
 		$PeppinoSprite.animation = "crazyrun"
 	elif (movespeed <= 20 && $PeppinoSprite.animation == "crazyrun"):
 		$PeppinoSprite.animation = "mach4"
@@ -1628,6 +1638,7 @@ func scr_player_mach3():
 		state = global.states.machslide
 	if (Input.is_action_pressed("key_down")):
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_jumpdust.tscn")
+		flash = false
 		state = global.states.machroll
 		velocity.y = 10
 	if (!is_on_floor() && is_wallclimbable()):
@@ -1651,6 +1662,7 @@ func scr_player_mach3():
 				i.ministun = false
 				i.velocity.y = -5
 				i.velocity.x = 0
+		flash = false
 		state = global.states.bump
 		velocity.x = (-2.5 * xscale)
 		velocity.y = -3
@@ -1783,6 +1795,7 @@ func scr_player_machroll():
 		$Bump.play()
 		velocity.x = 0
 		$PeppinoSprite.speed_scale = 0.35
+		flash = false
 		state = global.states.bump
 		velocity.x = (-2.5 * xscale)
 		velocity.y = -3
@@ -1867,6 +1880,7 @@ func scr_player_Sjump():
 		movespeed = 12
 		machhitAnim = 0
 		state = global.states.mach3
+		flash = true
 		$PeppinoSprite.animation = "mach4"
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_jumpdust.tscn")
 	$PeppinoSprite.speed_scale = 0.5
@@ -1950,13 +1964,24 @@ func scr_player_fireass():
 		if (movespeed > 0):
 			movespeed -= 0.25
 		if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1 || is_colliding_with_wall()):
-			$FireassEnd.play()
-			$PeppinoSprite.animation = "fireassend"
-			velocity.x = 0
+			#$FireassEnd.play()
+			#$PeppinoSprite.animation = "fireassend"
+			#velocity.x = 0
+			movespeed = 0
+			landAnim = 0
+			$FlashEffectOffTimer.wait_time = 0.05
+			$FlashEffectOffTimer.start()
+			$HurtTimer2.wait_time = 1
+			$HurtTimer2.start()
+			hurted = 1
+			state = global.states.normal
+			$PeppinoSprite.animation = "idle"
 	if ($PeppinoSprite.animation == "fireassend"):
 		if ($PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1):
 			movespeed = 0
 			landAnim = 0
+			$FlashEffectOffTimer.wait_time = 0.05
+			$FlashEffectOffTimer.start()
 			$HurtTimer2.wait_time = 1
 			$HurtTimer2.start()
 			hurted = 1
@@ -1981,6 +2006,7 @@ func scr_player_gameover():
 	cutscene = true
 	hurted = 0
 	inv_frames = 0
+	flash = false
 	if (velocity.y < 30):
 		velocity.y += grav
 	if (position.y > 1080):
@@ -2118,6 +2144,7 @@ func scr_player_grab():
 		state = global.states.normal
 	if (swingdingbuffer > 300 && $PeppinoSprite.animation != "swingding"):
 		$PeppinoSprite.animation = "swingding"
+		flash = true
 	if (Input.is_action_just_pressed("key_dash") || Input.is_action_just_pressed("key_grab")):
 		if (move != 0):
 			move = xscale
@@ -2320,6 +2347,8 @@ func scr_player_slipnslide():
 				i.sprite.flip_h = true
 		
 func scr_player_knightpep():
+	$FlashEffectOffTimer.wait_time = 0.05
+	$FlashEffectOffTimer.start()
 	$HurtTimer2.start()
 	var move = 0
 	if ($PeppinoSprite.animation == "knightpep_walk" || $PeppinoSprite.animation == "knightpep_jump" || $PeppinoSprite.animation == "knightpep_fall" || $PeppinoSprite.animation == "knightpep_idle"):
@@ -2410,6 +2439,8 @@ func scr_player_knightpepattack():
 	pass
 	
 func scr_player_knightpepslopes():
+	$FlashEffectOffTimer.wait_time = 0.05
+	$FlashEffectOffTimer.start()
 	$HurtTimer2.start()
 	hurted = 1
 	velocity.x = (xscale * movespeed)
@@ -2436,6 +2467,7 @@ func scr_player_knightpepslopes():
 		velocity.y = -3
 		$Bump.play()
 		utils.playsound("LoseKnight")
+		flash = true
 		state = global.states.bump
 	if (movespeed <= 0 && $PeppinoSprite.animation == "knightpep_charge"):
 		$PeppinoSprite.animation = "knightpep_idle"
@@ -2452,6 +2484,8 @@ func scr_player_bombpep():
 		jumpstop = 0
 	mach2 = 0
 	landAnim = 0
+	$FlashEffectOffTimer.wait_time = 0.05
+	$FlashEffectOffTimer.start()
 	if ($PeppinoSprite.animation == "bombpep_intro" && $PeppinoSprite.frame == $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1):
 		$PeppinoSprite.animation = "bombpep_run"
 	if ($PeppinoSprite.animation == "bombpep_run" || $PeppinoSprite.animation == "bombpep_runabouttoexplode"):
@@ -2570,6 +2604,9 @@ func scr_playerreset():
 	box = false
 	global.saveroom.clear()
 	global.baddieroom.clear()
+	$WhiteFlashTimer.stop()
+	$FlashEffectOffTimer.stop()
+	$FlashEffectOnTimer.stop()
 	$HurtTimer.stop()
 	$HurtTimer2.stop()
 	grav = 0.5
@@ -2600,6 +2637,7 @@ func scr_playerreset():
 	input_buffer_jump = 8
 	input_buffer_secondjump = 8
 	input_buffer_highjump = 8
+	flash = false
 	global.key_inv = false
 	global.keyget = false
 	global.toppintotal = 1
@@ -2691,3 +2729,16 @@ func _on_HurtTimer_timeout():
 func _on_HurtTimer2_timeout():
 	hurted = 0
 	inv_frames = 0
+
+func _on_FlashEffectOffTimer_timeout():
+	modulate.a = 0
+	$FlashEffectOnTimer.wait_time = 0.05
+	$FlashEffectOnTimer.start()
+
+func _on_FlashEffectOnTimer_timeout():
+	modulate.a = 1
+	$FlashEffectOffTimer.wait_time = 0.05
+	$FlashEffectOffTimer.start()
+
+func _on_WhiteFlashTimer_timeout():
+	flash = false

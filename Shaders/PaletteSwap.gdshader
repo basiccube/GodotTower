@@ -5,6 +5,7 @@ uniform bool skip_first_row = true;
 uniform bool use_palette_alpha = false;
 uniform int current_palette = 0;
 uniform float fps = 6;
+uniform bool flash = false;
 
 void fragment() {
 	vec4 original_color = texture(TEXTURE, UV);
@@ -32,5 +33,10 @@ void fragment() {
 		COLOR = vec4(palette_color.rgb, mix(original_color.a, palette_color.a, float(use_palette_alpha)));
 	} else {
 		COLOR = original_color;
+	}
+	
+	if (flash)
+	{
+		COLOR = vec4(1, 1, 1, original_color.a);
 	}
 }

@@ -31,6 +31,7 @@ func _process(delta):
 				obj_player.xscale = 1
 			obj_player.mach2 = 100
 			obj_player.machhitAnim = 0
+			obj_player.flash = true
 			obj_player.state = global.states.mach3
 			obj_player.set_animation("mach4")
 			utils.instance_create(obj_player.position.x, obj_player.position.y, "res://Objects/Visuals/obj_jumpdust.tscn")
