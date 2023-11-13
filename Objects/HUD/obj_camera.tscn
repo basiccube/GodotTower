@@ -222,6 +222,7 @@ shader_param/skip_first_row = true
 shader_param/use_palette_alpha = false
 shader_param/current_palette = 0
 shader_param/fps = 0.0
+shader_param/flash = false
 shader_param/palette = ExtResource( 177 )
 
 [sub_resource type="SpriteFrames" id=3]

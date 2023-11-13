@@ -22,11 +22,25 @@ func _process(delta):
 	var obj_camera = utils.get_instance("obj_camera")
 	position.x = obj_camera.global_position.x + 48
 	position.y = obj_camera.global_position.y
-	if (global.combo != 0 && global.combotime != 0 && (tvsprite == "default" || tvsprite == "combo")):
+	if (global.combo != 0 && global.combotime != 0):
 		$ComboLabel.visible = true
-		$ComboLabel.text = str(global.combo)
+		$ComboLabel.text = "X" + str(global.combo)
 	else:
 		$ComboLabel.visible = false
+	if (global.combo != 0 && global.combotime <= 1):
+		if (global.combo <= 8):
+			imageindexstore = 0
+		if (global.combo > 8 && global.combo <= 16):
+			imageindexstore = 1
+		if (global.combo > 16 && global.combo <= 32):
+			imageindexstore = 2
+		if (global.combo > 32):
+			imageindexstore = 3
+		tvsprite = "comboresult"
+		$TVSprite.speed_scale = 0
+		$TVSprite.frame = imageindexstore
+		$ResetTimer.wait_time = 0.83
+		$ResetTimer.start()
 	if (tvsprite == "default"):
 		chose = false
 		$ScoreLabel.visible = true
@@ -182,23 +196,6 @@ func _process(delta):
 		$ResetTimer.start()
 		tvsprite = "banana"
 		once = true
-	elif (global.combo != 0 && global.combotime != 0 && (tvsprite == "default" || tvsprite == "combo" || tvsprite == "escape")):
-		tvsprite = "combo"
-		$TVSprite.speed_scale = 0
-		if (global.combo <= 8):
-			imageindexstore = 0
-		if (global.combo > 8 && global.combo <= 16):
-			imageindexstore = 1
-		if (global.combo > 16 && global.combo <= 32):
-			imageindexstore = 2
-		if (global.combo > 32):
-			imageindexstore = 3
-	elif (global.combotime == 0 && tvsprite == "combo"):
-		tvsprite = "comboresult"
-		$TVSprite.speed_scale = 0
-		$TVSprite.frame = imageindexstore
-		$ResetTimer.wait_time = 0.83
-		$ResetTimer.start()
 	elif (global.targetRoom == "Realtitlescreen"):
 		$TVSprite.speed_scale = 0.1
 		tvsprite = "banana"
