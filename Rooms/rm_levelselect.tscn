@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Objects/Warps/obj_spawnpoint.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Misc/obj_levelselect.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Misc/sprites/controls.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Misc/sprites/title.png" type="Texture" id=5]
+[ext_resource path="res://Backgrounds/bg_hubworld1back.png" type="Texture" id=8]
+[ext_resource path="res://Rooms/rm_levelselect.gd" type="Script" id=9]
+
+[node name="rm_levelselect" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0.75 )
+motion_mirroring = Vector2( 2000, 2000 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 2000, 2000 )
+
+[node name="obj_spawnpoint" parent="." instance=ExtResource( 1 )]
+position = Vector2( -192, 224 )
+
+[node name="obj_solid" parent="." instance=ExtResource( 2 )]
+position = Vector2( -208, 224 )
+scale = Vector2( 4, 5 )
+
+[node name="obj_levelselect" parent="." instance=ExtResource( 3 )]
+
+[node name="Controls" type="Sprite" parent="."]
+position = Vector2( 704, 32 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Title" type="Sprite" parent="."]
+position = Vector2( 0, 32 )
+texture = ExtResource( 5 )
+centered = false

@@ -3,8 +3,6 @@ extends obj_baddie
 var hitboxcreate = false
 
 func _ready():
-	if (!global.panic):
-		queue_free()
 	grav = 0.5
 	velocity.x = 0
 	velocity.y = 0

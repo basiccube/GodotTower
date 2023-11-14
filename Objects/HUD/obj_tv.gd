@@ -47,7 +47,7 @@ func _process(delta):
 		$ScoreLabel.text = str(global.collect)
 	else:
 		$ScoreLabel.visible = false
-	if (global.targetRoom == "rank_room" || global.targetRoom == "timesuproom" || global.targetRoom == "Realtitlescreen"):
+	if (global.targetRoom == "rank_room" || global.targetRoom == "timesuproom" || global.targetRoom == "Realtitlescreen" || global.targetRoom == "rm_levelselect"):
 		$TVSprite.modulate.a = 0
 	match global.targetRoom:
 		"entrance_1":
@@ -98,7 +98,7 @@ func _process(delta):
 		once = false
 	if (obj_player.global_position.y < (global_position.y - 160) && obj_player.global_position.x > (global_position.x + 180)):
 		$TVSprite.modulate.a = 0.5
-	elif (!(global.targetRoom == "rank_room" || global.targetRoom == "timesuproom" || global.targetRoom == "Realtitlescreen")):
+	elif (!(global.targetRoom == "rank_room" || global.targetRoom == "timesuproom" || global.targetRoom == "Realtitlescreen" || global.targetRoom == "rm_levelselect")):
 		$TVSprite.modulate.a = 1
 	if (utils.instance_exists("obj_itspizzatime")):
 		$TVSprite.speed_scale = 0.25

@@ -547,8 +547,8 @@ func place_meeting(collisionpos: Vector2, object: String):
 			return false
 			
 func is_colliding_with_wall():
-	if (state == global.states.mach1 || state == global.states.normal || state == global.states.machslide):
-		if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_destructibles") || $SolidCheck.get_collider().is_in_group("obj_metalblock"))) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider() != null && $SolidCheck2.get_collider().is_in_group("obj_solid"))) && !utils.instance_exists("obj_fadeout")):
+	if (state == global.states.mach1 || state == global.states.normal || state == global.states.machslide || state == global.states.slipnslide):
+		if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_destructibles") || $SolidCheck.get_collider().is_in_group("obj_metalblock"))) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider() != null && ($SolidCheck2.get_collider().is_in_group("obj_solid") || $SolidCheck2.get_collider().is_in_group("obj_destructibles") || $SolidCheck2.get_collider().is_in_group("obj_metalblock")))) && !utils.instance_exists("obj_fadeout")):
 			return true
 		else:
 			return false
@@ -569,7 +569,7 @@ func is_wallclimbable():
 	else:
 		return false
 		
-func is_collding_wallclimb():
+func is_colliding_wallclimb():
 	if ($SolidCheck.is_colliding() || $WallClimbCheck.is_colliding()):
 		return true
 	else:
@@ -1769,14 +1769,16 @@ func scr_player_climbwall():
 		$Groundpound.play()
 		state = global.states.Sjumpland
 		machhitAnim = 0
-	if (!is_collding_wallclimb()):
+	if (!is_colliding_wallclimb()):
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_jumpdust.tscn")
 		velocity.y = 0
-		if (movespeed >= 8):
+		if (movespeed >= 8 && movespeed < 12):
 			state = global.states.mach2
-		if (movespeed >= 12):
+		elif (movespeed >= 12):
 			state = global.states.mach3
 			$PeppinoSprite.animation = "mach4"
+		else:
+			state = global.states.normal
 	if (Input.is_action_just_pressed("key_jump")):
 		movespeed = 8
 		$PeppinoSprite.animation = "walljumpstart"
@@ -2328,7 +2330,7 @@ func scr_player_slipnslide():
 		movespeed += 0.2
 	else:
 		if (movespeed > 0 && is_on_floor()):
-			movespeed -= 0.1
+			movespeed -= 0.25
 	if (movespeed <= 0):
 		for slope in $SlopeArea.get_overlapping_bodies():
 			if (!slope.is_in_group("obj_slope")):
@@ -2626,6 +2628,7 @@ func scr_playerreset():
 	jumpstop = 0
 	for i in get_tree().get_nodes_in_group("obj_camera"):
 		i.ded = 0
+		i.heatmeter.animation = "empty"
 	global.panic = false
 	jumpAnim = 1
 	landAnim = 0

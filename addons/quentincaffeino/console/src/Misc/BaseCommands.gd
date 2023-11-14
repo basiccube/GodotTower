@@ -51,6 +51,10 @@ func _init(console):
 	self._console.add_command('loadtest', self, '_loadtest')\
 		.set_description('Go to test room')\
 		.register()
+		
+	self._console.add_command('levelselect', self, '_levelselect')\
+		.set_description('Level select')\
+		.register()
 
 	self._console.add_command('version', self, '_version')\
 		.set_description('Shows engine version.')\
@@ -97,6 +101,14 @@ func _loadtest():
 	global.targetDoor = "A"
 	utils.get_player().state = global.states.normal
 	utils.room_goto("", "rm_testing")
+	Console.toggle_console()
+	
+# Level select
+func _levelselect():
+	global.targetDoor = "A"
+	utils.get_player().state = global.states.titlescreen
+	utils.room_goto("", "rm_levelselect")
+	Console.toggle_console()
 
 # Prints out engine version.
 # @returns  void

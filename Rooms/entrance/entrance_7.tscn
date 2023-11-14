@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=2]
@@ -22,6 +22,8 @@
 [ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_pizzaboy.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_minijohn.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Objects/Collectibles/obj_escapecollect.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Objects/Baddies/obj_escapeenemy.tscn" type="PackedScene" id=24]
 
 [node name="entrance_2" type="Node2D"]
 
@@ -380,8 +382,34 @@ position = Vector2( 512, 1328 )
 [node name="obj_pizzaboy" parent="." instance=ExtResource( 21 )]
 position = Vector2( 1008, 1328 )
 
-[node name="obj_minijohn" parent="." instance=ExtResource( 22 )]
-position = Vector2( 1488, 1296 )
+[node name="obj_escapecollect" parent="." instance=ExtResource( 23 )]
+position = Vector2( 2016, 1344 )
 
-[node name="obj_minijohn2" parent="." instance=ExtResource( 22 )]
+[node name="obj_escapecollect2" parent="." instance=ExtResource( 23 )]
+position = Vector2( 2048, 1312 )
+
+[node name="obj_escapecollect3" parent="." instance=ExtResource( 23 )]
+position = Vector2( 2080, 1344 )
+
+[node name="obj_escapecollect4" parent="." instance=ExtResource( 23 )]
+position = Vector2( 2112, 1312 )
+
+[node name="obj_escapecollect5" parent="." instance=ExtResource( 23 )]
+position = Vector2( 3488, 1056 )
+
+[node name="obj_escapecollect6" parent="." instance=ExtResource( 23 )]
+position = Vector2( 3520, 1056 )
+
+[node name="obj_escapecollect7" parent="." instance=ExtResource( 23 )]
+position = Vector2( 3488, 1088 )
+
+[node name="obj_escapecollect8" parent="." instance=ExtResource( 23 )]
+position = Vector2( 3520, 1088 )
+
+[node name="obj_escapeenemy" parent="." instance=ExtResource( 24 )]
+position = Vector2( 1488, 1296 )
+content = ExtResource( 22 )
+
+[node name="obj_escapeenemy2" parent="." instance=ExtResource( 24 )]
 position = Vector2( 1616, 1296 )
+content = ExtResource( 22 )

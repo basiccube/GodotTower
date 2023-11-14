@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_slope.tscn" type="PackedScene" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_cheeseslime.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_pepgoblin.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Objects/Collectibles/obj_escapecollect.tscn" type="PackedScene" id=25]
 
 [node name="medieval_3" type="Node2D"]
 
@@ -297,3 +298,12 @@ position = Vector2( 1984, 208 )
 
 [node name="obj_pepgoblin" parent="." instance=ExtResource( 24 )]
 position = Vector2( 1408, 496 )
+
+[node name="obj_escapecollect" parent="." instance=ExtResource( 25 )]
+position = Vector2( 1664, 448 )
+
+[node name="obj_escapecollect2" parent="." instance=ExtResource( 25 )]
+position = Vector2( 1664, 384 )
+
+[node name="obj_escapecollect3" parent="." instance=ExtResource( 25 )]
+position = Vector2( 1664, 416 )

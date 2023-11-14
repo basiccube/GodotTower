@@ -1,0 +1,30 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Objects/Visuals/sprites/genericpoofeffect_7.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Visuals/sprites/genericpoofeffect_8.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Visuals/sprites/genericpoofeffect_5.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Visuals/sprites/genericpoofeffect_4.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Visuals/sprites/genericpoofeffect_6.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Visuals/sprites/genericpoofeffect_2.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Visuals/sprites/genericpoofeffect_9.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Visuals/sprites/genericpoofeffect_3.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Visuals/sprites/genericpoofeffect_1.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Visuals/sprites/genericpoofeffect_0.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Visuals/obj_genericpoofeffect.gd" type="Script" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+} ]
+
+[node name="obj_genericpoofeffect" type="Node2D" groups=["obj_genericpoofeffect"]]
+z_index = 5
+script = ExtResource( 11 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]

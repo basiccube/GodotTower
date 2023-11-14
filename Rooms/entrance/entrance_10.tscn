@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Backgrounds/bg_tower_0.png" type="Texture" id=10]
 [ext_resource path="res://Objects/Collectibles/obj_collect.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_cheeseslime.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Objects/Collectibles/obj_escapecollect.tscn" type="PackedScene" id=13]
 
 [node name="entrance_2" type="Node2D"]
 
@@ -122,3 +123,27 @@ position = Vector2( 784, 432 )
 
 [node name="obj_cheeseslime3" parent="." instance=ExtResource( 12 )]
 position = Vector2( 912, 432 )
+
+[node name="obj_escapecollect" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1216, 416 )
+
+[node name="obj_escapecollect2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1184, 448 )
+
+[node name="obj_escapecollect3" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1152, 416 )
+
+[node name="obj_escapecollect4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1120, 448 )
+
+[node name="obj_escapecollect5" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1632, 416 )
+
+[node name="obj_escapecollect6" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1600, 448 )
+
+[node name="obj_escapecollect7" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1568, 416 )
+
+[node name="obj_escapecollect8" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1536, 448 )

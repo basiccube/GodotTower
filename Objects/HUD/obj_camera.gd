@@ -4,8 +4,10 @@ var shake_mag = 0
 var shake_mag_acc = 0
 var chargecamera = 0
 var ded = 0
+
 onready var panictimer = $panictimer
 onready var dedtimer = $dedtimer
+onready var heatmeter = $HeatMeter
 
 func room_start():
 	position = utils.get_player().position
@@ -16,7 +18,7 @@ func _ready():
 	room_start()
 	
 func _process(delta):
-	if (global.targetRoom == "rank_room" || global.targetRoom == "timesuproom" || global.targetRoom == "Realtitlescreen"):
+	if (global.targetRoom == "rank_room" || global.targetRoom == "timesuproom" || global.targetRoom == "Realtitlescreen" || global.targetRoom == "rm_levelselect"):
 		visible = false
 	else:
 		visible = true

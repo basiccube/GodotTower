@@ -1,0 +1,32 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalfade_3.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalfade_4.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalfade_6.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalfade_5.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalfade_1.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalfade_2.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalfade_0.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalfade_10.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalfade_11.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalfade_9.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalfade_7.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalfade_8.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Visuals/obj_pizzaportalfade.gd" type="Script" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+} ]
+
+[node name="obj_pizzaportalfade" type="Node2D" groups=["obj_pizzaportalfade"]]
+z_index = 5
+script = ExtResource( 13 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]

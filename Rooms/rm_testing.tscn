@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Objects/Warps/obj_spawnpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Backgrounds/bg_hubworld1back.png" type="Texture" id=8]
 [ext_resource path="res://Rooms/rm_testing.gd" type="Script" id=9]
+[ext_resource path="res://Objects/Level/obj_hungrypillar.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Objects/Collectibles/obj_escapecollect.tscn" type="PackedScene" id=11]
 
 [node name="rm_testing" type="Node2D"]
 script = ExtResource( 9 )
@@ -59,3 +61,19 @@ scale = Vector2( 38, 2 )
 
 [node name="obj_exitgate" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512, 256 )
+
+[node name="obj_hungrypillar" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1152, 160 )
+scale = Vector2( -1, 1 )
+
+[node name="obj_escapecollect" parent="." instance=ExtResource( 11 )]
+position = Vector2( 640, 256 )
+
+[node name="obj_escapecollect2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 704, 256 )
+
+[node name="obj_escapecollect3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 768, 256 )
+
+[node name="obj_escapecollect4" parent="." instance=ExtResource( 11 )]
+position = Vector2( 832, 256 )

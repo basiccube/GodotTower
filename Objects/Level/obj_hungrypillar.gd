@@ -9,6 +9,8 @@ func _ready():
 	
 func destroy():
 	if (!global.saveroom.has(global.targetRoom + name)):
+		for i in get_tree().get_nodes_in_group("obj_escapecollect"):
+			utils.instance_create(i.position.x, i.position.y, "res://Objects/Visuals/obj_genericpoofeffect.tscn")
 		utils.playsound("EscapeRumble")
 		for i in get_tree().get_nodes_in_group("obj_camera"):
 			i.panictimer.start()

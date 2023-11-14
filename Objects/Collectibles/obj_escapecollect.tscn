@@ -1,0 +1,66 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Objects/Collectibles/sprites/shrimpcollect_2.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Collectibles/sprites/bananacollect_1.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Collectibles/sprites/baconcollect_0.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Collectibles/sprites/baconcollect_2.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Collectibles/sprites/bananacollect_2.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Collectibles/sprites/baconcollect_1.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Collectibles/sprites/eggcollect_0.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Collectibles/sprites/eggcollect_2.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Collectibles/sprites/fishcollect_0.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Collectibles/sprites/fishcollect_2.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Collectibles/sprites/shrimpcollect_0.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Collectibles/sprites/shrimpcollect_1.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Collectibles/sprites/eggcollect_1.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Collectibles/sprites/fishcollect_1.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Collectibles/sprites/bananacollect_0.png" type="Texture" id=15]
+[ext_resource path="res://Objects/Collectibles/obj_escapecollect.gd" type="Script" id=16]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "bacon",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 2 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "banana",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 13 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "egg",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 14 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "fish",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "shrimp",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 16 )
+
+[node name="obj_escapecollect" type="Area2D" groups=["obj_escapecollect"]]
+z_index = -2
+collision_layer = 4
+script = ExtResource( 16 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
+animation = "banana"
+speed_scale = 0.35
+centered = false
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 16, 16 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_obj_escapecollect_body_entered"]

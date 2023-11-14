@@ -7,6 +7,8 @@ var stomped = false
 var sprite_index = load("res://Objects/Baddies/sprites/sausageman/sausageman_shot_0.png")
 
 func _ready():
+	velocity.y = utils.randi_range(-5, -10)
+	velocity.x = (utils.get_player().xscale * utils.randi_range(5, 10))
 	$MachAllTimer.wait_time = 0.083
 	$MachAllTimer.start()
 	if (position.x != utils.get_player().position.x):

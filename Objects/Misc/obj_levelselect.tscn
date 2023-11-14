@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/HUD/font.tres" type="BitmapFont" id=1]
+[ext_resource path="res://Objects/Misc/obj_levelselect.gd" type="Script" id=2]
+
+[node name="obj_levelselect" type="Node2D" groups=["obj_levelselect"]]
+script = ExtResource( 2 )
+
+[node name="SelectionText" type="Label" parent="."]
+margin_right = 960.0
+margin_bottom = 540.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 1 )
+align = 1
+valign = 1
+uppercase = true

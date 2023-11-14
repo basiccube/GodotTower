@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Objects/Warps/obj_door.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Objects/Collectibles/obj_pizzabox.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Objects/Collectibles/obj_escapecollect.tscn" type="PackedScene" id=21]
 
 [node name="entrance_2" type="Node2D"]
 
@@ -206,3 +207,12 @@ targetRoom = "entrance_secret3"
 [node name="obj_pizzabox" parent="." instance=ExtResource( 20 )]
 position = Vector2( 1408, 160 )
 content = "cheese"
+
+[node name="obj_escapecollect" parent="." instance=ExtResource( 21 )]
+position = Vector2( 2368, 384 )
+
+[node name="obj_escapecollect2" parent="." instance=ExtResource( 21 )]
+position = Vector2( 2432, 384 )
+
+[node name="obj_escapecollect3" parent="." instance=ExtResource( 21 )]
+position = Vector2( 2496, 384 )
