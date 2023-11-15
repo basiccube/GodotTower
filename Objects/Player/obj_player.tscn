@@ -2643,8 +2643,13 @@ one_shot = true
 wait_time = 0.15
 one_shot = true
 
+[node name="GrabCheckTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
 [connection signal="timeout" from="HurtTimer" to="." method="_on_HurtTimer_timeout"]
 [connection signal="timeout" from="HurtTimer2" to="." method="_on_HurtTimer2_timeout"]
 [connection signal="timeout" from="FlashEffectOffTimer" to="." method="_on_FlashEffectOffTimer_timeout"]
 [connection signal="timeout" from="FlashEffectOnTimer" to="." method="_on_FlashEffectOnTimer_timeout"]
 [connection signal="timeout" from="WhiteFlashTimer" to="." method="_on_WhiteFlashTimer_timeout"]
+[connection signal="timeout" from="GrabCheckTimer" to="." method="_on_GrabCheckTimer_timeout"]

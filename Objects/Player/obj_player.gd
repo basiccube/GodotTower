@@ -419,8 +419,6 @@ func _process(delta):
 		suplexmove = 0
 	if (state != global.states.freefall):
 		freefallsmash = 0
-	#if (!utils.instance_exists_level(baddiegrabbed) && (state == global.states.grab || state == global.states.superslam)):
-		#state = global.states.normal
 	if (!(state == global.states.grab || state == global.states.superslam || state == global.states.mach2)):
 		baddiegrabbed = ""
 	if (character == "P"):
@@ -1596,6 +1594,8 @@ func scr_player_mach3():
 		movespeed += 0.1
 		if (!utils.instance_exists("obj_crazyruneffect")):
 			utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_crazyruneffect.tscn")
+			if ($PeppinoSprite.animation == "crazyrun"):
+				utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_flamecloud.tscn")
 	elif (movespeed > 12 && move != xscale):
 		movespeed -= 0.1
 	crouchslideAnim = 1
@@ -2215,7 +2215,7 @@ func scr_player_superslam():
 			i.shake_mag_acc = (40 / 30)
 		velocity.x = 0
 		bounce = 0
-		var effectid = utils.instance_create(global_position.x, global_position.y + 35, "res://Objects/Visuals/obj_bangeffect.tscn")
+		var effectid = utils.instance_create(position.x + 50, position.y + 35, "res://Objects/Visuals/obj_bangeffect.tscn")
 		effectid.scale.x = xscale
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_landcloud.tscn")
 		freefallstart = 0
@@ -2750,3 +2750,9 @@ func _on_FlashEffectOnTimer_timeout():
 
 func _on_WhiteFlashTimer_timeout():
 	flash = false
+
+func _on_GrabCheckTimer_timeout():
+	if (!utils.instance_exists_level(baddiegrabbed) && (state == global.states.grab || state == global.states.superslam)):
+		state = global.states.normal
+	if (baddiegrabbed != "" && utils.instance_exists_level(baddiegrabbed) && utils.get_instance_level(baddiegrabbed).state != global.states.grabbed && state == global.states.grab):
+		utils.get_instance_level(baddiegrabbed).state = global.states.grabbed

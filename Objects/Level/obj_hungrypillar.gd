@@ -51,10 +51,3 @@ func destroy():
 				global.seconds = 30
 		global.saveroom.append(global.targetRoom + name)
 		queue_free()
-		
-func _process(delta):
-	var collisiondata = move_and_collide(position, true, true, true)
-	if collisiondata != null:
-		if collisiondata.collider != null:
-			if collisiondata.collider.is_in_group("obj_swordhitbox"):
-				destroy()

@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 46, 44 )
 
-[node name="obj_swordhitbox" type="StaticBody2D" groups=["obj_swordhitbox"]]
+[node name="obj_swordhitbox" type="Area2D" groups=["obj_swordhitbox"]]
 collision_mask = 6
+priority = 5.0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

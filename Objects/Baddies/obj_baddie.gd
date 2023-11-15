@@ -44,7 +44,7 @@ func _process(delta):
 	sprite_index = $Sprite.animation
 	$Sprite.playing = true
 	screenvisible = $ScreenVisibility.is_on_screen()
-	if (state == global.states.grabbed):
+	if (state == global.states.grabbed && utils.get_player().state != global.states.finishingblow):
 		$Collision.set_deferred("disabled", true)
 	else:
 		$Collision.set_deferred("disabled", false)
@@ -383,32 +383,6 @@ func scr_enemy_grabbed():
 		for i in get_tree().get_nodes_in_group("obj_camera"):
 			i.shake_mag = 3
 			i.shake_mag_acc = (3 / 30)
-	if ($WallCheck.is_colliding() && $WallCheck.get_collider().is_in_group("obj_swordhitbox")):
-		hp -= 1
-		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
-		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
-		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
-		utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
-		utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
-		utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
-		for i in get_tree().get_nodes_in_group("obj_camera"):
-			i.shake_mag = 3
-			i.shake_mag_acc = (3 / 30)
-		$BangEffectTimer.wait_time = 0.05
-		$BangEffectTimer.start()
-		global.hit += 1
-		if (is_in_group("obj_pizzaball")):
-			global.golfhit += 1
-		$MachEffectTimer.wait_time = 0.083
-		$MachEffectTimer.start()
-		thrown = true
-		if (obj_player.sprite_index == "uppercutfinishingblow"):
-			velocity.x = 0
-			velocity.y = -35
-		else:
-			velocity.x = ((obj_player.xscale) * 25)
-			velocity.y = -6
-		state = global.states.stun
 	if (obj_player.state == global.states.throw):
 		global.hit += 1
 		if (is_in_group("obj_pizzaball")):
@@ -494,7 +468,7 @@ func scr_enemy_grabbed():
 		$MachEffectTimer.start()
 		thrown = true
 		position.x = (obj_player.position.x + 50)
-		position.y = (obj_player.position.y - 30)
+		position.y = (obj_player.position.y - 40)
 		state = global.states.stun
 		velocity.x = ((-xscale) * 10)
 		velocity.y = -10
