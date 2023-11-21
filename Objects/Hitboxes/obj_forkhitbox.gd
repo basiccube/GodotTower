@@ -2,7 +2,7 @@ extends StaticBody2D
 
 var baddieid = ""
 
-func _process(delta):
+func _process(_delta):
 	if (!utils.instance_exists_level(baddieid)):
 		queue_free()
 	if (utils.instance_exists_level(baddieid)):

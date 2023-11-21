@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mu_ruinremix.ogg-ba490bfd0e4ea7c4c7b7d1c17fdf6c6f.oggstr"
+
+[deps]
+
+source_file="res://Music/mu_ruinremix.ogg"
+dest_files=[ "res://.import/mu_ruinremix.ogg-ba490bfd0e4ea7c4c7b7d1c17fdf6c6f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

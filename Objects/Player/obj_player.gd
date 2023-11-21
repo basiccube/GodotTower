@@ -211,6 +211,14 @@ func _process(delta):
 						$PeppinoSprite.animation = "shotgunjump2"
 					state = global.states.freefallland
 				destructible.destroy()
+		if (destructible.is_in_group("obj_specialdestructibles")):
+			if (destructible.is_in_group("obj_bombblock") && state == global.states.bombpep && $PeppinoSprite.animation != "bombpep_end"):
+				destructible.destroy()
+				hurted = 1
+				velocity.y = -4
+				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_bombexplosion.tscn")
+				$PeppinoSprite.animation = "bombpep_end"
+				bombpeptimer = 0
 		if (destructible.is_in_group("obj_metalblock")):
 			if (state == global.states.freefall || state == global.states.freefallland):
 				if (freefallsmash >= 10):
@@ -585,11 +593,12 @@ func destroy(collider):
 	elif (state == global.states.bombpep && hurted == 0):
 		if (collider.is_in_group("obj_spike")):
 			$Bombpep2.play()
-			hurted = 1
 			velocity.y = -4
-			$PeppinoSprite.animation = "bombpepend"
+			utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_bombexplosion.tscn")
+			$PeppinoSprite.animation = "bombpep_end"
 			state = global.states.bombpep
 			bombpeptimer = 0
+			hurted = 1
 	elif (state == global.states.tumble):
 		pass
 	elif (state == global.states.cheesepep || state == global.states.cheesepepstick):
@@ -1816,7 +1825,7 @@ func scr_player_machroll():
 		$PeppinoSprite.animation = "dive"
 		velocity.y = 10
 	$PeppinoSprite.speed_scale = 0.8
-	if (!Input.is_action_pressed("key_down")):
+	if (!Input.is_action_pressed("key_down") && !$CrouchCheck.is_colliding()):
 		$RollGetUp.play()
 		state = global.states.mach2
 		if (character == "P"):
@@ -2514,7 +2523,7 @@ func scr_player_bombpep():
 		hurted = 1
 		state = global.states.normal
 		$PeppinoSprite.animation = "idle"
-	if (bombpeptimer == 0 && $PeppinoSprite.animation == "bombpep_runabouttoexplode"):
+	if (bombpeptimer <= 0 && $PeppinoSprite.animation == "bombpep_runabouttoexplode"):
 		$Bombpep2.play()
 		hurted = 1
 		utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_bombexplosion.tscn")

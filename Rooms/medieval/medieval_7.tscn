@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Objects/Baddies/Enemies/obj_cheeseslime.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_pepgoblin.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Objects/Misc/sprites/rollsign.png" type="Texture" id=26]
 
 [node name="medieval_3" type="Node2D"]
 
@@ -83,6 +84,12 @@ position = Vector2( 0, 540 )
 position = Vector2( 2500, 0 )
 
 [node name="obj_camlimit_top" parent="." instance=ExtResource( 7 )]
+
+[node name="RollSign" type="Sprite" parent="."]
+position = Vector2( 576, 224 )
+z_index = -50
+texture = ExtResource( 26 )
+centered = false
 
 [node name="obj_solid" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1312, 352 )

@@ -17,4 +17,7 @@ centered = false
 position = Vector2( 16, 32 )
 shape = SubResource( 1 )
 
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2( 16, 48 )
+
 [connection signal="body_entered" from="." to="." method="_on_obj_hallway_body_entered"]

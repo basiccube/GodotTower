@@ -1,0 +1,98 @@
+[gd_scene load_steps=49 format=2]
+
+[ext_resource path="res://Objects/Baddies/obj_baddie.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_stun_1.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_charge_9.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_charge_0.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_charge_7.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_scared_0.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_scared_3.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_charge_2.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_scared_1.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_charge_10.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_chargestart_6.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_charge_3.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_charge_6.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_stun_2.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_chargestart_7.png" type="Texture" id=15]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_charge_5.png" type="Texture" id=16]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_charge_8.png" type="Texture" id=17]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_charge_11.png" type="Texture" id=18]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_chargestart_5.png" type="Texture" id=19]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_dead_0.png" type="Texture" id=20]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_chargestart_4.png" type="Texture" id=21]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_scared_2.png" type="Texture" id=22]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_chargestart_3.png" type="Texture" id=23]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_charge_4.png" type="Texture" id=24]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_charge_1.png" type="Texture" id=25]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_stun_0.png" type="Texture" id=26]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_5.png" type="Texture" id=27]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_11.png" type="Texture" id=28]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_chargestart_2.png" type="Texture" id=29]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_0.png" type="Texture" id=30]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_2.png" type="Texture" id=31]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_14.png" type="Texture" id=32]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_1.png" type="Texture" id=33]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_4.png" type="Texture" id=34]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_15.png" type="Texture" id=35]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_9.png" type="Texture" id=36]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_10.png" type="Texture" id=37]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_12.png" type="Texture" id=38]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_6.png" type="Texture" id=39]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_chargestart_0.png" type="Texture" id=40]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_chargestart_1.png" type="Texture" id=41]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_3.png" type="Texture" id=42]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_13.png" type="Texture" id=43]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_7.png" type="Texture" id=44]
+[ext_resource path="res://Objects/Baddies/sprites/fencer/fencer_8.png" type="Texture" id=45]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_fencer.gd" type="Script" id=46]
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 25 ), ExtResource( 8 ), ExtResource( 12 ), ExtResource( 24 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 5 ), ExtResource( 17 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "charge",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 40 ), ExtResource( 41 ), ExtResource( 29 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 11 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "chargestart",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "dead",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 33 ), ExtResource( 31 ), ExtResource( 42 ), ExtResource( 34 ), ExtResource( 27 ), ExtResource( 39 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 28 ), ExtResource( 38 ), ExtResource( 43 ), ExtResource( 32 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "idle",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 22 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "scared",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 2 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "stun",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 24, 39 )
+
+[node name="obj_fencer" groups=["obj_fencer"] instance=ExtResource( 1 )]
+script = ExtResource( 46 )
+
+[node name="Sprite" parent="." index="2"]
+frames = SubResource( 9 )
+animation = "idle"
+
+[node name="PlatformCheck" parent="." index="5"]
+cast_to = Vector2( 0, 32 )
+
+[node name="Collision" parent="." index="9"]
+position = Vector2( -8, 7 )
+shape = SubResource( 10 )

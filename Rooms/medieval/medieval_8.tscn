@@ -70,7 +70,7 @@ motion_mirroring = Vector2( 1920, 1024 )
 motion_scale = Vector2( 0.75, 0 )
 motion_mirroring = Vector2( 1920, 1024 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Pizzamart" type="Sprite" parent="."]
 position = Vector2( 448, 64 )
 z_index = -50
 texture = ExtResource( 17 )

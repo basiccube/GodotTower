@@ -13,6 +13,8 @@ func _ready():
 func _process(delta):
 	position.x += velocity.x
 	position.y += velocity.y
+	if (is_on_floor() && velocity.y >= 0):
+		velocity.x = 0
 	countdown -= 0.5
 	if (countdown < 50):
 		$Sprite.animation = "bomblit"

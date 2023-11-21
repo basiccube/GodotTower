@@ -20,6 +20,9 @@ var room_arr = [
 	["medieval_3", "mu_medievalremix", "mu_medievalsecret", true],
 	["medieval_5", "mu_medievalremix", "mu_medievalsecret", true],
 	["medieval_6", "mu_medieval", "mu_medievalsecret", true],
+	["ruin_1", "mu_ruin", "mu_ruinsecret", false],
+	["ruin_6", "mu_ruin", "mu_ruinsecret", true],
+	["ruin_7", "mu_ruinremix", "mu_ruinsecret", true],
 	["trickytreat_1", "mu_hub", "mu_medievalsecret", false],
 	["trickytreat_2", "mu_trickytreat", "mu_medievalsecret", false],
 	["testroom_1", "mu_medieval", "mu_medievalsecret", false]

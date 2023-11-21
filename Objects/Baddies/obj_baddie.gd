@@ -520,7 +520,7 @@ func scr_enemy_charge():
 		else:
 			velocity.x = 0
 		$Sprite.speed_scale = 0.35
-		if ($WallCheck.is_colliding() && $WallCheck.get_collider().is_in_group("obj_solid")):
+		if ($WallCheck.is_colliding() && ($WallCheck.get_collider().is_in_group("obj_solid") || $WallCheck.get_collider().is_in_group("obj_destructibles"))):
 			$WallCheck.scale.x *= -1
 			$OppositeWallCheck.scale.x *= -1
 			$PlatformCheck.position.x *= -1
@@ -538,7 +538,7 @@ func scr_enemy_charge():
 			velocity.x = (xscale * movespeed)
 		else:
 			velocity.x = 0
-		if ($WallCheck.is_colliding() && $WallCheck.get_collider().is_in_group("obj_solid")):
+		if ($WallCheck.is_colliding() && ($WallCheck.get_collider().is_in_group("obj_solid") || $WallCheck.get_collider().is_in_group("obj_destructibles"))):
 			$WallCheck.scale.x *= -1
 			$OppositeWallCheck.scale.x *= -1
 			$PlatformCheck.position.x *= -1
@@ -546,7 +546,7 @@ func scr_enemy_charge():
 			xscale *= -1
 	if (is_in_group("obj_ancho")):
 		velocity.x = (xscale * movespeed)
-		if ($WallCheck.is_colliding() && $WallCheck.get_collider().is_in_group("obj_solid")):
+		if ($WallCheck.is_colliding() && ($WallCheck.get_collider().is_in_group("obj_solid") || $WallCheck.get_collider().is_in_group("obj_destructibles"))):
 			state = global.states.stun
 			stunned = 100
 			
