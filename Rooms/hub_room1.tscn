@@ -175,15 +175,6 @@ F2: Toggle Visible Collisions
 F3: Teleport To Room Start"
 uppercase = true
 
-[node name="UnfinishedText" type="Label" parent="."]
-margin_left = 272.0
-margin_top = 832.0
-margin_right = 411.0
-margin_bottom = 833.0
-custom_fonts/font = ExtResource( 14 )
-text = "Unfinished!"
-uppercase = true
-
 [node name="UnfinishedText2" type="Label" parent="."]
 margin_left = 448.0
 margin_top = 448.0
