@@ -90,9 +90,15 @@ script = ExtResource( 46 )
 frames = SubResource( 9 )
 animation = "idle"
 
-[node name="PlatformCheck" parent="." index="5"]
+[node name="WallCheck2" parent="." index="4"]
+position = Vector2( 0, 32 )
+
+[node name="WallCheck3" parent="." index="5"]
+position = Vector2( 0, -32 )
+
+[node name="PlatformCheck" parent="." index="7"]
 cast_to = Vector2( 0, 32 )
 
-[node name="Collision" parent="." index="9"]
+[node name="Collision" parent="." index="11"]
 position = Vector2( -8, 7 )
 shape = SubResource( 10 )

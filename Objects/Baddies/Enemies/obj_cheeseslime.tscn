@@ -114,7 +114,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 28, 12 )
+extents = Vector2( 28, 19 )
 
 [node name="obj_cheeseslime" groups=["obj_cheeseslime"] instance=ExtResource( 1 )]
 script = ExtResource( 3 )
@@ -124,14 +124,20 @@ frames = SubResource( 5 )
 animation = "idle"
 
 [node name="WallCheck" parent="." index="3"]
+position = Vector2( 0, 32 )
+
+[node name="WallCheck2" parent="." index="4"]
+position = Vector2( 0, 40 )
+
+[node name="WallCheck3" parent="." index="5"]
 position = Vector2( 0, 24 )
 
-[node name="OppositeWallCheck" parent="." index="4"]
+[node name="OppositeWallCheck" parent="." index="6"]
 position = Vector2( 0, 24 )
 
-[node name="PlatformCheck" parent="." index="5"]
+[node name="PlatformCheck" parent="." index="7"]
 cast_to = Vector2( 0, 32 )
 
-[node name="Collision" parent="." index="9"]
-position = Vector2( 4, 34 )
+[node name="Collision" parent="." index="11"]
+position = Vector2( 4, 27 )
 shape = SubResource( 6 )

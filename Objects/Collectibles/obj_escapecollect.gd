@@ -2,7 +2,7 @@ extends Area2D
 
 func _ready():
 	$Sprite.playing = true
-	if (global.saveroom.has(global.targetRoom + name)):
+	if (global.escaperoom.has(global.targetRoom + name)):
 		queue_free()
 	var rng = utils.randi_range(1,5)
 	if (rng == 1):
@@ -24,7 +24,7 @@ func _process(delta):
 		visible = false
 
 func destroy():
-	global.saveroom.append(global.targetRoom + name)
+	global.escaperoom.append(global.targetRoom + name)
 	queue_free()
 
 func _on_obj_escapecollect_body_entered(body):

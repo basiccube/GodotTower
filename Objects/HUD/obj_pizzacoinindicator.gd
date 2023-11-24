@@ -16,5 +16,5 @@ func _process(delta):
 		visible = true
 	$PizzacoinCounter.text = str(global.pizzacoin)
 	var obj_player = utils.get_player()
-	position.x = obj_player.position.x + 15
-	position.y = obj_player.position.y - 10
+	position.x = obj_player.position.x - 36
+	position.y = obj_player.position.y - 48

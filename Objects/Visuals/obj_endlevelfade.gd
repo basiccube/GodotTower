@@ -11,8 +11,8 @@ func _process(delta):
 	var obj_player = utils.get_player()
 	if (global.targetRoom == "rank_room"):
 		obj_player.xscale = 1
-		obj_player.position.x = 430
-		obj_player.position.y = 220
+		obj_player.position.x = 480
+		obj_player.position.y = 270
 	var obj_camera = utils.get_instance("obj_camera")
 	obj_camera.visible = false
 	if (fadealpha > 1):

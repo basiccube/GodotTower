@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_slope.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Objects/Misc/obj_doorblocked.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/Level/obj_exitgate.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Backgrounds/bg_medieval3_0.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Warps/obj_portalend.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/Destructibles/obj_destroyable3.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Objects/Destructibles/obj_destroyable3escape.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=17]
@@ -97,7 +98,7 @@ scale = Vector2( 10, 2 )
 
 [node name="obj_solid6" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1280, 512 )
-scale = Vector2( 25, 4 )
+scale = Vector2( 32, 4 )
 
 [node name="obj_solid7" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1600, 32 )
@@ -105,7 +106,15 @@ scale = Vector2( 3, 12 )
 
 [node name="obj_solid8" parent="." instance=ExtResource( 1 )]
 position = Vector2( 2016, 64 )
-scale = Vector2( 2, 14 )
+scale = Vector2( 3, 14 )
+
+[node name="obj_solid11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2112, 256 )
+scale = Vector2( 6, 3 )
+
+[node name="obj_solid12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2304, 256 )
+scale = Vector2( 3, 10 )
 
 [node name="obj_solid9" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1920, 640 )
@@ -161,3 +170,9 @@ position = Vector2( 1856, 864 )
 targetDoor = "B"
 targetLevel = "dungeon"
 targetRoom = "dungeon_2"
+
+[node name="obj_portalend" parent="." instance=ExtResource( 11 )]
+position = Vector2( 2240, 432 )
+scale = Vector2( -1, 1 )
+targetLevel = "dungeon"
+targetRoom = "dungeon_1"

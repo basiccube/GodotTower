@@ -29,8 +29,8 @@ func _process(delta):
 				$Sprite.animation = "run"
 			else:
 				$Sprite.animation = "idle"
-		followQueue.push_front(obj_player.position.x + 50)
-		followQueue.push_front(obj_player.position.y + 62)
+		followQueue.push_front(obj_player.position.x)
+		followQueue.push_front(obj_player.position.y + 12)
 		lag_steps = 10
 		if (followQueue.size() > lag_steps * 2):
 			position.x = (followQueue.pop_back() - (scale.x * 4))

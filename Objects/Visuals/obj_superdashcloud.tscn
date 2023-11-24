@@ -23,8 +23,7 @@ z_index = 4
 script = ExtResource( 6 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( -96, 0 )
 frames = SubResource( 1 )
-centered = false
+offset = Vector2( -15, 0 )
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]

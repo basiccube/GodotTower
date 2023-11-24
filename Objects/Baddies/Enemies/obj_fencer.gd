@@ -43,13 +43,13 @@ func _process(delta):
 		global.states.grabbed:
 			scr_enemy_grabbed()
 	var obj_player = utils.get_player()
-	if (obj_player.position.x > (position.x - 450) && obj_player.position.x < (position.x + 450) && position.y <= (obj_player.position.y + 110) && position.y >= (obj_player.position.y - 110)):
+	if (obj_player.position.x > (position.x - 400) && obj_player.position.x < (position.x + 400) && position.y <= (obj_player.position.y + 60) && position.y >= (obj_player.position.y - 60)):
 		if (state != global.states.idle && obj_player.state == global.states.mach3):
 			state = global.states.idle
 			$Sprite.animation = spr_scared
 			if (position.x != obj_player.position.x):
 				xscale = (-(sign(position.x - obj_player.position.x)))
-	if (position.x != obj_player.position.x + 50 && is_on_floor() && obj_player.position.x > (position.x - 450) && obj_player.position.x < (position.x + 450) && position.y <= (obj_player.position.y + 110) && position.y >= (obj_player.position.y - 110)):
+	if (position.x != obj_player.position.x && is_on_floor() && obj_player.position.x > (position.x - 400) && obj_player.position.x < (position.x + 400) && position.y <= (obj_player.position.y + 60) && position.y >= (obj_player.position.y - 60)):
 		if (state == global.states.walk && !charging):
 			var forkhitboxid = utils.instance_create(-50000, -50000, "res://Objects/Hitboxes/obj_forkhitbox.tscn")
 			forkhitboxid.baddieid = name

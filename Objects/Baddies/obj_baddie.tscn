@@ -24,6 +24,18 @@ enabled = true
 cast_to = Vector2( 32, 0 )
 collision_mask = 7
 
+[node name="WallCheck2" type="RayCast2D" parent="."]
+position = Vector2( 0, 16 )
+enabled = true
+cast_to = Vector2( 32, 0 )
+collision_mask = 7
+
+[node name="WallCheck3" type="RayCast2D" parent="."]
+position = Vector2( 0, -16 )
+enabled = true
+cast_to = Vector2( 32, 0 )
+collision_mask = 7
+
 [node name="OppositeWallCheck" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( -32, 0 )

@@ -20,7 +20,7 @@ func _process(delta):
 		utils.instance_create(utils.get_gamenode().global_position.x, utils.get_gamenode().global_position.y, "res://Objects/Visuals/obj_fadeout.tscn")
 		utils.get_player().targetRoom = "Titlescreen"
 	if ($Sprite.animation == "pepcooter" && !utils.instance_exists("obj_superdashcloud")):
-		utils.instance_create(position.x - 120, position.y - 50, "res://Objects/Visuals/obj_superdashcloud.tscn")
+		utils.instance_create(position.x - 70, position.y, "res://Objects/Visuals/obj_superdashcloud.tscn")
 	$Sprite.material.set_shader_param("current_palette", global.peppalette)
 
 func rockcollision():

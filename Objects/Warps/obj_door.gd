@@ -11,8 +11,8 @@ func _ready():
 	$Sprite.speed_scale = 0.35
 	if global.targetDoor != "" && global.targetDoor == targetDoor:
 		var obj_player = utils.get_player()
-		obj_player.global_position.x = global_position.x
-		obj_player.global_position.y = global_position.y
+		obj_player.global_position.x = global_position.x + 50
+		obj_player.global_position.y = global_position.y + 50
 		obj_player.roomstartx = obj_player.position.x
 		obj_player.roomstarty = obj_player.position.y
 		obj_player.xscale = 1
@@ -39,6 +39,7 @@ func _process(delta):
 			obj_player.targetRoom = targetRoom
 			obj_player.state = global.states.door
 			obj_player.mach2 = 0
+			obj_player.velocity.x = 0
 			visited = true
 			utils.instance_create(utils.get_gamenode().global_position.x, utils.get_gamenode().global_position.y, "res://Objects/Visuals/obj_fadeout.tscn")
 

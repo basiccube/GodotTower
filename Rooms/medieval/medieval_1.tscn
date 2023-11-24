@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Backgrounds/bg_medieval1_0.png" type="Texture" id=2]
@@ -30,6 +30,8 @@
 [ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Objects/Warps/obj_boxofpizza.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Objects/Destructibles/obj_secretmetalblock.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Objects/Warps/obj_portalend.tscn" type="PackedScene" id=32]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 8 )
@@ -109,8 +111,16 @@ position = Vector2( 96, 800 )
 scale = Vector2( 29, 4 )
 
 [node name="obj_solid2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 64 )
-scale = Vector2( 32, 16 )
+position = Vector2( 0, 448 )
+scale = Vector2( 32, 4 )
+
+[node name="obj_solid18" parent="." instance=ExtResource( 1 )]
+position = Vector2( 704, 288 )
+scale = Vector2( 4, 5 )
+
+[node name="obj_solid19" parent="." instance=ExtResource( 1 )]
+position = Vector2( 960, 288 )
+scale = Vector2( 2, 3 )
 
 [node name="obj_solid3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 576 )
@@ -464,3 +474,11 @@ scale = Vector2( 2, 1.5 )
 targetDoor = "B"
 targetLevel = "medieval"
 targetRoom = "medieval_2"
+
+[node name="obj_secretmetalblock" parent="." instance=ExtResource( 31 )]
+position = Vector2( 960, 384 )
+
+[node name="obj_portalend" parent="." instance=ExtResource( 32 )]
+position = Vector2( 880, 368 )
+targetLevel = "medieval"
+targetRoom = "medieval_10"

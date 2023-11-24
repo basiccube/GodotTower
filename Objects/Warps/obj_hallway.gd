@@ -8,7 +8,7 @@ func _ready():
 	if global.targetDoor != "" && global.targetDoor == targetDoor:
 		var obj_player = utils.get_player()
 		obj_player.position.x = (position.x + ((-scale.x) * 100))
-		obj_player.position.y = ($SpawnPoint.global_position.y - 64)
+		obj_player.position.y = ($SpawnPoint.global_position.y - 14)
 		obj_player.roomstartx = obj_player.position.x
 		obj_player.roomstarty = obj_player.position.y
 		obj_player.xscale = (-sign(scale.x))

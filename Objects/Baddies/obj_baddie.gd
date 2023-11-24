@@ -51,12 +51,16 @@ func _process(delta):
 	if (xscale == 1):
 		$Sprite.flip_h = false
 		$WallCheck.scale.x = 1
+		$WallCheck2.scale.x = 1
+		$WallCheck3.scale.x = 1
 		$OppositeWallCheck.scale.x = 1
 		$PlatformCheck.position.x = 16
 		$SlopeCheck.position.x = -8
 	elif (xscale == -1):
 		$Sprite.flip_h = true
 		$WallCheck.scale.x = -1
+		$WallCheck2.scale.x = -1
+		$WallCheck3.scale.x = -1
 		$OppositeWallCheck.scale.x = -1
 		$PlatformCheck.position.x = -16
 		$SlopeCheck.position.x = 8
@@ -157,19 +161,19 @@ func destroy():
 		for obj in get_tree().get_nodes_in_group("obj_tv"):
 			obj.sprite.frame = utils.randi_range(0, 4)
 		global.combo += 1
-		if (global.combo == 1):
+		if (global.combo <= 8):
 			global.collect += 10
 			var smallnumbid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_smallnumber.tscn")
 			smallnumbid.number = "10"
-		if (global.combo == 2):
+		if (global.combo > 8 && global.combo <= 16):
 			global.collect += 20
 			var smallnumbid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_smallnumber.tscn")
 			smallnumbid.number = "20"
-		if (global.combo == 3):
+		if (global.combo > 16 && global.combo <= 32):
 			global.collect += 40
 			var smallnumbid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_smallnumber.tscn")
 			smallnumbid.number = "40"
-		if (global.combo >= 4):
+		if (global.combo > 32):
 			global.collect += 80
 			var smallnumbid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_smallnumber.tscn")
 			smallnumbid.number = "80"
@@ -187,6 +191,22 @@ func destroy():
 		var deadbaddieid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_sausageman_dead.tscn")
 		deadbaddieid.sprite_index = $Sprite.frames.get_frame(spr_dead, 0)
 	queue_free()
+	
+func is_colliding_with_wall():
+	if (($WallCheck.is_colliding() && $WallCheck.get_collider() != null && ($WallCheck.get_collider().is_in_group("obj_solid") || $WallCheck.get_collider().is_in_group("obj_destructibles") || $WallCheck.get_collider().is_in_group("obj_baddie"))) ||
+	($WallCheck2.is_colliding() && $WallCheck2.get_collider() != null && ($WallCheck2.get_collider().is_in_group("obj_solid") || $WallCheck2.get_collider().is_in_group("obj_destructibles") || $WallCheck2.get_collider().is_in_group("obj_baddie"))) ||
+	($WallCheck3.is_colliding() && $WallCheck3.get_collider() != null && ($WallCheck3.get_collider().is_in_group("obj_solid") || $WallCheck3.get_collider().is_in_group("obj_destructibles") || $WallCheck3.get_collider().is_in_group("obj_baddie")))):
+		return true
+	else:
+		return false
+		
+func is_colliding_with_solid():
+	if (($WallCheck.is_colliding() && $WallCheck.get_collider() != null && $WallCheck.get_collider().is_in_group("obj_solid")) ||
+	($WallCheck2.is_colliding() && $WallCheck2.get_collider() != null && $WallCheck2.get_collider().is_in_group("obj_solid")) ||
+	($WallCheck3.is_colliding() && $WallCheck3.get_collider() != null && $WallCheck3.get_collider().is_in_group("obj_solid"))):
+		return true
+	else:
+		return false
 
 func _on_MachEffectTimer_timeout():
 	var a = utils.randi_range(-20, 20)
@@ -223,13 +243,15 @@ func scr_enemy_walk():
 		velocity.x = 0
 	$Sprite.animation = spr_walk
 	$Sprite.speed_scale = 0.35
-	if ($WallCheck.is_colliding() && (!$WallCheck.get_collider().is_in_group("obj_player"))):
+	if (is_colliding_with_wall()):
 		if (is_in_group("obj_forknight")):
 			xscale *= -1
 			$Sprite.animation = "turn"
 			state = global.states.idle
 		else:
 			$WallCheck.scale.x *= -1
+			$WallCheck2.scale.x *= -1
+			$WallCheck3.scale.x *= -1
 			$OppositeWallCheck.scale.x *= -1
 			$PlatformCheck.position.x *= -1
 			$SlopeCheck.position.x *= -1
@@ -257,7 +279,7 @@ func scr_enemy_stun():
 	stunned -= 1
 	$Sprite.animation = spr_stunfall
 	$Sprite.speed_scale = 0.35
-	if (((is_on_floor() && $FloorCheck.is_colliding()) || (is_on_ceiling()) || (is_on_wall() && $WallCheck.is_colliding() && $WallCheck.get_collider().is_in_group("obj_solid"))) && velocity.y >= 0):
+	if (((is_on_floor() && $FloorCheck.is_colliding()) || is_on_ceiling() || is_colliding_with_solid()) && velocity.y >= 0):
 		if (thrown && hp <= 0):
 			destroy()
 		thrown = false
@@ -313,21 +335,21 @@ func scr_enemy_grabbed():
 	stunned = 200
 	obj_player.baddiegrabbed = name
 	if (obj_player.state == global.states.grabbing || obj_player.state == global.states.grab || obj_player.state == global.states.throw || obj_player.state == global.states.slam):
-		position.x = (obj_player.position.x + 50)
+		position.x = obj_player.position.x
 		if (obj_player.sprite_index != "haulingstart"):
-			position.y = (obj_player.position.y - 20)
+			position.y = (obj_player.position.y - 60)
 		elif (floor(obj_player.get_frame()) == 0):
-			position.y = (obj_player.position.y + 20)
+			position.y = obj_player.position.y - 20
 		elif (floor(obj_player.get_frame()) == 1):
-			position.y = (obj_player.position.y + 10)
+			position.y = (obj_player.position.y - 30)
 		elif (floor(obj_player.get_frame()) == 2):
-			position.y = obj_player.position.y
+			position.y = (obj_player.position.y - 40)
 		elif (floor(obj_player.get_frame()) == 3):
-			position.y = (obj_player.position.y - 10)
+			position.y = (obj_player.position.y - 50)
 		xscale = (-obj_player.xscale)
 	if (!(obj_player.state == global.states.grab || obj_player.state == global.states.finishingblow || obj_player.state == global.states.grabbing || obj_player.state == global.states.throw || obj_player.state == global.states.slam || obj_player.state == global.states.punch || obj_player.state == global.states.superslam || obj_player.state == global.states.backkick || obj_player.state == global.states.uppunch || obj_player.state == global.states.shoulder)):
-		position.x = (obj_player.position.x + 50 + (50 * obj_player.xscale))
-		position.y = (obj_player.position.y + 50)
+		position.x = (obj_player.position.x + (50 * obj_player.xscale))
+		position.y = obj_player.position.y
 		state = global.states.stun
 		$Sprite.frame = 0
 	velocity.x = 0
@@ -342,8 +364,8 @@ func scr_enemy_grabbed():
 		$MachEffectTimer.wait_time = 0.083
 		$MachEffectTimer.start()
 		thrown = true
-		position.x = obj_player.position.x + 50
-		position.y = obj_player.position.y + 50
+		position.x = obj_player.position.x
+		position.y = obj_player.position.y
 		velocity.y = 0
 		state = global.states.stun
 		velocity.x = ((-xscale) * 25)
@@ -356,10 +378,10 @@ func scr_enemy_grabbed():
 			i.shake_mag_acc = (3 / 30)
 	if (obj_player.state == global.states.finishingblow && obj_player.get_frame() < 5):
 		if (obj_player.xscale == 1):
-			position.x = (obj_player.position.x + 100)
+			position.x = (obj_player.position.x + 50)
 		elif (obj_player.xscale == -1):
-			position.x = (obj_player.position.x - 10)
-		position.y = (obj_player.position.y + 30)
+			position.x = (obj_player.position.x - 50)
+		position.y = (obj_player.position.y - 10)
 	if (obj_player.state == global.states.backkick):
 		$BangEffectTimer.wait_time = 0.05
 		$BangEffectTimer.start()
@@ -371,8 +393,8 @@ func scr_enemy_grabbed():
 		$MachEffectTimer.wait_time = 0.083
 		$MachEffectTimer.start()
 		thrown = true
-		position.x = obj_player.position.x + 50
-		position.y = obj_player.position.y + 50
+		position.x = obj_player.position.x
+		position.y = obj_player.position.y
 		state = global.states.stun
 		xscale *= -1
 		velocity.y = -7
@@ -390,8 +412,8 @@ func scr_enemy_grabbed():
 		$MachEffectTimer.wait_time = 0.083
 		$MachEffectTimer.start()
 		thrown = true
-		position.x = obj_player.position.x + 50
-		position.y = obj_player.position.y + 50
+		position.x = obj_player.position.x
+		position.y = obj_player.position.y
 		state = global.states.stun
 		velocity.x = ((-xscale) * 8)
 		velocity.y = -6
@@ -402,12 +424,12 @@ func scr_enemy_grabbed():
 		if (is_in_group("obj_pizzaball")):
 			global.golfhit += 1
 		hp -= 1
-		utils.instance_create((global_position.x + ((-obj_player.xscale) * 15)), (global_position.y - 50), "res://Objects/Visuals/obj_bumpeffect.tscn")
+		utils.instance_create((global_position.x + ((-obj_player.xscale) * 15)), global_position.y, "res://Objects/Visuals/obj_bumpeffect.tscn")
 		$MachEffectTimer.wait_time = 0.083
 		$MachEffectTimer.start()
 		thrown = true
-		position.x = obj_player.position.x + 50
-		position.y = obj_player.position.y + 50
+		position.x = obj_player.position.x
+		position.y = obj_player.position.y
 		state = global.states.stun
 		velocity.y = -20
 		velocity.x = ((-xscale) * 2)
@@ -421,39 +443,39 @@ func scr_enemy_grabbed():
 		if (obj_player.character == "P"):
 			if (floor(obj_player.get_frame()) == 0):
 				z_index = 0
-				position.x = (obj_player.position.x + (obj_player.xscale * 10) + 50)
-				position.y = (obj_player.position.y + 50)
+				position.x = (obj_player.position.x + (obj_player.xscale * 10))
+				position.y = (obj_player.position.y)
 			if (floor(obj_player.get_frame()) == 1):
 				z_index = 0
-				position.x = (obj_player.position.x + (obj_player.xscale * 5) + 50)
-				position.y = (obj_player.position.y + 50)
+				position.x = (obj_player.position.x + (obj_player.xscale * 5))
+				position.y = (obj_player.position.y)
 			if (floor(obj_player.get_frame()) == 2):
 				z_index = 0
-				position.x = obj_player.position.x + 50
-				position.y = (obj_player.position.y + 50)
+				position.x = obj_player.position.x
+				position.y = (obj_player.position.y)
 			if (floor(obj_player.get_frame()) == 3):
 				z_index = 0
-				position.x = (obj_player.position.x + (obj_player.xscale * -5) + 50)
-				position.y = (obj_player.position.y + 50)
+				position.x = (obj_player.position.x + (obj_player.xscale * -5))
+				position.y = (obj_player.position.y)
 			if (floor(obj_player.get_frame()) == 4):
 				z_index = 0
-				position.x = (obj_player.position.x + (obj_player.xscale * -10) + 50)
-				position.y = (obj_player.position.y + 50)
+				position.x = (obj_player.position.x + (obj_player.xscale * -10))
+				position.y = (obj_player.position.y)
 			if (floor(obj_player.get_frame()) == 5):
 				z_index = 8
-				position.x = (obj_player.position.x + (obj_player.xscale * -5) + 50)
-				position.y = (obj_player.position.y + 50)
+				position.x = (obj_player.position.x + (obj_player.xscale * -5))
+				position.y = (obj_player.position.y)
 			if (floor(obj_player.get_frame()) == 6):
 				z_index = 8
-				position.x = obj_player.position.x + 50
-				position.y = (obj_player.position.y + 50)
+				position.x = obj_player.position.x
+				position.y = (obj_player.position.y)
 			if (floor(obj_player.get_frame()) == 7):
 				z_index = 8
-				position.x = (obj_player.position.x + (obj_player.xscale * 5) + 50)
-				position.y = (obj_player.position.y + 50)
+				position.x = (obj_player.position.x + (obj_player.xscale * 5))
+				position.y = (obj_player.position.y)
 		else:
 			z_index = 7
-			position.x = (obj_player.position.x + 50)
+			position.x = (obj_player.position.x)
 			position.y = (obj_player.position.y + 10)
 	if (obj_player.sprite_index == "piledriverland" && $Sprite.frame == $Sprite.frames.get_frame_count($Sprite.animation) - 1):
 		obj_player.state = global.states.jump
@@ -467,8 +489,8 @@ func scr_enemy_grabbed():
 		$MachEffectTimer.wait_time = 0.083
 		$MachEffectTimer.start()
 		thrown = true
-		position.x = (obj_player.position.x + 50)
-		position.y = (obj_player.position.y - 40)
+		position.x = (obj_player.position.x)
+		position.y = (obj_player.position.y - 60)
 		state = global.states.stun
 		velocity.x = ((-xscale) * 10)
 		velocity.y = -10
@@ -476,40 +498,40 @@ func scr_enemy_grabbed():
 		if (obj_player.character == "P"):
 			if (floor(obj_player.get_frame()) == 0):
 				z_index = 8
-				position.x = (obj_player.position.x + (obj_player.xscale * 25) + 50)
-				position.y = obj_player.position.y + 50
+				position.x = (obj_player.position.x + (obj_player.xscale * 25))
+				position.y = obj_player.position.y
 			if (floor(obj_player.get_frame()) == 1):
 				z_index = 8
-				position.x = obj_player.position.x + 50
-				position.y = obj_player.position.y + 50
+				position.x = obj_player.position.x
+				position.y = obj_player.position.y
 			if (floor(obj_player.get_frame()) == 2):
 				z_index = 8
-				position.x = (obj_player.position.x + (obj_player.xscale * -25) + 50)
-				position.y = obj_player.position.y + 50
+				position.x = (obj_player.position.x + (obj_player.xscale * -25))
+				position.y = obj_player.position.y
 			if (floor(obj_player.get_frame()) == 3):
 				z_index = 0
-				position.x = (obj_player.position.x + (obj_player.xscale * -50) + 50)
-				position.y = obj_player.position.y + 50
+				position.x = (obj_player.position.x + (obj_player.xscale * -50))
+				position.y = obj_player.position.y
 			if (floor(obj_player.get_frame()) == 4):
 				z_index = 0
-				position.x = (obj_player.position.x + (obj_player.xscale * -25) + 50)
-				position.y = obj_player.position.y + 50
+				position.x = (obj_player.position.x + (obj_player.xscale * -25))
+				position.y = obj_player.position.y
 			if (floor(obj_player.get_frame()) == 5):
 				z_index = 0
-				position.x = obj_player.position.x + 50
-				position.y = obj_player.position.y + 50
+				position.x = obj_player.position.x
+				position.y = obj_player.position.y
 			if (floor(obj_player.get_frame()) == 6):
 				z_index = 0
-				position.x = (obj_player.position.x + (obj_player.xscale * 25) + 50)
-				position.y = obj_player.position.y + 50
+				position.x = (obj_player.position.x + (obj_player.xscale * 25))
+				position.y = obj_player.position.y
 			if (floor(obj_player.get_frame()) == 7):
 				z_index = 0
-				position.x = (obj_player.position.x + (obj_player.xscale * 50) + 50)
-				position.y = obj_player.position.y + 50
+				position.x = (obj_player.position.x + (obj_player.xscale * 50))
+				position.y = obj_player.position.y
 		else:
 			z_index = 7
-			position.x = obj_player.position.x + 50
-			position.y = (obj_player.position.y - 40 + 50)
+			position.x = obj_player.position.x
+			position.y = (obj_player.position.y - 40)
 	$Sprite.animation = spr_grabbed
 	$Sprite.speed_scale = 0.35
 	
@@ -520,8 +542,10 @@ func scr_enemy_charge():
 		else:
 			velocity.x = 0
 		$Sprite.speed_scale = 0.35
-		if ($WallCheck.is_colliding() && ($WallCheck.get_collider().is_in_group("obj_solid") || $WallCheck.get_collider().is_in_group("obj_destructibles"))):
+		if (is_colliding_with_wall()):
 			$WallCheck.scale.x *= -1
+			$WallCheck2.scale.x *= -1
+			$WallCheck3.scale.x *= -1
 			$OppositeWallCheck.scale.x *= -1
 			$PlatformCheck.position.x *= -1
 			$SlopeCheck.position.x *= -1
@@ -538,15 +562,17 @@ func scr_enemy_charge():
 			velocity.x = (xscale * movespeed)
 		else:
 			velocity.x = 0
-		if ($WallCheck.is_colliding() && ($WallCheck.get_collider().is_in_group("obj_solid") || $WallCheck.get_collider().is_in_group("obj_destructibles"))):
+		if (is_colliding_with_wall()):
 			$WallCheck.scale.x *= -1
+			$WallCheck2.scale.x *= -1
+			$WallCheck3.scale.x *= -1
 			$OppositeWallCheck.scale.x *= -1
 			$PlatformCheck.position.x *= -1
 			$SlopeCheck.position.x *= -1
 			xscale *= -1
 	if (is_in_group("obj_ancho")):
 		velocity.x = (xscale * movespeed)
-		if ($WallCheck.is_colliding() && ($WallCheck.get_collider().is_in_group("obj_solid") || $WallCheck.get_collider().is_in_group("obj_destructibles"))):
+		if (is_colliding_with_wall()):
 			state = global.states.stun
 			stunned = 100
 			
@@ -653,9 +679,9 @@ func scr_pizzagoblin_throw():
 
 func scr_enemy_chase():
 	var obj_player = utils.get_player()
-	if (position.x != obj_player.position.x - 50 && (!(xscale == -(sign((position.x - obj_player.position.x - 50)))))):
+	if (position.x != obj_player.position.x && (!(xscale == -(sign((position.x - obj_player.position.x)))))):
 		movespeed = 7
-		xscale = (-(sign((position.x - obj_player.position.x - 50))))
+		xscale = (-(sign((position.x - obj_player.position.x))))
 		momentum = ((-xscale) * (movespeed + 4))
 	velocity.x = ((xscale * movespeed) + momentum)
 	if (momentum > 0):

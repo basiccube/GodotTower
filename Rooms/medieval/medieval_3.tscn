@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_slope.tscn" type="PackedScene" id=2]
@@ -23,6 +23,8 @@
 [ext_resource path="res://Objects/Warps/obj_boxofpizza.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Objects/Warps/obj_keydoor.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Objects/Blocks/obj_minipillar.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Objects/Collectibles/obj_escapecollect.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Objects/Baddies/obj_escapeenemy.tscn" type="PackedScene" id=25]
 
 [node name="medieval_3" type="Node2D"]
 
@@ -209,7 +211,6 @@ scale = Vector2( 2, 1 )
 [node name="obj_ladder" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1184, 384 )
 scale = Vector2( 1, 9 )
-z_index = -2
 
 [node name="obj_collect" parent="." instance=ExtResource( 16 )]
 position = Vector2( 928, 896 )
@@ -255,6 +256,15 @@ position = Vector2( 1088, 544 )
 
 [node name="obj_collect15" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1056, 608 )
+
+[node name="obj_collect16" parent="." instance=ExtResource( 16 )]
+position = Vector2( 544, 544 )
+
+[node name="obj_collect17" parent="." instance=ExtResource( 16 )]
+position = Vector2( 512, 544 )
+
+[node name="obj_collect18" parent="." instance=ExtResource( 16 )]
+position = Vector2( 576, 544 )
 
 [node name="obj_pizzabox" parent="." instance=ExtResource( 11 )]
 position = Vector2( 2592, 160 )
@@ -335,3 +345,19 @@ z_index = 1
 [node name="obj_minipillar5" parent="." instance=ExtResource( 23 )]
 position = Vector2( 1216, 608 )
 z_index = 1
+
+[node name="obj_escapecollect" parent="." instance=ExtResource( 24 )]
+position = Vector2( 1216, 320 )
+
+[node name="obj_escapecollect2" parent="." instance=ExtResource( 24 )]
+position = Vector2( 1216, 352 )
+
+[node name="obj_escapecollect3" parent="." instance=ExtResource( 24 )]
+position = Vector2( 1248, 320 )
+
+[node name="obj_escapecollect4" parent="." instance=ExtResource( 24 )]
+position = Vector2( 1248, 352 )
+
+[node name="obj_escapeenemy" parent="." instance=ExtResource( 25 )]
+position = Vector2( 592, 896 )
+content = ExtResource( 20 )

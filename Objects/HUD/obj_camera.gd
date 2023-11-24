@@ -180,10 +180,10 @@ func _process(delta):
 			$Key.visible = false
 			$Key.playing = false
 		# Heat meter code
+		if ($HeatMeter.animation == "empty"):
+			$HeatMeter.playing = false
+			$HeatMeter.visible = false
 		if (global.combo <= 0 && global.combotime <= 0):
-			if ($HeatMeter.animation == "empty"):
-				$HeatMeter.playing = false
-				$HeatMeter.visible = false
 			if ($HeatMeter.frame == $HeatMeter.frames.get_frame_count($HeatMeter.animation) - 1):
 				$HeatMeter.animation = "empty"
 			if ($HeatMeter.animation == "mild"):
@@ -218,7 +218,7 @@ func _process(delta):
 func _on_dedtimer_timeout():
 	var obj_player = utils.get_player()
 	if (global.panic && !utils.instance_exists("obj_pizzaface")):
-		utils.instance_create(obj_player.position.x + 50, obj_player.position.y + 50, "res://Objects/Misc/obj_pizzaface.tscn")
+		utils.instance_create(obj_player.position.x, obj_player.position.y, "res://Objects/Misc/obj_pizzaface.tscn")
 		utils.playsound("Pizzaface")
 
 func _on_panictimer_timeout():

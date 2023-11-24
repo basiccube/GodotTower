@@ -52,7 +52,7 @@ func _process(delta):
 			global.roomtorestart = ""
 			global.leveltorestart = ""
 	var obj_camera = utils.get_instance("obj_camera")
-	position.x = obj_camera.position.x - 432
+	position.x = obj_camera.position.x - 480
 	position.y = obj_camera.position.y - 270
 	if (pause):
 		$Sprite.frame = selected

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Backgrounds/bg_ruin_0.png" type="Texture" id=2]
@@ -22,7 +22,9 @@
 [ext_resource path="res://Objects/Destructibles/obj_destroyable3.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_pepgoblin.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Objects/Warps/obj_portalend.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Objects/Misc/obj_doorblocked.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Objects/Collectibles/obj_escapecollect.tscn" type="PackedScene" id=25]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 8 )
@@ -136,8 +138,12 @@ position = Vector2( 2336, 288 )
 scale = Vector2( 15, 13 )
 
 [node name="obj_solid9" parent="." instance=ExtResource( 1 )]
-position = Vector2( -192, 96 )
-scale = Vector2( 12, 19 )
+position = Vector2( -192, 544 )
+scale = Vector2( 16, 5 )
+
+[node name="obj_solid10" parent="." instance=ExtResource( 1 )]
+position = Vector2( -64, 288 )
+scale = Vector2( 7, 8 )
 
 [node name="obj_slope" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1888, 512 )
@@ -345,3 +351,20 @@ position = Vector2( 2112, 752 )
 
 [node name="obj_pepgoblin" parent="." instance=ExtResource( 22 )]
 position = Vector2( 544, 752 )
+
+[node name="obj_portalend" parent="." instance=ExtResource( 23 )]
+position = Vector2( 208, 464 )
+targetLevel = "ruin"
+targetRoom = "ruin_11"
+
+[node name="obj_escapecollect" parent="." instance=ExtResource( 25 )]
+position = Vector2( 352, 736 )
+
+[node name="obj_escapecollect2" parent="." instance=ExtResource( 25 )]
+position = Vector2( 384, 736 )
+
+[node name="obj_escapecollect3" parent="." instance=ExtResource( 25 )]
+position = Vector2( 352, 768 )
+
+[node name="obj_escapecollect4" parent="." instance=ExtResource( 25 )]
+position = Vector2( 384, 768 )

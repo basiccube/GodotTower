@@ -40,7 +40,7 @@ func _process(delta):
 		global.states.grabbed:
 			scr_enemy_grabbed()
 	var obj_player = utils.get_player()
-	if (obj_player.position.x > (position.x - 450) && obj_player.position.x < (position.x + 450) && position.y <= (obj_player.position.y + 110) && position.y >= (obj_player.position.y - 110)):
+	if (obj_player.position.x > (position.x - 400) && obj_player.position.x < (position.x + 400) && position.y <= (obj_player.position.y + 60) && position.y >= (obj_player.position.y - 60)):
 		if (state != global.states.idle && obj_player.state == global.states.mach3):
 			state = global.states.idle
 			$Sprite.animation = spr_scared
@@ -52,8 +52,8 @@ func _process(delta):
 		thrown = false
 	if (bombreset > 0):
 		bombreset -= 1
-	if (position.x != (obj_player.position.x + 50) && state != global.states.pizzagoblinthrow && obj_player.state != global.states.tumble && bombreset == 0 && is_on_floor()):
-		if ((obj_player.position.x + 50) > (position.x - 80) && (obj_player.position.x + 50) < (position.x + 80) && position.y <= (obj_player.position.y + 150) && position.y >= (obj_player.position.y - 150)):
+	if (position.x != obj_player.position.x && state != global.states.pizzagoblinthrow && obj_player.state != global.states.tumble && bombreset == 0 && is_on_floor()):
+		if (obj_player.position.x > (position.x - 30) && (obj_player.position.x) < (position.x + 30) && position.y <= (obj_player.position.y + 100) && position.y >= (obj_player.position.y - 100)):
 			if (state == global.states.walk):
 				$Sprite.animation = "kick"
 				xscale = (-(sign(position.x - obj_player.position.x)))

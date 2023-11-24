@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Backgrounds/bg_medieval1_0.png" type="Texture" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Objects/Baddies/Enemies/obj_cheeseslime.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Objects/Collectibles/obj_escapecollect.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Objects/Baddies/obj_escapeenemy.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=30]
 
@@ -449,3 +450,15 @@ position = Vector2( 1792, 576 )
 
 [node name="obj_escapecollect13" parent="." instance=ExtResource( 21 )]
 position = Vector2( 1760, 608 )
+
+[node name="obj_escapeenemy" parent="." instance=ExtResource( 22 )]
+position = Vector2( 1488, 576 )
+content = ExtResource( 20 )
+
+[node name="obj_escapeenemy2" parent="." instance=ExtResource( 22 )]
+position = Vector2( 1712, 576 )
+content = ExtResource( 19 )
+
+[node name="obj_escapeenemy3" parent="." instance=ExtResource( 22 )]
+position = Vector2( 2560, 576 )
+content = ExtResource( 19 )

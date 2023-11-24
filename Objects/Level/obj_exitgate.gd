@@ -22,6 +22,7 @@ func _process(delta):
 				if (i.timer.is_stopped()):
 					i.timer.start()
 			obj_player.state = global.states.door
+			obj_player.velocity.x = 0
 			obj_player.set_animation("lookdoor")
 			global.panic = false
 			global.timeattack = false

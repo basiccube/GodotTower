@@ -16,6 +16,7 @@ func _on_obj_superspring_body_entered(body):
 			obj_player.set_animation("superjump")
 			obj_player.state = global.states.Sjump
 			obj_player.velocity.y = -10
+			obj_player.velocity.x = 0
 			$Sprite.frame = 0
 			$Sprite.speed_scale = 0.35
 			obj_player.get_node("SuperJumpRelease").play()

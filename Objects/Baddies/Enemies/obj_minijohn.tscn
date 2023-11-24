@@ -50,12 +50,18 @@ animation = "charge"
 [node name="WallCheck" parent="." index="3"]
 position = Vector2( 0, 16 )
 
-[node name="OppositeWallCheck" parent="." index="4"]
+[node name="WallCheck2" parent="." index="4"]
+position = Vector2( 0, 32 )
+
+[node name="WallCheck3" parent="." index="5"]
+position = Vector2( 0, 0 )
+
+[node name="OppositeWallCheck" parent="." index="6"]
 position = Vector2( 0, 16 )
 
-[node name="PlatformCheck" parent="." index="5"]
+[node name="PlatformCheck" parent="." index="7"]
 cast_to = Vector2( 0, 32 )
 
-[node name="Collision" parent="." index="9"]
+[node name="Collision" parent="." index="11"]
 position = Vector2( 0, 23 )
 shape = SubResource( 8 )

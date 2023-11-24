@@ -4,15 +4,15 @@ var maxspeed = 1
 
 func _ready():
 	modulate.a = 0
-	position.x = utils.get_player().position.x + 50
-	position.y = utils.get_player().position.y + 50
+	position.x = utils.get_player().position.x
+	position.y = utils.get_player().position.y
 	$Sprite.playing = true
 	$Sprite.speed_scale = 0.35
 	$AfterImageTimer.start()
 	
 func room_start():
-	position.x = utils.get_player().position.x + 50
-	position.y = utils.get_player().position.y + 50
+	position.x = utils.get_player().position.x
+	position.y = utils.get_player().position.y
 	modulate.a = 0
 	if (global.targetRoom == "rank_room"):
 		destroy()
@@ -21,13 +21,13 @@ func _process(delta):
 	var obj_player = utils.get_player()
 	if (modulate.a >= 1):
 		# This is stupid.
-		if (position.x < obj_player.position.x + 50):
+		if (position.x < obj_player.position.x):
 			position.x += maxspeed
-		if (position.x > obj_player.position.x + 50):
+		if (position.x > obj_player.position.x):
 			position.x -= maxspeed
-		if (position.y < obj_player.position.y + 50):
+		if (position.y < obj_player.position.y):
 			position.y += maxspeed
-		if (position.y > obj_player.position.y + 50):
+		if (position.y > obj_player.position.y):
 			position.y -= maxspeed
 	else:
 		modulate.a += 0.01

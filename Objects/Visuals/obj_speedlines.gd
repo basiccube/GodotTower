@@ -9,8 +9,8 @@ func _ready():
 
 func _process(delta):
 	var obj_player = utils.get_player()
-	position.x = obj_player.position.x + 50
-	position.y = obj_player.position.y + 50
+	position.x = obj_player.position.x
+	position.y = obj_player.position.y
 	scale.x = obj_player.xscale
 	if (obj_player.movespeed <= 7):
 		queue_free()

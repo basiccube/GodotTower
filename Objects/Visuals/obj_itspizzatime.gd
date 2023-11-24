@@ -11,5 +11,5 @@ func _process(delta):
 	if (up <= -100):
 		queue_free()
 	var obj_camera = utils.get_instance("obj_camera")
-	position.x = obj_camera.position.x + 48
+	position.x = obj_camera.position.x
 	position.y = ((obj_camera.position.y - 270) + up)

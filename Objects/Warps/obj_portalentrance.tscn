@@ -1,0 +1,53 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_6.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_10.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_1.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_8.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_7.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_9.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_11.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_4.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_3.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_5.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_0.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_2.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrance_1.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrance_0.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrance_2.png" type="Texture" id=15]
+[ext_resource path="res://Objects/Warps/obj_portalentrance.gd" type="Script" id=16]
+[ext_resource path="res://Objects/Player/peppalette.png" type="Texture" id=17]
+[ext_resource path="res://Shaders/PaletteSwap.gdshader" type="Shader" id=18]
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 18 )
+shader_param/skip_first_row = true
+shader_param/use_palette_alpha = false
+shader_param/current_palette = 0
+shader_param/fps = 0.0
+shader_param/flash = false
+shader_param/palette = ExtResource( 17 )
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 13 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "pizzaportalentrance",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 3 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "pizzaportalentrancestart",
+"speed": 60.0
+} ]
+
+[node name="obj_portalentrance" type="Node2D" groups=["obj_portalentrance"]]
+z_index = 1
+script = ExtResource( 16 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+material = SubResource( 4 )
+frames = SubResource( 1 )
+animation = "pizzaportalentrance"
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]

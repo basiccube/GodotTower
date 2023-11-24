@@ -20,7 +20,7 @@ func _process(delta):
 	$ComboLabel.modulate.a = $TVSprite.modulate.a
 	$ScoreLabel.modulate.a = $TVSprite.modulate.a
 	var obj_camera = utils.get_instance("obj_camera")
-	position.x = obj_camera.global_position.x + 48
+	position.x = obj_camera.global_position.x
 	position.y = obj_camera.global_position.y
 	if (global.combo != 0 && global.combotime != 0):
 		$ComboLabel.visible = true
@@ -51,12 +51,12 @@ func _process(delta):
 		$TVSprite.modulate.a = 0
 	match global.targetRoom:
 		"entrance_1":
-			global.srank = 11500
+			global.srank = 13500
 			global.arank = (global.srank - (global.srank / 4))
 			global.brank = (global.srank - ((global.srank / 4) * 2))
 			global.crank = (global.srank - ((global.srank / 4) * 3))
 		"medieval_1":
-			global.srank = 11000
+			global.srank = 15000
 			global.arank = (global.srank - (global.srank / 4))
 			global.brank = (global.srank - ((global.srank / 4) * 2))
 			global.crank = (global.srank - ((global.srank / 4) * 3))

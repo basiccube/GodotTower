@@ -65,10 +65,12 @@ var instakillmove = 0
 var grabbing = 0
 var toomuchalarm1 = 0
 var toomuchalarm2 = 0
+var flamecloud_buffer = 0
 var bombpeptimer = 100
 var baddiegrabbed = ""
 var attacking = 0
 var inv_frames = 0
+var supercharged = false
 var flash = false
 var hurted = 0
 var box = false
@@ -115,33 +117,15 @@ func _process(delta):
 	position.y += velocity.y
 	velocity.x = clamp(velocity.x, -500, 500)
 	velocity.y = clamp(velocity.y, -50, 50)
-	if xscale == 1:
-		$PeppinoSprite.flip_h = false
-		$SolidCheck.scale.x = 1
-		$SolidCheck2.scale.x = 1
-		$DestructibleArea.scale.x = 1
-		$WallClimbCheck.scale.x = 1
-	elif xscale == -1:
-		$PeppinoSprite.flip_h = true
-		$SolidCheck.scale.x = -1
-		$SolidCheck2.scale.x = -1
-		$DestructibleArea.scale.x = -1
-		$WallClimbCheck.scale.x = -1
-	if ($PeppinoSprite.animation == "finishingblow1" || $PeppinoSprite.animation == "finishingblow2" || $PeppinoSprite.animation == "finishingblow3" || $PeppinoSprite.animation == "finishingblow4" || $PeppinoSprite.animation == "finishingblow5" || $PeppinoSprite.animation == "uppercutfinishingblow"):
-		if (!$PeppinoSprite.flip_h):
-			$PeppinoSprite.position.x = -20
-		elif ($PeppinoSprite.flip_h):
-			$PeppinoSprite.position.x = -80
-		$PeppinoSprite.position.y = 0
-	elif ("knightpep" in $PeppinoSprite.animation):
-		$PeppinoSprite.position.x = -25
-		$PeppinoSprite.position.y = -25
-	elif ($PeppinoSprite.animation == "shotgun_pullout" || $PeppinoSprite.animation == "shotgun"):
-		$PeppinoSprite.position.x = -100
-		$PeppinoSprite.position.y = 0
+	$PeppinoSprite.flip_h = true if xscale == -1 else false
+	$SolidCheck.scale.x = xscale
+	$SolidCheck2.scale.x = xscale
+	$WallClimbCheck.scale.x = xscale
+	$DestructibleArea.scale.x = xscale
+	if "finishingblow" in $PeppinoSprite.animation:
+		$PeppinoSprite.offset.x = 20 * xscale
 	else:
-		$PeppinoSprite.position.x = 0
-		$PeppinoSprite.position.y = 0
+		$PeppinoSprite.offset.x = 0
 	if crouchmask:
 		$CrouchCollision.set_deferred("disabled", false)
 		$PlayerCollision.set_deferred("disabled", true)
@@ -153,7 +137,7 @@ func _process(delta):
 	for destructible in $DestructibleArea.get_overlapping_bodies():
 		if (destructible.is_in_group("obj_destructibles")):
 			if (!destructible.is_in_group("obj_specialdestructibles")):
-				if (state == global.states.mach2 || state == global.states.mach3 || state == global.states.machroll || state == global.states.knightpepslopes || state == global.states.tumble || state == global.states.crouchslide):
+				if (state == global.states.mach2 || state == global.states.mach3 || state == global.states.machroll || state == global.states.knightpepslopes || state == global.states.tumble || state == global.states.crouchslide || state == global.states.faceplant):
 					destructible.destroy()
 					if (state == global.states.mach2):
 						machpunchAnim = 1
@@ -169,12 +153,11 @@ func _process(delta):
 							destructible.destroy()
 						else:
 							state = global.states.shotgun
-							$PeppinoSprite.position.x = -100
 							$PeppinoSprite.animation = "shotgun"
-							utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
-							var bulletid = utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+							utils.instance_create(global_position.x + (xscale * 20), global_position.y + 20, "res://Objects/Misc/obj_shotgunbullet.tscn")
+							var bulletid = utils.instance_create(global_position.x + (xscale * 20), global_position.y + 20, "res://Objects/Misc/obj_shotgunbullet.tscn")
 							bulletid.spdh = 4
-							var bulletid2 = utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+							var bulletid2 = utils.instance_create(global_position.x + (xscale * 20), global_position.y + 20, "res://Objects/Misc/obj_shotgunbullet.tscn")
 							bulletid2.spdh = -4
 							destructible.destroy()
 					if (!destructible.is_in_group("obj_bigdestructibles")):
@@ -186,7 +169,7 @@ func _process(delta):
 					destructible.destroy()
 					hurted = 1
 					velocity.y = -4
-					utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_bombexplosion.tscn")
+					utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_bombexplosion.tscn")
 					$PeppinoSprite.animation = "bombpep_end"
 					bombpeptimer = 0
 		if (destructible.is_in_group("obj_metalblock")):
@@ -216,7 +199,7 @@ func _process(delta):
 				destructible.destroy()
 				hurted = 1
 				velocity.y = -4
-				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_bombexplosion.tscn")
+				utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_bombexplosion.tscn")
 				$PeppinoSprite.animation = "bombpep_end"
 				bombpeptimer = 0
 		if (destructible.is_in_group("obj_metalblock")):
@@ -276,13 +259,13 @@ func _process(delta):
 						if (baddie.stunned < 100):
 							baddie.stunned = 100
 						if Input.is_action_just_pressed("key_jump"):
-							utils.instance_create(global_position.x, (global_position.y + 50), "res://Objects/Visuals/obj_stompeffect.tscn")
+							utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_stompeffect.tscn")
 							stompAnim = 1
 							velocity.y = -14
 							if (state != global.states.grab):
 								$PeppinoSprite.animation = "stompprep"
 						else:
-							utils.instance_create(global_position.x, (global_position.y + 50), "res://Objects/Visuals/obj_stompeffect.tscn")
+							utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_stompeffect.tscn")
 							stompAnim = 1
 							velocity.y = -9
 							if (state != global.states.grab):
@@ -323,14 +306,13 @@ func _process(delta):
 							baddie.state = global.states.grabbed
 						else:
 							state = global.states.shotgun
-							var effectid = utils.instance_create(global_position.x + 50, global_position.y + 50, "res://Objects/Visuals/obj_pistoleffect.tscn")
+							var effectid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_pistoleffect.tscn")
 							effectid.xscale = xscale
-							$PeppinoSprite.position.x = -100
 							$PeppinoSprite.animation = "shotgun"
-							utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
-							var bulletid = utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+							utils.instance_create(global_position.x + (xscale * 20), global_position.y + 20, "res://Objects/Misc/obj_shotgunbullet.tscn")
+							var bulletid = utils.instance_create(global_position.x + (xscale * 20), global_position.y + 20, "res://Objects/Misc/obj_shotgunbullet.tscn")
 							bulletid.spdh = 4
-							var bulletid2 = utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+							var bulletid2 = utils.instance_create(global_position.x + (xscale * 20), global_position.y + 20, "res://Objects/Misc/obj_shotgunbullet.tscn")
 							bulletid2.spdh = -4
 							baddie.destroy()
 							global.hit += 1
@@ -422,7 +404,17 @@ func _process(delta):
 			scr_player_keyget()
 		global.states.shotgun:
 			scr_player_shotgun()
+		global.states.portal:
+			scr_player_portal()
+		global.states.faceplant:
+			scr_player_faceplant()
 	scr_playersounds()
+	if (global.combo >= global.combomilestone && state != global.states.backbreaker):
+		supercharged = true
+		global.combomilestone += 10
+	if (!utils.instance_exists("obj_superchargeeffect") && supercharged):
+		var effectid = utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_superchargeeffect.tscn")
+		effectid.playerid = name
 	if (is_on_floor() && state != global.states.handstandjump):
 		suplexmove = 0
 	if (state != global.states.freefall):
@@ -437,13 +429,14 @@ func _process(delta):
 			anger -= 1
 	if ($PeppinoSprite.animation == "winding" && state != global.states.normal):
 		windingAnim = 0
-	if (global.combotime > 0):
+	if (global.combotime > 0 && !cutscene):
 		global.combotime -= 0.15
 	global.combotime = clamp(global.combotime, 0, 60)
 	if (global.combotime <= 0 && global.combo != 0):
 		global.combotime = 0
 		global.combodropped = true
 		global.combo = 0
+		global.combomilestone = 3
 	if (input_buffer_jump < 8):
 		input_buffer_jump += 1
 	if (input_buffer_secondjump < 8):
@@ -460,7 +453,7 @@ func _process(delta):
 		grabbing = 1
 	else:
 		grabbing = 0
-	if (state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.freefall || state == global.states.tumble || state == global.states.fireass || state == global.states.Sjump || state == global.states.machroll || state == global.states.machfreefall || (state == global.states.superslam && $PeppinoSprite.animation == "piledriver") || state == global.states.knightpep || state == global.states.knightpepattack || state == global.states.knightpepslopes):
+	if (state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.freefall || state == global.states.tumble || state == global.states.fireass || state == global.states.Sjump || state == global.states.machroll || state == global.states.machfreefall || (state == global.states.superslam && $PeppinoSprite.animation == "piledriver") || state == global.states.knightpep || state == global.states.knightpepattack || state == global.states.knightpepslopes || state == global.states.faceplant):
 		instakillmove = 1
 	else:
 		instakillmove = 0
@@ -502,18 +495,18 @@ func _process(delta):
 			crouchmask = true
 	else:
 		crouchmask = true
-	if (state == global.states.gottreasure || $PeppinoSprite.animation == "knightpep_start" || $PeppinoSprite.animation == "knightpep_thunder" || state == global.states.keyget || state == global.states.door || state == global.states.ejected || state == global.states.victory || state == global.states.comingoutdoor || state == global.states.gameover):
+	if (state == global.states.gottreasure || $PeppinoSprite.animation == "knightpep_start" || $PeppinoSprite.animation == "knightpep_thunder" || state == global.states.keyget || state == global.states.door || state == global.states.ejected || state == global.states.victory || state == global.states.comingoutdoor || state == global.states.gameover || state == global.states.portal):
 		cutscene = true
 	else:
 		cutscene = false
 	if (indoor && !utils.instance_exists("obj_uparrow")):
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_uparrow.tscn")
 	if (state == global.states.mach2 && (!utils.instance_exists("obj_speedlines"))):
-		utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_speedlines.tscn")
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_speedlines.tscn")
 
 func _physics_process(delta):
 	var snap_vector = Vector2.ZERO
-	if (!Input.is_action_pressed("key_jump") && (state != global.states.jump && state != global.states.climbwall && state != global.states.Sjump && state != global.states.Sjumpprep && state != global.states.bump && state != global.states.crouchjump && state != global.states.tumble)):
+	if (!Input.is_action_pressed("key_jump") && (state != global.states.jump && state != global.states.ladder && state != global.states.climbwall && state != global.states.Sjump && state != global.states.Sjumpprep && state != global.states.bump && state != global.states.crouchjump && state != global.states.tumble)):
 		for slope in $SlopeArea.get_overlapping_bodies():
 			if (slope.is_in_group("obj_slope")):
 				if (state == global.states.mach2 || state == global.states.mach3 || state == global.states.tumble):
@@ -521,7 +514,7 @@ func _physics_process(delta):
 						velocity.y = 0
 				snap_vector = Vector2.DOWN * 20
 	if state != global.states.titlescreen && state != global.states.gameover:
-		if state != global.states.backbreaker && state != global.states.gottreasure && state != global.states.Sjumpland && state != global.states.ladder && state != global.states.keyget && (state != global.states.door && ($PeppinoSprite.animation != "downpizzabox" && $PeppinoSprite.animation != "uppizzabox")):
+		if state != global.states.backbreaker && state != global.states.finishingblow && state != global.states.portal && state != global.states.gottreasure && state != global.states.Sjumpland && state != global.states.ladder && state != global.states.keyget && (state != global.states.door && ($PeppinoSprite.animation != "downpizzabox" && $PeppinoSprite.animation != "uppizzabox")):
 			if (velocity.y < 30):
 				velocity.y += grav
 		velocity = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, true, 4, 1)
@@ -558,7 +551,7 @@ func is_colliding_with_wall():
 			return true
 		else:
 			return false
-	elif (state == global.states.mach2 || state == global.states.machroll || state == global.states.tumble):
+	elif (state == global.states.mach2 || state == global.states.machroll || state == global.states.tumble || state == global.states.faceplant):
 		if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_metalblock"))) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider() != null && $SolidCheck2.get_collider().is_in_group("obj_solid"))) && !utils.instance_exists("obj_fadeout")):
 			return true
 		else:
@@ -594,7 +587,7 @@ func destroy(collider):
 		if (collider.is_in_group("obj_spike")):
 			$Bombpep2.play()
 			velocity.y = -4
-			utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_bombexplosion.tscn")
+			utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_bombexplosion.tscn")
 			$PeppinoSprite.animation = "bombpep_end"
 			state = global.states.bombpep
 			bombpeptimer = 0
@@ -629,18 +622,18 @@ func destroy(collider):
 			else:
 				global.collect = 0
 			if (global.collect != 0):
-				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
-				utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_pizzaloss.tscn")
+				utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_pizzaloss.tscn")
 		elif (character == "P"):
 			var shotgunid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_sausageman_dead.tscn")
 			shotgunid.sprite_index = load("res://Objects/Collectibles/sprites/shotgun/shotgunback_0.png")
@@ -657,8 +650,12 @@ func scr_dotaunt():
 		tauntstoredsprite = $PeppinoSprite.animation
 		tauntstoredstate = state
 		state = global.states.backbreaker
-		$PeppinoSprite.animation = "taunt"
-		$PeppinoSprite.frame = utils.randi_range(0, $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1)
+		if (supercharged):
+			var rng = utils.randi_range(1, 4)
+			$PeppinoSprite.animation = "supertaunt" + str(rng)
+		else:
+			$PeppinoSprite.animation = "taunt"
+			$PeppinoSprite.frame = utils.randi_range(0, $PeppinoSprite.frames.get_frame_count($PeppinoSprite.animation) - 1)
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_taunteffect.tscn")
 	
 func scr_player_normal():
@@ -832,14 +829,13 @@ func scr_player_normal():
 	if (Input.is_action_just_pressed("key_grab") && character == "P" && shotgunAnim == 1 && Input.is_action_pressed("key_up")):
 		utils.playsound("KillingBlow")
 		state = global.states.shotgun
-		var effectid = utils.instance_create(global_position.x + 50, global_position.y + 50, "res://Objects/Visuals/obj_pistoleffect.tscn")
+		var effectid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_pistoleffect.tscn")
 		effectid.xscale = xscale
-		$PeppinoSprite.position.x = -100
 		$PeppinoSprite.animation = "shotgun"
-		utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
-		var bulletid = utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+		utils.instance_create(global_position.x + (xscale * 20), global_position.y + 20, "res://Objects/Misc/obj_shotgunbullet.tscn")
+		var bulletid = utils.instance_create(global_position.x + (xscale * 20), global_position.y + 20, "res://Objects/Misc/obj_shotgunbullet.tscn")
 		bulletid.spdh = 4
-		var bulletid2 = utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+		var bulletid2 = utils.instance_create(global_position.x + (xscale * 20), global_position.y + 20, "res://Objects/Misc/obj_shotgunbullet.tscn")
 		bulletid2.spdh = -4
 	if (Input.is_action_pressed("key_dash") && !is_on_wall() && !is_colliding_with_wall()):
 		movespeed = 6
@@ -940,15 +936,15 @@ func scr_player_jump():
 			state = global.states.freefallprep
 			$PeppinoSprite.animation = "shotgunjump1"
 			velocity.y = -5
-			var bulletid = utils.instance_create((global_position.x + 50), global_position.y + 110, "res://Objects/Misc/obj_shotgunbullet.tscn")
+			var bulletid = utils.instance_create(global_position.x, global_position.y + 60, "res://Objects/Misc/obj_shotgunbullet.tscn")
 			bulletid.sprite = "shotgunbullet2"
 			bulletid.spdh = -10
 			bulletid.spd = 0
-			var bulletid2 = utils.instance_create((global_position.x + 50), global_position.y + 110, "res://Objects/Misc/obj_shotgunbullet.tscn")
+			var bulletid2 = utils.instance_create(global_position.x, global_position.y + 60, "res://Objects/Misc/obj_shotgunbullet.tscn")
 			bulletid2.sprite = "shotgunbullet2"
 			bulletid2.spdh = -10
 			bulletid2.spd = 5
-			var bulletid3 = utils.instance_create((global_position.x + 50), global_position.y + 110, "res://Objects/Misc/obj_shotgunbullet.tscn")
+			var bulletid3 = utils.instance_create(global_position.x, global_position.y + 60, "res://Objects/Misc/obj_shotgunbullet.tscn")
 			bulletid3.sprite = "shotgunbullet2"
 			bulletid3.spdh = -10
 			bulletid3.spd = -5
@@ -976,14 +972,13 @@ func scr_player_jump():
 	if (Input.is_action_just_pressed("key_grab") && character == "P" && shotgunAnim == 1 && Input.is_action_pressed("key_up")):
 		utils.playsound("KillingBlow")
 		state = global.states.shotgun
-		var effectid = utils.instance_create(global_position.x + 50, global_position.y + 50, "res://Objects/Visuals/obj_pistoleffect.tscn")
+		var effectid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_pistoleffect.tscn")
 		effectid.xscale = xscale
-		$PeppinoSprite.position.x = -100
 		$PeppinoSprite.animation = "shotgun"
-		utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
-		var bulletid = utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+		utils.instance_create(global_position.x + (xscale * 20), global_position.y + 20, "res://Objects/Misc/obj_shotgunbullet.tscn")
+		var bulletid = utils.instance_create(global_position.x + (xscale * 20), global_position.y + 20, "res://Objects/Misc/obj_shotgunbullet.tscn")
 		bulletid.spdh = 4
-		var bulletid2 = utils.instance_create((global_position.x + 50) + (xscale * 20), global_position.y + 70, "res://Objects/Misc/obj_shotgunbullet.tscn")
+		var bulletid2 = utils.instance_create(global_position.x + (xscale * 20), global_position.y + 20, "res://Objects/Misc/obj_shotgunbullet.tscn")
 		bulletid2.spdh = -4
 	if (!Input.is_action_pressed("key_dash") && move != xscale):
 		mach2 = 0
@@ -1002,13 +997,26 @@ func scr_player_backbreaker():
 	else:
 		velocity.x = (xscale * movespeed)
 	landAnim = 0
-	if ($PeppinoSprite.animation == "machfreefall"):
+	if ($PeppinoSprite.animation == "machfreefall" && is_on_floor()):
 		state = global.states.machslide
 		$PeppinoSprite.animation = "crouchslide"
-	if ($PeppinoSprite.animation == "taunt"):
+	if ($PeppinoSprite.animation == "taunt" || $PeppinoSprite.animation == "supertaunt1" || $PeppinoSprite.animation == "supertaunt2" || $PeppinoSprite.animation == "supertaunt3" || $PeppinoSprite.animation == "supertaunt4"):
+		if (supercharged && !utils.instance_exists("obj_tauntaftereffectspawner")):
+			utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_tauntaftereffectspawner.tscn")
+			for i in get_tree().get_nodes_in_group("obj_baddie"):
+				if (i.is_on_floor() && i.screenvisible):
+					i.destroy()
+			for i in get_tree().get_nodes_in_group("obj_camera"):
+				i.shake_mag = 10
+				i.shake_mag_acc = (30 / 30)
+			supercharged = false
 		taunttimer -= 1
 		$PeppinoSprite.speed_scale = 0
 		velocity.y = 0
+	if (is_last_frame() && ($PeppinoSprite.animation == "supertaunt1" || $PeppinoSprite.animation == "supertaunt2" || $PeppinoSprite.animation == "supertaunt3" || $PeppinoSprite.animation == "supertaunt4")):
+		movespeed = tauntstoredmovespeed
+		$PeppinoSprite.animation = tauntstoredsprite
+		state = tauntstoredstate
 	if (taunttimer == 0 && $PeppinoSprite.animation == "taunt"):
 		movespeed = tauntstoredmovespeed
 		$PeppinoSprite.animation = tauntstoredsprite
@@ -1372,6 +1380,18 @@ func scr_player_handstandjump():
 				elif xscale == -1:
 					i.sprite.flip_h = true
 	$PeppinoSprite.speed_scale = 0.35
+	if (Input.is_action_just_pressed("key_grab")):
+		movespeed = 8
+		$PeppinoSprite.animation = "faceplant"
+		$PeppinoSprite.speed_scale = 0.5
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_jumpdust.tscn")
+		for i in get_tree().get_nodes_in_group("obj_jumpdust"):
+			if xscale == 1:
+				i.sprite.flip_h = false
+			elif xscale == -1:
+				i.sprite.flip_h = true
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_crazyrunothereffect.tscn")
+		state = global.states.faceplant
 	
 func scr_player_hurt():
 	if ($PeppinoSprite.animation == "hurtjump"):
@@ -1465,9 +1485,6 @@ func scr_player_mach1():
 				i.sprite.flip_h = false
 			elif xscale == -1:
 				i.sprite.flip_h = true
-	if (Input.is_action_just_pressed("key_grab") && Input.is_action_pressed("key_down")):
-		state = global.states.freefallprep
-		velocity.y = -4
 	if (is_on_floor() && $PeppinoSprite.animation != "mach1" && velocity.y >= 0):
 		$PeppinoSprite.animation = "mach1"
 	if (Input.is_action_just_pressed("key_jump") && is_on_floor()):
@@ -1486,15 +1503,15 @@ func scr_player_mach1():
 			state = global.states.freefallprep
 			$PeppinoSprite.animation = "shotgunjump1"
 			velocity.y = -5
-			var bulletid = utils.instance_create((global_position.x + 50), global_position.y + 110, "res://Objects/Misc/obj_shotgunbullet.tscn")
+			var bulletid = utils.instance_create(global_position.x, global_position.y + 60, "res://Objects/Misc/obj_shotgunbullet.tscn")
 			bulletid.sprite = "shotgunbullet2"
 			bulletid.spdh = -10
 			bulletid.spd = 0
-			var bulletid2 = utils.instance_create((global_position.x + 50), global_position.y + 110, "res://Objects/Misc/obj_shotgunbullet.tscn")
+			var bulletid2 = utils.instance_create(global_position.x, global_position.y + 60, "res://Objects/Misc/obj_shotgunbullet.tscn")
 			bulletid2.sprite = "shotgunbullet2"
 			bulletid2.spdh = -10
 			bulletid2.spd = 5
-			var bulletid3 = utils.instance_create((global_position.x + 50), global_position.y + 110, "res://Objects/Misc/obj_shotgunbullet.tscn")
+			var bulletid3 = utils.instance_create(global_position.x, global_position.y + 60, "res://Objects/Misc/obj_shotgunbullet.tscn")
 			bulletid3.sprite = "shotgunbullet2"
 			bulletid3.spdh = -10
 			bulletid3.spd = -5
@@ -1603,10 +1620,14 @@ func scr_player_mach3():
 		movespeed += 0.1
 		if (!utils.instance_exists("obj_crazyruneffect")):
 			utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_crazyruneffect.tscn")
-			if ($PeppinoSprite.animation == "crazyrun"):
-				utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_flamecloud.tscn")
 	elif (movespeed > 12 && move != xscale):
 		movespeed -= 0.1
+	if ($PeppinoSprite.animation == "crazyrun"):
+		if (flamecloud_buffer > 0):
+			flamecloud_buffer -= 1
+		else:
+			flamecloud_buffer = 10
+			utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_flamecloud.tscn")
 	crouchslideAnim = 1
 	if (!Input.is_action_pressed("key_jump") && jumpstop == 0 && velocity.y < 0.5):
 		velocity.y /= 10
@@ -1681,7 +1702,7 @@ func scr_player_mach3():
 		velocity.x = (-2.5 * xscale)
 		velocity.y = -3
 		mach2 = 0
-		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_bumpeffect.tscn")
+		utils.instance_create(position.x + 10, position.y + 10, "res://Objects/Visuals/obj_bumpeffect.tscn")
 	if (!utils.instance_exists("obj_chargeeffect")):
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_chargeeffect.tscn")
 	if (!utils.instance_exists("obj_superdashcloud") && is_on_floor()):
@@ -2181,11 +2202,6 @@ func scr_player_grab():
 				$PeppinoSprite.animation = "finishingblow5"
 		elif (Input.is_action_pressed("key_up")):
 			$PeppinoSprite.animation = "uppercutfinishingblow"
-		if ($PeppinoSprite.animation == "finishingblow1" || $PeppinoSprite.animation == "finishingblow2" || $PeppinoSprite.animation == "finishingblow3" || $PeppinoSprite.animation == "finishingblow4" || $PeppinoSprite.animation == "finishingblow5" || $PeppinoSprite.animation == "uppercutfinishingblow"):
-			if (!$PeppinoSprite.flip_h):
-				$PeppinoSprite.position.x = -20
-			elif ($PeppinoSprite.flip_h):
-				$PeppinoSprite.position.x = -80
 		velocity.x = 0
 		movespeed = 0
 	if (Input.is_action_pressed("key_down") && !is_on_floor()):
@@ -2224,7 +2240,7 @@ func scr_player_superslam():
 			i.shake_mag_acc = (40 / 30)
 		velocity.x = 0
 		bounce = 0
-		var effectid = utils.instance_create(position.x + 50, position.y + 35, "res://Objects/Visuals/obj_bangeffect.tscn")
+		var effectid = utils.instance_create(position.x, position.y + 35, "res://Objects/Visuals/obj_bangeffect.tscn")
 		effectid.scale.x = xscale
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_landcloud.tscn")
 		freefallstart = 0
@@ -2254,6 +2270,7 @@ func scr_player_superslam():
 	
 func scr_player_finishingblow():
 	velocity.x = (xscale * movespeed)
+	velocity.y = 0
 	if (movespeed > 0):
 		movespeed -= 0.5
 	if (is_last_frame()):
@@ -2261,10 +2278,10 @@ func scr_player_finishingblow():
 	if ($PeppinoSprite.frame == 6 && (!utils.instance_exists("obj_swordhitbox"))):
 		utils.playsound("Punch")
 		utils.playsound("KillingBlow")
-		utils.instance_create((global_position.x + 100), (global_position.y + 50), "res://Objects/Hitboxes/obj_swordhitbox.tscn")
+		utils.instance_create((global_position.x + 50), global_position.y, "res://Objects/Hitboxes/obj_swordhitbox.tscn")
 	if ($PeppinoSprite.frame == 0 && (!utils.instance_exists("obj_swordhitbox")) && $PeppinoSprite.animation == "swingdingend"):
 		utils.playsound("KillingBlow")
-		utils.instance_create((global_position.x + 100), (global_position.y + 50), "res://Objects/Hitboxes/obj_swordhitbox.tscn")
+		utils.instance_create((global_position.x + 50), global_position.y, "res://Objects/Hitboxes/obj_swordhitbox.tscn")
 	$PeppinoSprite.speed_scale = 0.35
 	landAnim = 0
 	
@@ -2445,7 +2462,7 @@ func scr_player_knightpep():
 	else:
 		$PeppinoSprite.speed_scale = 0.35
 	if ($PeppinoSprite.frame == 4 && $PeppinoSprite.animation == "knightpep_start"):
-		utils.instance_create(position.x + 50, position.y - 600, "res://Objects/Visuals/obj_thunder.tscn")
+		utils.instance_create(position.x, position.y - 600, "res://Objects/Visuals/obj_thunder.tscn")
 	if (is_last_frame() && $PeppinoSprite.animation == "knightpep_thunder"):
 		$PeppinoSprite.animation = "knightpep_idle"
 	if (!utils.instance_exists("obj_cloudeffect") && is_on_floor() && move != 0 && ($PeppinoSprite.frame == 4 || $PeppinoSprite.frame == 10)):
@@ -2467,17 +2484,17 @@ func scr_player_knightpepslopes():
 	if ($SlopeCheck.is_colliding() && $SlopeCheck.get_collider() != null && $SlopeCheck.get_collider().is_in_group("obj_slope")):
 		$PeppinoSprite.animation = "knightpep_downslope"
 	if (is_colliding_with_wall()):
-		var debris1 = utils.instance_create(global_position.x + 50, global_position.y + 50, "res://Objects/Visuals/obj_knightdebris.tscn")
+		var debris1 = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_knightdebris.tscn")
 		debris1.sprite.frame = 0
-		var debris2 = utils.instance_create(global_position.x + 50, global_position.y + 50, "res://Objects/Visuals/obj_knightdebris.tscn")
+		var debris2 = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_knightdebris.tscn")
 		debris2.sprite.frame = 1
-		var debris3 = utils.instance_create(global_position.x + 50, global_position.y + 50, "res://Objects/Visuals/obj_knightdebris.tscn")
+		var debris3 = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_knightdebris.tscn")
 		debris3.sprite.frame = 2
-		var debris4 = utils.instance_create(global_position.x + 50, global_position.y + 50, "res://Objects/Visuals/obj_knightdebris.tscn")
+		var debris4 = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_knightdebris.tscn")
 		debris4.sprite.frame = 3
-		var debris5 = utils.instance_create(global_position.x + 50, global_position.y + 50, "res://Objects/Visuals/obj_knightdebris.tscn")
+		var debris5 = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_knightdebris.tscn")
 		debris5.sprite.frame = 4
-		var debris6 = utils.instance_create(global_position.x + 50, global_position.y + 50, "res://Objects/Visuals/obj_knightdebris.tscn")
+		var debris6 = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_knightdebris.tscn")
 		debris6.sprite.frame = 5
 		velocity.x = (5 * xscale)
 		velocity.y = -3
@@ -2526,7 +2543,7 @@ func scr_player_bombpep():
 	if (bombpeptimer <= 0 && $PeppinoSprite.animation == "bombpep_runabouttoexplode"):
 		$Bombpep2.play()
 		hurted = 1
-		utils.instance_create(position.x + 50, position.y + 50, "res://Objects/Visuals/obj_bombexplosion.tscn")
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_bombexplosion.tscn")
 		$PeppinoSprite.animation = "bombpep_end"
 	if (bombpeptimer > 0):
 		bombpeptimer -= 0.5
@@ -2588,6 +2605,53 @@ func scr_player_shotgun():
 	$PeppinoSprite.speed_scale = 0.4
 	if (!utils.instance_exists("obj_slidecloud") && is_on_floor() && movespeed > 4):
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_slidecloud.tscn")
+		
+func scr_player_portal():
+	if (is_last_frame() && $PeppinoSprite.animation == "pizzaportalentrancestart"):
+		visible = true
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_pizzaportalfade.tscn")
+		state = global.states.freefall
+		grav = 0.5
+	mach2 = 0
+	
+func scr_player_faceplant():
+	velocity.x = (xscale * movespeed)
+	var move = ((-int(Input.is_action_pressed("key_left"))) + int(Input.is_action_pressed("key_right")))
+	if (movespeed < 12 && is_on_floor()):
+		movespeed += 0.5
+	if (is_colliding_with_wall()):
+		$PeppinoSprite.animation = "hitwall"
+		$Groundpound.play()
+		$Bump.play()
+		for i in get_tree().get_nodes_in_group("obj_camera"):
+			i.shake_mag = 20
+			i.shake_mag_acc = (40 / 20)
+		velocity.x = 0
+		$PeppinoSprite.speed_scale = 0.35
+		for i in get_tree().get_nodes_in_group("obj_baddie"):
+			if (i.screenvisible):
+				i.stun = true
+				i.ministun = false
+				i.velocity.y = -5
+				i.velocity.x = 0
+		flash = false
+		state = global.states.bump
+		velocity.x = (-2.5 * xscale)
+		velocity.y = -3
+		mach2 = 0
+		utils.instance_create(position.x + 10, position.y + 10, "res://Objects/Visuals/obj_bumpeffect.tscn")
+	if (is_last_frame() && !Input.is_action_pressed("key_dash")):
+		state = global.states.normal
+	elif (is_last_frame() && Input.is_action_pressed("key_dash")):
+		$PeppinoSprite.speed_scale = 0.35
+		state = global.states.mach2
+	if (!utils.instance_exists("obj_dashcloud2") && is_on_floor() && movespeed > 5):
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_dashcloud2.tscn")
+		for i in get_tree().get_nodes_in_group("obj_dashcloud2"):
+			if xscale == 1:
+				i.sprite.flip_h = false
+			elif xscale == -1:
+				i.sprite.flip_h = true
 	
 func scr_playerreset():
 	if (utils.instance_exists("obj_endlevelfade")):
@@ -2609,6 +2673,7 @@ func scr_playerreset():
 			i.destroy()
 	global.seconds = 59
 	global.minutes = 1
+	global.laps = 0
 	global.taminutes = 0
 	global.taseconds = 0
 	global.timeattack = false
@@ -2618,8 +2683,10 @@ func scr_playerreset():
 	targetRoom = ""
 	indoor = false
 	box = false
+	supercharged = false
 	global.saveroom.clear()
 	global.baddieroom.clear()
+	global.escaperoom.clear()
 	$WhiteFlashTimer.stop()
 	$FlashEffectOffTimer.stop()
 	$FlashEffectOnTimer.stop()
@@ -2669,6 +2736,7 @@ func scr_playerreset():
 	global.combo = 0
 	global.combotime = 0
 	global.combodropped = false
+	global.combomilestone = 10
 	backupweapon = false
 	global.hit = 0
 	bounce = 0
@@ -2683,6 +2751,7 @@ func scr_playerreset():
 	ladderbuffer = 0
 	toomuchalarm1 = 0
 	toomuchalarm2 = 0
+	flamecloud_buffer = 0
 	idleanim = 0
 	momemtum = 0
 	cutscene = false

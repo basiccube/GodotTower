@@ -50,7 +50,7 @@ func _process(delta):
 	var obj_player = utils.get_player()
 	if (state == global.states.walk || state == global.states.idle):
 		movespeed = 7
-		xscale = (-(sign((position.x - obj_player.position.x - 50))))
+		xscale = (-(sign((position.x - obj_player.position.x))))
 		momentum = ((-xscale) * (movespeed + 4))
 		state = global.states.chase
 	if (!hitboxcreate && state == global.states.chase):

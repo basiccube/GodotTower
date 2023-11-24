@@ -23,6 +23,7 @@ var room_arr = [
 	["ruin_1", "mu_ruin", "mu_ruinsecret", false],
 	["ruin_6", "mu_ruin", "mu_ruinsecret", true],
 	["ruin_7", "mu_ruinremix", "mu_ruinsecret", true],
+	["boss_pepperman_chase", "mu_chase", "mu_medievalsecret", false],
 	["trickytreat_1", "mu_hub", "mu_medievalsecret", false],
 	["trickytreat_2", "mu_trickytreat", "mu_medievalsecret", false],
 	["testroom_1", "mu_medieval", "mu_medievalsecret", false]
@@ -76,8 +77,13 @@ func _process(delta):
 			$music.stream_paused = false
 		$secretmusic.stop()
 	if (global.panic):
-		if (music != "mu_pizzatime"):
+		if (global.laps == 0 && music != "mu_pizzatime"):
 			music = "mu_pizzatime"
+			var newmusic = load("res://Music/" + music + ".ogg")
+			$music.stream = newmusic
+			$music.play()
+		elif (global.laps == 1 && music != "mu_lap"):
+			music = "mu_lap"
 			var newmusic = load("res://Music/" + music + ".ogg")
 			$music.stream = newmusic
 			$music.play()

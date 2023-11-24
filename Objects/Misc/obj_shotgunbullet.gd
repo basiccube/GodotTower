@@ -11,6 +11,7 @@ func _ready():
 	scale.x = obj_player.xscale
 	
 func destroy():
+	utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_cloudeffect.tscn")
 	queue_free()
 
 func _process(delta):

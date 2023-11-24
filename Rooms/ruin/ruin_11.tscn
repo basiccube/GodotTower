@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Backgrounds/bg_ruinstatue2_0.png" type="Texture" id=1]
 [ext_resource path="res://Backgrounds/bg_ruincloud_0.png" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Objects/Blocks/obj_destructibleplatform.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Objects/Level/obj_pizzagoblinbomb.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Objects/Baddies/obj_baddiespawner.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Objects/Warps/obj_portalentrance.tscn" type="PackedScene" id=24]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 8 )
@@ -223,7 +224,6 @@ position = Vector2( 736, 256 )
 [node name="obj_ladder" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1056, 224 )
 scale = Vector2( 1, 12 )
-z_index = -2
 
 [node name="obj_metalblock" parent="." instance=ExtResource( 17 )]
 position = Vector2( 960, 544 )
@@ -580,3 +580,6 @@ position = Vector2( 1856, 672 )
 position = Vector2( 320, 192 )
 scale = Vector2( -1, 1 )
 content = ExtResource( 22 )
+
+[node name="obj_portalentrance" parent="." instance=ExtResource( 24 )]
+position = Vector2( 736, 448 )

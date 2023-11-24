@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Backgrounds/bg_ruinarchitecture1_0.png" type="Texture" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_pizzagoblin.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Objects/Misc/sprites/rollsign.png" type="Texture" id=25]
+[ext_resource path="res://Objects/Collectibles/obj_escapecollect.tscn" type="PackedScene" id=26]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 8 )
@@ -226,7 +227,6 @@ position = Vector2( 352, 448 )
 [node name="obj_ladder" parent="." instance=ExtResource( 18 )]
 position = Vector2( 1888, 160 )
 scale = Vector2( 1, 7 )
-z_index = -2
 
 [node name="obj_pizzabox" parent="." instance=ExtResource( 19 )]
 position = Vector2( 1472, 320 )
@@ -339,3 +339,15 @@ position = Vector2( 1136, 336 )
 
 [node name="obj_pizzagoblin3" parent="." instance=ExtResource( 24 )]
 position = Vector2( 1472, 432 )
+
+[node name="obj_escapecollect" parent="." instance=ExtResource( 26 )]
+position = Vector2( 1504, 256 )
+
+[node name="obj_escapecollect2" parent="." instance=ExtResource( 26 )]
+position = Vector2( 1536, 256 )
+
+[node name="obj_escapecollect3" parent="." instance=ExtResource( 26 )]
+position = Vector2( 1504, 288 )
+
+[node name="obj_escapecollect4" parent="." instance=ExtResource( 26 )]
+position = Vector2( 1536, 288 )

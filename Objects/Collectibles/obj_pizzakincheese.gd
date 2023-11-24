@@ -33,8 +33,8 @@ func _process(delta):
 			followQueue.push_front(utils.get_instance_level("obj_pizzakinshroom").position.x + (scale.x * 4))
 			followQueue.push_front(utils.get_instance_level("obj_pizzakinshroom").position.y - 2)
 		else:
-			followQueue.push_front(obj_player.position.x + 50)
-			followQueue.push_front(obj_player.position.y + 62)
+			followQueue.push_front(obj_player.position.x)
+			followQueue.push_front(obj_player.position.y + 12)
 		lag_steps = 10
 		if (followQueue.size() > lag_steps * 2):
 			position.x = (followQueue.pop_back() - (scale.x * 4))

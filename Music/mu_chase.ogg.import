@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mu_chase.ogg-02c757aeb28b2b353c16de4b9141b46b.oggstr"
+
+[deps]
+
+source_file="res://Music/mu_chase.ogg"
+dest_files=[ "res://.import/mu_chase.ogg-02c757aeb28b2b353c16de4b9141b46b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

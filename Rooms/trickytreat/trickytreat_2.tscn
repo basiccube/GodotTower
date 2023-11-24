@@ -260,43 +260,49 @@ position = Vector2( 3440, 1680 )
 position = Vector2( 1600, 640 )
 frames = SubResource( 3 )
 animation = "green"
+frame = 5
 playing = true
 
 [node name="Arrow3" type="AnimatedSprite" parent="."]
 position = Vector2( 1344, 1280 )
 frames = SubResource( 3 )
 animation = "green"
+frame = 5
 playing = true
 
 [node name="Arrow4" type="AnimatedSprite" parent="."]
 position = Vector2( 2816, 1280 )
 frames = SubResource( 3 )
 animation = "green"
+frame = 5
 playing = true
 
 [node name="Arrow5" type="AnimatedSprite" parent="."]
 position = Vector2( 3392, 1088 )
 frames = SubResource( 3 )
 animation = "green"
+frame = 5
 playing = true
 
 [node name="Arrow6" type="AnimatedSprite" parent="."]
 position = Vector2( 3072, 2080 )
 frames = SubResource( 3 )
 animation = "green"
+frame = 5
 playing = true
 
 [node name="Arrow7" type="AnimatedSprite" parent="."]
 position = Vector2( 2560, 1952 )
 frames = SubResource( 3 )
 animation = "green"
+frame = 5
 playing = true
 
 [node name="Arrow8" type="AnimatedSprite" parent="."]
 position = Vector2( 2752, 1600 )
 frames = SubResource( 3 )
 animation = "blue"
-frame = 4
+frame = 3
 playing = true
 flip_h = true
 
@@ -304,6 +310,6 @@ flip_h = true
 position = Vector2( 2368, 1952 )
 frames = SubResource( 3 )
 animation = "blue"
-frame = 4
+frame = 3
 playing = true
 flip_h = true

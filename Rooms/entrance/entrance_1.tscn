@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Objects/Baddies/Enemies/obj_minijohn.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Objects/Collectibles/obj_escapecollect.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Objects/Baddies/obj_escapeenemy.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Objects/Destructibles/obj_secretbigblock.tscn" type="PackedScene" id=22]
 
 [node name="entrance_1" type="Node2D"]
 
@@ -41,7 +42,7 @@ scale = Vector2( 109, 3 )
 
 [node name="obj_solid2" parent="." instance=ExtResource( 1 )]
 position = Vector2( -288, 0 )
-scale = Vector2( 14, 14 )
+scale = Vector2( 14, 12 )
 
 [node name="obj_solid3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 2528, 64 )
@@ -211,3 +212,19 @@ position = Vector2( 2304, 384 )
 [node name="obj_escapeenemy" parent="." instance=ExtResource( 20 )]
 position = Vector2( 1920, 400 )
 content = ExtResource( 18 )
+
+[node name="obj_secretbigblock" parent="." instance=ExtResource( 22 )]
+position = Vector2( 96, 384 )
+
+[node name="obj_secretbigblock2" parent="." instance=ExtResource( 22 )]
+position = Vector2( 32, 384 )
+
+[node name="obj_secretbigblock3" parent="." instance=ExtResource( 22 )]
+position = Vector2( -32, 384 )
+
+[node name="obj_hallway2" parent="." instance=ExtResource( 17 )]
+position = Vector2( -64, 384 )
+scale = Vector2( -2, 1 )
+targetDoor = "C"
+targetLevel = "entrance"
+targetRoom = "entrance_lap"

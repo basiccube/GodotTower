@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_slope.tscn" type="PackedScene" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Objects/Baddies/Enemies/obj_cheeseslime.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_pepgoblin.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Objects/Collectibles/obj_escapecollect.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Objects/Baddies/obj_escapeenemy.tscn" type="PackedScene" id=26]
 
 [node name="medieval_3" type="Node2D"]
 
@@ -192,7 +193,6 @@ position = Vector2( 1808, 112 )
 [node name="obj_ladder" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1664, 256 )
 scale = Vector2( 1, 9 )
-z_index = -2
 
 [node name="obj_minipillar" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1376, 192 )
@@ -307,3 +307,11 @@ position = Vector2( 1664, 384 )
 
 [node name="obj_escapecollect3" parent="." instance=ExtResource( 25 )]
 position = Vector2( 1664, 416 )
+
+[node name="obj_escapeenemy" parent="." instance=ExtResource( 26 )]
+position = Vector2( 448, 496 )
+content = ExtResource( 24 )
+
+[node name="obj_escapeenemy2" parent="." instance=ExtResource( 26 )]
+position = Vector2( 1488, 496 )
+content = ExtResource( 24 )

@@ -95,7 +95,6 @@ scale = Vector2( 10, 1 )
 [node name="obj_ladder" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1280, 192 )
 scale = Vector2( 1, 8 )
-z_index = -2
 
 [node name="obj_hallway" parent="." instance=ExtResource( 2 )]
 position = Vector2( -32, 352 )
@@ -187,6 +186,15 @@ position = Vector2( 2272, 160 )
 
 [node name="obj_collect8" parent="." instance=ExtResource( 13 )]
 position = Vector2( 2208, 128 )
+
+[node name="obj_collect9" parent="." instance=ExtResource( 13 )]
+position = Vector2( 2368, 384 )
+
+[node name="obj_collect10" parent="." instance=ExtResource( 13 )]
+position = Vector2( 2432, 384 )
+
+[node name="obj_collect11" parent="." instance=ExtResource( 13 )]
+position = Vector2( 2304, 384 )
 
 [node name="obj_door" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1952, 96 )

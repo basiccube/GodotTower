@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Objects/Level/obj_hungrypillar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Backgrounds/bg_medievaltreasure1_0.png" type="Texture" id=12]
 [ext_resource path="res://Objects/Collectibles/obj_escapecollect.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Objects/Baddies/obj_escapeenemy.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Objects/Warps/obj_portalentrance.tscn" type="PackedScene" id=15]
 
 [node name="medieval_3" type="Node2D"]
 
@@ -168,3 +169,6 @@ position = Vector2( 832, 448 )
 position = Vector2( 1280, 272 )
 content = ExtResource( 11 )
 xscale = -1
+
+[node name="obj_portalentrance" parent="." instance=ExtResource( 15 )]
+position = Vector2( 544, 448 )

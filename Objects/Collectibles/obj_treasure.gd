@@ -12,8 +12,6 @@ func _ready():
 func _process(delta):
 	if ($Sprite.animation == spr_got && utils.get_player().state != global.states.gottreasure):
 		destroy()
-	if ($Sprite.animation == spr_got):
-		global.combotime = 60
 	if ($Sprite.animation != spr_got):
 		$Sprite.animation = spr_idle
 
@@ -32,8 +30,8 @@ func _on_obj_treasure_body_entered(body):
 			obj_player.state = global.states.gottreasure
 			utils.playsound("SecretFound")
 		$Sprite.animation = spr_got
-		position.x = obj_player.position.x
-		position.y = obj_player.position.y - 35
+		position.x = obj_player.position.x - 48
+		position.y = obj_player.position.y - 95
 		for obj in get_tree().get_nodes_in_group("obj_tv"):
 			obj.message = "YOU GOT A TOWER SECRET TREASURE!!!"
 			obj.showtext = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=1641 format=2]
+[gd_scene load_steps=1719 format=2]
 
 [ext_resource path="res://Objects/Player/sprites/idle_4.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/sprites/idle_0.png" type="Texture" id=2]
@@ -1631,6 +1631,84 @@
 [ext_resource path="res://Objects/Player/sprites/fireassground_1.png" type="Texture" id=1629]
 [ext_resource path="res://Objects/Player/sprites/fireassend_1.png" type="Texture" id=1630]
 [ext_resource path="res://Sounds/sfx_fireassend.ogg" type="AudioStream" id=1631]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_9.png" type="Texture" id=1632]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_6.png" type="Texture" id=1633]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_11.png" type="Texture" id=1634]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_0.png" type="Texture" id=1635]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_10.png" type="Texture" id=1636]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_3.png" type="Texture" id=1637]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_4.png" type="Texture" id=1638]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_8.png" type="Texture" id=1639]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_7.png" type="Texture" id=1640]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_5.png" type="Texture" id=1641]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_1.png" type="Texture" id=1642]
+[ext_resource path="res://Objects/Warps/sprites/pizzaportalentrancestart_2.png" type="Texture" id=1643]
+[ext_resource path="res://Objects/Player/sprites/supertaunt1_2.png" type="Texture" id=1644]
+[ext_resource path="res://Objects/Player/sprites/supertaunt1_1.png" type="Texture" id=1645]
+[ext_resource path="res://Objects/Player/sprites/supertaunt1_0.png" type="Texture" id=1646]
+[ext_resource path="res://Objects/Player/sprites/supertaunt1_3.png" type="Texture" id=1647]
+[ext_resource path="res://Objects/Player/sprites/supertaunt1_4.png" type="Texture" id=1648]
+[ext_resource path="res://Objects/Player/sprites/supertaunt1_5.png" type="Texture" id=1649]
+[ext_resource path="res://Objects/Player/sprites/supertaunt1_6.png" type="Texture" id=1650]
+[ext_resource path="res://Objects/Player/sprites/supertaunt1_8.png" type="Texture" id=1651]
+[ext_resource path="res://Objects/Player/sprites/supertaunt1_9.png" type="Texture" id=1652]
+[ext_resource path="res://Objects/Player/sprites/supertaunt1_10.png" type="Texture" id=1653]
+[ext_resource path="res://Objects/Player/sprites/supertaunt1_7.png" type="Texture" id=1654]
+[ext_resource path="res://Objects/Player/sprites/supertaunt2_0.png" type="Texture" id=1655]
+[ext_resource path="res://Objects/Player/sprites/supertaunt2_3.png" type="Texture" id=1656]
+[ext_resource path="res://Objects/Player/sprites/supertaunt2_2.png" type="Texture" id=1657]
+[ext_resource path="res://Objects/Player/sprites/supertaunt2_1.png" type="Texture" id=1658]
+[ext_resource path="res://Objects/Player/sprites/supertaunt2_6.png" type="Texture" id=1659]
+[ext_resource path="res://Objects/Player/sprites/supertaunt2_7.png" type="Texture" id=1660]
+[ext_resource path="res://Objects/Player/sprites/supertaunt2_8.png" type="Texture" id=1661]
+[ext_resource path="res://Objects/Player/sprites/supertaunt2_10.png" type="Texture" id=1662]
+[ext_resource path="res://Objects/Player/sprites/supertaunt2_9.png" type="Texture" id=1663]
+[ext_resource path="res://Objects/Player/sprites/supertaunt2_4.png" type="Texture" id=1664]
+[ext_resource path="res://Objects/Player/sprites/supertaunt2_5.png" type="Texture" id=1665]
+[ext_resource path="res://Objects/Player/sprites/supertaunt4_9.png" type="Texture" id=1666]
+[ext_resource path="res://Objects/Player/sprites/supertaunt4_10.png" type="Texture" id=1667]
+[ext_resource path="res://Objects/Player/sprites/supertaunt3_9.png" type="Texture" id=1668]
+[ext_resource path="res://Objects/Player/sprites/supertaunt3_8.png" type="Texture" id=1669]
+[ext_resource path="res://Objects/Player/sprites/supertaunt4_0.png" type="Texture" id=1670]
+[ext_resource path="res://Objects/Player/sprites/supertaunt4_1.png" type="Texture" id=1671]
+[ext_resource path="res://Objects/Player/sprites/supertaunt3_10.png" type="Texture" id=1672]
+[ext_resource path="res://Objects/Player/sprites/supertaunt4_2.png" type="Texture" id=1673]
+[ext_resource path="res://Objects/Player/sprites/supertaunt4_5.png" type="Texture" id=1674]
+[ext_resource path="res://Objects/Player/sprites/supertaunt4_3.png" type="Texture" id=1675]
+[ext_resource path="res://Objects/Player/sprites/supertaunt4_6.png" type="Texture" id=1676]
+[ext_resource path="res://Objects/Player/sprites/supertaunt4_7.png" type="Texture" id=1677]
+[ext_resource path="res://Objects/Player/sprites/supertaunt4_8.png" type="Texture" id=1678]
+[ext_resource path="res://Objects/Player/sprites/supertaunt4_4.png" type="Texture" id=1679]
+[ext_resource path="res://Objects/Player/sprites/supertaunt3_1.png" type="Texture" id=1680]
+[ext_resource path="res://Objects/Player/sprites/supertaunt3_2.png" type="Texture" id=1681]
+[ext_resource path="res://Objects/Player/sprites/supertaunt3_0.png" type="Texture" id=1682]
+[ext_resource path="res://Objects/Player/sprites/supertaunt3_3.png" type="Texture" id=1683]
+[ext_resource path="res://Objects/Player/sprites/supertaunt3_5.png" type="Texture" id=1684]
+[ext_resource path="res://Objects/Player/sprites/supertaunt3_4.png" type="Texture" id=1685]
+[ext_resource path="res://Objects/Player/sprites/supertaunt3_6.png" type="Texture" id=1686]
+[ext_resource path="res://Objects/Player/sprites/supertaunt3_7.png" type="Texture" id=1687]
+[ext_resource path="res://Objects/Player/sprites/faceplant_1.png" type="Texture" id=1688]
+[ext_resource path="res://Objects/Player/sprites/faceplant_17.png" type="Texture" id=1689]
+[ext_resource path="res://Objects/Player/sprites/faceplant_4.png" type="Texture" id=1690]
+[ext_resource path="res://Objects/Player/sprites/faceplant_18.png" type="Texture" id=1691]
+[ext_resource path="res://Objects/Player/sprites/faceplant_6.png" type="Texture" id=1692]
+[ext_resource path="res://Objects/Player/sprites/faceplant_0.png" type="Texture" id=1693]
+[ext_resource path="res://Objects/Player/sprites/faceplant_7.png" type="Texture" id=1694]
+[ext_resource path="res://Objects/Player/sprites/faceplant_15.png" type="Texture" id=1695]
+[ext_resource path="res://Objects/Player/sprites/faceplant_21.png" type="Texture" id=1696]
+[ext_resource path="res://Objects/Player/sprites/faceplant_11.png" type="Texture" id=1697]
+[ext_resource path="res://Objects/Player/sprites/faceplant_2.png" type="Texture" id=1698]
+[ext_resource path="res://Objects/Player/sprites/faceplant_10.png" type="Texture" id=1699]
+[ext_resource path="res://Objects/Player/sprites/faceplant_14.png" type="Texture" id=1700]
+[ext_resource path="res://Objects/Player/sprites/faceplant_16.png" type="Texture" id=1701]
+[ext_resource path="res://Objects/Player/sprites/faceplant_12.png" type="Texture" id=1702]
+[ext_resource path="res://Objects/Player/sprites/faceplant_5.png" type="Texture" id=1703]
+[ext_resource path="res://Objects/Player/sprites/faceplant_13.png" type="Texture" id=1704]
+[ext_resource path="res://Objects/Player/sprites/faceplant_19.png" type="Texture" id=1705]
+[ext_resource path="res://Objects/Player/sprites/faceplant_20.png" type="Texture" id=1706]
+[ext_resource path="res://Objects/Player/sprites/faceplant_3.png" type="Texture" id=1707]
+[ext_resource path="res://Objects/Player/sprites/faceplant_9.png" type="Texture" id=1708]
+[ext_resource path="res://Objects/Player/sprites/faceplant_8.png" type="Texture" id=1709]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 1204 )
@@ -1781,6 +1859,11 @@ animations = [ {
 "frames": [ ExtResource( 285 ), ExtResource( 281 ), ExtResource( 282 ), ExtResource( 283 ), ExtResource( 284 ) ],
 "loop": true,
 "name": "facehurtup",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1693 ), ExtResource( 1688 ), ExtResource( 1698 ), ExtResource( 1707 ), ExtResource( 1690 ), ExtResource( 1703 ), ExtResource( 1692 ), ExtResource( 1694 ), ExtResource( 1709 ), ExtResource( 1708 ), ExtResource( 1699 ), ExtResource( 1697 ), ExtResource( 1702 ), ExtResource( 1704 ), ExtResource( 1700 ), ExtResource( 1695 ), ExtResource( 1701 ), ExtResource( 1689 ), ExtResource( 1691 ), ExtResource( 1705 ), ExtResource( 1706 ), ExtResource( 1696 ) ],
+"loop": true,
+"name": "faceplant",
 "speed": 60.0
 }, {
 "frames": [ ExtResource( 370 ), ExtResource( 371 ), ExtResource( 372 ) ],
@@ -2153,6 +2236,11 @@ animations = [ {
 "name": "piledriverland",
 "speed": 60.0
 }, {
+"frames": [ ExtResource( 1635 ), ExtResource( 1642 ), ExtResource( 1643 ), ExtResource( 1637 ), ExtResource( 1638 ), ExtResource( 1641 ), ExtResource( 1633 ), ExtResource( 1640 ), ExtResource( 1639 ), ExtResource( 1632 ), ExtResource( 1636 ), ExtResource( 1634 ) ],
+"loop": true,
+"name": "pizzaportalentrancestart",
+"speed": 60.0
+}, {
 "frames": [ ExtResource( 1129 ), ExtResource( 1130 ), ExtResource( 1133 ), ExtResource( 1134 ), ExtResource( 1128 ), ExtResource( 1132 ), ExtResource( 1135 ), ExtResource( 1136 ), ExtResource( 1131 ), ExtResource( 1125 ), ExtResource( 1126 ), ExtResource( 1127 ) ],
 "loop": true,
 "name": "rollgetup",
@@ -2293,6 +2381,26 @@ animations = [ {
 "name": "superjumpright",
 "speed": 60.0
 }, {
+"frames": [ ExtResource( 1646 ), ExtResource( 1645 ), ExtResource( 1644 ), ExtResource( 1647 ), ExtResource( 1648 ), ExtResource( 1649 ), ExtResource( 1650 ), ExtResource( 1654 ), ExtResource( 1651 ), ExtResource( 1652 ), ExtResource( 1653 ) ],
+"loop": true,
+"name": "supertaunt1",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1655 ), ExtResource( 1658 ), ExtResource( 1657 ), ExtResource( 1656 ), ExtResource( 1664 ), ExtResource( 1665 ), ExtResource( 1659 ), ExtResource( 1660 ), ExtResource( 1661 ), ExtResource( 1663 ), ExtResource( 1662 ) ],
+"loop": true,
+"name": "supertaunt2",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1682 ), ExtResource( 1680 ), ExtResource( 1681 ), ExtResource( 1683 ), ExtResource( 1685 ), ExtResource( 1684 ), ExtResource( 1686 ), ExtResource( 1687 ), ExtResource( 1669 ), ExtResource( 1668 ), ExtResource( 1672 ) ],
+"loop": true,
+"name": "supertaunt3",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1670 ), ExtResource( 1671 ), ExtResource( 1673 ), ExtResource( 1675 ), ExtResource( 1679 ), ExtResource( 1674 ), ExtResource( 1676 ), ExtResource( 1677 ), ExtResource( 1678 ), ExtResource( 1666 ), ExtResource( 1667 ) ],
+"loop": true,
+"name": "supertaunt4",
+"speed": 60.0
+}, {
 "frames": [ ExtResource( 802 ), ExtResource( 803 ), ExtResource( 804 ), ExtResource( 805 ), ExtResource( 806 ), ExtResource( 809 ), ExtResource( 807 ), ExtResource( 801 ), ExtResource( 811 ), ExtResource( 808 ), ExtResource( 810 ), ExtResource( 799 ) ],
 "loop": true,
 "name": "suplexdash",
@@ -2388,10 +2496,10 @@ animations = [ {
 extents = Vector2( 12, 28 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 12, 14 )
+extents = Vector2( 12, 13 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 24, 31 )
+extents = Vector2( 24, 30 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 12, 24 )
@@ -2416,27 +2524,26 @@ script = ExtResource( 55 )
 material = SubResource( 4 )
 frames = SubResource( 1 )
 animation = "pepcooter"
-centered = false
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 modulate = Color( 1, 1, 1, 0.5 )
-position = Vector2( 48, 68 )
+position = Vector2( 0, 18 )
 shape = SubResource( 2 )
 
 [node name="CrouchCollision" type="CollisionShape2D" parent="."]
-position = Vector2( 48, 82 )
+position = Vector2( 0, 33 )
 shape = SubResource( 3 )
 disabled = true
 
 [node name="CrouchCheck" type="RayCast2D" parent="."]
 modulate = Color( 1, 1, 1, 0.854902 )
-position = Vector2( 48, 68 )
-cast_to = Vector2( 0, -28 )
+position = Vector2( 0, 20 )
+cast_to = Vector2( 0, -30 )
 collision_mask = 2
 
 [node name="LadderCheck" type="RayCast2D" parent="."]
 modulate = Color( 1, 1, 1, 0.854902 )
-position = Vector2( 48, 68 )
+position = Vector2( 0, 18 )
 enabled = true
 cast_to = Vector2( 0, 28 )
 collision_mask = 8
@@ -2444,76 +2551,72 @@ collide_with_areas = true
 
 [node name="SolidCheck" type="RayCast2D" parent="."]
 modulate = Color( 1, 1, 1, 0.854902 )
-position = Vector2( 48, 40 )
+position = Vector2( 0, -6 )
 enabled = true
 cast_to = Vector2( 16, 0 )
 collision_mask = 2
 
 [node name="SolidCheck2" type="RayCast2D" parent="."]
 modulate = Color( 1, 1, 1, 0.854902 )
-position = Vector2( 48, 68 )
+position = Vector2( 0, 20 )
 enabled = true
 cast_to = Vector2( 16, 0 )
 collision_mask = 2
 
 [node name="WallClimbCheck" type="RayCast2D" parent="."]
 modulate = Color( 1, 1, 1, 0.854902 )
-position = Vector2( 48, 88 )
+position = Vector2( 0, 42 )
 enabled = true
 cast_to = Vector2( 16, 0 )
 collision_mask = 2
 
 [node name="SlopeCheck" type="RayCast2D" parent="."]
 modulate = Color( 1, 1, 1, 0.854902 )
-position = Vector2( 48, 96 )
+position = Vector2( 0, 46 )
 enabled = true
 cast_to = Vector2( 0, 32 )
 collision_mask = 2
 
 [node name="DestructibleArea" type="Area2D" parent="."]
 modulate = Color( 0.866667, 0.866667, 0.866667, 0.572549 )
-position = Vector2( 48, 32 )
+position = Vector2( 0, 16 )
 collision_mask = 2
 priority = 5.0
 
 [node name="Collision" type="CollisionShape2D" parent="DestructibleArea"]
-position = Vector2( 24, 33 )
+position = Vector2( 36, 0 )
 shape = SubResource( 5 )
 
 [node name="FallArea" type="Area2D" parent="."]
 modulate = Color( 0.866667, 0.866667, 0.866667, 0.572549 )
-position = Vector2( 48, 32 )
+position = Vector2( 0, 70 )
 collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="FallArea"]
-position = Vector2( 0, 88 )
 shape = SubResource( 6 )
 
 [node name="SlopeArea" type="Area2D" parent="."]
 modulate = Color( 0.866667, 0.866667, 0.866667, 0.572549 )
-position = Vector2( 48, 32 )
+position = Vector2( 0, 62 )
 collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="SlopeArea"]
-position = Vector2( 0, 80 )
 shape = SubResource( 9 )
 
 [node name="JumpArea" type="Area2D" parent="."]
 modulate = Color( 0.866667, 0.866667, 0.866667, 0.572549 )
-position = Vector2( 48, 32 )
+position = Vector2( 0, -12 )
 collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="JumpArea"]
-position = Vector2( 0, 6 )
 shape = SubResource( 7 )
 
 [node name="SJumpArea" type="Area2D" parent="."]
 modulate = Color( 0.866667, 0.866667, 0.866667, 0.572549 )
-position = Vector2( 48, 32 )
+position = Vector2( 0, -28 )
 collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="SJumpArea"]
-position = Vector2( 0, -14 )
 shape = SubResource( 8 )
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]

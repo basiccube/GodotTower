@@ -129,15 +129,15 @@ func room_goto(levelname, roomname):
 			i.call("room_start")
 	if (roomname != "rank_room" && roomname != "timesuproom" && roomname != "Realtitlescreen"):
 		if (global.shroomfollow):
-			instance_create_level(utils.get_player().position.x + 50, utils.get_player().position.y + 64, "res://Objects/Collectibles/obj_pizzakinshroom.tscn")
+			instance_create_level(utils.get_player().position.x, utils.get_player().position.y + 14, "res://Objects/Collectibles/obj_pizzakinshroom.tscn")
 		if (global.cheesefollow):
-			instance_create_level(utils.get_player().position.x + 50, utils.get_player().position.y + 64, "res://Objects/Collectibles/obj_pizzakincheese.tscn")
+			instance_create_level(utils.get_player().position.x, utils.get_player().position.y + 14, "res://Objects/Collectibles/obj_pizzakincheese.tscn")
 		if (global.tomatofollow):
-			instance_create_level(utils.get_player().position.x + 50, utils.get_player().position.y + 64, "res://Objects/Collectibles/obj_pizzakintomato.tscn")
+			instance_create_level(utils.get_player().position.x, utils.get_player().position.y + 14, "res://Objects/Collectibles/obj_pizzakintomato.tscn")
 		if (global.sausagefollow):
-			instance_create_level(utils.get_player().position.x + 50, utils.get_player().position.y + 64, "res://Objects/Collectibles/obj_pizzakinsausage.tscn")
+			instance_create_level(utils.get_player().position.x, utils.get_player().position.y + 14, "res://Objects/Collectibles/obj_pizzakinsausage.tscn")
 		if (global.pineapplefollow):
-			instance_create_level(utils.get_player().position.x + 50, utils.get_player().position.y + 64, "res://Objects/Collectibles/obj_pizzakinpineapple.tscn")
+			instance_create_level(utils.get_player().position.x, utils.get_player().position.y + 14, "res://Objects/Collectibles/obj_pizzakinpineapple.tscn")
 	
 func delete_tile_at(position):
 	var level_tilemap = utils.get_instance_level("TileMap")
@@ -145,10 +145,16 @@ func delete_tile_at(position):
 		var local_position = level_tilemap.to_local(position)
 		var tile_position = level_tilemap.world_to_map(local_position)
 		level_tilemap.set_cell(tile_position.x, tile_position.y, -1)
+		
+func is_prank():
+	if (!global.combodropped && global.secretfound >= 6 && global.laps > 0):
+		return true
+	else:
+		return false
 	
 func savescore(levelname):
 	if (global.collect > global.srank):
-		if (!global.combodropped):
+		if (is_prank()):
 			global.rank = "p"
 			utils.playsound("RankP")
 		else:

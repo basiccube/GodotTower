@@ -1,0 +1,29 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Objects/Visuals/sprites/supercharge_4.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Visuals/sprites/supercharge_5.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Visuals/obj_superchargeeffect.gd" type="Script" id=3]
+[ext_resource path="res://Objects/Visuals/sprites/supercharge_6.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Visuals/sprites/supercharge_7.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Visuals/sprites/supercharge_0.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Visuals/sprites/supercharge_2.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Visuals/sprites/supercharge_1.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Visuals/sprites/supercharge_3.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Visuals/sprites/supercharge_10.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Visuals/sprites/supercharge_8.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Visuals/sprites/supercharge_9.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+} ]
+
+[node name="obj_superchargeeffect" type="Node2D" groups=["obj_superchargeeffect"]]
+z_index = 1
+script = ExtResource( 3 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )

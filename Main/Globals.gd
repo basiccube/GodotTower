@@ -3,6 +3,7 @@ extends Node
 var panic = false
 var saveroom = []
 var baddieroom = []
+var escaperoom = []
 var targetLevel = ""
 var targetRoom = ""
 var targetDoor = "A"
@@ -17,6 +18,7 @@ var option_fullscreen = false
 
 var minutes = 0
 var seconds = 59
+var laps = 0
 
 var taminutes = 0
 var taseconds = 0
@@ -25,6 +27,7 @@ var timeattack = false
 var combo = 0
 var combotime = 0
 var combodropped = false
+var combomilestone = 10
 var collect = 0
 var pizzacoin = 0
 var key_inv = false
@@ -117,9 +120,11 @@ enum states {
 	cheesepep,
 	cheeseball,
 	cheesepepstick,
+	faceplant,
 	facestomp,
 	ejected,
 	ladder,
 	shotgun,
 	shotgunjump,
+	portal,
 }

@@ -7,6 +7,7 @@
 extents = Vector2( 16, 15.5 )
 
 [node name="obj_ladder" type="Area2D" groups=["obj_ladder"]]
+z_index = -2
 collision_layer = 8
 script = ExtResource( 2 )
 
