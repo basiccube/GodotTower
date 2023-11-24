@@ -33,21 +33,21 @@ func _process(delta):
 					storedgrav = obj_player.grav
 					storedsprite = obj_player.sprite_index
 					storedfreefallsmash = obj_player.freefallsmash
-					var effect1 = utils.instance_create((position.x - 64) + utils.randi_range(-50, 50), (position.y - 64) + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
+					var effect1 = utils.instance_create(position.x + utils.randi_range(-50, 50), position.y + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
 					effect1.sprite.animation = "teleporteffect"
-					var effect2 = utils.instance_create((position.x - 64) + utils.randi_range(-50, 50), (position.y - 64) + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
+					var effect2 = utils.instance_create(position.x + utils.randi_range(-50, 50), position.y + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
 					effect2.sprite.animation = "teleporteffect"
-					var effect3 = utils.instance_create((position.x - 64) + utils.randi_range(-50, 50), (position.y - 64) + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
+					var effect3 = utils.instance_create(position.x + utils.randi_range(-50, 50), position.y + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
 					effect3.sprite.animation = "teleporteffect"
-					var effect4 = utils.instance_create((position.x - 64) + utils.randi_range(-50, 50), (position.y - 64) + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
+					var effect4 = utils.instance_create(position.x + utils.randi_range(-50, 50), position.y + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
 					effect4.sprite.animation = "teleporteffect"
-					var effect5 = utils.instance_create((position.x - 64) + utils.randi_range(-50, 50), (position.y - 64) + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
+					var effect5 = utils.instance_create(position.x + utils.randi_range(-50, 50), position.y + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
 					effect5.sprite.animation = "teleporteffect"
-					var effect6 = utils.instance_create((position.x - 64) + utils.randi_range(-50, 50), (position.y - 64) + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
+					var effect6 = utils.instance_create(position.x + utils.randi_range(-50, 50), position.y + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
 					effect6.sprite.animation = "teleporteffect"
-					var effect7 = utils.instance_create((position.x - 64) + utils.randi_range(-50, 50), (position.y - 64) + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
+					var effect7 = utils.instance_create(position.x + utils.randi_range(-50, 50), position.y + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
 					effect7.sprite.animation = "teleporteffect"
-					var effect8 = utils.instance_create((position.x - 64) + utils.randi_range(-50, 50), (position.y - 64) + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
+					var effect8 = utils.instance_create(position.x + utils.randi_range(-50, 50), position.y + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
 					effect8.sprite.animation = "teleporteffect"
 					$TeleportTimer.start()
 					obj_player.velocity.x = 0
@@ -71,22 +71,22 @@ func _on_TeleportTimer_timeout():
 	for teleport in get_tree().get_nodes_in_group("obj_teleporter"):
 		if (teleport.trigger == trigger && !teleport.portal):
 			var obj_player = utils.get_player()
-			obj_player.position.x = (teleport.position.x - 32)
+			obj_player.position.x = teleport.position.x
 			obj_player.position.y = teleport.position.y
-			var effect1 = utils.instance_create((teleport.position.x - 64) + utils.randi_range(-50, 50), (teleport.position.y - 64) + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
+			var effect1 = utils.instance_create(teleport.position.x + utils.randi_range(-50, 50), teleport.position.y + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
 			effect1.sprite.animation = "teleporteffect"
-			var effect2 = utils.instance_create((teleport.position.x - 64) + utils.randi_range(-50, 50), (teleport.position.y - 64) + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
+			var effect2 = utils.instance_create(teleport.position.x + utils.randi_range(-50, 50), teleport.position.y + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
 			effect2.sprite.animation = "teleporteffect"
-			var effect3 = utils.instance_create((teleport.position.x - 64) + utils.randi_range(-50, 50), (teleport.position.y - 64) + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
+			var effect3 = utils.instance_create(teleport.position.x + utils.randi_range(-50, 50), teleport.position.y + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
 			effect3.sprite.animation = "teleporteffect"
-			var effect4 = utils.instance_create((teleport.position.x - 64) + utils.randi_range(-50, 50), (teleport.position.y - 64) + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
+			var effect4 = utils.instance_create(teleport.position.x + utils.randi_range(-50, 50), teleport.position.y + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
 			effect4.sprite.animation = "teleporteffect"
-			var effect5 = utils.instance_create((teleport.position.x - 64) + utils.randi_range(-50, 50), (teleport.position.y - 64) + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
+			var effect5 = utils.instance_create(teleport.position.x + utils.randi_range(-50, 50), teleport.position.y + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
 			effect5.sprite.animation = "teleporteffect"
-			var effect6 = utils.instance_create((teleport.position.x - 64) + utils.randi_range(-50, 50), (teleport.position.y - 64) + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
+			var effect6 = utils.instance_create(teleport.position.x + utils.randi_range(-50, 50), teleport.position.y + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
 			effect6.sprite.animation = "teleporteffect"
-			var effect7 = utils.instance_create((teleport.position.x - 64) + utils.randi_range(-50, 50), (teleport.position.y - 64) + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
+			var effect7 = utils.instance_create(teleport.position.x + utils.randi_range(-50, 50), teleport.position.y + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
 			effect7.sprite.animation = "teleporteffect"
-			var effect8 = utils.instance_create((teleport.position.x - 64) + utils.randi_range(-50, 50), (teleport.position.y - 64) + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
+			var effect8 = utils.instance_create(teleport.position.x + utils.randi_range(-50, 50), teleport.position.y + utils.randi_range(-50, 50), "res://Objects/Visuals/obj_cloudeffect.tscn")
 			effect8.sprite.animation = "teleporteffect"
 	$TeleportEndTimer.start()

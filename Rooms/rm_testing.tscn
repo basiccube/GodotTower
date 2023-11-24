@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Objects/Warps/obj_spawnpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=2]
@@ -10,11 +10,9 @@
 [ext_resource path="res://Backgrounds/bg_hubworld1back.png" type="Texture" id=8]
 [ext_resource path="res://Rooms/rm_testing.gd" type="Script" id=9]
 [ext_resource path="res://Objects/Level/obj_hungrypillar.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Objects/Collectibles/obj_treasure.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Objects/Baddies/Enemies/obj_cheeseslime.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Objects/Warps/obj_teleporter.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Objects/Warps/obj_door.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Objects/Baddies/obj_escapeenemy.tscn" type="PackedScene" id=15]
 
 [node name="rm_testing" type="Node2D"]
 script = ExtResource( 9 )
@@ -79,17 +77,14 @@ position = Vector2( 832, 288 )
 scale = Vector2( 6, 1 )
 
 [node name="obj_door" parent="." instance=ExtResource( 14 )]
-position = Vector2( 720, 288 )
+position = Vector2( 880, 192 )
 targetDoor = "B"
 targetLevel = ""
 targetRoom = "boss_pepperman_chase"
 
-[node name="obj_treasure" parent="." instance=ExtResource( 11 )]
-position = Vector2( 880, 208 )
+[node name="obj_teleporter" parent="." instance=ExtResource( 11 )]
+position = Vector2( 768, 352 )
 
-[node name="obj_escapeenemy" parent="." instance=ExtResource( 15 )]
-position = Vector2( 672, 320 )
-content = ExtResource( 12 )
-
-[node name="obj_cheeseslime" parent="." instance=ExtResource( 12 )]
-position = Vector2( 848, 304 )
+[node name="obj_teleporter2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 640, 352 )
+portal = true

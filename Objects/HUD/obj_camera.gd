@@ -231,6 +231,7 @@ func _on_panictimer_timeout():
 			global.minutes -= 1
 	if (global.timeattack):
 		if (global.taseconds == 0 && global.taminutes == 0):
+			global.combodropped = true
 			if (global.collect >= 100):
 				global.collect -= 100
 			elif (global.collect < 100):
