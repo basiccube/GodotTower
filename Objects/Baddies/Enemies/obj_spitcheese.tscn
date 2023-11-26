@@ -1,0 +1,70 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Objects/Baddies/obj_baddie.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Baddies/sprites/spitcheese/spitcheese_spit_5.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Baddies/sprites/spitcheese/spitcheese_spit_4.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Baddies/sprites/spitcheese/spitcheese_spit_6.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Baddies/sprites/spitcheese/spitcheese_idle_1.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Baddies/sprites/spitcheese/spitcheese_stun_0.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Baddies/sprites/spitcheese/spitcheese_stun_1.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Baddies/sprites/spitcheese/spitcheese_spit_0.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Baddies/sprites/spitcheese/spitcheese_stun_2.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Baddies/sprites/spitcheese/spitcheese_spit_1.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Baddies/sprites/spitcheese/spitcheese_spit_3.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Baddies/sprites/spitcheese/spitcheese_idle_0.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Baddies/sprites/spitcheese/spitcheese_dead_0.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Baddies/sprites/spitcheese/spitcheese_idle_2.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Baddies/sprites/spitcheese/spitcheese_spit_2.png" type="Texture" id=15]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_spitcheese.gd" type="Script" id=16]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "dead",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 5 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "idle",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 10 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "spit",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "stun",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 32, 23 )
+
+[node name="obj_spitcheese" groups=["obj_spitcheese"] instance=ExtResource( 1 )]
+script = ExtResource( 16 )
+
+[node name="Sprite" parent="." index="2"]
+frames = SubResource( 3 )
+animation = "idle"
+
+[node name="WallCheck" parent="." index="3"]
+position = Vector2( 0, 16 )
+
+[node name="WallCheck2" parent="." index="4"]
+position = Vector2( 0, 32 )
+
+[node name="WallCheck3" parent="." index="5"]
+position = Vector2( 0, 0 )
+
+[node name="OppositeWallCheck" parent="." index="6"]
+position = Vector2( 0, 24 )
+
+[node name="PlatformCheck" parent="." index="7"]
+cast_to = Vector2( 0, 32 )
+
+[node name="Collision" parent="." index="11"]
+position = Vector2( 0, 23 )
+shape = SubResource( 4 )

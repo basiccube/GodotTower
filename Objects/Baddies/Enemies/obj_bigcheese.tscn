@@ -1,0 +1,68 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Objects/Baddies/obj_baddie.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Baddies/sprites/bigcheese/bigcheese_walk_8.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Baddies/sprites/bigcheese/bigcheese_stun_0.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Baddies/sprites/bigcheese/bigcheese_walk_1.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Baddies/sprites/bigcheese/bigcheese_walk_2.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Baddies/sprites/bigcheese/bigcheese_walk_9.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Baddies/sprites/bigcheese/bigcheese_dead_0.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Baddies/sprites/bigcheese/bigcheese_stun_2.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Baddies/sprites/bigcheese/bigcheese_walk_7.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Baddies/sprites/bigcheese/bigcheese_stun_1.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Baddies/sprites/bigcheese/bigcheese_walk_3.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Baddies/sprites/bigcheese/bigcheese_walk_0.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Baddies/sprites/bigcheese/bigcheese_walk_4.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Baddies/sprites/bigcheese/bigcheese_idle_0.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Baddies/sprites/bigcheese/bigcheese_walk_5.png" type="Texture" id=15]
+[ext_resource path="res://Objects/Baddies/sprites/bigcheese/bigcheese_walk_6.png" type="Texture" id=16]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_bigcheese.gd" type="Script" id=17]
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "dead",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "idle",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 10 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "stun",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "walk",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 32, 45 )
+
+[node name="obj_bigcheese" groups=["obj_bigcheese"] instance=ExtResource( 1 )]
+script = ExtResource( 17 )
+
+[node name="Sprite" parent="." index="2"]
+frames = SubResource( 7 )
+animation = "idle"
+
+[node name="WallCheck2" parent="." index="4"]
+position = Vector2( 0, 40 )
+
+[node name="WallCheck3" parent="." index="5"]
+position = Vector2( 0, -44 )
+
+[node name="OppositeWallCheck" parent="." index="6"]
+position = Vector2( 0, 24 )
+
+[node name="PlatformCheck" parent="." index="7"]
+cast_to = Vector2( 0, 32 )
+
+[node name="Collision" parent="." index="11"]
+position = Vector2( 0, 1 )
+shape = SubResource( 8 )

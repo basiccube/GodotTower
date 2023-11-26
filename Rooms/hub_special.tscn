@@ -68,4 +68,10 @@ targetDoor = "E"
 targetLevel = ""
 targetRoom = "hub_room1"
 
+[node name="obj_door3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 592, 352 )
+targetDoor = "B"
+targetLevel = ""
+targetRoom = "boss_pepperman_chase"
+
 [editable path="obj_door"]

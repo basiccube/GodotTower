@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Backgrounds/bg_pepperman_0.png" type="Texture" id=2]
@@ -16,6 +16,17 @@
 [ext_resource path="res://Objects/Destructibles/obj_peppermandestroyable.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Objects/Collectibles/obj_collect.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Objects/Level/obj_slipnslide.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Objects/Destructibles/obj_destroyable.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Objects/Destructibles/obj_metalblock.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Objects/Blocks/obj_spike.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Objects/Destructibles/obj_destroyable3.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_cheeseslime.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_bigcheese.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Objects/Level/obj_grandpa.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_spitcheese.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Objects/Baddies/Bosses/obj_pepperman_chase.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Objects/Warps/obj_keydoor.tscn" type="PackedScene" id=27]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -39,7 +50,7 @@ motion_mirroring = Vector2( 1200, 600 )
 [node name="Sprite" type="AnimatedSprite" parent="ParallaxBackground/ParallaxLayer"]
 frames = SubResource( 1 )
 animation = "pepperman"
-frame = 1
+frame = 4
 speed_scale = 0.35
 playing = true
 centered = false
@@ -47,7 +58,7 @@ centered = false
 [node name="Sprite2" type="AnimatedSprite" parent="ParallaxBackground/ParallaxLayer"]
 frames = SubResource( 1 )
 animation = "pepperman"
-frame = 1
+frame = 4
 speed_scale = 0.35
 playing = true
 centered = false
@@ -56,6 +67,7 @@ offset = Vector2( 300, 0 )
 [node name="Sprite3" type="AnimatedSprite" parent="ParallaxBackground/ParallaxLayer"]
 frames = SubResource( 1 )
 animation = "pepperman"
+frame = 3
 speed_scale = 0.35
 playing = true
 centered = false
@@ -64,6 +76,7 @@ offset = Vector2( 0, 300 )
 [node name="Sprite4" type="AnimatedSprite" parent="ParallaxBackground/ParallaxLayer"]
 frames = SubResource( 1 )
 animation = "pepperman"
+frame = 3
 speed_scale = 0.35
 playing = true
 centered = false
@@ -72,7 +85,7 @@ offset = Vector2( 300, 300 )
 [node name="Sprite5" type="AnimatedSprite" parent="ParallaxBackground/ParallaxLayer"]
 frames = SubResource( 1 )
 animation = "pepperman"
-frame = 5
+frame = 2
 speed_scale = 0.35
 playing = true
 centered = false
@@ -81,7 +94,7 @@ offset = Vector2( 600, 0 )
 [node name="Sprite6" type="AnimatedSprite" parent="ParallaxBackground/ParallaxLayer"]
 frames = SubResource( 1 )
 animation = "pepperman"
-frame = 5
+frame = 2
 speed_scale = 0.35
 playing = true
 centered = false
@@ -90,7 +103,7 @@ offset = Vector2( 600, 300 )
 [node name="Sprite7" type="AnimatedSprite" parent="ParallaxBackground/ParallaxLayer"]
 frames = SubResource( 1 )
 animation = "pepperman"
-frame = 4
+frame = 1
 speed_scale = 0.35
 playing = true
 centered = false
@@ -99,7 +112,6 @@ offset = Vector2( 900, 300 )
 [node name="Sprite8" type="AnimatedSprite" parent="ParallaxBackground/ParallaxLayer"]
 frames = SubResource( 1 )
 animation = "pepperman"
-frame = 3
 speed_scale = 0.35
 playing = true
 centered = false
@@ -145,7 +157,7 @@ position = Vector2( 0, 700 )
 [node name="obj_camlimit_left" parent="." instance=ExtResource( 4 )]
 
 [node name="obj_camlimit_right" parent="." instance=ExtResource( 5 )]
-position = Vector2( 39850, 0 )
+position = Vector2( 39840, 0 )
 
 [node name="obj_camlimit_top" parent="." instance=ExtResource( 7 )]
 
@@ -694,6 +706,621 @@ position = Vector2( 2240, 384 )
 [node name="obj_peppermandestroyable175" parent="." instance=ExtResource( 14 )]
 position = Vector2( 2240, 416 )
 
+[node name="obj_peppermandestroyable176" parent="." instance=ExtResource( 14 )]
+position = Vector2( 4896, 352 )
+
+[node name="obj_peppermandestroyable177" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5760, 352 )
+
+[node name="obj_peppermandestroyable178" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5760, 384 )
+
+[node name="obj_peppermandestroyable179" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5760, 416 )
+
+[node name="obj_peppermandestroyable180" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5728, 352 )
+
+[node name="obj_peppermandestroyable181" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5728, 384 )
+
+[node name="obj_peppermandestroyable182" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5728, 416 )
+
+[node name="obj_peppermandestroyable183" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5696, 352 )
+
+[node name="obj_peppermandestroyable184" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5696, 384 )
+
+[node name="obj_peppermandestroyable185" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5696, 416 )
+
+[node name="obj_peppermandestroyable186" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5664, 352 )
+
+[node name="obj_peppermandestroyable187" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5664, 384 )
+
+[node name="obj_peppermandestroyable188" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5664, 416 )
+
+[node name="obj_peppermandestroyable189" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5632, 352 )
+
+[node name="obj_peppermandestroyable190" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5632, 384 )
+
+[node name="obj_peppermandestroyable191" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5632, 416 )
+
+[node name="obj_peppermandestroyable192" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5600, 352 )
+
+[node name="obj_peppermandestroyable193" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5600, 384 )
+
+[node name="obj_peppermandestroyable194" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5600, 416 )
+
+[node name="obj_peppermandestroyable195" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5568, 352 )
+
+[node name="obj_peppermandestroyable196" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5568, 384 )
+
+[node name="obj_peppermandestroyable197" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5568, 416 )
+
+[node name="obj_peppermandestroyable198" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5536, 352 )
+
+[node name="obj_peppermandestroyable199" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5536, 384 )
+
+[node name="obj_peppermandestroyable200" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5536, 416 )
+
+[node name="obj_peppermandestroyable201" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5504, 352 )
+
+[node name="obj_peppermandestroyable202" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5504, 384 )
+
+[node name="obj_peppermandestroyable203" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5504, 416 )
+
+[node name="obj_peppermandestroyable204" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5472, 352 )
+
+[node name="obj_peppermandestroyable205" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5472, 384 )
+
+[node name="obj_peppermandestroyable206" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5472, 416 )
+
+[node name="obj_peppermandestroyable207" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5440, 352 )
+
+[node name="obj_peppermandestroyable208" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5440, 384 )
+
+[node name="obj_peppermandestroyable209" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5440, 416 )
+
+[node name="obj_peppermandestroyable210" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5408, 352 )
+
+[node name="obj_peppermandestroyable211" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5408, 384 )
+
+[node name="obj_peppermandestroyable212" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5408, 416 )
+
+[node name="obj_peppermandestroyable213" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5376, 352 )
+
+[node name="obj_peppermandestroyable214" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5376, 384 )
+
+[node name="obj_peppermandestroyable215" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5376, 416 )
+
+[node name="obj_peppermandestroyable216" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5344, 352 )
+
+[node name="obj_peppermandestroyable217" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5344, 384 )
+
+[node name="obj_peppermandestroyable218" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5344, 416 )
+
+[node name="obj_peppermandestroyable219" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5312, 352 )
+
+[node name="obj_peppermandestroyable220" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5312, 384 )
+
+[node name="obj_peppermandestroyable221" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5312, 416 )
+
+[node name="obj_peppermandestroyable222" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5280, 352 )
+
+[node name="obj_peppermandestroyable223" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5280, 384 )
+
+[node name="obj_peppermandestroyable224" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5280, 416 )
+
+[node name="obj_peppermandestroyable225" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5248, 352 )
+
+[node name="obj_peppermandestroyable226" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5248, 384 )
+
+[node name="obj_peppermandestroyable227" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5248, 416 )
+
+[node name="obj_peppermandestroyable228" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5216, 352 )
+
+[node name="obj_peppermandestroyable229" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5216, 384 )
+
+[node name="obj_peppermandestroyable230" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5216, 416 )
+
+[node name="obj_peppermandestroyable231" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5184, 352 )
+
+[node name="obj_peppermandestroyable232" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5184, 384 )
+
+[node name="obj_peppermandestroyable233" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5184, 416 )
+
+[node name="obj_peppermandestroyable234" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5152, 352 )
+
+[node name="obj_peppermandestroyable235" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5152, 384 )
+
+[node name="obj_peppermandestroyable236" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5152, 416 )
+
+[node name="obj_peppermandestroyable237" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5120, 352 )
+
+[node name="obj_peppermandestroyable238" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5120, 384 )
+
+[node name="obj_peppermandestroyable239" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5120, 416 )
+
+[node name="obj_peppermandestroyable240" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5088, 352 )
+
+[node name="obj_peppermandestroyable241" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5088, 384 )
+
+[node name="obj_peppermandestroyable242" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5088, 416 )
+
+[node name="obj_peppermandestroyable243" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5056, 352 )
+
+[node name="obj_peppermandestroyable244" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5056, 384 )
+
+[node name="obj_peppermandestroyable245" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5056, 416 )
+
+[node name="obj_peppermandestroyable246" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5024, 352 )
+
+[node name="obj_peppermandestroyable247" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5024, 384 )
+
+[node name="obj_peppermandestroyable248" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5024, 416 )
+
+[node name="obj_peppermandestroyable249" parent="." instance=ExtResource( 14 )]
+position = Vector2( 4992, 352 )
+
+[node name="obj_peppermandestroyable250" parent="." instance=ExtResource( 14 )]
+position = Vector2( 4992, 384 )
+
+[node name="obj_peppermandestroyable251" parent="." instance=ExtResource( 14 )]
+position = Vector2( 4992, 416 )
+
+[node name="obj_peppermandestroyable252" parent="." instance=ExtResource( 14 )]
+position = Vector2( 4960, 352 )
+
+[node name="obj_peppermandestroyable253" parent="." instance=ExtResource( 14 )]
+position = Vector2( 4960, 384 )
+
+[node name="obj_peppermandestroyable254" parent="." instance=ExtResource( 14 )]
+position = Vector2( 4960, 416 )
+
+[node name="obj_peppermandestroyable255" parent="." instance=ExtResource( 14 )]
+position = Vector2( 4928, 352 )
+
+[node name="obj_peppermandestroyable256" parent="." instance=ExtResource( 14 )]
+position = Vector2( 4928, 384 )
+
+[node name="obj_peppermandestroyable257" parent="." instance=ExtResource( 14 )]
+position = Vector2( 4928, 416 )
+
+[node name="obj_peppermandestroyable258" parent="." instance=ExtResource( 14 )]
+position = Vector2( 4896, 384 )
+
+[node name="obj_peppermandestroyable259" parent="." instance=ExtResource( 14 )]
+position = Vector2( 4896, 416 )
+
+[node name="obj_peppermandestroyable260" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6336, 288 )
+
+[node name="obj_peppermandestroyable261" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6592, 288 )
+
+[node name="obj_peppermandestroyable262" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6592, 320 )
+
+[node name="obj_peppermandestroyable263" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6592, 352 )
+
+[node name="obj_peppermandestroyable264" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6592, 384 )
+
+[node name="obj_peppermandestroyable265" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6560, 288 )
+
+[node name="obj_peppermandestroyable266" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6560, 320 )
+
+[node name="obj_peppermandestroyable267" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6560, 352 )
+
+[node name="obj_peppermandestroyable268" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6560, 384 )
+
+[node name="obj_peppermandestroyable269" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6528, 288 )
+
+[node name="obj_peppermandestroyable270" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6528, 320 )
+
+[node name="obj_peppermandestroyable271" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6528, 352 )
+
+[node name="obj_peppermandestroyable272" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6528, 384 )
+
+[node name="obj_peppermandestroyable273" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6496, 288 )
+
+[node name="obj_peppermandestroyable274" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6496, 320 )
+
+[node name="obj_peppermandestroyable275" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6496, 352 )
+
+[node name="obj_peppermandestroyable276" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6496, 384 )
+
+[node name="obj_peppermandestroyable277" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6464, 288 )
+
+[node name="obj_peppermandestroyable278" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6464, 320 )
+
+[node name="obj_peppermandestroyable279" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6464, 352 )
+
+[node name="obj_peppermandestroyable280" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6464, 384 )
+
+[node name="obj_peppermandestroyable281" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6432, 288 )
+
+[node name="obj_peppermandestroyable282" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6432, 320 )
+
+[node name="obj_peppermandestroyable283" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6432, 352 )
+
+[node name="obj_peppermandestroyable284" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6432, 384 )
+
+[node name="obj_peppermandestroyable285" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6400, 288 )
+
+[node name="obj_peppermandestroyable286" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6400, 320 )
+
+[node name="obj_peppermandestroyable287" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6400, 352 )
+
+[node name="obj_peppermandestroyable288" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6400, 384 )
+
+[node name="obj_peppermandestroyable289" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6368, 288 )
+
+[node name="obj_peppermandestroyable290" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6368, 320 )
+
+[node name="obj_peppermandestroyable291" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6368, 352 )
+
+[node name="obj_peppermandestroyable292" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6368, 384 )
+
+[node name="obj_peppermandestroyable293" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6336, 320 )
+
+[node name="obj_peppermandestroyable294" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6336, 352 )
+
+[node name="obj_peppermandestroyable295" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6336, 384 )
+
+[node name="obj_peppermandestroyable296" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6976, 384 )
+
+[node name="obj_peppermandestroyable297" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7264, 384 )
+
+[node name="obj_peppermandestroyable298" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7264, 416 )
+
+[node name="obj_peppermandestroyable299" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7232, 384 )
+
+[node name="obj_peppermandestroyable300" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7232, 416 )
+
+[node name="obj_peppermandestroyable301" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7200, 384 )
+
+[node name="obj_peppermandestroyable302" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7200, 416 )
+
+[node name="obj_peppermandestroyable303" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7168, 384 )
+
+[node name="obj_peppermandestroyable304" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7168, 416 )
+
+[node name="obj_peppermandestroyable305" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7136, 384 )
+
+[node name="obj_peppermandestroyable306" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7136, 416 )
+
+[node name="obj_peppermandestroyable307" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7104, 384 )
+
+[node name="obj_peppermandestroyable308" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7104, 416 )
+
+[node name="obj_peppermandestroyable309" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7072, 384 )
+
+[node name="obj_peppermandestroyable310" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7072, 416 )
+
+[node name="obj_peppermandestroyable311" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7040, 384 )
+
+[node name="obj_peppermandestroyable312" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7040, 416 )
+
+[node name="obj_peppermandestroyable313" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7008, 384 )
+
+[node name="obj_peppermandestroyable314" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7008, 416 )
+
+[node name="obj_peppermandestroyable315" parent="." instance=ExtResource( 14 )]
+position = Vector2( 6976, 416 )
+
+[node name="obj_peppermandestroyable316" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7456, 384 )
+
+[node name="obj_peppermandestroyable317" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7744, 384 )
+
+[node name="obj_peppermandestroyable318" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7744, 416 )
+
+[node name="obj_peppermandestroyable319" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7712, 384 )
+
+[node name="obj_peppermandestroyable320" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7712, 416 )
+
+[node name="obj_peppermandestroyable321" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7680, 384 )
+
+[node name="obj_peppermandestroyable322" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7680, 416 )
+
+[node name="obj_peppermandestroyable323" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7648, 384 )
+
+[node name="obj_peppermandestroyable324" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7648, 416 )
+
+[node name="obj_peppermandestroyable325" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7616, 384 )
+
+[node name="obj_peppermandestroyable326" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7616, 416 )
+
+[node name="obj_peppermandestroyable327" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7584, 384 )
+
+[node name="obj_peppermandestroyable328" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7584, 416 )
+
+[node name="obj_peppermandestroyable329" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7552, 384 )
+
+[node name="obj_peppermandestroyable330" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7552, 416 )
+
+[node name="obj_peppermandestroyable331" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7520, 384 )
+
+[node name="obj_peppermandestroyable332" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7520, 416 )
+
+[node name="obj_peppermandestroyable333" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7488, 384 )
+
+[node name="obj_peppermandestroyable334" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7488, 416 )
+
+[node name="obj_peppermandestroyable335" parent="." instance=ExtResource( 14 )]
+position = Vector2( 7456, 416 )
+
+[node name="obj_peppermandestroyable336" parent="." instance=ExtResource( 14 )]
+position = Vector2( 10880, 352 )
+
+[node name="obj_peppermandestroyable337" parent="." instance=ExtResource( 14 )]
+position = Vector2( 10912, 352 )
+
+[node name="obj_peppermandestroyable338" parent="." instance=ExtResource( 14 )]
+position = Vector2( 10880, 384 )
+
+[node name="obj_peppermandestroyable339" parent="." instance=ExtResource( 14 )]
+position = Vector2( 10912, 384 )
+
+[node name="obj_peppermandestroyable340" parent="." instance=ExtResource( 14 )]
+position = Vector2( 10880, 416 )
+
+[node name="obj_peppermandestroyable341" parent="." instance=ExtResource( 14 )]
+position = Vector2( 10912, 416 )
+
+[node name="obj_peppermandestroyable342" parent="." instance=ExtResource( 14 )]
+position = Vector2( 11392, 352 )
+
+[node name="obj_peppermandestroyable343" parent="." instance=ExtResource( 14 )]
+position = Vector2( 11424, 352 )
+
+[node name="obj_peppermandestroyable344" parent="." instance=ExtResource( 14 )]
+position = Vector2( 11392, 384 )
+
+[node name="obj_peppermandestroyable345" parent="." instance=ExtResource( 14 )]
+position = Vector2( 11424, 384 )
+
+[node name="obj_peppermandestroyable346" parent="." instance=ExtResource( 14 )]
+position = Vector2( 11392, 416 )
+
+[node name="obj_peppermandestroyable347" parent="." instance=ExtResource( 14 )]
+position = Vector2( 11424, 416 )
+
+[node name="obj_peppermandestroyable348" parent="." instance=ExtResource( 14 )]
+position = Vector2( 11968, 352 )
+
+[node name="obj_peppermandestroyable349" parent="." instance=ExtResource( 14 )]
+position = Vector2( 12000, 352 )
+
+[node name="obj_peppermandestroyable350" parent="." instance=ExtResource( 14 )]
+position = Vector2( 11968, 384 )
+
+[node name="obj_peppermandestroyable351" parent="." instance=ExtResource( 14 )]
+position = Vector2( 12000, 384 )
+
+[node name="obj_peppermandestroyable352" parent="." instance=ExtResource( 14 )]
+position = Vector2( 11968, 416 )
+
+[node name="obj_peppermandestroyable353" parent="." instance=ExtResource( 14 )]
+position = Vector2( 12000, 416 )
+
+[node name="obj_peppermandestroyable354" parent="." instance=ExtResource( 14 )]
+position = Vector2( 12480, 352 )
+
+[node name="obj_peppermandestroyable355" parent="." instance=ExtResource( 14 )]
+position = Vector2( 12512, 352 )
+
+[node name="obj_peppermandestroyable356" parent="." instance=ExtResource( 14 )]
+position = Vector2( 12480, 384 )
+
+[node name="obj_peppermandestroyable357" parent="." instance=ExtResource( 14 )]
+position = Vector2( 12512, 384 )
+
+[node name="obj_peppermandestroyable358" parent="." instance=ExtResource( 14 )]
+position = Vector2( 12480, 416 )
+
+[node name="obj_peppermandestroyable359" parent="." instance=ExtResource( 14 )]
+position = Vector2( 12512, 416 )
+
+[node name="obj_peppermandestroyable360" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14304, 352 )
+
+[node name="obj_peppermandestroyable361" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14496, 352 )
+
+[node name="obj_peppermandestroyable362" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14464, 352 )
+
+[node name="obj_peppermandestroyable363" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14432, 352 )
+
+[node name="obj_peppermandestroyable364" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14400, 352 )
+
+[node name="obj_peppermandestroyable365" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14368, 352 )
+
+[node name="obj_peppermandestroyable366" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14336, 352 )
+
+[node name="obj_peppermandestroyable367" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14304, 384 )
+
+[node name="obj_peppermandestroyable368" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14496, 384 )
+
+[node name="obj_peppermandestroyable369" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14464, 384 )
+
+[node name="obj_peppermandestroyable370" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14432, 384 )
+
+[node name="obj_peppermandestroyable371" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14400, 384 )
+
+[node name="obj_peppermandestroyable372" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14368, 384 )
+
+[node name="obj_peppermandestroyable373" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14336, 384 )
+
+[node name="obj_peppermandestroyable374" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14304, 416 )
+
+[node name="obj_peppermandestroyable375" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14496, 416 )
+
+[node name="obj_peppermandestroyable376" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14464, 416 )
+
+[node name="obj_peppermandestroyable377" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14432, 416 )
+
+[node name="obj_peppermandestroyable378" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14400, 416 )
+
+[node name="obj_peppermandestroyable379" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14368, 416 )
+
+[node name="obj_peppermandestroyable380" parent="." instance=ExtResource( 14 )]
+position = Vector2( 14336, 416 )
+
 [node name="obj_collect" parent="." instance=ExtResource( 15 )]
 position = Vector2( 3680, 352 )
 
@@ -861,3 +1488,2688 @@ position = Vector2( 39136, 352 )
 
 [node name="obj_slipnslide" parent="." instance=ExtResource( 16 )]
 position = Vector2( 39232, 416 )
+
+[node name="obj_destroyable" parent="." instance=ExtResource( 17 )]
+position = Vector2( 8320, 384 )
+
+[node name="obj_destroyable2" parent="." instance=ExtResource( 17 )]
+position = Vector2( 8352, 384 )
+
+[node name="obj_destroyable3" parent="." instance=ExtResource( 17 )]
+position = Vector2( 8320, 416 )
+
+[node name="obj_destroyable4" parent="." instance=ExtResource( 17 )]
+position = Vector2( 8352, 416 )
+
+[node name="obj_destroyable5" parent="." instance=ExtResource( 17 )]
+position = Vector2( 8480, 384 )
+
+[node name="obj_destroyable6" parent="." instance=ExtResource( 17 )]
+position = Vector2( 8512, 384 )
+
+[node name="obj_destroyable7" parent="." instance=ExtResource( 17 )]
+position = Vector2( 8480, 416 )
+
+[node name="obj_destroyable8" parent="." instance=ExtResource( 17 )]
+position = Vector2( 8512, 416 )
+
+[node name="obj_forknight" parent="." instance=ExtResource( 18 )]
+position = Vector2( 8432, 400 )
+
+[node name="obj_destroyable9" parent="." instance=ExtResource( 17 )]
+position = Vector2( 8960, 384 )
+
+[node name="obj_destroyable10" parent="." instance=ExtResource( 17 )]
+position = Vector2( 8992, 384 )
+
+[node name="obj_destroyable11" parent="." instance=ExtResource( 17 )]
+position = Vector2( 8960, 416 )
+
+[node name="obj_destroyable12" parent="." instance=ExtResource( 17 )]
+position = Vector2( 8992, 416 )
+
+[node name="obj_destroyable13" parent="." instance=ExtResource( 17 )]
+position = Vector2( 9120, 384 )
+
+[node name="obj_destroyable14" parent="." instance=ExtResource( 17 )]
+position = Vector2( 9152, 384 )
+
+[node name="obj_destroyable15" parent="." instance=ExtResource( 17 )]
+position = Vector2( 9120, 416 )
+
+[node name="obj_destroyable16" parent="." instance=ExtResource( 17 )]
+position = Vector2( 9152, 416 )
+
+[node name="obj_destroyable17" parent="." instance=ExtResource( 17 )]
+position = Vector2( 9696, 384 )
+
+[node name="obj_destroyable18" parent="." instance=ExtResource( 17 )]
+position = Vector2( 9728, 384 )
+
+[node name="obj_destroyable19" parent="." instance=ExtResource( 17 )]
+position = Vector2( 9696, 416 )
+
+[node name="obj_destroyable20" parent="." instance=ExtResource( 17 )]
+position = Vector2( 9728, 416 )
+
+[node name="obj_destroyable21" parent="." instance=ExtResource( 17 )]
+position = Vector2( 9856, 384 )
+
+[node name="obj_destroyable22" parent="." instance=ExtResource( 17 )]
+position = Vector2( 9888, 384 )
+
+[node name="obj_destroyable23" parent="." instance=ExtResource( 17 )]
+position = Vector2( 9856, 416 )
+
+[node name="obj_destroyable24" parent="." instance=ExtResource( 17 )]
+position = Vector2( 9888, 416 )
+
+[node name="obj_destroyable25" parent="." instance=ExtResource( 17 )]
+position = Vector2( 10016, 384 )
+
+[node name="obj_destroyable26" parent="." instance=ExtResource( 17 )]
+position = Vector2( 10048, 384 )
+
+[node name="obj_destroyable27" parent="." instance=ExtResource( 17 )]
+position = Vector2( 10016, 416 )
+
+[node name="obj_destroyable28" parent="." instance=ExtResource( 17 )]
+position = Vector2( 10048, 416 )
+
+[node name="obj_destroyable35" parent="." instance=ExtResource( 17 )]
+position = Vector2( 33376, 384 )
+
+[node name="obj_destroyable36" parent="." instance=ExtResource( 17 )]
+position = Vector2( 33408, 384 )
+
+[node name="obj_destroyable37" parent="." instance=ExtResource( 17 )]
+position = Vector2( 33376, 416 )
+
+[node name="obj_destroyable38" parent="." instance=ExtResource( 17 )]
+position = Vector2( 33408, 416 )
+
+[node name="obj_destroyable39" parent="." instance=ExtResource( 17 )]
+position = Vector2( 33440, 384 )
+
+[node name="obj_destroyable40" parent="." instance=ExtResource( 17 )]
+position = Vector2( 33472, 384 )
+
+[node name="obj_destroyable41" parent="." instance=ExtResource( 17 )]
+position = Vector2( 33440, 416 )
+
+[node name="obj_destroyable42" parent="." instance=ExtResource( 17 )]
+position = Vector2( 33472, 416 )
+
+[node name="obj_destroyable43" parent="." instance=ExtResource( 17 )]
+position = Vector2( 33504, 384 )
+
+[node name="obj_destroyable44" parent="." instance=ExtResource( 17 )]
+position = Vector2( 33536, 384 )
+
+[node name="obj_destroyable45" parent="." instance=ExtResource( 17 )]
+position = Vector2( 33504, 416 )
+
+[node name="obj_destroyable46" parent="." instance=ExtResource( 17 )]
+position = Vector2( 33536, 416 )
+
+[node name="obj_destroyable47" parent="." instance=ExtResource( 17 )]
+position = Vector2( 33568, 384 )
+
+[node name="obj_destroyable48" parent="." instance=ExtResource( 17 )]
+position = Vector2( 33600, 384 )
+
+[node name="obj_destroyable49" parent="." instance=ExtResource( 17 )]
+position = Vector2( 33568, 416 )
+
+[node name="obj_destroyable50" parent="." instance=ExtResource( 17 )]
+position = Vector2( 33600, 416 )
+
+[node name="obj_destroyable51" parent="." instance=ExtResource( 17 )]
+position = Vector2( 33632, 384 )
+
+[node name="obj_destroyable52" parent="." instance=ExtResource( 17 )]
+position = Vector2( 33664, 384 )
+
+[node name="obj_destroyable53" parent="." instance=ExtResource( 17 )]
+position = Vector2( 33632, 416 )
+
+[node name="obj_destroyable54" parent="." instance=ExtResource( 17 )]
+position = Vector2( 33664, 416 )
+
+[node name="obj_destroyable55" parent="." instance=ExtResource( 17 )]
+position = Vector2( 34656, 384 )
+
+[node name="obj_destroyable56" parent="." instance=ExtResource( 17 )]
+position = Vector2( 34688, 384 )
+
+[node name="obj_destroyable57" parent="." instance=ExtResource( 17 )]
+position = Vector2( 34656, 416 )
+
+[node name="obj_destroyable58" parent="." instance=ExtResource( 17 )]
+position = Vector2( 34688, 416 )
+
+[node name="obj_destroyable59" parent="." instance=ExtResource( 17 )]
+position = Vector2( 34720, 384 )
+
+[node name="obj_destroyable60" parent="." instance=ExtResource( 17 )]
+position = Vector2( 34752, 384 )
+
+[node name="obj_destroyable61" parent="." instance=ExtResource( 17 )]
+position = Vector2( 34720, 416 )
+
+[node name="obj_destroyable62" parent="." instance=ExtResource( 17 )]
+position = Vector2( 34752, 416 )
+
+[node name="obj_destroyable63" parent="." instance=ExtResource( 17 )]
+position = Vector2( 34784, 384 )
+
+[node name="obj_destroyable64" parent="." instance=ExtResource( 17 )]
+position = Vector2( 34816, 384 )
+
+[node name="obj_destroyable65" parent="." instance=ExtResource( 17 )]
+position = Vector2( 34784, 416 )
+
+[node name="obj_destroyable66" parent="." instance=ExtResource( 17 )]
+position = Vector2( 34816, 416 )
+
+[node name="obj_destroyable67" parent="." instance=ExtResource( 17 )]
+position = Vector2( 34848, 384 )
+
+[node name="obj_destroyable68" parent="." instance=ExtResource( 17 )]
+position = Vector2( 34880, 384 )
+
+[node name="obj_destroyable69" parent="." instance=ExtResource( 17 )]
+position = Vector2( 34848, 416 )
+
+[node name="obj_destroyable70" parent="." instance=ExtResource( 17 )]
+position = Vector2( 34880, 416 )
+
+[node name="obj_destroyable71" parent="." instance=ExtResource( 17 )]
+position = Vector2( 34912, 384 )
+
+[node name="obj_destroyable72" parent="." instance=ExtResource( 17 )]
+position = Vector2( 34944, 384 )
+
+[node name="obj_destroyable73" parent="." instance=ExtResource( 17 )]
+position = Vector2( 34912, 416 )
+
+[node name="obj_destroyable74" parent="." instance=ExtResource( 17 )]
+position = Vector2( 34944, 416 )
+
+[node name="obj_forknight2" parent="." instance=ExtResource( 18 )]
+position = Vector2( 9072, 400 )
+
+[node name="obj_forknight3" parent="." instance=ExtResource( 18 )]
+position = Vector2( 9728, 336 )
+
+[node name="obj_forknight4" parent="." instance=ExtResource( 18 )]
+position = Vector2( 9888, 336 )
+
+[node name="obj_forknight5" parent="." instance=ExtResource( 18 )]
+position = Vector2( 10048, 336 )
+
+[node name="obj_metalblock" parent="." instance=ExtResource( 19 )]
+position = Vector2( 14304, 288 )
+
+[node name="obj_peppermandestroyable381" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15520, 352 )
+
+[node name="obj_peppermandestroyable382" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15712, 352 )
+
+[node name="obj_peppermandestroyable383" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15680, 352 )
+
+[node name="obj_peppermandestroyable384" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15648, 352 )
+
+[node name="obj_peppermandestroyable385" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15616, 352 )
+
+[node name="obj_peppermandestroyable386" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15584, 352 )
+
+[node name="obj_peppermandestroyable387" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15552, 352 )
+
+[node name="obj_peppermandestroyable388" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15520, 384 )
+
+[node name="obj_peppermandestroyable389" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15712, 384 )
+
+[node name="obj_peppermandestroyable390" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15680, 384 )
+
+[node name="obj_peppermandestroyable391" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15648, 384 )
+
+[node name="obj_peppermandestroyable392" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15616, 384 )
+
+[node name="obj_peppermandestroyable393" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15584, 384 )
+
+[node name="obj_peppermandestroyable394" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15552, 384 )
+
+[node name="obj_peppermandestroyable395" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15520, 416 )
+
+[node name="obj_peppermandestroyable396" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15712, 416 )
+
+[node name="obj_peppermandestroyable397" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15680, 416 )
+
+[node name="obj_peppermandestroyable398" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15648, 416 )
+
+[node name="obj_peppermandestroyable399" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15616, 416 )
+
+[node name="obj_peppermandestroyable400" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15584, 416 )
+
+[node name="obj_peppermandestroyable401" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15552, 416 )
+
+[node name="obj_peppermandestroyable402" parent="." instance=ExtResource( 14 )]
+position = Vector2( 18336, 384 )
+
+[node name="obj_peppermandestroyable403" parent="." instance=ExtResource( 14 )]
+position = Vector2( 18368, 384 )
+
+[node name="obj_peppermandestroyable404" parent="." instance=ExtResource( 14 )]
+position = Vector2( 18400, 384 )
+
+[node name="obj_peppermandestroyable405" parent="." instance=ExtResource( 14 )]
+position = Vector2( 18432, 384 )
+
+[node name="obj_peppermandestroyable406" parent="." instance=ExtResource( 14 )]
+position = Vector2( 18464, 384 )
+
+[node name="obj_peppermandestroyable407" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19072, 416 )
+
+[node name="obj_peppermandestroyable408" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19104, 416 )
+
+[node name="obj_peppermandestroyable409" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19136, 416 )
+
+[node name="obj_peppermandestroyable410" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19168, 416 )
+
+[node name="obj_peppermandestroyable411" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19200, 416 )
+
+[node name="obj_peppermandestroyable412" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19232, 416 )
+
+[node name="obj_peppermandestroyable413" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19264, 416 )
+
+[node name="obj_peppermandestroyable414" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19296, 384 )
+
+[node name="obj_peppermandestroyable415" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19328, 384 )
+
+[node name="obj_peppermandestroyable416" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19360, 384 )
+
+[node name="obj_peppermandestroyable417" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19392, 384 )
+
+[node name="obj_peppermandestroyable418" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19424, 384 )
+
+[node name="obj_peppermandestroyable419" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19456, 384 )
+
+[node name="obj_peppermandestroyable420" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19488, 384 )
+
+[node name="obj_peppermandestroyable421" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19520, 384 )
+
+[node name="obj_peppermandestroyable422" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19296, 416 )
+
+[node name="obj_peppermandestroyable423" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19328, 416 )
+
+[node name="obj_peppermandestroyable424" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19360, 416 )
+
+[node name="obj_peppermandestroyable425" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19392, 416 )
+
+[node name="obj_peppermandestroyable426" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19424, 416 )
+
+[node name="obj_peppermandestroyable427" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19456, 416 )
+
+[node name="obj_peppermandestroyable428" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19488, 416 )
+
+[node name="obj_peppermandestroyable429" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19520, 416 )
+
+[node name="obj_peppermandestroyable430" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20096, 288 )
+
+[node name="obj_peppermandestroyable431" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20416, 288 )
+
+[node name="obj_peppermandestroyable432" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20384, 288 )
+
+[node name="obj_peppermandestroyable433" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20352, 288 )
+
+[node name="obj_peppermandestroyable434" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20320, 288 )
+
+[node name="obj_peppermandestroyable435" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20288, 288 )
+
+[node name="obj_peppermandestroyable436" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20256, 288 )
+
+[node name="obj_peppermandestroyable437" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20224, 288 )
+
+[node name="obj_peppermandestroyable438" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20192, 288 )
+
+[node name="obj_peppermandestroyable439" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20160, 288 )
+
+[node name="obj_peppermandestroyable440" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20128, 288 )
+
+[node name="obj_peppermandestroyable441" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20416, 352 )
+
+[node name="obj_peppermandestroyable442" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20416, 384 )
+
+[node name="obj_peppermandestroyable443" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20416, 416 )
+
+[node name="obj_peppermandestroyable444" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20384, 352 )
+
+[node name="obj_peppermandestroyable445" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20384, 384 )
+
+[node name="obj_peppermandestroyable446" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20384, 416 )
+
+[node name="obj_peppermandestroyable447" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20352, 352 )
+
+[node name="obj_peppermandestroyable448" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20352, 384 )
+
+[node name="obj_peppermandestroyable449" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20352, 416 )
+
+[node name="obj_peppermandestroyable450" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20320, 352 )
+
+[node name="obj_peppermandestroyable451" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20320, 384 )
+
+[node name="obj_peppermandestroyable452" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20320, 416 )
+
+[node name="obj_peppermandestroyable453" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20288, 352 )
+
+[node name="obj_peppermandestroyable454" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20288, 384 )
+
+[node name="obj_peppermandestroyable455" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20288, 416 )
+
+[node name="obj_peppermandestroyable456" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20256, 352 )
+
+[node name="obj_peppermandestroyable457" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20256, 384 )
+
+[node name="obj_peppermandestroyable458" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20256, 416 )
+
+[node name="obj_peppermandestroyable459" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20224, 352 )
+
+[node name="obj_peppermandestroyable460" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20224, 384 )
+
+[node name="obj_peppermandestroyable461" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20224, 416 )
+
+[node name="obj_peppermandestroyable462" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20192, 352 )
+
+[node name="obj_peppermandestroyable463" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20192, 384 )
+
+[node name="obj_peppermandestroyable464" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20192, 416 )
+
+[node name="obj_peppermandestroyable465" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20160, 352 )
+
+[node name="obj_peppermandestroyable466" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20160, 384 )
+
+[node name="obj_peppermandestroyable467" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20160, 416 )
+
+[node name="obj_peppermandestroyable468" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20128, 352 )
+
+[node name="obj_peppermandestroyable469" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20128, 384 )
+
+[node name="obj_peppermandestroyable470" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20128, 416 )
+
+[node name="obj_peppermandestroyable471" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20096, 352 )
+
+[node name="obj_peppermandestroyable472" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20096, 384 )
+
+[node name="obj_peppermandestroyable473" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20096, 416 )
+
+[node name="obj_peppermandestroyable474" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20064, 352 )
+
+[node name="obj_peppermandestroyable475" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20064, 384 )
+
+[node name="obj_peppermandestroyable476" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20064, 416 )
+
+[node name="obj_peppermandestroyable477" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20032, 352 )
+
+[node name="obj_peppermandestroyable478" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20032, 384 )
+
+[node name="obj_peppermandestroyable479" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20032, 416 )
+
+[node name="obj_peppermandestroyable480" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20000, 352 )
+
+[node name="obj_peppermandestroyable481" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20000, 384 )
+
+[node name="obj_peppermandestroyable482" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20000, 416 )
+
+[node name="obj_peppermandestroyable483" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19968, 352 )
+
+[node name="obj_peppermandestroyable484" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19968, 384 )
+
+[node name="obj_peppermandestroyable485" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19968, 416 )
+
+[node name="obj_peppermandestroyable486" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19936, 352 )
+
+[node name="obj_peppermandestroyable487" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19936, 384 )
+
+[node name="obj_peppermandestroyable488" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19936, 416 )
+
+[node name="obj_peppermandestroyable489" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19904, 352 )
+
+[node name="obj_peppermandestroyable490" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19904, 384 )
+
+[node name="obj_peppermandestroyable491" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19904, 416 )
+
+[node name="obj_peppermandestroyable492" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19872, 352 )
+
+[node name="obj_peppermandestroyable493" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19872, 384 )
+
+[node name="obj_peppermandestroyable494" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19872, 416 )
+
+[node name="obj_peppermandestroyable495" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19840, 352 )
+
+[node name="obj_peppermandestroyable496" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19840, 384 )
+
+[node name="obj_peppermandestroyable497" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19840, 416 )
+
+[node name="obj_peppermandestroyable498" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19808, 352 )
+
+[node name="obj_peppermandestroyable499" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19808, 384 )
+
+[node name="obj_peppermandestroyable500" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19808, 416 )
+
+[node name="obj_peppermandestroyable501" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19776, 352 )
+
+[node name="obj_peppermandestroyable502" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19776, 384 )
+
+[node name="obj_peppermandestroyable503" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19776, 416 )
+
+[node name="obj_peppermandestroyable504" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19744, 352 )
+
+[node name="obj_peppermandestroyable505" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19744, 384 )
+
+[node name="obj_peppermandestroyable506" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19744, 416 )
+
+[node name="obj_peppermandestroyable507" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19712, 352 )
+
+[node name="obj_peppermandestroyable508" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19712, 384 )
+
+[node name="obj_peppermandestroyable509" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19712, 416 )
+
+[node name="obj_peppermandestroyable510" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19680, 352 )
+
+[node name="obj_peppermandestroyable511" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19680, 384 )
+
+[node name="obj_peppermandestroyable512" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19680, 416 )
+
+[node name="obj_peppermandestroyable513" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19648, 352 )
+
+[node name="obj_peppermandestroyable514" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19648, 384 )
+
+[node name="obj_peppermandestroyable515" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19648, 416 )
+
+[node name="obj_peppermandestroyable516" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19616, 352 )
+
+[node name="obj_peppermandestroyable517" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19616, 384 )
+
+[node name="obj_peppermandestroyable518" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19616, 416 )
+
+[node name="obj_peppermandestroyable519" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19584, 352 )
+
+[node name="obj_peppermandestroyable520" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19584, 384 )
+
+[node name="obj_peppermandestroyable521" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19584, 416 )
+
+[node name="obj_peppermandestroyable522" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19552, 352 )
+
+[node name="obj_peppermandestroyable523" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19552, 384 )
+
+[node name="obj_peppermandestroyable524" parent="." instance=ExtResource( 14 )]
+position = Vector2( 19552, 416 )
+
+[node name="obj_peppermandestroyable525" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20992, 384 )
+
+[node name="obj_peppermandestroyable526" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21248, 384 )
+
+[node name="obj_peppermandestroyable527" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21024, 384 )
+
+[node name="obj_peppermandestroyable528" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21056, 384 )
+
+[node name="obj_peppermandestroyable529" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21088, 384 )
+
+[node name="obj_peppermandestroyable530" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21120, 384 )
+
+[node name="obj_peppermandestroyable531" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21152, 384 )
+
+[node name="obj_peppermandestroyable532" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21184, 384 )
+
+[node name="obj_peppermandestroyable533" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21216, 384 )
+
+[node name="obj_peppermandestroyable534" parent="." instance=ExtResource( 14 )]
+position = Vector2( 20992, 416 )
+
+[node name="obj_peppermandestroyable535" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21248, 416 )
+
+[node name="obj_peppermandestroyable536" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21024, 416 )
+
+[node name="obj_peppermandestroyable537" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21056, 416 )
+
+[node name="obj_peppermandestroyable538" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21088, 416 )
+
+[node name="obj_peppermandestroyable539" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21120, 416 )
+
+[node name="obj_peppermandestroyable540" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21152, 416 )
+
+[node name="obj_peppermandestroyable541" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21184, 416 )
+
+[node name="obj_peppermandestroyable542" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21216, 416 )
+
+[node name="obj_peppermandestroyable543" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21408, 384 )
+
+[node name="obj_peppermandestroyable544" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21664, 384 )
+
+[node name="obj_peppermandestroyable545" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21440, 384 )
+
+[node name="obj_peppermandestroyable546" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21472, 384 )
+
+[node name="obj_peppermandestroyable547" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21504, 384 )
+
+[node name="obj_peppermandestroyable548" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21536, 384 )
+
+[node name="obj_peppermandestroyable549" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21568, 384 )
+
+[node name="obj_peppermandestroyable550" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21600, 384 )
+
+[node name="obj_peppermandestroyable551" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21632, 384 )
+
+[node name="obj_peppermandestroyable552" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21408, 416 )
+
+[node name="obj_peppermandestroyable553" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21664, 416 )
+
+[node name="obj_peppermandestroyable554" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21440, 416 )
+
+[node name="obj_peppermandestroyable555" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21472, 416 )
+
+[node name="obj_peppermandestroyable556" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21504, 416 )
+
+[node name="obj_peppermandestroyable557" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21536, 416 )
+
+[node name="obj_peppermandestroyable558" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21568, 416 )
+
+[node name="obj_peppermandestroyable559" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21600, 416 )
+
+[node name="obj_peppermandestroyable560" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21632, 416 )
+
+[node name="obj_peppermandestroyable561" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21824, 384 )
+
+[node name="obj_peppermandestroyable562" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22080, 384 )
+
+[node name="obj_peppermandestroyable563" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21856, 384 )
+
+[node name="obj_peppermandestroyable564" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21888, 384 )
+
+[node name="obj_peppermandestroyable565" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21920, 384 )
+
+[node name="obj_peppermandestroyable566" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21952, 384 )
+
+[node name="obj_peppermandestroyable567" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21984, 384 )
+
+[node name="obj_peppermandestroyable568" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22016, 384 )
+
+[node name="obj_peppermandestroyable569" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22048, 384 )
+
+[node name="obj_peppermandestroyable570" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21824, 416 )
+
+[node name="obj_peppermandestroyable571" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22080, 416 )
+
+[node name="obj_peppermandestroyable572" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21856, 416 )
+
+[node name="obj_peppermandestroyable573" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21888, 416 )
+
+[node name="obj_peppermandestroyable574" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21920, 416 )
+
+[node name="obj_peppermandestroyable575" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21952, 416 )
+
+[node name="obj_peppermandestroyable576" parent="." instance=ExtResource( 14 )]
+position = Vector2( 21984, 416 )
+
+[node name="obj_peppermandestroyable577" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22016, 416 )
+
+[node name="obj_peppermandestroyable578" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22048, 416 )
+
+[node name="obj_peppermandestroyable579" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22240, 384 )
+
+[node name="obj_peppermandestroyable580" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22496, 384 )
+
+[node name="obj_peppermandestroyable581" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22272, 384 )
+
+[node name="obj_peppermandestroyable582" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22304, 384 )
+
+[node name="obj_peppermandestroyable583" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22336, 384 )
+
+[node name="obj_peppermandestroyable584" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22368, 384 )
+
+[node name="obj_peppermandestroyable585" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22400, 384 )
+
+[node name="obj_peppermandestroyable586" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22432, 384 )
+
+[node name="obj_peppermandestroyable587" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22464, 384 )
+
+[node name="obj_peppermandestroyable588" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22240, 416 )
+
+[node name="obj_peppermandestroyable589" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22496, 416 )
+
+[node name="obj_peppermandestroyable590" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22272, 416 )
+
+[node name="obj_peppermandestroyable591" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22304, 416 )
+
+[node name="obj_peppermandestroyable592" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22336, 416 )
+
+[node name="obj_peppermandestroyable593" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22368, 416 )
+
+[node name="obj_peppermandestroyable594" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22400, 416 )
+
+[node name="obj_peppermandestroyable595" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22432, 416 )
+
+[node name="obj_peppermandestroyable596" parent="." instance=ExtResource( 14 )]
+position = Vector2( 22464, 416 )
+
+[node name="obj_peppermandestroyable597" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23424, 288 )
+
+[node name="obj_peppermandestroyable598" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24448, 288 )
+
+[node name="obj_peppermandestroyable599" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24448, 320 )
+
+[node name="obj_peppermandestroyable600" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24448, 352 )
+
+[node name="obj_peppermandestroyable601" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24448, 384 )
+
+[node name="obj_peppermandestroyable602" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24416, 288 )
+
+[node name="obj_peppermandestroyable603" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24416, 320 )
+
+[node name="obj_peppermandestroyable604" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24416, 352 )
+
+[node name="obj_peppermandestroyable605" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24416, 384 )
+
+[node name="obj_peppermandestroyable606" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24384, 288 )
+
+[node name="obj_peppermandestroyable607" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24384, 320 )
+
+[node name="obj_peppermandestroyable608" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24384, 352 )
+
+[node name="obj_peppermandestroyable609" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24384, 384 )
+
+[node name="obj_peppermandestroyable610" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24352, 288 )
+
+[node name="obj_peppermandestroyable611" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24352, 320 )
+
+[node name="obj_peppermandestroyable612" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24352, 352 )
+
+[node name="obj_peppermandestroyable613" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24352, 384 )
+
+[node name="obj_peppermandestroyable614" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24320, 288 )
+
+[node name="obj_peppermandestroyable615" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24320, 320 )
+
+[node name="obj_peppermandestroyable616" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24320, 352 )
+
+[node name="obj_peppermandestroyable617" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24320, 384 )
+
+[node name="obj_peppermandestroyable618" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24288, 288 )
+
+[node name="obj_peppermandestroyable619" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24288, 320 )
+
+[node name="obj_peppermandestroyable620" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24288, 352 )
+
+[node name="obj_peppermandestroyable621" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24288, 384 )
+
+[node name="obj_peppermandestroyable622" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24256, 288 )
+
+[node name="obj_peppermandestroyable623" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24256, 320 )
+
+[node name="obj_peppermandestroyable624" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24256, 352 )
+
+[node name="obj_peppermandestroyable625" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24256, 384 )
+
+[node name="obj_peppermandestroyable626" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24224, 288 )
+
+[node name="obj_peppermandestroyable627" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24224, 320 )
+
+[node name="obj_peppermandestroyable628" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24224, 352 )
+
+[node name="obj_peppermandestroyable629" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24224, 384 )
+
+[node name="obj_peppermandestroyable630" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24192, 288 )
+
+[node name="obj_peppermandestroyable631" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24192, 320 )
+
+[node name="obj_peppermandestroyable632" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24192, 352 )
+
+[node name="obj_peppermandestroyable633" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24192, 384 )
+
+[node name="obj_peppermandestroyable634" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24160, 288 )
+
+[node name="obj_peppermandestroyable635" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24160, 320 )
+
+[node name="obj_peppermandestroyable636" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24160, 352 )
+
+[node name="obj_peppermandestroyable637" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24160, 384 )
+
+[node name="obj_peppermandestroyable638" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24128, 288 )
+
+[node name="obj_peppermandestroyable639" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24128, 320 )
+
+[node name="obj_peppermandestroyable640" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24128, 352 )
+
+[node name="obj_peppermandestroyable641" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24128, 384 )
+
+[node name="obj_peppermandestroyable642" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24096, 288 )
+
+[node name="obj_peppermandestroyable643" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24096, 320 )
+
+[node name="obj_peppermandestroyable644" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24096, 352 )
+
+[node name="obj_peppermandestroyable645" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24096, 384 )
+
+[node name="obj_peppermandestroyable646" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24064, 288 )
+
+[node name="obj_peppermandestroyable647" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24064, 320 )
+
+[node name="obj_peppermandestroyable648" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24064, 352 )
+
+[node name="obj_peppermandestroyable649" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24064, 384 )
+
+[node name="obj_peppermandestroyable650" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24032, 288 )
+
+[node name="obj_peppermandestroyable651" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24032, 320 )
+
+[node name="obj_peppermandestroyable652" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24032, 352 )
+
+[node name="obj_peppermandestroyable653" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24032, 384 )
+
+[node name="obj_peppermandestroyable654" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24000, 288 )
+
+[node name="obj_peppermandestroyable655" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24000, 320 )
+
+[node name="obj_peppermandestroyable656" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24000, 352 )
+
+[node name="obj_peppermandestroyable657" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24000, 384 )
+
+[node name="obj_peppermandestroyable658" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23968, 288 )
+
+[node name="obj_peppermandestroyable659" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23968, 320 )
+
+[node name="obj_peppermandestroyable660" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23968, 352 )
+
+[node name="obj_peppermandestroyable661" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23968, 384 )
+
+[node name="obj_peppermandestroyable662" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23936, 288 )
+
+[node name="obj_peppermandestroyable663" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23936, 320 )
+
+[node name="obj_peppermandestroyable664" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23936, 352 )
+
+[node name="obj_peppermandestroyable665" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23936, 384 )
+
+[node name="obj_peppermandestroyable666" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23904, 288 )
+
+[node name="obj_peppermandestroyable667" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23904, 320 )
+
+[node name="obj_peppermandestroyable668" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23904, 352 )
+
+[node name="obj_peppermandestroyable669" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23904, 384 )
+
+[node name="obj_peppermandestroyable670" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23872, 288 )
+
+[node name="obj_peppermandestroyable671" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23872, 320 )
+
+[node name="obj_peppermandestroyable672" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23872, 352 )
+
+[node name="obj_peppermandestroyable673" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23872, 384 )
+
+[node name="obj_peppermandestroyable674" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23840, 288 )
+
+[node name="obj_peppermandestroyable675" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23840, 320 )
+
+[node name="obj_peppermandestroyable676" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23840, 352 )
+
+[node name="obj_peppermandestroyable677" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23840, 384 )
+
+[node name="obj_peppermandestroyable678" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23808, 288 )
+
+[node name="obj_peppermandestroyable679" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23808, 320 )
+
+[node name="obj_peppermandestroyable680" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23808, 352 )
+
+[node name="obj_peppermandestroyable681" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23808, 384 )
+
+[node name="obj_peppermandestroyable682" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23776, 288 )
+
+[node name="obj_peppermandestroyable683" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23776, 320 )
+
+[node name="obj_peppermandestroyable684" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23776, 352 )
+
+[node name="obj_peppermandestroyable685" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23776, 384 )
+
+[node name="obj_peppermandestroyable686" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23744, 288 )
+
+[node name="obj_peppermandestroyable687" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23744, 320 )
+
+[node name="obj_peppermandestroyable688" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23744, 352 )
+
+[node name="obj_peppermandestroyable689" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23744, 384 )
+
+[node name="obj_peppermandestroyable690" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23712, 288 )
+
+[node name="obj_peppermandestroyable691" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23712, 320 )
+
+[node name="obj_peppermandestroyable692" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23712, 352 )
+
+[node name="obj_peppermandestroyable693" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23712, 384 )
+
+[node name="obj_peppermandestroyable694" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23680, 288 )
+
+[node name="obj_peppermandestroyable695" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23680, 320 )
+
+[node name="obj_peppermandestroyable696" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23680, 352 )
+
+[node name="obj_peppermandestroyable697" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23680, 384 )
+
+[node name="obj_peppermandestroyable698" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23648, 288 )
+
+[node name="obj_peppermandestroyable699" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23648, 320 )
+
+[node name="obj_peppermandestroyable700" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23648, 352 )
+
+[node name="obj_peppermandestroyable701" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23648, 384 )
+
+[node name="obj_peppermandestroyable702" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23616, 288 )
+
+[node name="obj_peppermandestroyable703" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23616, 320 )
+
+[node name="obj_peppermandestroyable704" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23616, 352 )
+
+[node name="obj_peppermandestroyable705" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23616, 384 )
+
+[node name="obj_peppermandestroyable706" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23584, 288 )
+
+[node name="obj_peppermandestroyable707" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23584, 320 )
+
+[node name="obj_peppermandestroyable708" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23584, 352 )
+
+[node name="obj_peppermandestroyable709" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23584, 384 )
+
+[node name="obj_peppermandestroyable710" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23552, 288 )
+
+[node name="obj_peppermandestroyable711" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23552, 320 )
+
+[node name="obj_peppermandestroyable712" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23552, 352 )
+
+[node name="obj_peppermandestroyable713" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23552, 384 )
+
+[node name="obj_peppermandestroyable714" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23520, 288 )
+
+[node name="obj_peppermandestroyable715" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23520, 320 )
+
+[node name="obj_peppermandestroyable716" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23520, 352 )
+
+[node name="obj_peppermandestroyable717" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23520, 384 )
+
+[node name="obj_peppermandestroyable718" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23488, 288 )
+
+[node name="obj_peppermandestroyable719" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23488, 320 )
+
+[node name="obj_peppermandestroyable720" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23488, 352 )
+
+[node name="obj_peppermandestroyable721" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23488, 384 )
+
+[node name="obj_peppermandestroyable722" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23456, 288 )
+
+[node name="obj_peppermandestroyable723" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23456, 320 )
+
+[node name="obj_peppermandestroyable724" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23456, 352 )
+
+[node name="obj_peppermandestroyable725" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23456, 384 )
+
+[node name="obj_peppermandestroyable726" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23424, 320 )
+
+[node name="obj_peppermandestroyable727" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23424, 352 )
+
+[node name="obj_peppermandestroyable728" parent="." instance=ExtResource( 14 )]
+position = Vector2( 23424, 384 )
+
+[node name="obj_peppermandestroyable729" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24864, 352 )
+
+[node name="obj_peppermandestroyable730" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24896, 352 )
+
+[node name="obj_peppermandestroyable731" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24928, 352 )
+
+[node name="obj_peppermandestroyable732" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24864, 384 )
+
+[node name="obj_peppermandestroyable733" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24896, 384 )
+
+[node name="obj_peppermandestroyable734" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24928, 384 )
+
+[node name="obj_peppermandestroyable735" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24864, 416 )
+
+[node name="obj_peppermandestroyable736" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24896, 416 )
+
+[node name="obj_peppermandestroyable737" parent="." instance=ExtResource( 14 )]
+position = Vector2( 24928, 416 )
+
+[node name="obj_peppermandestroyable738" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25344, 288 )
+
+[node name="obj_peppermandestroyable739" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26368, 288 )
+
+[node name="obj_peppermandestroyable740" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26368, 320 )
+
+[node name="obj_peppermandestroyable741" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26368, 352 )
+
+[node name="obj_peppermandestroyable742" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26368, 384 )
+
+[node name="obj_peppermandestroyable743" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26336, 288 )
+
+[node name="obj_peppermandestroyable744" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26336, 320 )
+
+[node name="obj_peppermandestroyable745" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26336, 352 )
+
+[node name="obj_peppermandestroyable746" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26336, 384 )
+
+[node name="obj_peppermandestroyable747" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26304, 288 )
+
+[node name="obj_peppermandestroyable748" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26304, 320 )
+
+[node name="obj_peppermandestroyable749" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26304, 352 )
+
+[node name="obj_peppermandestroyable750" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26304, 384 )
+
+[node name="obj_peppermandestroyable751" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26272, 288 )
+
+[node name="obj_peppermandestroyable752" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26272, 320 )
+
+[node name="obj_peppermandestroyable753" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26272, 352 )
+
+[node name="obj_peppermandestroyable754" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26272, 384 )
+
+[node name="obj_peppermandestroyable755" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26240, 288 )
+
+[node name="obj_peppermandestroyable756" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26240, 320 )
+
+[node name="obj_peppermandestroyable757" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26240, 352 )
+
+[node name="obj_peppermandestroyable758" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26240, 384 )
+
+[node name="obj_peppermandestroyable759" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26208, 288 )
+
+[node name="obj_peppermandestroyable760" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26208, 320 )
+
+[node name="obj_peppermandestroyable761" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26208, 352 )
+
+[node name="obj_peppermandestroyable762" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26208, 384 )
+
+[node name="obj_peppermandestroyable763" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26176, 288 )
+
+[node name="obj_peppermandestroyable764" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26176, 320 )
+
+[node name="obj_peppermandestroyable765" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26176, 352 )
+
+[node name="obj_peppermandestroyable766" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26176, 384 )
+
+[node name="obj_peppermandestroyable767" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26144, 288 )
+
+[node name="obj_peppermandestroyable768" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26144, 320 )
+
+[node name="obj_peppermandestroyable769" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26144, 352 )
+
+[node name="obj_peppermandestroyable770" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26144, 384 )
+
+[node name="obj_peppermandestroyable771" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26112, 288 )
+
+[node name="obj_peppermandestroyable772" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26112, 320 )
+
+[node name="obj_peppermandestroyable773" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26112, 352 )
+
+[node name="obj_peppermandestroyable774" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26112, 384 )
+
+[node name="obj_peppermandestroyable775" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26080, 288 )
+
+[node name="obj_peppermandestroyable776" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26080, 320 )
+
+[node name="obj_peppermandestroyable777" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26080, 352 )
+
+[node name="obj_peppermandestroyable778" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26080, 384 )
+
+[node name="obj_peppermandestroyable779" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26048, 288 )
+
+[node name="obj_peppermandestroyable780" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26048, 320 )
+
+[node name="obj_peppermandestroyable781" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26048, 352 )
+
+[node name="obj_peppermandestroyable782" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26048, 384 )
+
+[node name="obj_peppermandestroyable783" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26016, 288 )
+
+[node name="obj_peppermandestroyable784" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26016, 320 )
+
+[node name="obj_peppermandestroyable785" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26016, 352 )
+
+[node name="obj_peppermandestroyable786" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26016, 384 )
+
+[node name="obj_peppermandestroyable787" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25984, 288 )
+
+[node name="obj_peppermandestroyable788" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25984, 320 )
+
+[node name="obj_peppermandestroyable789" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25984, 352 )
+
+[node name="obj_peppermandestroyable790" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25984, 384 )
+
+[node name="obj_peppermandestroyable791" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25952, 288 )
+
+[node name="obj_peppermandestroyable792" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25952, 320 )
+
+[node name="obj_peppermandestroyable793" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25952, 352 )
+
+[node name="obj_peppermandestroyable794" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25952, 384 )
+
+[node name="obj_peppermandestroyable795" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25920, 288 )
+
+[node name="obj_peppermandestroyable796" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25920, 320 )
+
+[node name="obj_peppermandestroyable797" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25920, 352 )
+
+[node name="obj_peppermandestroyable798" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25920, 384 )
+
+[node name="obj_peppermandestroyable799" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25888, 288 )
+
+[node name="obj_peppermandestroyable800" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25888, 320 )
+
+[node name="obj_peppermandestroyable801" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25888, 352 )
+
+[node name="obj_peppermandestroyable802" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25888, 384 )
+
+[node name="obj_peppermandestroyable803" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25856, 288 )
+
+[node name="obj_peppermandestroyable804" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25856, 320 )
+
+[node name="obj_peppermandestroyable805" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25856, 352 )
+
+[node name="obj_peppermandestroyable806" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25856, 384 )
+
+[node name="obj_peppermandestroyable807" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25824, 288 )
+
+[node name="obj_peppermandestroyable808" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25824, 320 )
+
+[node name="obj_peppermandestroyable809" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25824, 352 )
+
+[node name="obj_peppermandestroyable810" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25824, 384 )
+
+[node name="obj_peppermandestroyable811" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25792, 288 )
+
+[node name="obj_peppermandestroyable812" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25792, 320 )
+
+[node name="obj_peppermandestroyable813" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25792, 352 )
+
+[node name="obj_peppermandestroyable814" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25792, 384 )
+
+[node name="obj_peppermandestroyable815" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25760, 288 )
+
+[node name="obj_peppermandestroyable816" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25760, 320 )
+
+[node name="obj_peppermandestroyable817" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25760, 352 )
+
+[node name="obj_peppermandestroyable818" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25760, 384 )
+
+[node name="obj_peppermandestroyable819" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25728, 288 )
+
+[node name="obj_peppermandestroyable820" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25728, 320 )
+
+[node name="obj_peppermandestroyable821" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25728, 352 )
+
+[node name="obj_peppermandestroyable822" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25728, 384 )
+
+[node name="obj_peppermandestroyable823" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25696, 288 )
+
+[node name="obj_peppermandestroyable824" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25696, 320 )
+
+[node name="obj_peppermandestroyable825" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25696, 352 )
+
+[node name="obj_peppermandestroyable826" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25696, 384 )
+
+[node name="obj_peppermandestroyable827" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25664, 288 )
+
+[node name="obj_peppermandestroyable828" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25664, 320 )
+
+[node name="obj_peppermandestroyable829" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25664, 352 )
+
+[node name="obj_peppermandestroyable830" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25664, 384 )
+
+[node name="obj_peppermandestroyable831" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25632, 288 )
+
+[node name="obj_peppermandestroyable832" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25632, 320 )
+
+[node name="obj_peppermandestroyable833" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25632, 352 )
+
+[node name="obj_peppermandestroyable834" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25632, 384 )
+
+[node name="obj_peppermandestroyable835" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25600, 288 )
+
+[node name="obj_peppermandestroyable836" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25600, 320 )
+
+[node name="obj_peppermandestroyable837" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25600, 352 )
+
+[node name="obj_peppermandestroyable838" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25600, 384 )
+
+[node name="obj_peppermandestroyable839" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25568, 288 )
+
+[node name="obj_peppermandestroyable840" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25568, 320 )
+
+[node name="obj_peppermandestroyable841" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25568, 352 )
+
+[node name="obj_peppermandestroyable842" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25568, 384 )
+
+[node name="obj_peppermandestroyable843" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25536, 288 )
+
+[node name="obj_peppermandestroyable844" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25536, 320 )
+
+[node name="obj_peppermandestroyable845" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25536, 352 )
+
+[node name="obj_peppermandestroyable846" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25536, 384 )
+
+[node name="obj_peppermandestroyable847" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25504, 288 )
+
+[node name="obj_peppermandestroyable848" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25504, 320 )
+
+[node name="obj_peppermandestroyable849" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25504, 352 )
+
+[node name="obj_peppermandestroyable850" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25504, 384 )
+
+[node name="obj_peppermandestroyable851" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25472, 288 )
+
+[node name="obj_peppermandestroyable852" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25472, 320 )
+
+[node name="obj_peppermandestroyable853" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25472, 352 )
+
+[node name="obj_peppermandestroyable854" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25472, 384 )
+
+[node name="obj_peppermandestroyable855" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25440, 288 )
+
+[node name="obj_peppermandestroyable856" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25440, 320 )
+
+[node name="obj_peppermandestroyable857" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25440, 352 )
+
+[node name="obj_peppermandestroyable858" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25440, 384 )
+
+[node name="obj_peppermandestroyable859" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25408, 288 )
+
+[node name="obj_peppermandestroyable860" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25408, 320 )
+
+[node name="obj_peppermandestroyable861" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25408, 352 )
+
+[node name="obj_peppermandestroyable862" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25408, 384 )
+
+[node name="obj_peppermandestroyable863" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25376, 288 )
+
+[node name="obj_peppermandestroyable864" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25376, 320 )
+
+[node name="obj_peppermandestroyable865" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25376, 352 )
+
+[node name="obj_peppermandestroyable866" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25376, 384 )
+
+[node name="obj_peppermandestroyable867" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25344, 320 )
+
+[node name="obj_peppermandestroyable868" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25344, 352 )
+
+[node name="obj_peppermandestroyable869" parent="." instance=ExtResource( 14 )]
+position = Vector2( 25344, 384 )
+
+[node name="obj_peppermandestroyable870" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26784, 352 )
+
+[node name="obj_peppermandestroyable871" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26816, 352 )
+
+[node name="obj_peppermandestroyable872" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26848, 352 )
+
+[node name="obj_peppermandestroyable873" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26784, 384 )
+
+[node name="obj_peppermandestroyable874" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26816, 384 )
+
+[node name="obj_peppermandestroyable875" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26848, 384 )
+
+[node name="obj_peppermandestroyable876" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26784, 416 )
+
+[node name="obj_peppermandestroyable877" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26816, 416 )
+
+[node name="obj_peppermandestroyable878" parent="." instance=ExtResource( 14 )]
+position = Vector2( 26848, 416 )
+
+[node name="obj_peppermandestroyable879" parent="." instance=ExtResource( 14 )]
+position = Vector2( 30880, 384 )
+
+[node name="obj_peppermandestroyable880" parent="." instance=ExtResource( 14 )]
+position = Vector2( 31104, 384 )
+
+[node name="obj_peppermandestroyable881" parent="." instance=ExtResource( 14 )]
+position = Vector2( 31104, 416 )
+
+[node name="obj_peppermandestroyable882" parent="." instance=ExtResource( 14 )]
+position = Vector2( 31072, 384 )
+
+[node name="obj_peppermandestroyable883" parent="." instance=ExtResource( 14 )]
+position = Vector2( 31072, 416 )
+
+[node name="obj_peppermandestroyable887" parent="." instance=ExtResource( 14 )]
+position = Vector2( 31040, 384 )
+
+[node name="obj_peppermandestroyable888" parent="." instance=ExtResource( 14 )]
+position = Vector2( 31040, 416 )
+
+[node name="obj_peppermandestroyable889" parent="." instance=ExtResource( 14 )]
+position = Vector2( 31008, 384 )
+
+[node name="obj_peppermandestroyable890" parent="." instance=ExtResource( 14 )]
+position = Vector2( 31008, 416 )
+
+[node name="obj_peppermandestroyable891" parent="." instance=ExtResource( 14 )]
+position = Vector2( 30976, 384 )
+
+[node name="obj_peppermandestroyable892" parent="." instance=ExtResource( 14 )]
+position = Vector2( 30976, 416 )
+
+[node name="obj_peppermandestroyable893" parent="." instance=ExtResource( 14 )]
+position = Vector2( 30944, 384 )
+
+[node name="obj_peppermandestroyable894" parent="." instance=ExtResource( 14 )]
+position = Vector2( 30944, 416 )
+
+[node name="obj_peppermandestroyable884" parent="." instance=ExtResource( 14 )]
+position = Vector2( 30912, 384 )
+
+[node name="obj_peppermandestroyable885" parent="." instance=ExtResource( 14 )]
+position = Vector2( 30912, 416 )
+
+[node name="obj_peppermandestroyable886" parent="." instance=ExtResource( 14 )]
+position = Vector2( 30880, 416 )
+
+[node name="obj_peppermandestroyable895" parent="." instance=ExtResource( 14 )]
+position = Vector2( 31648, 416 )
+
+[node name="obj_peppermandestroyable896" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32128, 416 )
+
+[node name="obj_peppermandestroyable897" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32096, 416 )
+
+[node name="obj_peppermandestroyable898" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32064, 416 )
+
+[node name="obj_peppermandestroyable899" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32032, 416 )
+
+[node name="obj_peppermandestroyable900" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32000, 416 )
+
+[node name="obj_peppermandestroyable901" parent="." instance=ExtResource( 14 )]
+position = Vector2( 31968, 416 )
+
+[node name="obj_peppermandestroyable902" parent="." instance=ExtResource( 14 )]
+position = Vector2( 31936, 416 )
+
+[node name="obj_peppermandestroyable903" parent="." instance=ExtResource( 14 )]
+position = Vector2( 31904, 416 )
+
+[node name="obj_peppermandestroyable904" parent="." instance=ExtResource( 14 )]
+position = Vector2( 31872, 416 )
+
+[node name="obj_peppermandestroyable905" parent="." instance=ExtResource( 14 )]
+position = Vector2( 31840, 416 )
+
+[node name="obj_peppermandestroyable906" parent="." instance=ExtResource( 14 )]
+position = Vector2( 31808, 416 )
+
+[node name="obj_peppermandestroyable907" parent="." instance=ExtResource( 14 )]
+position = Vector2( 31776, 416 )
+
+[node name="obj_peppermandestroyable908" parent="." instance=ExtResource( 14 )]
+position = Vector2( 31744, 416 )
+
+[node name="obj_peppermandestroyable909" parent="." instance=ExtResource( 14 )]
+position = Vector2( 31712, 416 )
+
+[node name="obj_peppermandestroyable910" parent="." instance=ExtResource( 14 )]
+position = Vector2( 31680, 416 )
+
+[node name="obj_peppermandestroyable911" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32384, 416 )
+
+[node name="obj_peppermandestroyable912" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32992, 416 )
+
+[node name="obj_peppermandestroyable913" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32960, 416 )
+
+[node name="obj_peppermandestroyable914" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32928, 416 )
+
+[node name="obj_peppermandestroyable915" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32896, 416 )
+
+[node name="obj_peppermandestroyable916" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32864, 416 )
+
+[node name="obj_peppermandestroyable917" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32832, 416 )
+
+[node name="obj_peppermandestroyable918" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32800, 416 )
+
+[node name="obj_peppermandestroyable919" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32768, 416 )
+
+[node name="obj_peppermandestroyable920" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32736, 416 )
+
+[node name="obj_peppermandestroyable921" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32704, 416 )
+
+[node name="obj_peppermandestroyable922" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32672, 416 )
+
+[node name="obj_peppermandestroyable923" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32640, 416 )
+
+[node name="obj_peppermandestroyable924" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32608, 416 )
+
+[node name="obj_peppermandestroyable925" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32576, 416 )
+
+[node name="obj_peppermandestroyable926" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32544, 416 )
+
+[node name="obj_peppermandestroyable927" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32512, 416 )
+
+[node name="obj_peppermandestroyable928" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32480, 416 )
+
+[node name="obj_peppermandestroyable929" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32448, 416 )
+
+[node name="obj_peppermandestroyable930" parent="." instance=ExtResource( 14 )]
+position = Vector2( 32416, 416 )
+
+[node name="obj_peppermandestroyable931" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33376, 288 )
+
+[node name="obj_peppermandestroyable932" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34080, 288 )
+
+[node name="obj_peppermandestroyable933" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34080, 320 )
+
+[node name="obj_peppermandestroyable934" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34080, 352 )
+
+[node name="obj_peppermandestroyable935" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34080, 384 )
+
+[node name="obj_peppermandestroyable936" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33824, 384 )
+
+[node name="obj_peppermandestroyable937" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33824, 352 )
+
+[node name="obj_peppermandestroyable938" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33824, 320 )
+
+[node name="obj_peppermandestroyable939" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33824, 288 )
+
+[node name="obj_peppermandestroyable940" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33856, 384 )
+
+[node name="obj_peppermandestroyable941" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33856, 352 )
+
+[node name="obj_peppermandestroyable942" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33856, 320 )
+
+[node name="obj_peppermandestroyable943" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33856, 288 )
+
+[node name="obj_peppermandestroyable944" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33888, 384 )
+
+[node name="obj_peppermandestroyable945" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33888, 352 )
+
+[node name="obj_peppermandestroyable946" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33888, 320 )
+
+[node name="obj_peppermandestroyable947" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33888, 288 )
+
+[node name="obj_peppermandestroyable948" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33920, 384 )
+
+[node name="obj_peppermandestroyable949" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33920, 352 )
+
+[node name="obj_peppermandestroyable950" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33920, 320 )
+
+[node name="obj_peppermandestroyable951" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33920, 288 )
+
+[node name="obj_peppermandestroyable952" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33952, 384 )
+
+[node name="obj_peppermandestroyable953" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33952, 352 )
+
+[node name="obj_peppermandestroyable954" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33952, 320 )
+
+[node name="obj_peppermandestroyable955" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33952, 288 )
+
+[node name="obj_peppermandestroyable956" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33984, 384 )
+
+[node name="obj_peppermandestroyable957" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33984, 352 )
+
+[node name="obj_peppermandestroyable958" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33984, 320 )
+
+[node name="obj_peppermandestroyable959" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33984, 288 )
+
+[node name="obj_peppermandestroyable960" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34016, 384 )
+
+[node name="obj_peppermandestroyable961" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34016, 352 )
+
+[node name="obj_peppermandestroyable962" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34016, 320 )
+
+[node name="obj_peppermandestroyable963" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34016, 288 )
+
+[node name="obj_peppermandestroyable964" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34048, 384 )
+
+[node name="obj_peppermandestroyable965" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34048, 352 )
+
+[node name="obj_peppermandestroyable966" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34048, 320 )
+
+[node name="obj_peppermandestroyable967" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34048, 288 )
+
+[node name="obj_peppermandestroyable968" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33792, 352 )
+
+[node name="obj_peppermandestroyable969" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33792, 320 )
+
+[node name="obj_peppermandestroyable970" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33792, 288 )
+
+[node name="obj_peppermandestroyable971" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33760, 352 )
+
+[node name="obj_peppermandestroyable972" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33760, 320 )
+
+[node name="obj_peppermandestroyable973" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33760, 288 )
+
+[node name="obj_peppermandestroyable974" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33728, 352 )
+
+[node name="obj_peppermandestroyable975" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33728, 320 )
+
+[node name="obj_peppermandestroyable976" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33728, 288 )
+
+[node name="obj_peppermandestroyable977" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33696, 352 )
+
+[node name="obj_peppermandestroyable978" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33696, 320 )
+
+[node name="obj_peppermandestroyable979" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33696, 288 )
+
+[node name="obj_peppermandestroyable980" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33664, 352 )
+
+[node name="obj_peppermandestroyable981" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33664, 320 )
+
+[node name="obj_peppermandestroyable982" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33664, 288 )
+
+[node name="obj_peppermandestroyable983" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33632, 352 )
+
+[node name="obj_peppermandestroyable984" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33632, 320 )
+
+[node name="obj_peppermandestroyable985" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33632, 288 )
+
+[node name="obj_peppermandestroyable986" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33600, 352 )
+
+[node name="obj_peppermandestroyable987" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33600, 320 )
+
+[node name="obj_peppermandestroyable988" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33600, 288 )
+
+[node name="obj_peppermandestroyable989" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33568, 352 )
+
+[node name="obj_peppermandestroyable990" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33568, 320 )
+
+[node name="obj_peppermandestroyable991" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33568, 288 )
+
+[node name="obj_peppermandestroyable992" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33536, 352 )
+
+[node name="obj_peppermandestroyable993" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33536, 320 )
+
+[node name="obj_peppermandestroyable994" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33536, 288 )
+
+[node name="obj_peppermandestroyable995" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33504, 352 )
+
+[node name="obj_peppermandestroyable996" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33504, 320 )
+
+[node name="obj_peppermandestroyable997" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33504, 288 )
+
+[node name="obj_peppermandestroyable998" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33472, 352 )
+
+[node name="obj_peppermandestroyable999" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33472, 320 )
+
+[node name="obj_peppermandestroyable1000" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33472, 288 )
+
+[node name="obj_peppermandestroyable1001" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33440, 352 )
+
+[node name="obj_peppermandestroyable1002" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33440, 320 )
+
+[node name="obj_peppermandestroyable1003" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33440, 288 )
+
+[node name="obj_peppermandestroyable1004" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33408, 352 )
+
+[node name="obj_peppermandestroyable1005" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33408, 320 )
+
+[node name="obj_peppermandestroyable1006" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33408, 288 )
+
+[node name="obj_peppermandestroyable1007" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33376, 352 )
+
+[node name="obj_peppermandestroyable1008" parent="." instance=ExtResource( 14 )]
+position = Vector2( 33376, 320 )
+
+[node name="obj_peppermandestroyable1009" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34656, 288 )
+
+[node name="obj_peppermandestroyable1010" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35360, 288 )
+
+[node name="obj_peppermandestroyable1011" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35360, 320 )
+
+[node name="obj_peppermandestroyable1012" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35360, 352 )
+
+[node name="obj_peppermandestroyable1013" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35360, 384 )
+
+[node name="obj_peppermandestroyable1014" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35104, 384 )
+
+[node name="obj_peppermandestroyable1015" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35104, 352 )
+
+[node name="obj_peppermandestroyable1016" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35104, 320 )
+
+[node name="obj_peppermandestroyable1017" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35104, 288 )
+
+[node name="obj_peppermandestroyable1018" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35136, 384 )
+
+[node name="obj_peppermandestroyable1019" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35136, 352 )
+
+[node name="obj_peppermandestroyable1020" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35136, 320 )
+
+[node name="obj_peppermandestroyable1021" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35136, 288 )
+
+[node name="obj_peppermandestroyable1022" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35168, 384 )
+
+[node name="obj_peppermandestroyable1023" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35168, 352 )
+
+[node name="obj_peppermandestroyable1024" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35168, 320 )
+
+[node name="obj_peppermandestroyable1025" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35168, 288 )
+
+[node name="obj_peppermandestroyable1026" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35200, 384 )
+
+[node name="obj_peppermandestroyable1027" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35200, 352 )
+
+[node name="obj_peppermandestroyable1028" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35200, 320 )
+
+[node name="obj_peppermandestroyable1029" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35200, 288 )
+
+[node name="obj_peppermandestroyable1030" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35232, 384 )
+
+[node name="obj_peppermandestroyable1031" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35232, 352 )
+
+[node name="obj_peppermandestroyable1032" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35232, 320 )
+
+[node name="obj_peppermandestroyable1033" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35232, 288 )
+
+[node name="obj_peppermandestroyable1034" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35264, 384 )
+
+[node name="obj_peppermandestroyable1035" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35264, 352 )
+
+[node name="obj_peppermandestroyable1036" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35264, 320 )
+
+[node name="obj_peppermandestroyable1037" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35264, 288 )
+
+[node name="obj_peppermandestroyable1038" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35296, 384 )
+
+[node name="obj_peppermandestroyable1039" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35296, 352 )
+
+[node name="obj_peppermandestroyable1040" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35296, 320 )
+
+[node name="obj_peppermandestroyable1041" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35296, 288 )
+
+[node name="obj_peppermandestroyable1042" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35328, 384 )
+
+[node name="obj_peppermandestroyable1043" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35328, 352 )
+
+[node name="obj_peppermandestroyable1044" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35328, 320 )
+
+[node name="obj_peppermandestroyable1045" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35328, 288 )
+
+[node name="obj_peppermandestroyable1046" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35072, 352 )
+
+[node name="obj_peppermandestroyable1047" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35072, 320 )
+
+[node name="obj_peppermandestroyable1048" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35072, 288 )
+
+[node name="obj_peppermandestroyable1049" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35040, 352 )
+
+[node name="obj_peppermandestroyable1050" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35040, 320 )
+
+[node name="obj_peppermandestroyable1051" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35040, 288 )
+
+[node name="obj_peppermandestroyable1052" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35008, 352 )
+
+[node name="obj_peppermandestroyable1053" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35008, 320 )
+
+[node name="obj_peppermandestroyable1054" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35008, 288 )
+
+[node name="obj_peppermandestroyable1055" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34976, 352 )
+
+[node name="obj_peppermandestroyable1056" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34976, 320 )
+
+[node name="obj_peppermandestroyable1057" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34976, 288 )
+
+[node name="obj_peppermandestroyable1058" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34944, 352 )
+
+[node name="obj_peppermandestroyable1059" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34944, 320 )
+
+[node name="obj_peppermandestroyable1060" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34944, 288 )
+
+[node name="obj_peppermandestroyable1061" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34912, 352 )
+
+[node name="obj_peppermandestroyable1062" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34912, 320 )
+
+[node name="obj_peppermandestroyable1063" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34912, 288 )
+
+[node name="obj_peppermandestroyable1064" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34880, 352 )
+
+[node name="obj_peppermandestroyable1065" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34880, 320 )
+
+[node name="obj_peppermandestroyable1066" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34880, 288 )
+
+[node name="obj_peppermandestroyable1067" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34848, 352 )
+
+[node name="obj_peppermandestroyable1068" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34848, 320 )
+
+[node name="obj_peppermandestroyable1069" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34848, 288 )
+
+[node name="obj_peppermandestroyable1070" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34816, 352 )
+
+[node name="obj_peppermandestroyable1071" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34816, 320 )
+
+[node name="obj_peppermandestroyable1072" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34816, 288 )
+
+[node name="obj_peppermandestroyable1073" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34784, 352 )
+
+[node name="obj_peppermandestroyable1074" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34784, 320 )
+
+[node name="obj_peppermandestroyable1075" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34784, 288 )
+
+[node name="obj_peppermandestroyable1076" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34752, 352 )
+
+[node name="obj_peppermandestroyable1077" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34752, 320 )
+
+[node name="obj_peppermandestroyable1078" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34752, 288 )
+
+[node name="obj_peppermandestroyable1079" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34720, 352 )
+
+[node name="obj_peppermandestroyable1080" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34720, 320 )
+
+[node name="obj_peppermandestroyable1081" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34720, 288 )
+
+[node name="obj_peppermandestroyable1082" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34688, 352 )
+
+[node name="obj_peppermandestroyable1083" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34688, 320 )
+
+[node name="obj_peppermandestroyable1084" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34688, 288 )
+
+[node name="obj_peppermandestroyable1085" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34656, 352 )
+
+[node name="obj_peppermandestroyable1086" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34656, 320 )
+
+[node name="obj_peppermandestroyable1087" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34368, 384 )
+
+[node name="obj_peppermandestroyable1088" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34400, 384 )
+
+[node name="obj_peppermandestroyable1089" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34368, 416 )
+
+[node name="obj_peppermandestroyable1090" parent="." instance=ExtResource( 14 )]
+position = Vector2( 34400, 416 )
+
+[node name="obj_peppermandestroyable1091" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35872, 416 )
+
+[node name="obj_peppermandestroyable1092" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35872, 384 )
+
+[node name="obj_peppermandestroyable1093" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35904, 416 )
+
+[node name="obj_peppermandestroyable1094" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35904, 384 )
+
+[node name="obj_peppermandestroyable1095" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35936, 416 )
+
+[node name="obj_peppermandestroyable1096" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35936, 384 )
+
+[node name="obj_peppermandestroyable1097" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35968, 416 )
+
+[node name="obj_peppermandestroyable1098" parent="." instance=ExtResource( 14 )]
+position = Vector2( 35968, 384 )
+
+[node name="obj_peppermandestroyable1099" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36000, 416 )
+
+[node name="obj_peppermandestroyable1100" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36000, 384 )
+
+[node name="obj_peppermandestroyable1101" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36032, 416 )
+
+[node name="obj_peppermandestroyable1102" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36032, 384 )
+
+[node name="obj_peppermandestroyable1103" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36064, 416 )
+
+[node name="obj_peppermandestroyable1104" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36064, 384 )
+
+[node name="obj_peppermandestroyable1105" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36096, 416 )
+
+[node name="obj_peppermandestroyable1106" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36096, 384 )
+
+[node name="obj_peppermandestroyable1107" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36128, 416 )
+
+[node name="obj_peppermandestroyable1108" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36128, 384 )
+
+[node name="obj_peppermandestroyable1109" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36160, 416 )
+
+[node name="obj_peppermandestroyable1110" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36160, 384 )
+
+[node name="obj_peppermandestroyable1111" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36192, 416 )
+
+[node name="obj_peppermandestroyable1112" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36192, 384 )
+
+[node name="obj_peppermandestroyable1113" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36224, 416 )
+
+[node name="obj_peppermandestroyable1114" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36224, 384 )
+
+[node name="obj_peppermandestroyable1115" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36256, 416 )
+
+[node name="obj_peppermandestroyable1116" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36256, 384 )
+
+[node name="obj_peppermandestroyable1117" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36544, 416 )
+
+[node name="obj_peppermandestroyable1118" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36544, 384 )
+
+[node name="obj_peppermandestroyable1119" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36576, 416 )
+
+[node name="obj_peppermandestroyable1120" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36576, 384 )
+
+[node name="obj_peppermandestroyable1121" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36608, 416 )
+
+[node name="obj_peppermandestroyable1122" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36608, 384 )
+
+[node name="obj_peppermandestroyable1123" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36640, 416 )
+
+[node name="obj_peppermandestroyable1124" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36640, 384 )
+
+[node name="obj_peppermandestroyable1125" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36672, 416 )
+
+[node name="obj_peppermandestroyable1126" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36672, 384 )
+
+[node name="obj_peppermandestroyable1127" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36704, 416 )
+
+[node name="obj_peppermandestroyable1128" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36704, 384 )
+
+[node name="obj_peppermandestroyable1129" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36736, 416 )
+
+[node name="obj_peppermandestroyable1130" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36736, 384 )
+
+[node name="obj_peppermandestroyable1131" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36768, 416 )
+
+[node name="obj_peppermandestroyable1132" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36768, 384 )
+
+[node name="obj_peppermandestroyable1133" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36800, 416 )
+
+[node name="obj_peppermandestroyable1134" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36800, 384 )
+
+[node name="obj_peppermandestroyable1135" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36832, 416 )
+
+[node name="obj_peppermandestroyable1136" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36832, 384 )
+
+[node name="obj_peppermandestroyable1137" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36864, 416 )
+
+[node name="obj_peppermandestroyable1138" parent="." instance=ExtResource( 14 )]
+position = Vector2( 36864, 384 )
+
+[node name="obj_metalblock2" parent="." instance=ExtResource( 19 )]
+position = Vector2( 15520, 288 )
+
+[node name="obj_spike" parent="." instance=ExtResource( 20 )]
+position = Vector2( 21280, 416 )
+
+[node name="obj_spike2" parent="." instance=ExtResource( 20 )]
+position = Vector2( 21312, 416 )
+
+[node name="obj_spike3" parent="." instance=ExtResource( 20 )]
+position = Vector2( 21344, 416 )
+
+[node name="obj_spike4" parent="." instance=ExtResource( 20 )]
+position = Vector2( 21376, 416 )
+
+[node name="obj_spike5" parent="." instance=ExtResource( 20 )]
+position = Vector2( 21696, 416 )
+
+[node name="obj_spike6" parent="." instance=ExtResource( 20 )]
+position = Vector2( 21728, 416 )
+
+[node name="obj_spike7" parent="." instance=ExtResource( 20 )]
+position = Vector2( 21760, 416 )
+
+[node name="obj_spike8" parent="." instance=ExtResource( 20 )]
+position = Vector2( 21792, 416 )
+
+[node name="obj_spike9" parent="." instance=ExtResource( 20 )]
+position = Vector2( 22112, 416 )
+
+[node name="obj_spike10" parent="." instance=ExtResource( 20 )]
+position = Vector2( 22144, 416 )
+
+[node name="obj_spike11" parent="." instance=ExtResource( 20 )]
+position = Vector2( 22176, 416 )
+
+[node name="obj_spike12" parent="." instance=ExtResource( 20 )]
+position = Vector2( 22208, 416 )
+
+[node name="obj_spike13" parent="." instance=ExtResource( 20 )]
+position = Vector2( 24832, 384 )
+
+[node name="obj_spike14" parent="." instance=ExtResource( 20 )]
+position = Vector2( 24832, 416 )
+
+[node name="obj_spike15" parent="." instance=ExtResource( 20 )]
+position = Vector2( 26752, 384 )
+
+[node name="obj_spike16" parent="." instance=ExtResource( 20 )]
+position = Vector2( 26752, 416 )
+
+[node name="obj_spike17" parent="." instance=ExtResource( 20 )]
+position = Vector2( 31072, 288 )
+
+[node name="obj_spike18" parent="." instance=ExtResource( 20 )]
+position = Vector2( 31104, 288 )
+
+[node name="obj_spike19" parent="." instance=ExtResource( 20 )]
+position = Vector2( 31072, 320 )
+
+[node name="obj_spike20" parent="." instance=ExtResource( 20 )]
+position = Vector2( 31104, 320 )
+
+[node name="obj_spike21" parent="." instance=ExtResource( 20 )]
+position = Vector2( 32192, 288 )
+
+[node name="obj_spike22" parent="." instance=ExtResource( 20 )]
+position = Vector2( 32224, 288 )
+
+[node name="obj_spike23" parent="." instance=ExtResource( 20 )]
+position = Vector2( 32256, 288 )
+
+[node name="obj_spike24" parent="." instance=ExtResource( 20 )]
+position = Vector2( 32288, 288 )
+
+[node name="obj_spike25" parent="." instance=ExtResource( 20 )]
+position = Vector2( 32320, 288 )
+
+[node name="obj_spike26" parent="." instance=ExtResource( 20 )]
+position = Vector2( 34112, 384 )
+
+[node name="obj_spike27" parent="." instance=ExtResource( 20 )]
+position = Vector2( 34144, 384 )
+
+[node name="obj_spike28" parent="." instance=ExtResource( 20 )]
+position = Vector2( 35392, 384 )
+
+[node name="obj_spike29" parent="." instance=ExtResource( 20 )]
+position = Vector2( 35424, 384 )
+
+[node name="obj_spike30" parent="." instance=ExtResource( 20 )]
+position = Vector2( 36288, 416 )
+
+[node name="obj_spike31" parent="." instance=ExtResource( 20 )]
+position = Vector2( 36320, 416 )
+
+[node name="obj_spike32" parent="." instance=ExtResource( 20 )]
+position = Vector2( 36352, 416 )
+
+[node name="obj_spike33" parent="." instance=ExtResource( 20 )]
+position = Vector2( 36384, 416 )
+
+[node name="obj_spike34" parent="." instance=ExtResource( 20 )]
+position = Vector2( 36416, 416 )
+
+[node name="obj_spike35" parent="." instance=ExtResource( 20 )]
+position = Vector2( 36448, 416 )
+
+[node name="obj_spike36" parent="." instance=ExtResource( 20 )]
+position = Vector2( 36480, 416 )
+
+[node name="obj_spike37" parent="." instance=ExtResource( 20 )]
+position = Vector2( 36512, 416 )
+
+[node name="obj_destroyable29" parent="." instance=ExtResource( 21 )]
+position = Vector2( 29568, 384 )
+
+[node name="obj_destroyable30" parent="." instance=ExtResource( 21 )]
+position = Vector2( 29952, 384 )
+
+[node name="obj_destroyable31" parent="." instance=ExtResource( 21 )]
+position = Vector2( 30624, 384 )
+
+[node name="obj_destroyable32" parent="." instance=ExtResource( 21 )]
+position = Vector2( 30688, 384 )
+
+[node name="obj_destroyable33" parent="." instance=ExtResource( 21 )]
+position = Vector2( 30752, 384 )
+
+[node name="obj_destroyable34" parent="." instance=ExtResource( 21 )]
+position = Vector2( 30816, 384 )
+
+[node name="obj_cheeseslime" parent="." instance=ExtResource( 22 )]
+position = Vector2( 36080, 336 )
+
+[node name="obj_cheeseslime2" parent="." instance=ExtResource( 22 )]
+position = Vector2( 36752, 336 )
+
+[node name="obj_bigcheese" parent="." instance=ExtResource( 23 )]
+position = Vector2( 13216, 400 )
+
+[node name="obj_bigcheese2" parent="." instance=ExtResource( 23 )]
+position = Vector2( 13296, 400 )
+
+[node name="obj_bigcheese3" parent="." instance=ExtResource( 23 )]
+position = Vector2( 13376, 400 )
+
+[node name="obj_bigcheese4" parent="." instance=ExtResource( 23 )]
+position = Vector2( 13456, 400 )
+
+[node name="obj_grandpa" parent="." instance=ExtResource( 24 )]
+position = Vector2( 16928, 400 )
+scale = Vector2( -1, 1 )
+
+[node name="obj_grandpa2" parent="." instance=ExtResource( 24 )]
+position = Vector2( 17600, 400 )
+scale = Vector2( -1, 1 )
+
+[node name="obj_grandpa3" parent="." instance=ExtResource( 24 )]
+position = Vector2( 18416, 336 )
+scale = Vector2( -1, 1 )
+
+[node name="obj_spitcheese" parent="." instance=ExtResource( 25 )]
+position = Vector2( 27552, 400 )
+
+[node name="obj_spitcheese2" parent="." instance=ExtResource( 25 )]
+position = Vector2( 28192, 400 )
+
+[node name="obj_spitcheese3" parent="." instance=ExtResource( 25 )]
+position = Vector2( 28864, 400 )
+
+[node name="obj_spitcheese4" parent="." instance=ExtResource( 25 )]
+position = Vector2( 28960, 400 )
+
+[node name="obj_spitcheese5" parent="." instance=ExtResource( 25 )]
+position = Vector2( 29600, 336 )
+
+[node name="obj_spitcheese6" parent="." instance=ExtResource( 25 )]
+position = Vector2( 29984, 336 )
+
+[node name="obj_pepperman_chase" parent="." instance=ExtResource( 26 )]
+position = Vector2( 224, 352 )
+
+[node name="obj_keydoor" parent="." instance=ExtResource( 27 )]
+position = Vector2( 39632, 352 )
+targetDoor = "E"
+targetLevel = ""
+targetRoom = "hub_special"

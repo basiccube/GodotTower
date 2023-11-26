@@ -1,4 +1,4 @@
-[gd_scene load_steps=1719 format=2]
+[gd_scene load_steps=1741 format=2]
 
 [ext_resource path="res://Objects/Player/sprites/idle_4.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/sprites/idle_0.png" type="Texture" id=2]
@@ -1709,6 +1709,28 @@
 [ext_resource path="res://Objects/Player/sprites/faceplant_3.png" type="Texture" id=1707]
 [ext_resource path="res://Objects/Player/sprites/faceplant_9.png" type="Texture" id=1708]
 [ext_resource path="res://Objects/Player/sprites/faceplant_8.png" type="Texture" id=1709]
+[ext_resource path="res://Objects/Player/sprites/bossintro_1.png" type="Texture" id=1710]
+[ext_resource path="res://Objects/Player/sprites/bossintro_2.png" type="Texture" id=1711]
+[ext_resource path="res://Objects/Player/sprites/bossintro_3.png" type="Texture" id=1712]
+[ext_resource path="res://Objects/Player/sprites/bossintro_0.png" type="Texture" id=1713]
+[ext_resource path="res://Objects/Player/sprites/bossintro_4.png" type="Texture" id=1714]
+[ext_resource path="res://Objects/Player/sprites/bossintro_12.png" type="Texture" id=1715]
+[ext_resource path="res://Objects/Player/sprites/bossintro_19.png" type="Texture" id=1716]
+[ext_resource path="res://Objects/Player/sprites/bossintro_18.png" type="Texture" id=1717]
+[ext_resource path="res://Objects/Player/sprites/bossintro_5.png" type="Texture" id=1718]
+[ext_resource path="res://Objects/Player/sprites/bossintro_8.png" type="Texture" id=1719]
+[ext_resource path="res://Objects/Player/sprites/bossintro_17.png" type="Texture" id=1720]
+[ext_resource path="res://Objects/Player/sprites/bossintro_13.png" type="Texture" id=1721]
+[ext_resource path="res://Objects/Player/sprites/bossintro_11.png" type="Texture" id=1722]
+[ext_resource path="res://Objects/Player/sprites/bossintro_20.png" type="Texture" id=1723]
+[ext_resource path="res://Objects/Player/sprites/bossintro_14.png" type="Texture" id=1724]
+[ext_resource path="res://Objects/Player/sprites/bossintro_15.png" type="Texture" id=1725]
+[ext_resource path="res://Objects/Player/sprites/bossintro_21.png" type="Texture" id=1726]
+[ext_resource path="res://Objects/Player/sprites/bossintro_16.png" type="Texture" id=1727]
+[ext_resource path="res://Objects/Player/sprites/bossintro_9.png" type="Texture" id=1728]
+[ext_resource path="res://Objects/Player/sprites/bossintro_10.png" type="Texture" id=1729]
+[ext_resource path="res://Objects/Player/sprites/bossintro_7.png" type="Texture" id=1730]
+[ext_resource path="res://Objects/Player/sprites/bossintro_6.png" type="Texture" id=1731]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 1204 )
@@ -1774,6 +1796,11 @@ animations = [ {
 "frames": [ ExtResource( 1586 ), ExtResource( 1587 ), ExtResource( 1588 ) ],
 "loop": true,
 "name": "bombpep_runabouttoexplode",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1713 ), ExtResource( 1710 ), ExtResource( 1711 ), ExtResource( 1712 ), ExtResource( 1714 ), ExtResource( 1718 ), ExtResource( 1731 ), ExtResource( 1730 ), ExtResource( 1719 ), ExtResource( 1728 ), ExtResource( 1729 ), ExtResource( 1722 ), ExtResource( 1715 ), ExtResource( 1721 ), ExtResource( 1724 ), ExtResource( 1725 ), ExtResource( 1727 ), ExtResource( 1720 ), ExtResource( 1717 ), ExtResource( 1716 ), ExtResource( 1723 ), ExtResource( 1726 ) ],
+"loop": true,
+"name": "bossintro",
 "speed": 60.0
 }, {
 "frames": [ ExtResource( 684 ), ExtResource( 690 ), ExtResource( 693 ), ExtResource( 691 ), ExtResource( 692 ), ExtResource( 685 ), ExtResource( 689 ), ExtResource( 694 ), ExtResource( 686 ), ExtResource( 683 ), ExtResource( 687 ), ExtResource( 688 ) ],

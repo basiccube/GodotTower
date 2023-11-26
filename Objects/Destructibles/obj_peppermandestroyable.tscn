@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
 
-[node name="obj_peppermandestroyable" type="StaticBody2D" groups=["obj_solid"]]
+[node name="obj_peppermandestroyable" type="StaticBody2D" groups=["obj_peppermandestroyable", "obj_solid"]]
 collision_layer = 2
 script = ExtResource( 2 )
 
@@ -17,3 +17,6 @@ centered = false
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2( 16, 16 )
 shape = SubResource( 1 )
+
+[node name="ScreenVisibility" type="VisibilityNotifier2D" parent="."]
+rect = Rect2( 0, 0, 32, 32 )

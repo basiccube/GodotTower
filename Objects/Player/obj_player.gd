@@ -80,8 +80,8 @@ var backtohubstartx = position.x
 var backtohubstarty = position.y
 var backtohubroom = "Realtitlescreen"
 var lastroom = ""
-var lastroom_x = 0
-var lastroom_y = 0
+var lastlevel = ""
+var lastdoor = ""
 var roomstartx = 0
 var roomstarty = 0
 
@@ -408,6 +408,8 @@ func _process(delta):
 			scr_player_portal()
 		global.states.faceplant:
 			scr_player_faceplant()
+		global.states.ejected:
+			scr_player_ejected()
 	scr_playersounds()
 	if (global.combo >= global.combomilestone && state != global.states.backbreaker):
 		supercharged = true
@@ -513,7 +515,7 @@ func _physics_process(delta):
 					if (velocity.y < -6):
 						velocity.y = 0
 				snap_vector = Vector2.DOWN * 20
-	if state != global.states.titlescreen && state != global.states.gameover:
+	if state != global.states.titlescreen && state != global.states.gameover && state != global.states.ejected:
 		if state != global.states.backbreaker && state != global.states.finishingblow && state != global.states.portal && state != global.states.gottreasure && state != global.states.Sjumpland && state != global.states.ladder && state != global.states.keyget && (state != global.states.door && ($PeppinoSprite.animation != "downpizzabox" && $PeppinoSprite.animation != "uppizzabox")):
 			if (velocity.y < 30):
 				velocity.y += grav
@@ -582,7 +584,8 @@ func is_colliding():
 		
 func destroy(collider):
 	if ((state == global.states.knightpep || state == global.states.knightpepattack || state == global.states.knightpepslopes) && !cutscene):
-		pass
+		if (collider.is_in_group("obj_grandpa")):
+			collider.destroy()
 	elif (state == global.states.bombpep && hurted == 0):
 		if (collider.is_in_group("obj_spike")):
 			$Bombpep2.play()
@@ -1026,6 +1029,8 @@ func scr_player_backbreaker():
 	if (is_last_frame() && $PeppinoSprite.animation == "timesup"):
 		state = global.states.normal
 	if (is_last_frame() && $PeppinoSprite.animation == "levelcomplete"):
+		state = global.states.normal
+	if (is_last_frame() && $PeppinoSprite.animation == "bossintro"):
 		state = global.states.normal
 	if ($PeppinoSprite.animation != "taunt"):
 		$PeppinoSprite.speed_scale = 0.35
@@ -2611,6 +2616,7 @@ func scr_player_portal():
 		visible = true
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_pizzaportalfade.tscn")
 		state = global.states.freefall
+		$PeppinoSprite.animation = "machfreefall"
 		grav = 0.5
 	mach2 = 0
 	
@@ -2652,6 +2658,30 @@ func scr_player_faceplant():
 				i.sprite.flip_h = false
 			elif xscale == -1:
 				i.sprite.flip_h = true
+				
+func scr_player_ejected():
+	if (position.y > utils.get_instance_level("obj_camlimit_bottom").position.y + 100 && !utils.instance_exists("obj_fadeout")):
+		landAnim = 0
+		targetLevel = lastlevel
+		targetRoom = lastroom
+		global.targetDoor = lastdoor
+		state = global.states.normal
+		global.combo = 0
+		global.combotime = 0
+		global.combodropped = false
+		global.combomilestone = 10
+		supercharged = false
+		for i in get_tree().get_nodes_in_group("obj_camera"):
+			i.ded = 0
+			i.heatmeter.animation = "empty"
+		utils.instance_create(utils.get_gamenode().global_position.x, utils.get_gamenode().global_position.y, "res://Objects/Visuals/obj_fadeout.tscn")
+	$PeppinoSprite.animation = "deathend"
+	$PeppinoSprite.speed_scale = 0.35
+	cutscene = true
+	hurted = 0
+	inv_frames = 0
+	if (velocity.y < 12):
+		velocity.y += grav
 	
 func scr_playerreset():
 	if (utils.instance_exists("obj_endlevelfade")):

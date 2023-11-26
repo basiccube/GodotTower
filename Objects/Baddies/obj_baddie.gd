@@ -301,7 +301,8 @@ func scr_enemy_stun():
 			velocity.y = 0
 		$Sprite.animation = spr_walk
 		state = global.states.walk
-		movespeed = 1
+		if (!is_in_group("obj_spitcheese")):
+			movespeed = 1
 		
 func scr_enemy_land():
 	if (velocity.y >= 0):
@@ -621,7 +622,7 @@ func scr_pizzagoblin_throw():
 		throw_sprite = "eat"
 		reset_timer = 200
 	velocity.x = 0
-	if ($Sprite.frame == $Sprite.frames.get_frame_count($Sprite.animation) - 1):
+	if ($Sprite.frame == $Sprite.frames.get_frame_count($Sprite.animation) - 1 && $Sprite.animation == throw_sprite):
 		state = global.states.walk
 	if (bombreset == 0 && $Sprite.frame == throw_frame):
 		bombreset = reset_timer
@@ -641,7 +642,6 @@ func scr_pizzagoblin_throw():
 			blobid.grav = 0
 		elif (is_in_group("obj_spitcheese")):
 			var blobid = utils.instance_create_level(position.x + (xscale * 6), position.y - 6, "res://Objects/BaddieObjects/obj_spitcheesespike.tscn")
-			blobid.scale.x = xscale
 			blobid.velocity.x = (xscale * 5)
 			blobid.velocity.y = -6
 		elif (is_in_group("obj_trash") || is_in_group("obj_invtrash")):

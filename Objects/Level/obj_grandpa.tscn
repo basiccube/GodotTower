@@ -1,0 +1,59 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Objects/Level/sprites/grandpa_5.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Level/sprites/grandpa_punch_3.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Level/sprites/grandpa_8.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Level/sprites/grandpa_9.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Level/sprites/grandpa_punch_1.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Level/sprites/grandpa_2.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Level/sprites/grandpa_3.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Level/sprites/grandpa_6.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Level/sprites/grandpa_7.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Level/sprites/grandpa_punch_0.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Level/sprites/grandpa_10.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Level/sprites/grandpa_punch_2.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Level/sprites/grandpa_punch_5.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Level/sprites/grandpa_0.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Level/sprites/grandpa_punch_8.png" type="Texture" id=15]
+[ext_resource path="res://Objects/Level/sprites/grandpa_1.png" type="Texture" id=16]
+[ext_resource path="res://Objects/Level/sprites/grandpa_dead_0.png" type="Texture" id=17]
+[ext_resource path="res://Objects/Level/sprites/grandpa_punch_6.png" type="Texture" id=18]
+[ext_resource path="res://Objects/Level/sprites/grandpa_4.png" type="Texture" id=19]
+[ext_resource path="res://Objects/Level/sprites/grandpa_punch_4.png" type="Texture" id=20]
+[ext_resource path="res://Objects/Level/sprites/grandpa_punch_7.png" type="Texture" id=21]
+[ext_resource path="res://Objects/Level/obj_grandpa.gd" type="Script" id=22]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "dead",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 16 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 19 ), ExtResource( 1 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "idle",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 5 ), ExtResource( 12 ), ExtResource( 2 ), ExtResource( 20 ), ExtResource( 13 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "punch",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 32 )
+
+[node name="obj_grandpa" type="Area2D" groups=["obj_grandpa"]]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource( 22 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "idle"
+offset = Vector2( 25, 2 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 16 )
+shape = SubResource( 2 )

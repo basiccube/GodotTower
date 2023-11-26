@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Objects/BaddieObjects/sprites/spitcheese_spike_0.png" type="Texture" id=1]
+[ext_resource path="res://Objects/BaddieObjects/sprites/spitcheese_spike_1.png" type="Texture" id=2]
+[ext_resource path="res://Objects/BaddieObjects/obj_spitcheesespike.gd" type="Script" id=3]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "spike",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 16, 16 )
+
+[node name="obj_spitcheesespike" type="KinematicBody2D" groups=["obj_spitcheesespike"]]
+collision_layer = 8
+collision_mask = 2
+collision/safe_margin = 0.001
+moving_platform_apply_velocity_on_leave = 2
+script = ExtResource( 3 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 4 )
+animation = "spike"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 5 )
+
+[node name="CollisionArea" type="Area2D" parent="." groups=["obj_hurtbox"]]
+collision_layer = 8
+collision_mask = 5
+
+[node name="Collision" type="CollisionShape2D" parent="CollisionArea"]
+shape = SubResource( 6 )
+
+[node name="ScreenVisibility" type="VisibilityNotifier2D" parent="."]
+rect = Rect2( -32, -32, 64, 64 )

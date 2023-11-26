@@ -10,7 +10,7 @@
 [ext_resource path="res://Backgrounds/bg_hubworld1back.png" type="Texture" id=8]
 [ext_resource path="res://Rooms/rm_testing.gd" type="Script" id=9]
 [ext_resource path="res://Objects/Level/obj_hungrypillar.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Objects/Warps/obj_teleporter.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_spitcheese.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Objects/Warps/obj_door.tscn" type="PackedScene" id=14]
 
@@ -34,57 +34,53 @@ region_rect = Rect2( 0, 0, 2000, 2000 )
 [node name="obj_camlimit_top" parent="." instance=ExtResource( 7 )]
 
 [node name="obj_camlimit_bottom" parent="." instance=ExtResource( 6 )]
-position = Vector2( 0, 600 )
+position = Vector2( 0, 800 )
 
 [node name="obj_camlimit_right" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1200, 0 )
+position = Vector2( 1800, 0 )
 
 [node name="obj_spawnpoint" parent="." instance=ExtResource( 1 )]
-position = Vector2( 128, 160 )
+position = Vector2( 144, 480 )
 
 [node name="obj_solid" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0, 256 )
+position = Vector2( 0, 576 )
 scale = Vector2( 12, 4 )
 
 [node name="obj_solid2" parent="." instance=ExtResource( 2 )]
-scale = Vector2( 2, 12 )
+scale = Vector2( 2, 18 )
 
 [node name="obj_solid3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0, 384 )
-scale = Vector2( 40, 4 )
+position = Vector2( 0, 704 )
+scale = Vector2( 57, 4 )
 
 [node name="obj_solid4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1152, 0 )
-scale = Vector2( 4, 16 )
+position = Vector2( 1728, 0 )
+scale = Vector2( 3, 20 )
 
 [node name="obj_solid5" parent="." instance=ExtResource( 2 )]
 position = Vector2( 64, 0 )
-scale = Vector2( 38, 2 )
+scale = Vector2( 52, 2 )
 
 [node name="obj_solid6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1024, 288 )
-scale = Vector2( 4, 3 )
+position = Vector2( 1536, 640 )
+scale = Vector2( 9, 2 )
 
 [node name="obj_exitgate" parent="." instance=ExtResource( 3 )]
-position = Vector2( 512, 256 )
+position = Vector2( 192, 448 )
 
 [node name="obj_hungrypillar" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1152, 64 )
+position = Vector2( 1728, 416 )
 scale = Vector2( -1, 1 )
 
 [node name="obj_platform" parent="." instance=ExtResource( 13 )]
-position = Vector2( 832, 288 )
+position = Vector2( 640, 608 )
 scale = Vector2( 6, 1 )
 
 [node name="obj_door" parent="." instance=ExtResource( 14 )]
-position = Vector2( 880, 192 )
+position = Vector2( 688, 512 )
 targetDoor = "B"
 targetLevel = ""
 targetRoom = "boss_pepperman_chase"
 
-[node name="obj_teleporter" parent="." instance=ExtResource( 11 )]
-position = Vector2( 768, 352 )
-
-[node name="obj_teleporter2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 640, 352 )
-portal = true
+[node name="obj_spitcheese" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1200, 656 )

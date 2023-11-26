@@ -30,7 +30,7 @@ func _on_obj_treasure_body_entered(body):
 			obj_player.state = global.states.gottreasure
 			utils.playsound("SecretFound")
 		$Sprite.animation = spr_got
-		position.x = obj_player.position.x - 48
+		position.x = obj_player.position.x - 50
 		position.y = obj_player.position.y - 95
 		for obj in get_tree().get_nodes_in_group("obj_tv"):
 			obj.message = "YOU GOT A TOWER SECRET TREASURE!!!"
