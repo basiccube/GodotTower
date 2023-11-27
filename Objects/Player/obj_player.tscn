@@ -1,4 +1,4 @@
-[gd_scene load_steps=1749 format=2]
+[gd_scene load_steps=1801 format=2]
 
 [ext_resource path="res://Objects/Player/sprites/idle_4.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/sprites/idle_0.png" type="Texture" id=2]
@@ -1739,6 +1739,58 @@
 [ext_resource path="res://Objects/Player/sprites/running_2.png" type="Texture" id=1737]
 [ext_resource path="res://Objects/Player/sprites/running_3.png" type="Texture" id=1738]
 [ext_resource path="res://Objects/Player/sprites/running_4.png" type="Texture" id=1739]
+[ext_resource path="res://Objects/Player/sprites/attackdash_2.png" type="Texture" id=1740]
+[ext_resource path="res://Objects/Player/sprites/attackdash_3.png" type="Texture" id=1741]
+[ext_resource path="res://Objects/Player/sprites/attackdash_9.png" type="Texture" id=1742]
+[ext_resource path="res://Objects/Player/sprites/attackdash_10.png" type="Texture" id=1743]
+[ext_resource path="res://Objects/Player/sprites/attackdash_12.png" type="Texture" id=1744]
+[ext_resource path="res://Objects/Player/sprites/attackdash_5.png" type="Texture" id=1745]
+[ext_resource path="res://Objects/Player/sprites/attackdash_13.png" type="Texture" id=1746]
+[ext_resource path="res://Objects/Player/sprites/attackdash_14.png" type="Texture" id=1747]
+[ext_resource path="res://Objects/Player/sprites/attackdash_15.png" type="Texture" id=1748]
+[ext_resource path="res://Objects/Player/sprites/airattackstart_0.png" type="Texture" id=1749]
+[ext_resource path="res://Objects/Player/sprites/airattackstart_1.png" type="Texture" id=1750]
+[ext_resource path="res://Objects/Player/sprites/airattackstart_3.png" type="Texture" id=1751]
+[ext_resource path="res://Objects/Player/sprites/airattackstart_4.png" type="Texture" id=1752]
+[ext_resource path="res://Objects/Player/sprites/airattack_0.png" type="Texture" id=1753]
+[ext_resource path="res://Objects/Player/sprites/airattack_1.png" type="Texture" id=1754]
+[ext_resource path="res://Objects/Player/sprites/attackdash_0.png" type="Texture" id=1755]
+[ext_resource path="res://Objects/Player/sprites/airattack_2.png" type="Texture" id=1756]
+[ext_resource path="res://Objects/Player/sprites/attackdash_7.png" type="Texture" id=1757]
+[ext_resource path="res://Objects/Player/sprites/airattack_3.png" type="Texture" id=1758]
+[ext_resource path="res://Objects/Player/sprites/airattackstart_2.png" type="Texture" id=1759]
+[ext_resource path="res://Objects/Player/sprites/attackdash_1.png" type="Texture" id=1760]
+[ext_resource path="res://Objects/Player/sprites/attackdash_4.png" type="Texture" id=1761]
+[ext_resource path="res://Objects/Player/sprites/attackdash_6.png" type="Texture" id=1762]
+[ext_resource path="res://Objects/Player/sprites/attackdash_8.png" type="Texture" id=1763]
+[ext_resource path="res://Objects/Player/sprites/attackdash_11.png" type="Texture" id=1764]
+[ext_resource path="res://Objects/Player/sprites/backflip_11.png" type="Texture" id=1765]
+[ext_resource path="res://Objects/Player/sprites/backflip_3.png" type="Texture" id=1766]
+[ext_resource path="res://Objects/Player/sprites/attack2_0.png" type="Texture" id=1767]
+[ext_resource path="res://Objects/Player/sprites/backflip_7.png" type="Texture" id=1768]
+[ext_resource path="res://Objects/Player/sprites/attack2_2.png" type="Texture" id=1769]
+[ext_resource path="res://Objects/Player/sprites/attack2_3.png" type="Texture" id=1770]
+[ext_resource path="res://Objects/Player/sprites/attack2_6.png" type="Texture" id=1771]
+[ext_resource path="res://Objects/Player/sprites/backflip_10.png" type="Texture" id=1772]
+[ext_resource path="res://Objects/Player/sprites/attack2_1.png" type="Texture" id=1773]
+[ext_resource path="res://Objects/Player/sprites/attack1_1.png" type="Texture" id=1774]
+[ext_resource path="res://Objects/Player/sprites/attack1_0.png" type="Texture" id=1775]
+[ext_resource path="res://Objects/Player/sprites/attack1_2.png" type="Texture" id=1776]
+[ext_resource path="res://Objects/Player/sprites/backflip_0.png" type="Texture" id=1777]
+[ext_resource path="res://Objects/Player/sprites/backflip_4.png" type="Texture" id=1778]
+[ext_resource path="res://Objects/Player/sprites/backflip_9.png" type="Texture" id=1779]
+[ext_resource path="res://Objects/Player/sprites/attack1_3.png" type="Texture" id=1780]
+[ext_resource path="res://Objects/Player/sprites/ungroundedattack_1.png" type="Texture" id=1781]
+[ext_resource path="res://Objects/Player/sprites/attack2_4.png" type="Texture" id=1782]
+[ext_resource path="res://Objects/Player/sprites/backflip_2.png" type="Texture" id=1783]
+[ext_resource path="res://Objects/Player/sprites/backflip_6.png" type="Texture" id=1784]
+[ext_resource path="res://Objects/Player/sprites/ungroundedattack_0.png" type="Texture" id=1785]
+[ext_resource path="res://Objects/Player/sprites/ungroundedattack_2.png" type="Texture" id=1786]
+[ext_resource path="res://Objects/Player/sprites/backflip_1.png" type="Texture" id=1787]
+[ext_resource path="res://Objects/Player/sprites/attack1_4.png" type="Texture" id=1788]
+[ext_resource path="res://Objects/Player/sprites/attack2_5.png" type="Texture" id=1789]
+[ext_resource path="res://Objects/Player/sprites/backflip_8.png" type="Texture" id=1790]
+[ext_resource path="res://Objects/Player/sprites/backflip_5.png" type="Texture" id=1791]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 1204 )
@@ -1761,6 +1813,16 @@ animations = [ {
 "name": "3hpwalk",
 "speed": 60.0
 }, {
+"frames": [ ExtResource( 1753 ), ExtResource( 1754 ), ExtResource( 1756 ), ExtResource( 1758 ) ],
+"loop": true,
+"name": "airattack",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1749 ), ExtResource( 1750 ), ExtResource( 1759 ), ExtResource( 1751 ), ExtResource( 1752 ) ],
+"loop": true,
+"name": "airattackstart",
+"speed": 60.0
+}, {
 "frames": [ ExtResource( 378 ), ExtResource( 376 ), ExtResource( 379 ), ExtResource( 374 ), ExtResource( 375 ), ExtResource( 377 ) ],
 "loop": true,
 "name": "airdash1",
@@ -1769,6 +1831,26 @@ animations = [ {
 "frames": [ ExtResource( 382 ), ExtResource( 380 ), ExtResource( 381 ) ],
 "loop": true,
 "name": "airdash2",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1775 ), ExtResource( 1774 ), ExtResource( 1776 ), ExtResource( 1780 ), ExtResource( 1788 ) ],
+"loop": true,
+"name": "attack1",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1767 ), ExtResource( 1773 ), ExtResource( 1769 ), ExtResource( 1770 ), ExtResource( 1782 ), ExtResource( 1789 ), ExtResource( 1771 ) ],
+"loop": true,
+"name": "attack2",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1755 ), ExtResource( 1760 ), ExtResource( 1740 ), ExtResource( 1741 ), ExtResource( 1761 ), ExtResource( 1745 ), ExtResource( 1762 ), ExtResource( 1757 ), ExtResource( 1763 ), ExtResource( 1742 ), ExtResource( 1743 ), ExtResource( 1764 ), ExtResource( 1744 ), ExtResource( 1746 ), ExtResource( 1747 ), ExtResource( 1748 ) ],
+"loop": true,
+"name": "attackdash",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1777 ), ExtResource( 1787 ), ExtResource( 1783 ), ExtResource( 1766 ), ExtResource( 1778 ), ExtResource( 1791 ), ExtResource( 1784 ), ExtResource( 1768 ), ExtResource( 1790 ), ExtResource( 1779 ), ExtResource( 1772 ), ExtResource( 1765 ) ],
+"loop": true,
+"name": "backflip",
 "speed": 60.0
 }, {
 "frames": [ ExtResource( 417 ), ExtResource( 423 ), ExtResource( 418 ) ],
@@ -2496,6 +2578,11 @@ animations = [ {
 "name": "tumblestart",
 "speed": 60.0
 }, {
+"frames": [ ExtResource( 1785 ), ExtResource( 1781 ), ExtResource( 1786 ) ],
+"loop": true,
+"name": "ungroundedattack",
+"speed": 60.0
+}, {
 "frames": [ ExtResource( 1265 ), ExtResource( 1261 ), ExtResource( 1262 ), ExtResource( 1271 ), ExtResource( 1263 ), ExtResource( 1260 ), ExtResource( 1268 ), ExtResource( 1266 ), ExtResource( 1272 ), ExtResource( 1267 ), ExtResource( 1264 ), ExtResource( 1270 ), ExtResource( 1269 ) ],
 "loop": true,
 "name": "uppercutfinishingblow",
@@ -2620,7 +2707,7 @@ collision_mask = 2
 [node name="DestructibleArea" type="Area2D" parent="."]
 modulate = Color( 0.866667, 0.866667, 0.866667, 0.572549 )
 position = Vector2( 0, 16 )
-collision_mask = 2
+collision_mask = 6
 priority = 5.0
 
 [node name="Collision" type="CollisionShape2D" parent="DestructibleArea"]

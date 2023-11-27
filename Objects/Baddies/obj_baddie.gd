@@ -99,7 +99,7 @@ func _process(delta):
 					collision.collider.destroy()
 			if collision.collider.is_in_group("obj_player"):
 				var obj_player = utils.get_player()
-				if (state != global.states.pizzagoblinthrow && velocity.y >= 0 && obj_player.state != global.states.tackle && obj_player.state != global.states.superslam && obj_player.state != global.states.machslide && obj_player.state != global.states.freefall && obj_player.state != global.states.mach2 && obj_player.state != global.states.handstandjump && obj_player.state != global.states.mach3 && obj_player.state != global.states.machroll):
+				if (state != global.states.pizzagoblinthrow && velocity.y >= 0 && obj_player.state != global.states.tackle && obj_player.state != global.states.superslam && obj_player.state != global.states.machslide && obj_player.state != global.states.freefall && obj_player.state != global.states.mach2 && obj_player.state != global.states.handstandjump && obj_player.state != global.states.mach3 && obj_player.state != global.states.machroll && obj_player.state != global.states.shoulderdash):
 					utils.playsound("Bump")
 					if (obj_player.state != global.states.bombpep && obj_player.state != global.states.mach1):
 						obj_player.movespeed = 0
@@ -194,9 +194,9 @@ func destroy():
 	queue_free()
 	
 func is_colliding_with_wall():
-	if (($WallCheck.is_colliding() && $WallCheck.get_collider() != null && ($WallCheck.get_collider().is_in_group("obj_solid") || $WallCheck.get_collider().is_in_group("obj_destructibles") || $WallCheck.get_collider().is_in_group("obj_baddie"))) ||
-	($WallCheck2.is_colliding() && $WallCheck2.get_collider() != null && ($WallCheck2.get_collider().is_in_group("obj_solid") || $WallCheck2.get_collider().is_in_group("obj_destructibles") || $WallCheck2.get_collider().is_in_group("obj_baddie"))) ||
-	($WallCheck3.is_colliding() && $WallCheck3.get_collider() != null && ($WallCheck3.get_collider().is_in_group("obj_solid") || $WallCheck3.get_collider().is_in_group("obj_destructibles") || $WallCheck3.get_collider().is_in_group("obj_baddie")))):
+	if (($WallCheck.is_colliding() && $WallCheck.get_collider() != null && ($WallCheck.get_collider().is_in_group("obj_solid") || $WallCheck.get_collider().is_in_group("obj_destructibles") || $WallCheck.get_collider().is_in_group("obj_metalblock") || $WallCheck.get_collider().is_in_group("obj_baddie"))) ||
+	($WallCheck2.is_colliding() && $WallCheck2.get_collider() != null && ($WallCheck2.get_collider().is_in_group("obj_solid") || $WallCheck2.get_collider().is_in_group("obj_destructibles") || $WallCheck2.get_collider().is_in_group("obj_metalblock") || $WallCheck2.get_collider().is_in_group("obj_baddie"))) ||
+	($WallCheck3.is_colliding() && $WallCheck3.get_collider() != null && ($WallCheck3.get_collider().is_in_group("obj_solid") || $WallCheck3.get_collider().is_in_group("obj_destructibles") || $WallCheck3.get_collider().is_in_group("obj_metalblock") || $WallCheck3.get_collider().is_in_group("obj_baddie")))):
 		return true
 	else:
 		return false

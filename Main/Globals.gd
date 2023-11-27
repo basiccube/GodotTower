@@ -24,6 +24,9 @@ var stylebar = false
 # Enables the mach1 animation seen in May 2019 builds.
 var may2019run = false
 
+# Enables the shoulder dash from late 2020 builds.
+var shoulderdash = false
+
 var minutes = 0
 var seconds = 59
 var laps = 0
@@ -87,6 +90,7 @@ enum states {
 	comingoutdoor,
 	door,
 	handstandjump,
+	shoulderdash,
 	hurt,
 	climbwall,
 	titlescreen,
