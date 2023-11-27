@@ -33,7 +33,8 @@ func _on_obj_escapecollect_body_entered(body):
 			utils.stopsound("Collect")
 		utils.playsound("Collect")
 		global.combotime += 5
-		global.collect += 10
+		global.collect += 10 * global.multiplier
+		global.style += 5
 		var smallnumbid = utils.instance_create(global_position.x + 16, global_position.y, "res://Objects/Visuals/obj_smallnumber.tscn")
-		smallnumbid.number = "10"
+		smallnumbid.number = str(10 * global.multiplier)
 		destroy()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=1741 format=2]
+[gd_scene load_steps=1749 format=2]
 
 [ext_resource path="res://Objects/Player/sprites/idle_4.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/sprites/idle_0.png" type="Texture" id=2]
@@ -1731,6 +1731,14 @@
 [ext_resource path="res://Objects/Player/sprites/bossintro_10.png" type="Texture" id=1729]
 [ext_resource path="res://Objects/Player/sprites/bossintro_7.png" type="Texture" id=1730]
 [ext_resource path="res://Objects/Player/sprites/bossintro_6.png" type="Texture" id=1731]
+[ext_resource path="res://Objects/Player/sprites/running_1.png" type="Texture" id=1732]
+[ext_resource path="res://Objects/Player/sprites/running_5.png" type="Texture" id=1733]
+[ext_resource path="res://Objects/Player/sprites/running_6.png" type="Texture" id=1734]
+[ext_resource path="res://Objects/Player/sprites/running_0.png" type="Texture" id=1735]
+[ext_resource path="res://Objects/Player/sprites/running_7.png" type="Texture" id=1736]
+[ext_resource path="res://Objects/Player/sprites/running_2.png" type="Texture" id=1737]
+[ext_resource path="res://Objects/Player/sprites/running_3.png" type="Texture" id=1738]
+[ext_resource path="res://Objects/Player/sprites/running_4.png" type="Texture" id=1739]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 1204 )
@@ -2271,6 +2279,11 @@ animations = [ {
 "frames": [ ExtResource( 1129 ), ExtResource( 1130 ), ExtResource( 1133 ), ExtResource( 1134 ), ExtResource( 1128 ), ExtResource( 1132 ), ExtResource( 1135 ), ExtResource( 1136 ), ExtResource( 1131 ), ExtResource( 1125 ), ExtResource( 1126 ), ExtResource( 1127 ) ],
 "loop": true,
 "name": "rollgetup",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1735 ), ExtResource( 1732 ), ExtResource( 1737 ), ExtResource( 1738 ), ExtResource( 1739 ), ExtResource( 1733 ), ExtResource( 1734 ), ExtResource( 1736 ) ],
+"loop": true,
+"name": "running",
 "speed": 60.0
 }, {
 "frames": [ ExtResource( 1164 ), ExtResource( 1165 ), ExtResource( 1161 ), ExtResource( 1162 ), ExtResource( 1169 ), ExtResource( 1159 ), ExtResource( 1163 ), ExtResource( 1168 ), ExtResource( 1167 ) ],

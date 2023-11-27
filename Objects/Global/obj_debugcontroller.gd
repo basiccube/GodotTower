@@ -5,6 +5,8 @@ func _process(delta):
 		global.debugview = !global.debugview
 	if (Input.is_action_just_pressed("key_debug2")):
 		global.debugcollisions = !global.debugcollisions
+	if (Input.is_action_just_pressed("key_debug4")):
+		global.hudvisible = !global.hudvisible
 	if (Input.is_action_just_pressed("key_debug3")):
 		var obj_player = utils.get_player()
 		obj_player.position.x = obj_player.roomstartx

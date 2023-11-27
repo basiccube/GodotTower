@@ -21,7 +21,8 @@ func _on_obj_collect_body_entered(body):
 	if body is obj_player:
 		utils.playsound("CollectPizza")
 		global.combotime += 30
-		global.collect += 100
+		global.collect += 100 * global.multiplier
+		global.style += 5
 		var smallnumbid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_smallnumber.tscn")
-		smallnumbid.number = "100"
+		smallnumbid.number = str(100 * global.multiplier)
 		destroy()

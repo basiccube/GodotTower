@@ -18,10 +18,14 @@ func _ready():
 	room_start()
 	
 func _process(delta):
-	if (global.targetRoom == "rank_room" || global.targetRoom == "timesuproom" || global.targetRoom == "Realtitlescreen" || global.targetRoom == "rm_levelselect"):
+	if (global.targetRoom == "rank_room" || global.targetRoom == "timesuproom" || global.targetRoom == "Realtitlescreen" || global.targetRoom == "rm_levelselect" || !global.hudvisible):
 		visible = false
 	else:
 		visible = true
+	if (global.stylebar):
+		$TimeText.rect_position.y = -180
+	else:
+		$TimeText.rect_position.y = -205
 	if (global.debugview):
 		limit_left = -10000000
 		limit_top = -10000000

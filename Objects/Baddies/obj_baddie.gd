@@ -178,6 +178,7 @@ func destroy():
 			var smallnumbid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_smallnumber.tscn")
 			smallnumbid.number = "80"
 		global.combotime = 60
+		global.style += 5
 	elif (!global.baddieroom.has(global.targetRoom + name) && important):
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")

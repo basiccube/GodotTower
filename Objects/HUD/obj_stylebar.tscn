@@ -1,0 +1,75 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Objects/HUD/obj_stylebar.gd" type="Script" id=1]
+[ext_resource path="res://Objects/HUD/sprites/combomultiplier_bar.png" type="Texture" id=2]
+[ext_resource path="res://Objects/HUD/sprites/combomultiplierfill_0.png" type="Texture" id=3]
+[ext_resource path="res://Objects/HUD/sprites/combomultiplierfill_1.png" type="Texture" id=4]
+[ext_resource path="res://Objects/HUD/sprites/combomultiplierfill_2.png" type="Texture" id=5]
+[ext_resource path="res://Objects/HUD/sprites/combomultiplierfill_3.png" type="Texture" id=6]
+[ext_resource path="res://Objects/HUD/sprites/combomultiplierfill_4.png" type="Texture" id=7]
+[ext_resource path="res://Objects/HUD/sprites/styles_3.png" type="Texture" id=8]
+[ext_resource path="res://Objects/HUD/sprites/styles_2.png" type="Texture" id=9]
+[ext_resource path="res://Objects/HUD/sprites/styles_1.png" type="Texture" id=10]
+[ext_resource path="res://Objects/HUD/sprites/styles_4.png" type="Texture" id=11]
+[ext_resource path="res://Objects/HUD/sprites/styles_0.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "styles",
+"speed": 5.0
+} ]
+
+[node name="obj_stylebar" type="Node2D" groups=["obj_stylebar"]]
+z_index = 1000
+script = ExtResource( 1 )
+
+[node name="Threshold0Fill" type="TextureProgress" parent="."]
+margin_left = 355.0
+margin_top = 41.0
+margin_right = 414.0
+margin_bottom = 78.0
+max_value = 55.0
+texture_progress = ExtResource( 3 )
+
+[node name="Threshold1Fill" type="TextureProgress" parent="."]
+margin_left = 414.0
+margin_top = 41.0
+margin_right = 474.0
+margin_bottom = 78.0
+max_value = 55.0
+texture_progress = ExtResource( 4 )
+
+[node name="Threshold2Fill" type="TextureProgress" parent="."]
+margin_left = 474.0
+margin_top = 41.0
+margin_right = 533.0
+margin_bottom = 78.0
+max_value = 55.0
+texture_progress = ExtResource( 5 )
+
+[node name="Threshold3Fill" type="TextureProgress" parent="."]
+margin_left = 533.0
+margin_top = 41.0
+margin_right = 587.0
+margin_bottom = 78.0
+max_value = 55.0
+texture_progress = ExtResource( 6 )
+
+[node name="Threshold4Fill" type="TextureProgress" parent="."]
+margin_left = 587.0
+margin_top = 41.0
+margin_right = 605.0
+margin_bottom = 78.0
+max_value = 55.0
+texture_progress = ExtResource( 7 )
+
+[node name="MultiplierBar" type="Sprite" parent="."]
+position = Vector2( 480, 60 )
+texture = ExtResource( 2 )
+
+[node name="Styles" type="AnimatedSprite" parent="."]
+position = Vector2( 480, 50 )
+frames = SubResource( 1 )
+animation = "styles"

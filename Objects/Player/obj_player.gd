@@ -1482,7 +1482,10 @@ func scr_player_mach1():
 	if (is_colliding_with_wall()):
 		state = global.states.normal
 		movespeed = 0
-	$PeppinoSprite.speed_scale = 0.5
+	if (!global.may2019run):
+		$PeppinoSprite.speed_scale = 0.5
+	else:
+		$PeppinoSprite.speed_scale = 0.45
 	if (!utils.instance_exists("obj_dashcloud") && is_on_floor()):
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_dashcloud.tscn")
 		for i in get_tree().get_nodes_in_group("obj_dashcloud"):
@@ -1490,8 +1493,10 @@ func scr_player_mach1():
 				i.sprite.flip_h = false
 			elif xscale == -1:
 				i.sprite.flip_h = true
-	if (is_on_floor() && $PeppinoSprite.animation != "mach1" && velocity.y >= 0):
+	if (is_on_floor() && $PeppinoSprite.animation != "mach1" && velocity.y >= 0 && !global.may2019run):
 		$PeppinoSprite.animation = "mach1"
+	if (is_on_floor() && $PeppinoSprite.animation != "running" && velocity.y >= 0 && global.may2019run):
+		$PeppinoSprite.animation = "running"
 	if (Input.is_action_just_pressed("key_jump") && is_on_floor()):
 		$Jump.play()
 		$PeppinoSprite.animation = "airdash1"
@@ -2767,6 +2772,9 @@ func scr_playerreset():
 	global.combotime = 0
 	global.combodropped = false
 	global.combomilestone = 10
+	global.multiplier = 1
+	global.style = 0
+	global.stylethreshold = 0
 	backupweapon = false
 	global.hit = 0
 	bounce = 0

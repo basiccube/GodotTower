@@ -31,9 +31,10 @@ func _physics_process(delta):
 func _on_PizzasliceArea_body_entered(body):
 	if body is obj_player:
 		global.combotime += 20
-		global.collect += 25
+		global.collect += 25 * global.multiplier
+		global.style += 5
 		var smallnumbid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_smallnumber.tscn")
-		smallnumbid.number = "25"
+		smallnumbid.number = str(25 * global.multiplier)
 		if (utils.soundplaying("Collect")):
 			utils.stopsound("Collect")
 		utils.playsound("Collect")

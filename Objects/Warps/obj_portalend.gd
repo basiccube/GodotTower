@@ -30,6 +30,7 @@ func _on_Sprite_animation_finished():
 		obj_player.targetLevel = targetLevel
 		obj_player.targetRoom = targetRoom
 		global.collect += 500
+		global.style += 10
 		var smallnumbid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_smallnumber.tscn")
 		smallnumbid.number = "500"
 		global.combotime = 60

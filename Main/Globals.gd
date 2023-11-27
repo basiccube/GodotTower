@@ -12,9 +12,17 @@ var roomtorestart = ""
 
 var debugview = false
 var debugcollisions = true
+var hudvisible = true
 
 var option_resolution = 1
 var option_fullscreen = false
+
+# Enables the style bar from April 2019.
+# This feature is extremely broken as the amount of score it gives is stupidly high.
+var stylebar = false
+
+# Enables the mach1 animation seen in May 2019 builds.
+var may2019run = false
 
 var minutes = 0
 var seconds = 59
@@ -28,6 +36,9 @@ var combo = 0
 var combotime = 0
 var combodropped = false
 var combomilestone = 10
+var style = 0
+var stylethreshold = 0
+var multiplier = 1
 var collect = 0
 var pizzacoin = 0
 var key_inv = false
