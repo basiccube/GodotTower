@@ -147,7 +147,7 @@ func _process(delta):
 			$Speedbar.animation = "normal"
 			$Speedbar.playing = false
 			$Speedbar.speed_scale = 0
-		if (obj_player.global_position.y < (global_position.y - 160) && obj_player.global_position.x < (global_position.x - 240)):
+		if (obj_player.global_position.y < (global_position.y - 110) && obj_player.global_position.x < (global_position.x - 240)):
 			modulate.a = 0.5
 		else:
 			modulate.a = 1
