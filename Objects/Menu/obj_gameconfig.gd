@@ -6,12 +6,18 @@ var optionsaved_may2019run = global.may2019run
 var optionsaved_shoulderbash = global.shoulderbash
 
 func _process(delta):
-	if (Input.is_action_just_pressed("key_up") && optionselected > 0):
+	if (Input.is_action_just_pressed("key_up") && optionselected > -1):
 		optionselected -= 1
 		utils.playsound("Step")
 	if (Input.is_action_just_pressed("key_down") && optionselected < 2):
 		optionselected += 1
 		utils.playsound("Step")
+	if (optionselected == -1):
+		if (Input.is_action_just_pressed("key_jump")):
+			utils.playsound("EnemyProjectile")
+			var obj_option = utils.get_instance("obj_option")
+			obj_option.visible = true
+			queue_free()
 	if (optionselected == 0):
 		if (Input.is_action_just_pressed("key_right") && !optionsaved_stylebar):
 			optionsaved_stylebar = true
@@ -33,12 +39,12 @@ func _process(delta):
 			optionsaved_shoulderbash = false
 		if (Input.is_action_just_pressed("key_jump")):
 			global.shoulderbash = optionsaved_shoulderbash
-	if ((Input.is_action_just_pressed("key_grab") || Input.is_action_just_pressed("key_escape"))):
-		utils.playsound("EnemyProjectile")
-		var obj_option = utils.get_instance("obj_option")
-		obj_option.visible = true
-		queue_free()
 	# Menu draw code
+	if (optionselected == -1):
+		$Back.modulate.a = 1
+		$Description.text = ""
+	else:
+		$Back.modulate.a = 0.5
 	if (optionselected == 0):
 		$StyleBar.modulate.a = 1
 		$Description.text = "Enables the April 2019 style bar and score multiplier system."

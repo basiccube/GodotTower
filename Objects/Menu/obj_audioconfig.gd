@@ -22,19 +22,26 @@ func set_audio_config():
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear2db(global.option_sfxvolume))
 
 func _process(delta):
-	if (Input.is_action_just_pressed("key_up") && optionselected > 0):
+	if (Input.is_action_just_pressed("key_up") && optionselected > -1):
 		optionselected -= 1
 		utils.playsound("Step")
 	if (Input.is_action_just_pressed("key_down") && optionselected < 2):
 		optionselected += 1
 		utils.playsound("Step")
-	if (Input.is_action_just_pressed("key_jump")):
+	if (Input.is_action_just_pressed("key_jump") && optionselected != -1):
 		set_audio_config()
 	optionsaved_master = clamp(optionsaved_master, 0, 1)
 	optionsaved_music = clamp(optionsaved_music, 0, 1)
 	optionsaved_sfx = clamp(optionsaved_sfx, 0, 1)
 	if (key_buffer > 0):
 		key_buffer -= 1
+	elif (optionselected == -1):
+		if (Input.is_action_just_pressed("key_jump")):
+			utils.playsound("EnemyProjectile")
+			set_audio_config()
+			var obj_option = utils.get_instance("obj_option")
+			obj_option.visible = true
+			queue_free()
 	elif (optionselected == 0):
 		if (Input.is_action_pressed("key_right") && optionsaved_master < 1):
 			optionsaved_master += 0.01
@@ -52,16 +59,14 @@ func _process(delta):
 			optionsaved_sfx -= 0.01
 	if (Input.is_action_just_pressed("key_left") || Input.is_action_just_pressed("key_right")):
 		key_buffer = 7
-	if ((Input.is_action_just_pressed("key_grab") || Input.is_action_just_pressed("key_escape"))):
-		utils.playsound("EnemyProjectile")
-		set_audio_config()
-		var obj_option = utils.get_instance("obj_option")
-		obj_option.visible = true
-		queue_free()
 	# Menu draw code
 	$MasterVol.text = str(optionsaved_master * 100)
 	$MusicVol.text = str(optionsaved_music * 100)
 	$SFXVol.text = str(optionsaved_sfx * 100)
+	if (optionselected == -1):
+		$Back.modulate.a = 1
+	else:
+		$Back.modulate.a = 0.5
 	if (optionselected == 0):
 		$MasterText.modulate.a = 1
 		$MasterVol.modulate.a = 1

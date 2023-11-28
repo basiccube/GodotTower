@@ -12,11 +12,183 @@ margin_right = 960.0
 margin_bottom = 540.0
 color = Color( 0, 0, 0, 1 )
 
-[node name="Text" type="Label" parent="."]
+[node name="Back" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_left = 280.0
+margin_top = 50.0
+margin_right = 379.0
+margin_bottom = 82.0
+custom_fonts/font = ExtResource( 2 )
+text = "BACK"
+uppercase = true
+
+[node name="Up" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_left = 420.0
+margin_top = 50.0
+margin_right = 463.0
+margin_bottom = 82.0
+custom_fonts/font = ExtResource( 2 )
+text = "UP"
+uppercase = true
+
+[node name="UpKey" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_left = 580.0
+margin_top = 50.0
+margin_right = 623.0
+margin_bottom = 82.0
+custom_fonts/font = ExtResource( 2 )
+uppercase = true
+
+[node name="Down" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_left = 420.0
+margin_top = 100.0
+margin_right = 516.0
+margin_bottom = 132.0
+custom_fonts/font = ExtResource( 2 )
+text = "DOWN"
+uppercase = true
+
+[node name="DownKey" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_left = 580.0
+margin_top = 100.0
+margin_right = 676.0
+margin_bottom = 132.0
+custom_fonts/font = ExtResource( 2 )
+uppercase = true
+
+[node name="Right" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_left = 420.0
+margin_top = 150.0
+margin_right = 529.0
+margin_bottom = 182.0
+custom_fonts/font = ExtResource( 2 )
+text = "RIGHT"
+uppercase = true
+
+[node name="RightKey" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_left = 580.0
+margin_top = 150.0
+margin_right = 689.0
+margin_bottom = 182.0
+custom_fonts/font = ExtResource( 2 )
+uppercase = true
+
+[node name="Left" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_left = 420.0
 margin_top = 200.0
-margin_right = 960.0
+margin_right = 529.0
 margin_bottom = 232.0
 custom_fonts/font = ExtResource( 2 )
-text = "THIS MENU IS NOT IMPLEMENTED YET"
-align = 1
+text = "LEFT"
+uppercase = true
+
+[node name="LeftKey" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_left = 580.0
+margin_top = 200.0
+margin_right = 689.0
+margin_bottom = 232.0
+custom_fonts/font = ExtResource( 2 )
+uppercase = true
+
+[node name="Jump" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_left = 420.0
+margin_top = 250.0
+margin_right = 529.0
+margin_bottom = 282.0
+custom_fonts/font = ExtResource( 2 )
+text = "JUMP"
+uppercase = true
+
+[node name="JumpKey" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_left = 580.0
+margin_top = 250.0
+margin_right = 689.0
+margin_bottom = 282.0
+custom_fonts/font = ExtResource( 2 )
+uppercase = true
+
+[node name="Grab" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_left = 420.0
+margin_top = 300.0
+margin_right = 529.0
+margin_bottom = 332.0
+custom_fonts/font = ExtResource( 2 )
+text = "GRAB"
+uppercase = true
+
+[node name="GrabKey" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_left = 580.0
+margin_top = 300.0
+margin_right = 689.0
+margin_bottom = 332.0
+custom_fonts/font = ExtResource( 2 )
+uppercase = true
+
+[node name="Dash" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_left = 420.0
+margin_top = 350.0
+margin_right = 529.0
+margin_bottom = 382.0
+custom_fonts/font = ExtResource( 2 )
+text = "DASH"
+uppercase = true
+
+[node name="DashKey" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_left = 580.0
+margin_top = 350.0
+margin_right = 689.0
+margin_bottom = 382.0
+custom_fonts/font = ExtResource( 2 )
+uppercase = true
+
+[node name="Taunt" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_left = 420.0
+margin_top = 400.0
+margin_right = 543.0
+margin_bottom = 432.0
+custom_fonts/font = ExtResource( 2 )
+text = "TAUNT"
+uppercase = true
+
+[node name="TauntKey" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_left = 580.0
+margin_top = 400.0
+margin_right = 703.0
+margin_bottom = 432.0
+custom_fonts/font = ExtResource( 2 )
+uppercase = true
+
+[node name="Pause" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_left = 420.0
+margin_top = 450.0
+margin_right = 543.0
+margin_bottom = 482.0
+custom_fonts/font = ExtResource( 2 )
+text = "PAUSE"
+uppercase = true
+
+[node name="PauseKey" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_left = 580.0
+margin_top = 450.0
+margin_right = 703.0
+margin_bottom = 482.0
+custom_fonts/font = ExtResource( 2 )
 uppercase = true

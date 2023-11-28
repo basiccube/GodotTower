@@ -12,7 +12,18 @@ margin_right = 960.0
 margin_bottom = 540.0
 color = Color( 0, 0, 0, 1 )
 
+[node name="Back" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_left = 330.0
+margin_top = 100.0
+margin_right = 483.0
+margin_bottom = 132.0
+custom_fonts/font = ExtResource( 2 )
+text = "BACK"
+uppercase = true
+
 [node name="MasterText" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
 margin_left = 330.0
 margin_top = 175.0
 margin_right = 483.0
@@ -22,6 +33,7 @@ text = "MASTER"
 uppercase = true
 
 [node name="MasterVol" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
 margin_left = 580.0
 margin_top = 175.0
 margin_right = 733.0
@@ -30,6 +42,7 @@ custom_fonts/font = ExtResource( 2 )
 uppercase = true
 
 [node name="MusicText" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
 margin_left = 330.0
 margin_top = 250.0
 margin_right = 483.0
@@ -39,6 +52,7 @@ text = "MUSIC"
 uppercase = true
 
 [node name="MusicVol" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
 margin_left = 580.0
 margin_top = 250.0
 margin_right = 733.0
@@ -47,6 +61,7 @@ custom_fonts/font = ExtResource( 2 )
 uppercase = true
 
 [node name="SFXText" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
 margin_left = 330.0
 margin_top = 325.0
 margin_right = 483.0
@@ -56,6 +71,7 @@ text = "SFX"
 uppercase = true
 
 [node name="SFXVol" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
 margin_left = 580.0
 margin_top = 325.0
 margin_right = 733.0

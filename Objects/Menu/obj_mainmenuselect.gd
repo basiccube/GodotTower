@@ -5,9 +5,6 @@ var selected = false
 
 func _process(delta):
 	if (!selected):
-		#if (Input.is_key_pressed(KEY_F5)):
-			#utils.instance_create(utils.get_gamenode().global_position.x, utils.get_gamenode().global_position.y, "res://Objects/Menu/obj_manual.tscn")
-			#selected = true
 		if (Input.is_action_just_pressed("key_right") && optionselected < 2):
 			optionselected += 1
 			utils.playsound("Step")

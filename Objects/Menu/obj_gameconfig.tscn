@@ -13,11 +13,21 @@ margin_right = 960.0
 margin_bottom = 540.0
 color = Color( 0, 0, 0, 1 )
 
-[node name="StyleBar" type="Label" parent="."]
+[node name="Back" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0.5 )
 margin_top = 100.0
 margin_right = 960.0
 margin_bottom = 132.0
+custom_fonts/font = ExtResource( 2 )
+text = "BACK"
+align = 1
+uppercase = true
+
+[node name="StyleBar" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.5 )
+margin_top = 150.0
+margin_right = 960.0
+margin_bottom = 182.0
 custom_fonts/font = ExtResource( 2 )
 text = "STYLE BAR: OFF"
 align = 1
@@ -25,9 +35,9 @@ uppercase = true
 
 [node name="OldMach1" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0.5 )
-margin_top = 150.0
+margin_top = 200.0
 margin_right = 960.0
-margin_bottom = 182.0
+margin_bottom = 232.0
 custom_fonts/font = ExtResource( 2 )
 text = "MAY 2019 MACH 1 RUN: OFF"
 align = 1
@@ -35,9 +45,9 @@ uppercase = true
 
 [node name="ShoulderBash" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0.5 )
-margin_top = 200.0
+margin_top = 250.0
 margin_right = 960.0
-margin_bottom = 232.0
+margin_bottom = 282.0
 custom_fonts/font = ExtResource( 2 )
 text = "SHOULDER BASH: OFF"
 align = 1
