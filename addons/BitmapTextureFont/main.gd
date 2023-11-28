@@ -63,4 +63,5 @@ func update():
 			
 			var _rect = Rect2(fmod(size.x * i + _offsetLeft, texture.get_width()), floor((size.x * i)/texture.get_width()) * size.y, size.x - (_offsetLeft + _offsetRight), size.y)
 			add_char(_characterArray[i], 0, _rect)
+		set_height(size.y)
 		update_changes()

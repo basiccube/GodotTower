@@ -16,6 +16,10 @@ var hudvisible = true
 
 var option_resolution = 1
 var option_fullscreen = false
+var option_mastervolume = 0
+var option_sfxvolume = 0
+var option_musicvolume = 0
+
 
 # Enables the style bar from April 2019.
 # This feature is extremely broken as the amount of score it gives is stupidly high.
@@ -24,8 +28,8 @@ var stylebar = false
 # Enables the mach1 animation seen in May 2019 builds.
 var may2019run = false
 
-# Enables the shoulder dash from late 2020 builds.
-var shoulderdash = false
+# Enables the shoulder bash from late 2020 builds.
+var shoulderbash = false
 
 var minutes = 0
 var seconds = 59
@@ -90,7 +94,7 @@ enum states {
 	comingoutdoor,
 	door,
 	handstandjump,
-	shoulderdash,
+	shoulderbash,
 	hurt,
 	climbwall,
 	titlescreen,

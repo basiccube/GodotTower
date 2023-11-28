@@ -40,6 +40,10 @@ global="*res://Main/Globals.gd"
 utils="*res://Main/Utils.gd"
 Console="*res://addons/quentincaffeino/console/src/Console.tscn"
 
+[debug]
+
+settings/fps/force_fps=60
+
 [display]
 
 window/size/width=960

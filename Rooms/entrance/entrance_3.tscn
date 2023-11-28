@@ -143,13 +143,13 @@ position = Vector2( 1504, 320 )
 position = Vector2( 1568, 320 )
 
 [node name="obj_escapecollect6" parent="." instance=ExtResource( 14 )]
-position = Vector2( 2528, 320 )
+position = Vector2( 2528, 352 )
 
 [node name="obj_escapecollect7" parent="." instance=ExtResource( 14 )]
-position = Vector2( 2592, 320 )
+position = Vector2( 2592, 352 )
 
 [node name="obj_escapecollect8" parent="." instance=ExtResource( 14 )]
-position = Vector2( 2656, 320 )
+position = Vector2( 2656, 352 )
 
 [node name="obj_escapeenemy" parent="." instance=ExtResource( 15 )]
 position = Vector2( 592, 336 )

@@ -99,7 +99,7 @@ func _process(delta):
 					collision.collider.destroy()
 			if collision.collider.is_in_group("obj_player"):
 				var obj_player = utils.get_player()
-				if (state != global.states.pizzagoblinthrow && velocity.y >= 0 && obj_player.state != global.states.tackle && obj_player.state != global.states.superslam && obj_player.state != global.states.machslide && obj_player.state != global.states.freefall && obj_player.state != global.states.mach2 && obj_player.state != global.states.handstandjump && obj_player.state != global.states.mach3 && obj_player.state != global.states.machroll && obj_player.state != global.states.shoulderdash):
+				if (state != global.states.pizzagoblinthrow && velocity.y >= 0 && obj_player.state != global.states.tackle && obj_player.state != global.states.superslam && obj_player.state != global.states.machslide && obj_player.state != global.states.freefall && obj_player.state != global.states.mach2 && obj_player.state != global.states.handstandjump && obj_player.state != global.states.mach3 && obj_player.state != global.states.machroll && obj_player.state != global.states.shoulderbash):
 					utils.playsound("Bump")
 					if (obj_player.state != global.states.bombpep && obj_player.state != global.states.mach1):
 						obj_player.movespeed = 0

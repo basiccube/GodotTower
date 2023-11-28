@@ -2,7 +2,11 @@ extends Node2D
 
 func _process(delta):
 	if (!global.stylebar):
-		queue_free()
+		global.style = 0
+		global.stylethreshold = 0
+		global.multiplier = 1
+		visible = false
+		return
 	var obj_camera = utils.get_instance("obj_camera")
 	position.x = obj_camera.global_position.x - 480
 	position.y = obj_camera.global_position.y - 270

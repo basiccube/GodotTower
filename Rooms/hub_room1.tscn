@@ -109,7 +109,6 @@ scale = Vector2( 2, 1 )
 [node name="obj_ladder" parent="." instance=ExtResource( 13 )]
 position = Vector2( 928, 960 )
 scale = Vector2( 1, 10 )
-z_index = -2
 
 [node name="obj_startgate2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 656, 1152 )
@@ -157,21 +156,8 @@ margin_right = 459.0
 margin_bottom = 1361.0
 custom_fonts/font = ExtResource( 14 )
 text = "Debug Controls:
-
-
-
-
-
-
-
 F1: Toggle Debug Camera View
-
-
-
 F2: Toggle Visible Collisions
-
-
-
 F3: Teleport To Room Start"
 uppercase = true
 

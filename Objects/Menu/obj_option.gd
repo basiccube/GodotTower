@@ -5,11 +5,11 @@ var optionsaved_resolution = global.option_resolution
 var optionsaved_fullscreen = global.option_fullscreen
 
 func _process(delta):
-	if (!utils.instance_exists("obj_keyconfig")):
+	if (!utils.instance_exists("obj_keyconfig") && !utils.instance_exists("obj_gameconfig") && !utils.instance_exists("obj_audioconfig")):
 		if (Input.is_action_just_pressed("key_up") && optionselected > 0):
 			optionselected -= 1
 			utils.playsound("Step")
-		if (Input.is_action_just_pressed("key_down") && optionselected < 2):
+		if (Input.is_action_just_pressed("key_down") && optionselected < 3):
 			optionselected += 1
 			utils.playsound("Step")
 	if (optionselected == 0):
@@ -62,7 +62,12 @@ func _process(delta):
 			if (Input.is_action_just_pressed("key_jump")):
 				visible = false
 				utils.instance_create(utils.get_gamenode().global_position.x, utils.get_gamenode().global_position.y, "res://Objects/Menu/obj_keyconfig.tscn")
-	if ((Input.is_action_just_pressed("key_grab") || Input.is_action_just_pressed("key_escape")) && (!utils.instance_exists("obj_keyconfig"))):
+	if (optionselected == 3):
+		if (!utils.instance_exists("obj_gameconfig")):
+			if (Input.is_action_just_pressed("key_jump")):
+				visible = false
+				utils.instance_create(utils.get_gamenode().global_position.x, utils.get_gamenode().global_position.y, "res://Objects/Menu/obj_gameconfig.tscn")
+	if ((Input.is_action_just_pressed("key_grab") || Input.is_action_just_pressed("key_escape")) && !utils.instance_exists("obj_keyconfig") && !utils.instance_exists("obj_gameconfig") && !utils.instance_exists("obj_audioconfig")):
 		utils.playsound("EnemyProjectile")
 		var obj_mainmenuselect = utils.get_instance_level("obj_mainmenuselect")
 		obj_mainmenuselect.selected = false
@@ -100,3 +105,7 @@ func _process(delta):
 		$KeyConfig.modulate.a = 1
 	else:
 		$KeyConfig.modulate.a = 0.5
+	if (optionselected == 3):
+		$GameConfig.modulate.a = 1
+	else:
+		$GameConfig.modulate.a = 0.5

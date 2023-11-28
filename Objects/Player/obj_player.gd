@@ -143,7 +143,7 @@ func _process(delta):
 						machpunchAnim = 1
 				if ((state == global.states.knightpep || state == global.states.superslam) && velocity.y > 0):
 					destructible.destroy()
-				if (state == global.states.handstandjump || state == global.states.shoulderdash):
+				if (state == global.states.handstandjump || state == global.states.shoulderbash):
 					if (destructible.is_in_group("obj_bigdestructibles")):
 						if (shotgunAnim == 0):
 							$PeppinoSprite.animation = "tackle"
@@ -177,7 +177,7 @@ func _process(delta):
 				destructible.destroy()
 		if (destructible.is_in_group("obj_baddie")):
 			if (destructible.state != global.states.grabbed && !cutscene):
-				if (state == global.states.shoulderdash):
+				if (state == global.states.shoulderbash):
 					utils.playsound("Punch")
 					global.hit += 1
 					global.combotime = 60
@@ -189,7 +189,7 @@ func _process(delta):
 						$PeppinoSprite.animation = "attack" + str(rng)
 					destructible.destroy()
 		if (destructible.is_in_group("obj_hungrypillar")):
-			if (state == global.states.shoulderdash):
+			if (state == global.states.shoulderbash):
 				destructible.destroy()
 	for destructible in $JumpArea.get_overlapping_bodies():
 		if (destructible.is_in_group("obj_destructibles") && !destructible.is_in_group("obj_specialdestructibles")):
@@ -286,7 +286,7 @@ func _process(delta):
 							velocity.y = -9
 							if (state != global.states.grab):
 								$PeppinoSprite.animation = "stompprep"
-					if (baddie.state != global.states.pizzagoblinthrow && baddie.velocity.y >= 0 && state != global.states.tackle && state != global.states.superslam && state != global.states.machslide && state != global.states.freefall && state != global.states.mach2 && state != global.states.handstandjump && state != global.states.shoulderdash && state != global.states.mach3 && state != global.states.machroll && state != global.states.slipnslide && state != global.states.knightpepslopes):
+					if (baddie.state != global.states.pizzagoblinthrow && baddie.velocity.y >= 0 && state != global.states.tackle && state != global.states.superslam && state != global.states.machslide && state != global.states.freefall && state != global.states.mach2 && state != global.states.handstandjump && state != global.states.shoulderbash && state != global.states.mach3 && state != global.states.machroll && state != global.states.slipnslide && state != global.states.knightpepslopes):
 						utils.playsound("Bump")
 						if (state != global.states.bombpep && state != global.states.mach1):
 							movespeed = 0
@@ -360,8 +360,8 @@ func _process(delta):
 			scr_player_door()
 		global.states.handstandjump:
 			scr_player_handstandjump()
-		global.states.shoulderdash:
-			scr_player_shoulderdash()
+		global.states.shoulderbash:
+			scr_player_shoulderbash()
 		global.states.hurt:
 			scr_player_hurt()
 		global.states.mach1:
@@ -473,7 +473,7 @@ func _process(delta):
 		grabbing = 1
 	else:
 		grabbing = 0
-	if (state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.freefall || state == global.states.tumble || state == global.states.fireass || state == global.states.Sjump || state == global.states.machroll || state == global.states.machfreefall || (state == global.states.superslam && $PeppinoSprite.animation == "piledriver") || state == global.states.knightpep || state == global.states.knightpepattack || state == global.states.knightpepslopes || state == global.states.faceplant || state == global.states.shoulderdash):
+	if (state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.freefall || state == global.states.tumble || state == global.states.fireass || state == global.states.Sjump || state == global.states.machroll || state == global.states.machfreefall || (state == global.states.superslam && $PeppinoSprite.animation == "piledriver") || state == global.states.knightpep || state == global.states.knightpepattack || state == global.states.knightpepslopes || state == global.states.faceplant || state == global.states.shoulderbash):
 		instakillmove = 1
 	else:
 		instakillmove = 0
@@ -500,12 +500,12 @@ func _process(delta):
 		ladderbuffer = 0
 	if state != global.states.jump:
 		stompAnim = 0
-	if ((state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.machroll || state == global.states.handstandjump || state == global.states.shoulderdash || state == global.states.machslide) && (!utils.instance_exists("obj_mach3effect"))):
+	if ((state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.machroll || state == global.states.handstandjump || state == global.states.shoulderbash || state == global.states.machslide) && (!utils.instance_exists("obj_mach3effect"))):
 		toomuchalarm1 = 6
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_mach3effect.tscn")
 	if (toomuchalarm1 > 0):
 		toomuchalarm1 -= 1
-		if (toomuchalarm1 <= 0 && (state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.machroll || state == global.states.handstandjump || state == global.states.shoulderdash || state == global.states.machslide)):
+		if (toomuchalarm1 <= 0 && (state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.machroll || state == global.states.handstandjump || state == global.states.shoulderbash || state == global.states.machslide)):
 			utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_mach3effect.tscn")
 			toomuchalarm1 = 6
 	if (!$CrouchCheck.is_colliding()):
@@ -632,12 +632,14 @@ func destroy(collider):
 			$PeppinoSprite.animation = "hurtjump"
 		else:
 			$PeppinoSprite.animation = "hurt"
+		
 		movespeed = 8
 		velocity.y = -5
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_spikehurteffect.tscn")
 		state = global.states.hurt
 		if (shotgunAnim == 0 && character == "P"):
 			global.hurtcounter += 1
+			global.style -= 10
 			if (global.collect > 100):
 				global.collect -= 100
 			else:
@@ -838,7 +840,7 @@ func scr_player_normal():
 			$PeppinoSprite.speed_scale = 0.6
 	else:
 		$PeppinoSprite.speed_scale = 0.35
-	if (Input.is_action_just_pressed("key_grab") && ((global.shoulderdash && Input.is_action_pressed("key_up")) || !global.shoulderdash) && character == "P" && (!(shotgunAnim == 1 && Input.is_action_pressed("key_up")))):
+	if (Input.is_action_just_pressed("key_grab") && ((global.shoulderbash && Input.is_action_pressed("key_up")) || !global.shoulderbash) && character == "P" && (!(shotgunAnim == 1 && Input.is_action_pressed("key_up")))):
 		suplexmove = 1
 		$SuplexDash.play()
 		state = global.states.handstandjump
@@ -847,10 +849,10 @@ func scr_player_normal():
 		else:
 			$PeppinoSprite.animation = "shotgun_suplexdash"
 		movespeed = 6
-	if (Input.is_action_just_pressed("key_grab") && global.shoulderdash && !Input.is_action_pressed("key_up") && character == "P" && (!(shotgunAnim == 1 && Input.is_action_pressed("key_up")))):
+	if (Input.is_action_just_pressed("key_grab") && global.shoulderbash && !Input.is_action_pressed("key_up") && character == "P" && (!(shotgunAnim == 1 && Input.is_action_pressed("key_up")))):
 		suplexmove = 1
 		$SuplexDash.play()
-		state = global.states.shoulderdash
+		state = global.states.shoulderbash
 		$PeppinoSprite.animation = "attackdash"
 		movespeed = 6
 	if (Input.is_action_just_pressed("key_grab") && character == "P" && shotgunAnim == 1 && Input.is_action_pressed("key_up")):
@@ -989,17 +991,17 @@ func scr_player_jump():
 		$Groundpound.play()
 		$PeppinoSprite.animation = "bodyslamland"
 		state = global.states.freefallland
-	if (Input.is_action_just_pressed("key_grab") && ((global.shoulderdash && Input.is_action_pressed("key_up")) || !global.shoulderdash) && character == "P" && suplexmove == 0 && (!(shotgunAnim == 1 && Input.is_action_pressed("key_up")))):
+	if (Input.is_action_just_pressed("key_grab") && ((global.shoulderbash && Input.is_action_pressed("key_up")) || !global.shoulderbash) && character == "P" && suplexmove == 0 && (!(shotgunAnim == 1 && Input.is_action_pressed("key_up")))):
 		suplexmove = 1
 		$SuplexDash.play()
 		state = global.states.handstandjump
 		$PeppinoSprite.animation = "suplexdashjumpstart"
 		velocity.y = -4
 		movespeed = 6
-	if (Input.is_action_just_pressed("key_grab") && global.shoulderdash && !Input.is_action_pressed("key_up") && character == "P" && suplexmove == 0 && (!(shotgunAnim == 1 && Input.is_action_pressed("key_up")))):
+	if (Input.is_action_just_pressed("key_grab") && global.shoulderbash && !Input.is_action_pressed("key_up") && character == "P" && suplexmove == 0 && (!(shotgunAnim == 1 && Input.is_action_pressed("key_up")))):
 		suplexmove = 1
 		$SuplexDash.play()
-		state = global.states.shoulderdash
+		state = global.states.shoulderbash
 		$PeppinoSprite.animation = "airattackstart"
 		velocity.y = -4
 		movespeed = 6
@@ -1429,7 +1431,7 @@ func scr_player_handstandjump():
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_crazyrunothereffect.tscn")
 		state = global.states.faceplant
 
-func scr_player_shoulderdash():
+func scr_player_shoulderbash():
 	var move = ((-int(Input.is_action_pressed("key_left"))) + int(Input.is_action_pressed("key_right")))
 	if (character == "P"):
 		landAnim = 0
@@ -1449,12 +1451,12 @@ func scr_player_shoulderdash():
 			jumpstop = 1
 		if (move != xscale && move != 0):
 			state = global.states.normal
-		if ((is_last_frame() && $PeppinoSprite.animation == "attackdash") && is_on_floor() && !Input.is_action_pressed("key_dash") && velocity.y >= 0):
+		if (((is_last_frame() && $PeppinoSprite.animation == "attackdash") || $PeppinoSprite.animation == "mach2jump") && is_on_floor() && !Input.is_action_pressed("key_dash") && velocity.y >= 0):
 			$PeppinoSprite.speed_scale = 0.35
 			state = global.states.machslide
 			$MachSlide.play()
 			$PeppinoSprite.animation = "machslidestart"
-		if ((is_last_frame() && $PeppinoSprite.animation == "attackdash") && is_on_floor() && Input.is_action_pressed("key_dash")):
+		if (((is_last_frame() && $PeppinoSprite.animation == "attackdash") || $PeppinoSprite.animation == "mach2jump") && is_on_floor() && Input.is_action_pressed("key_dash")):
 			$PeppinoSprite.speed_scale = 0.35
 			state = global.states.mach2
 		if (is_last_frame() && $PeppinoSprite.animation == "airattackstart"):
@@ -1478,8 +1480,8 @@ func scr_player_shoulderdash():
 				$PeppinoSprite.animation = "attackdash"
 		if (Input.is_action_just_pressed("key_jump")):
 			input_buffer_jump = 0
-		if (is_on_floor() && input_buffer_jump < 8):
-			$PeppinoSprite.animation = "airattackstart"
+		if (is_on_floor() && input_buffer_jump < 8 && $PeppinoSprite.animation == "attackdash"):
+			$PeppinoSprite.animation = "mach2jump"
 			$Jump.play()
 			utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_highjumpcloud2.tscn")
 			velocity.y = -11
@@ -2154,8 +2156,8 @@ func scr_player_timesup():
 	$HurtTimer.stop()
 	$HurtTimer2.stop()
 	if (global.targetRoom == "timesuproom"):
-		position.x = 430
-		position.y = 220
+		position.x = 480
+		position.y = 270
 	if ($PeppinoSprite.frame == 9):
 		$PeppinoSprite.speed_scale = 0
 	
@@ -2953,7 +2955,7 @@ func scr_playersounds():
 		$Tumble1.stop()
 		$Tumble2.stop()
 		$Tumble3.stop()
-	if ($SuplexDash.playing && state != global.states.handstandjump && state != global.states.shoulderdash):
+	if ($SuplexDash.playing && state != global.states.handstandjump && state != global.states.shoulderbash):
 		$SuplexDash.stop()
 
 func _on_HurtTimer_timeout():

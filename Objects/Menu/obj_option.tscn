@@ -13,9 +13,9 @@ margin_bottom = 540.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="Fullscreen" type="Label" parent="."]
-margin_top = 100.0
+margin_top = 50.0
 margin_right = 960.0
-margin_bottom = 132.0
+margin_bottom = 82.0
 custom_fonts/font = ExtResource( 2 )
 text = "FULLSCREEN"
 align = 1
@@ -23,9 +23,9 @@ uppercase = true
 
 [node name="FullscreenOn" type="Label" parent="."]
 margin_left = -100.0
-margin_top = 150.0
+margin_top = 100.0
 margin_right = 860.0
-margin_bottom = 182.0
+margin_bottom = 132.0
 custom_fonts/font = ExtResource( 2 )
 text = "ON"
 align = 1
@@ -33,18 +33,18 @@ uppercase = true
 
 [node name="FullscreenOff" type="Label" parent="."]
 margin_left = 100.0
-margin_top = 150.0
+margin_top = 100.0
 margin_right = 1060.0
-margin_bottom = 182.0
+margin_bottom = 132.0
 custom_fonts/font = ExtResource( 2 )
 text = "OFF"
 align = 1
 uppercase = true
 
 [node name="Resolution" type="Label" parent="."]
-margin_top = 250.0
+margin_top = 200.0
 margin_right = 960.0
-margin_bottom = 282.0
+margin_bottom = 232.0
 custom_fonts/font = ExtResource( 2 )
 text = "RESOLUTION"
 align = 1
@@ -52,18 +52,18 @@ uppercase = true
 
 [node name="Resolution480" type="Label" parent="."]
 margin_left = -180.0
-margin_top = 300.0
+margin_top = 250.0
 margin_right = 780.0
-margin_bottom = 332.0
+margin_bottom = 282.0
 custom_fonts/font = ExtResource( 2 )
 text = "480X270"
 align = 1
 uppercase = true
 
 [node name="Resolution960" type="Label" parent="."]
-margin_top = 300.0
+margin_top = 250.0
 margin_right = 960.0
-margin_bottom = 332.0
+margin_bottom = 282.0
 custom_fonts/font = ExtResource( 2 )
 text = "960X540"
 align = 1
@@ -71,19 +71,28 @@ uppercase = true
 
 [node name="Resolution1080" type="Label" parent="."]
 margin_left = 200.0
-margin_top = 300.0
+margin_top = 250.0
 margin_right = 1160.0
-margin_bottom = 332.0
+margin_bottom = 282.0
 custom_fonts/font = ExtResource( 2 )
 text = "1920X1080"
 align = 1
 uppercase = true
 
 [node name="KeyConfig" type="Label" parent="."]
-margin_top = 400.0
+margin_top = 350.0
 margin_right = 960.0
-margin_bottom = 432.0
+margin_bottom = 382.0
 custom_fonts/font = ExtResource( 2 )
 text = "KEY CONFIG"
+align = 1
+uppercase = true
+
+[node name="GameConfig" type="Label" parent="."]
+margin_top = 450.0
+margin_right = 960.0
+margin_bottom = 482.0
+custom_fonts/font = ExtResource( 2 )
+text = "GAME CONFIG"
 align = 1
 uppercase = true

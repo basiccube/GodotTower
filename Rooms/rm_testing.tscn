@@ -78,7 +78,7 @@ scale = Vector2( 6, 1 )
 
 [node name="obj_door" parent="." instance=ExtResource( 14 )]
 position = Vector2( 688, 512 )
-targetDoor = "B"
+targetDoor = "C"
 targetLevel = ""
 targetRoom = "boss_pepperman_chase"
 

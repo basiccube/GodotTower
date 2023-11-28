@@ -50,7 +50,7 @@ motion_mirroring = Vector2( 1200, 600 )
 [node name="Sprite" type="AnimatedSprite" parent="ParallaxBackground/ParallaxLayer"]
 frames = SubResource( 1 )
 animation = "pepperman"
-frame = 4
+frame = 1
 speed_scale = 0.35
 playing = true
 centered = false
@@ -58,7 +58,7 @@ centered = false
 [node name="Sprite2" type="AnimatedSprite" parent="ParallaxBackground/ParallaxLayer"]
 frames = SubResource( 1 )
 animation = "pepperman"
-frame = 4
+frame = 1
 speed_scale = 0.35
 playing = true
 centered = false
@@ -67,7 +67,6 @@ offset = Vector2( 300, 0 )
 [node name="Sprite3" type="AnimatedSprite" parent="ParallaxBackground/ParallaxLayer"]
 frames = SubResource( 1 )
 animation = "pepperman"
-frame = 3
 speed_scale = 0.35
 playing = true
 centered = false
@@ -76,7 +75,6 @@ offset = Vector2( 0, 300 )
 [node name="Sprite4" type="AnimatedSprite" parent="ParallaxBackground/ParallaxLayer"]
 frames = SubResource( 1 )
 animation = "pepperman"
-frame = 3
 speed_scale = 0.35
 playing = true
 centered = false
@@ -85,7 +83,7 @@ offset = Vector2( 300, 300 )
 [node name="Sprite5" type="AnimatedSprite" parent="ParallaxBackground/ParallaxLayer"]
 frames = SubResource( 1 )
 animation = "pepperman"
-frame = 2
+frame = 5
 speed_scale = 0.35
 playing = true
 centered = false
@@ -94,7 +92,7 @@ offset = Vector2( 600, 0 )
 [node name="Sprite6" type="AnimatedSprite" parent="ParallaxBackground/ParallaxLayer"]
 frames = SubResource( 1 )
 animation = "pepperman"
-frame = 2
+frame = 5
 speed_scale = 0.35
 playing = true
 centered = false
@@ -103,7 +101,7 @@ offset = Vector2( 600, 300 )
 [node name="Sprite7" type="AnimatedSprite" parent="ParallaxBackground/ParallaxLayer"]
 frames = SubResource( 1 )
 animation = "pepperman"
-frame = 1
+frame = 4
 speed_scale = 0.35
 playing = true
 centered = false
@@ -112,6 +110,7 @@ offset = Vector2( 900, 300 )
 [node name="Sprite8" type="AnimatedSprite" parent="ParallaxBackground/ParallaxLayer"]
 frames = SubResource( 1 )
 animation = "pepperman"
+frame = 3
 speed_scale = 0.35
 playing = true
 centered = false
@@ -179,7 +178,7 @@ scale = Vector2( 3, 7 )
 
 [node name="obj_spawnpoint" parent="." instance=ExtResource( 9 )]
 position = Vector2( 512, 352 )
-targetDoor = "B"
+targetDoor = "C"
 
 [node name="obj_peppermandestroyable" parent="." instance=ExtResource( 14 )]
 position = Vector2( 384, 288 )
