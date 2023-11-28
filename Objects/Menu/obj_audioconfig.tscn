@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Objects/Menu/obj_keyconfig.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Menu/obj_audioconfig.gd" type="Script" id=1]
 [ext_resource path="res://Objects/HUD/font.tres" type="BitmapFont" id=2]
 
-[node name="obj_keyconfig" type="Node2D" groups=["obj_keyconfig"]]
+[node name="obj_audioconfig" type="Node2D" groups=["obj_audioconfig"]]
 z_index = 99
 script = ExtResource( 1 )
 
@@ -12,11 +12,53 @@ margin_right = 960.0
 margin_bottom = 540.0
 color = Color( 0, 0, 0, 1 )
 
-[node name="Text" type="Label" parent="."]
-margin_top = 200.0
-margin_right = 960.0
-margin_bottom = 232.0
+[node name="MasterText" type="Label" parent="."]
+margin_left = 330.0
+margin_top = 175.0
+margin_right = 483.0
+margin_bottom = 207.0
 custom_fonts/font = ExtResource( 2 )
-text = "THIS MENU IS NOT IMPLEMENTED YET"
-align = 1
+text = "MASTER"
+uppercase = true
+
+[node name="MasterVol" type="Label" parent="."]
+margin_left = 580.0
+margin_top = 175.0
+margin_right = 733.0
+margin_bottom = 207.0
+custom_fonts/font = ExtResource( 2 )
+uppercase = true
+
+[node name="MusicText" type="Label" parent="."]
+margin_left = 330.0
+margin_top = 250.0
+margin_right = 483.0
+margin_bottom = 282.0
+custom_fonts/font = ExtResource( 2 )
+text = "MUSIC"
+uppercase = true
+
+[node name="MusicVol" type="Label" parent="."]
+margin_left = 580.0
+margin_top = 250.0
+margin_right = 733.0
+margin_bottom = 282.0
+custom_fonts/font = ExtResource( 2 )
+uppercase = true
+
+[node name="SFXText" type="Label" parent="."]
+margin_left = 330.0
+margin_top = 325.0
+margin_right = 483.0
+margin_bottom = 357.0
+custom_fonts/font = ExtResource( 2 )
+text = "SFX"
+uppercase = true
+
+[node name="SFXVol" type="Label" parent="."]
+margin_left = 580.0
+margin_top = 325.0
+margin_right = 733.0
+margin_bottom = 357.0
+custom_fonts/font = ExtResource( 2 )
 uppercase = true

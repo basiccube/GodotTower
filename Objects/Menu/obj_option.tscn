@@ -88,6 +88,15 @@ text = "KEY CONFIG"
 align = 1
 uppercase = true
 
+[node name="AudioConfig" type="Label" parent="."]
+margin_top = 400.0
+margin_right = 960.0
+margin_bottom = 432.0
+custom_fonts/font = ExtResource( 2 )
+text = "AUDIO CONFIG"
+align = 1
+uppercase = true
+
 [node name="GameConfig" type="Label" parent="."]
 margin_top = 450.0
 margin_right = 960.0

@@ -9,7 +9,7 @@ func _process(delta):
 		if (Input.is_action_just_pressed("key_up") && optionselected > 0):
 			optionselected -= 1
 			utils.playsound("Step")
-		if (Input.is_action_just_pressed("key_down") && optionselected < 3):
+		if (Input.is_action_just_pressed("key_down") && optionselected < 4):
 			optionselected += 1
 			utils.playsound("Step")
 	if (optionselected == 0):
@@ -63,6 +63,11 @@ func _process(delta):
 				visible = false
 				utils.instance_create(utils.get_gamenode().global_position.x, utils.get_gamenode().global_position.y, "res://Objects/Menu/obj_keyconfig.tscn")
 	if (optionselected == 3):
+		if (!utils.instance_exists("obj_audioconfig")):
+			if (Input.is_action_just_pressed("key_jump")):
+				visible = false
+				utils.instance_create(utils.get_gamenode().global_position.x, utils.get_gamenode().global_position.y, "res://Objects/Menu/obj_audioconfig.tscn")
+	if (optionselected == 4):
 		if (!utils.instance_exists("obj_gameconfig")):
 			if (Input.is_action_just_pressed("key_jump")):
 				visible = false
@@ -106,6 +111,10 @@ func _process(delta):
 	else:
 		$KeyConfig.modulate.a = 0.5
 	if (optionselected == 3):
+		$AudioConfig.modulate.a = 1
+	else:
+		$AudioConfig.modulate.a = 0.5
+	if (optionselected == 4):
 		$GameConfig.modulate.a = 1
 	else:
 		$GameConfig.modulate.a = 0.5

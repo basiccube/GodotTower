@@ -97,6 +97,12 @@ func _ready():
 	var SaveData = SaveManager.load("user://saveData.ini")
 	global.option_fullscreen = SaveManager.get_value("Option", "fullscreen", false)
 	global.option_resolution = SaveManager.get_value("Option", "resolution", 1)
+	global.option_mastervolume = SaveManager.get_value("Option", "mastervolume", 1)
+	global.option_musicvolume = SaveManager.get_value("Option", "musicvolume", 1)
+	global.option_sfxvolume = SaveManager.get_value("Option", "sfxvolume", 1)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(global.option_mastervolume))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear2db(global.option_musicvolume))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear2db(global.option_sfxvolume))
 	if (global.option_fullscreen):
 		OS.window_fullscreen = true
 	else:
