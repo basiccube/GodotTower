@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const FLOOR_NORMAL = Vector2.UP
 var velocity = Vector2.ZERO
-var grav = 0.5
+var grav = 1
 
 var countdown = 50
 
@@ -33,7 +33,8 @@ func _process(delta):
 			utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_bombexplosion.tscn")
 	
 func _physics_process(delta):
-	velocity.y += grav
+	if (velocity.y < 12):
+		velocity.y += grav
 	velocity = move_and_slide(velocity, FLOOR_NORMAL, true)
 
 func _on_PickupArea_body_entered(body):

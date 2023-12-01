@@ -96,7 +96,7 @@ func _process(delta):
 	var obj_player = utils.get_player()
 	if (!(obj_player.state == global.states.knightpep && obj_player.state == global.states.knightpepattack && obj_player.state == global.states.knightpepslopes)):
 		once = false
-	if (obj_player.global_position.y < (global_position.y - 160) && obj_player.global_position.x > (global_position.x + 180)):
+	if (obj_player.global_position.y < (global_position.y - 110) && obj_player.global_position.x > (global_position.x + 230)):
 		$TVSprite.modulate.a = 0.5
 	elif (!(global.targetRoom == "rank_room" || global.targetRoom == "timesuproom" || global.targetRoom == "Realtitlescreen" || global.targetRoom == "rm_levelselect" || !global.hudvisible)):
 		$TVSprite.modulate.a = 1
