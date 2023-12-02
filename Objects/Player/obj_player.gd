@@ -233,6 +233,12 @@ func _process(delta):
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider != null:
+			if collision.collider.is_in_group("obj_boilingsauce"):
+				if (state != global.states.gameover):
+					state = global.states.fireass
+					velocity.y = -25
+					$PeppinoSprite.animation = "fireass"
+					utils.playsound("Scream5")
 			if collision.collider.is_in_group("obj_hungrypillar"):
 				if (state == global.states.handstandjump):
 					state = global.states.finishingblow
@@ -479,7 +485,7 @@ func _process(delta):
 		grabbing = 1
 	else:
 		grabbing = 0
-	if (state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.freefall || state == global.states.tumble || state == global.states.fireass || state == global.states.Sjump || state == global.states.machroll || state == global.states.machfreefall || (state == global.states.superslam && $PeppinoSprite.animation == "piledriver") || state == global.states.knightpep || state == global.states.knightpepattack || state == global.states.knightpepslopes || state == global.states.faceplant || state == global.states.shoulderbash):
+	if (state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.freefall || state == global.states.tumble || state == global.states.fireass || state == global.states.Sjump || state == global.states.machroll || state == global.states.machfreefall || (state == global.states.superslam && $PeppinoSprite.animation == "piledriver") || state == global.states.knightpep || state == global.states.knightpepattack || state == global.states.knightpepslopes || state == global.states.faceplant || state == global.states.shoulderbash || (state == global.states.crouchslide && ($PeppinoSprite.animation == "jumpdive1" || $PeppinoSprite.animation == "jumpdive2"))):
 		instakillmove = 1
 	else:
 		instakillmove = 0
@@ -1316,12 +1322,12 @@ func scr_player_comingoutdoor():
 	
 func scr_player_crouchslide():
 	velocity.x = (xscale * movespeed)
-	if (movespeed >= 0):
+	if (movespeed >= 0 && !($PeppinoSprite.animation == "jumpdive1" || $PeppinoSprite.animation == "jumpdive2")):
 		movespeed -= 0.2
 	crouchmask = true
 	if (crouchslipbuffer > 0):
 		crouchslipbuffer -= 1
-	if (movespeed > 0 && !Input.is_action_pressed("key_down") && Input.is_action_pressed("key_dash") && !$CrouchCheck.is_colliding() && crouchslipbuffer <= 0):
+	if (movespeed > 0 && $PeppinoSprite.animation == "crouchslip" && !Input.is_action_pressed("key_down") && Input.is_action_pressed("key_dash") && !$CrouchCheck.is_colliding() && crouchslipbuffer <= 0):
 		$PeppinoSprite.animation = "machhit"
 		state = global.states.mach2
 		if (movespeed < 8):
@@ -1341,6 +1347,20 @@ func scr_player_crouchslide():
 		machslideAnim = 1
 		machhitAnim = 0
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_bumpeffect.tscn")
+	if (!Input.is_action_pressed("key_jump") && jumpstop == 0 && velocity.y < 0.5 && stompAnim == 0):
+		velocity.y /= 20
+		jumpstop = 1
+	if (Input.is_action_just_pressed("key_jump")):
+		input_buffer_jump = 0
+	if (is_on_floor() && input_buffer_jump < 8 && !$CrouchCheck.is_colliding()):
+		$PeppinoSprite.animation = "jumpdive1"
+		velocity.y = -11
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_superdashcloud.tscn")
+	if (is_on_floor() && ($PeppinoSprite.animation == "jumpdive1" || $PeppinoSprite.animation == "jumpdive2") && velocity.y >= 0):
+		$PeppinoSprite.animation = "crouchslip"
+		jumpstop = 0
+	if ($PeppinoSprite.animation == "jumpdive1" && is_last_frame()):
+		$PeppinoSprite.animation = "jumpdive2"
 	if (!utils.instance_exists("obj_slidecloud") && is_on_floor() && movespeed > 5):
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_slidecloud.tscn")
 		for i in get_tree().get_nodes_in_group("obj_slidecloud"):

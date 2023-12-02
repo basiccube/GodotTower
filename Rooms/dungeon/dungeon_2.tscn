@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Backgrounds/bg_dungeon3_0.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_pepgoblin.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Objects/Collectibles/obj_pizzabox.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Objects/Warps/obj_boxofpizza.tscn" type="PackedScene" id=21]
 
 [sub_resource type="ShaderMaterial" id=1]
@@ -241,22 +242,18 @@ targetRoom = "dungeon_1"
 [node name="obj_ladder" parent="." instance=ExtResource( 11 )]
 position = Vector2( 576, 640 )
 scale = Vector2( 1, 6 )
-z_index = -2
 
 [node name="obj_ladder2" parent="." instance=ExtResource( 11 )]
 position = Vector2( 992, 832 )
 scale = Vector2( 1, 5 )
-z_index = -2
 
 [node name="obj_ladder3" parent="." instance=ExtResource( 11 )]
 position = Vector2( 832, 1376 )
 scale = Vector2( 1, 4 )
-z_index = -2
 
 [node name="obj_ladder4" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1152, 1664 )
 scale = Vector2( 1, 17 )
-z_index = -2
 
 [node name="obj_boilingsauce" parent="." instance=ExtResource( 12 )]
 position = Vector2( 544, 1600 )
@@ -371,3 +368,9 @@ position = Vector2( 640, 2448 )
 
 [node name="obj_pepgoblin" parent="." instance=ExtResource( 18 )]
 position = Vector2( 832, 2160 )
+
+[node name="obj_hallway" parent="." instance=ExtResource( 20 )]
+position = Vector2( -32, 1312 )
+scale = Vector2( -2, 1 )
+targetLevel = "dungeon"
+targetRoom = "dungeon_secret1"

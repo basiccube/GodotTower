@@ -39,7 +39,7 @@ script = ExtResource( 16 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
-animation = "pizzacollect2"
+animation = "pizzacollect1"
 speed_scale = 0.35
 centered = false
 

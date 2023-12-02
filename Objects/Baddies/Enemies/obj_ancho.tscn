@@ -1,0 +1,113 @@
+[gd_scene load_steps=47 format=2]
+
+[ext_resource path="res://Objects/Baddies/obj_baddie.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_1.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_0.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_2.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_4.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_9.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/anchobounce_3.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/anchobounce_4.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_6.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_3.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/anchobounce_1.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/anchobounce_2.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/anchobounce_5.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/anchobounce_6.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/anchobounce_0.png" type="Texture" id=15]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_5.png" type="Texture" id=16]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/anchobounce_7.png" type="Texture" id=17]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/anchobounce_8.png" type="Texture" id=18]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/anchobounce_9.png" type="Texture" id=19]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/anchobounce_11.png" type="Texture" id=20]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/anchobounce_12.png" type="Texture" id=21]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_8.png" type="Texture" id=22]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/anchodead_0.png" type="Texture" id=23]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_chargestart_1.png" type="Texture" id=24]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_chargestart_2.png" type="Texture" id=25]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_chargestart_3.png" type="Texture" id=26]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_chargestart_4.png" type="Texture" id=27]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/anchobounce_10.png" type="Texture" id=28]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_chargestart_5.png" type="Texture" id=29]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_10.png" type="Texture" id=30]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_7.png" type="Texture" id=31]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_chargestart_0.png" type="Texture" id=32]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_scared_1.png" type="Texture" id=33]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_chargestart_8.png" type="Texture" id=34]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_chargestart_6.png" type="Texture" id=35]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_scared_0.png" type="Texture" id=36]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_chargestart_7.png" type="Texture" id=37]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_charge_0.png" type="Texture" id=38]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_chargestart_9.png" type="Texture" id=39]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_scared_2.png" type="Texture" id=40]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_scared_3.png" type="Texture" id=41]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_charge_2.png" type="Texture" id=42]
+[ext_resource path="res://Objects/Baddies/sprites/ancho/ancho_charge_1.png" type="Texture" id=43]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_ancho.gd" type="Script" id=44]
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 28 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "bounce",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 38 ), ExtResource( 43 ), ExtResource( 42 ) ],
+"loop": true,
+"name": "charge",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 29 ), ExtResource( 35 ), ExtResource( 37 ), ExtResource( 34 ), ExtResource( 39 ) ],
+"loop": true,
+"name": "chargestart",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "dead",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 31 ), ExtResource( 22 ), ExtResource( 6 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "idle",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 36 ), ExtResource( 33 ), ExtResource( 40 ), ExtResource( 41 ) ],
+"loop": true,
+"name": "scared",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 32, 24 )
+
+[node name="obj_ancho" groups=["obj_ancho"] instance=ExtResource( 1 )]
+script = ExtResource( 44 )
+
+[node name="Sprite" parent="." index="2"]
+frames = SubResource( 11 )
+animation = "idle"
+
+[node name="WallCheck" parent="." index="3"]
+position = Vector2( 0, 16 )
+
+[node name="WallCheck2" parent="." index="4"]
+position = Vector2( 0, 32 )
+
+[node name="WallCheck3" parent="." index="5"]
+position = Vector2( 0, 0 )
+
+[node name="OppositeWallCheck" parent="." index="6"]
+position = Vector2( 0, 16 )
+
+[node name="PlatformCheck" parent="." index="7"]
+cast_to = Vector2( 0, 32 )
+
+[node name="Collision" parent="." index="11"]
+position = Vector2( 0, 24 )
+shape = SubResource( 12 )
+
+[node name="CeilingCheck" type="RayCast2D" parent="." index="12"]
+enabled = true
+cast_to = Vector2( 0, -8 )
+collision_mask = 2

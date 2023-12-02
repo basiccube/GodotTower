@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Objects/Warps/obj_spawnpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=2]
@@ -11,8 +11,10 @@
 [ext_resource path="res://Rooms/rm_testing.gd" type="Script" id=9]
 [ext_resource path="res://Objects/Level/obj_hungrypillar.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_spitcheese.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_ancho.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Objects/Warps/obj_door.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Objects/Level/obj_boilingsauce.tscn" type="PackedScene" id=15]
 
 [node name="rm_testing" type="Node2D"]
 script = ExtResource( 9 )
@@ -65,6 +67,10 @@ scale = Vector2( 52, 2 )
 position = Vector2( 1536, 640 )
 scale = Vector2( 9, 2 )
 
+[node name="obj_solid7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 544, 576 )
+scale = Vector2( 3, 4 )
+
 [node name="obj_exitgate" parent="." instance=ExtResource( 3 )]
 position = Vector2( 192, 448 )
 
@@ -84,3 +90,21 @@ targetRoom = "boss_pepperman_chase"
 
 [node name="obj_spitcheese" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1200, 656 )
+
+[node name="obj_ancho" parent="." instance=ExtResource( 12 )]
+position = Vector2( 928, 496 )
+
+[node name="obj_boilingsauce" parent="." instance=ExtResource( 15 )]
+position = Vector2( 384, 672 )
+
+[node name="obj_boilingsauce2" parent="." instance=ExtResource( 15 )]
+position = Vector2( 416, 672 )
+
+[node name="obj_boilingsauce3" parent="." instance=ExtResource( 15 )]
+position = Vector2( 448, 672 )
+
+[node name="obj_boilingsauce4" parent="." instance=ExtResource( 15 )]
+position = Vector2( 480, 672 )
+
+[node name="obj_boilingsauce5" parent="." instance=ExtResource( 15 )]
+position = Vector2( 512, 672 )

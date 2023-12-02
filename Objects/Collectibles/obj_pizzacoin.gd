@@ -42,3 +42,5 @@ func _on_PizzacoinArea_body_entered(body):
 			utils.stopsound("Pizzacoin")
 		utils.playsound("Pizzacoin")
 		queue_free()
+	if body.is_in_group("obj_boilingsauce"):
+		queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=1801 format=2]
+[gd_scene load_steps=1814 format=2]
 
 [ext_resource path="res://Objects/Player/sprites/idle_4.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/sprites/idle_0.png" type="Texture" id=2]
@@ -1791,6 +1791,19 @@
 [ext_resource path="res://Objects/Player/sprites/attack2_5.png" type="Texture" id=1789]
 [ext_resource path="res://Objects/Player/sprites/backflip_8.png" type="Texture" id=1790]
 [ext_resource path="res://Objects/Player/sprites/backflip_5.png" type="Texture" id=1791]
+[ext_resource path="res://Objects/Player/sprites/jumpdive1_6.png" type="Texture" id=1792]
+[ext_resource path="res://Objects/Player/sprites/jumpdive2_2.png" type="Texture" id=1793]
+[ext_resource path="res://Objects/Player/sprites/jumpdive1_5.png" type="Texture" id=1794]
+[ext_resource path="res://Objects/Player/sprites/jumpdive1_2.png" type="Texture" id=1795]
+[ext_resource path="res://Objects/Player/sprites/jumpdive1_8.png" type="Texture" id=1796]
+[ext_resource path="res://Objects/Player/sprites/jumpdive1_4.png" type="Texture" id=1797]
+[ext_resource path="res://Objects/Player/sprites/jumpdive2_0.png" type="Texture" id=1798]
+[ext_resource path="res://Objects/Player/sprites/jumpdive1_3.png" type="Texture" id=1799]
+[ext_resource path="res://Objects/Player/sprites/jumpdive1_7.png" type="Texture" id=1800]
+[ext_resource path="res://Objects/Player/sprites/jumpdive1_1.png" type="Texture" id=1801]
+[ext_resource path="res://Objects/Player/sprites/jumpdive1_0.png" type="Texture" id=1802]
+[ext_resource path="res://Objects/Player/sprites/jumpdive1_9.png" type="Texture" id=1803]
+[ext_resource path="res://Objects/Player/sprites/jumpdive2_1.png" type="Texture" id=1804]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 1204 )
@@ -2146,6 +2159,16 @@ animations = [ {
 "frames": [ ExtResource( 302 ), ExtResource( 303 ), ExtResource( 307 ), ExtResource( 313 ), ExtResource( 309 ), ExtResource( 304 ), ExtResource( 312 ), ExtResource( 310 ), ExtResource( 305 ), ExtResource( 306 ), ExtResource( 308 ), ExtResource( 311 ) ],
 "loop": true,
 "name": "jump2",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1802 ), ExtResource( 1801 ), ExtResource( 1795 ), ExtResource( 1799 ), ExtResource( 1797 ), ExtResource( 1794 ), ExtResource( 1792 ), ExtResource( 1800 ), ExtResource( 1796 ), ExtResource( 1803 ) ],
+"loop": true,
+"name": "jumpdive1",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1798 ), ExtResource( 1804 ), ExtResource( 1793 ) ],
+"loop": true,
+"name": "jumpdive2",
 "speed": 60.0
 }, {
 "frames": [ ExtResource( 1497 ), ExtResource( 1500 ), ExtResource( 1516 ), ExtResource( 1513 ), ExtResource( 1498 ), ExtResource( 1499 ), ExtResource( 1518 ), ExtResource( 1515 ), ExtResource( 1504 ), ExtResource( 1501 ), ExtResource( 1493 ), ExtResource( 1511 ), ExtResource( 1505 ), ExtResource( 1514 ), ExtResource( 1517 ), ExtResource( 1503 ), ExtResource( 1502 ), ExtResource( 1491 ), ExtResource( 1512 ), ExtResource( 1506 ), ExtResource( 1510 ), ExtResource( 1496 ), ExtResource( 1507 ), ExtResource( 1508 ), ExtResource( 1492 ), ExtResource( 1495 ), ExtResource( 1509 ), ExtResource( 1494 ) ],
@@ -2666,7 +2689,7 @@ disabled = true
 modulate = Color( 1, 1, 1, 0.854902 )
 position = Vector2( 0, 20 )
 cast_to = Vector2( 0, -30 )
-collision_mask = 2
+collision_mask = 16
 
 [node name="LadderCheck" type="RayCast2D" parent="."]
 modulate = Color( 1, 1, 1, 0.854902 )

@@ -110,6 +110,8 @@ func _process(delta):
 					velocity.y = -5
 					velocity.x = ((-xscale) * 5)
 					state = global.states.stun
+			if collision.collider.is_in_group("obj_boilingsauce"):
+				destroy()
 
 func _physics_process(delta):
 	if (state != global.states.grabbed):
@@ -194,9 +196,9 @@ func destroy():
 	queue_free()
 	
 func is_colliding_with_wall():
-	if (($WallCheck.is_colliding() && $WallCheck.get_collider() != null && ($WallCheck.get_collider().is_in_group("obj_solid") || $WallCheck.get_collider().is_in_group("obj_destructibles") || $WallCheck.get_collider().is_in_group("obj_metalblock") || $WallCheck.get_collider().is_in_group("obj_baddie"))) ||
-	($WallCheck2.is_colliding() && $WallCheck2.get_collider() != null && ($WallCheck2.get_collider().is_in_group("obj_solid") || $WallCheck2.get_collider().is_in_group("obj_destructibles") || $WallCheck2.get_collider().is_in_group("obj_metalblock") || $WallCheck2.get_collider().is_in_group("obj_baddie"))) ||
-	($WallCheck3.is_colliding() && $WallCheck3.get_collider() != null && ($WallCheck3.get_collider().is_in_group("obj_solid") || $WallCheck3.get_collider().is_in_group("obj_destructibles") || $WallCheck3.get_collider().is_in_group("obj_metalblock") || $WallCheck3.get_collider().is_in_group("obj_baddie")))):
+	if (($WallCheck.is_colliding() && $WallCheck.get_collider() != null && ($WallCheck.get_collider().is_in_group("obj_solid") || $WallCheck.get_collider().is_in_group("obj_destructibles") || $WallCheck.get_collider().is_in_group("obj_metalblock") || $WallCheck.get_collider().is_in_group("obj_baddie") || $WallCheck.get_collider().is_in_group("obj_hungrypillar"))) ||
+	($WallCheck2.is_colliding() && $WallCheck2.get_collider() != null && ($WallCheck2.get_collider().is_in_group("obj_solid") || $WallCheck2.get_collider().is_in_group("obj_destructibles") || $WallCheck2.get_collider().is_in_group("obj_metalblock") || $WallCheck2.get_collider().is_in_group("obj_baddie") || $WallCheck2.get_collider().is_in_group("obj_hungrypillar"))) ||
+	($WallCheck3.is_colliding() && $WallCheck3.get_collider() != null && ($WallCheck3.get_collider().is_in_group("obj_solid") || $WallCheck3.get_collider().is_in_group("obj_destructibles") || $WallCheck3.get_collider().is_in_group("obj_metalblock") || $WallCheck3.get_collider().is_in_group("obj_baddie") || $WallCheck3.get_collider().is_in_group("obj_hungrypillar")))):
 		return true
 	else:
 		return false
@@ -266,6 +268,8 @@ func scr_enemy_walk():
 					state = global.states.idle
 				else:
 					xscale *= -1
+	else:
+		velocity.y = 0
 func scr_enemy_turn():
 	$Sprite.animation = spr_turn
 	$Sprite.speed_scale = 0.35
@@ -574,6 +578,7 @@ func scr_enemy_charge():
 			xscale *= -1
 	if (is_in_group("obj_ancho")):
 		velocity.x = (xscale * movespeed)
+		velocity.y = 0
 		if (is_colliding_with_wall()):
 			state = global.states.stun
 			stunned = 100
@@ -690,3 +695,11 @@ func scr_enemy_chase():
 	if (momentum <= 0):
 		momentum += 0.1
 
+func scr_scareenemy():
+	var player = utils.get_player()
+	if (player.position.x > (position.x - 400) && player.position.x < (position.x + 400) && position.y <= (player.position.y + 60) && position.y >= (player.position.y - 60)):
+		if (state != global.states.idle && player.state == global.states.mach3):
+			state = global.states.idle
+			$Sprite.animation = spr_scared
+			if (position.x != player.position.x):
+				xscale = (-(sign(position.x - player.position.x)))
