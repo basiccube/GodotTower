@@ -40,6 +40,7 @@ animations = [ {
 extents = Vector2( 16, 16 )
 
 [node name="obj_boilingsauce" type="KinematicBody2D" groups=["obj_boilingsauce"]]
+z_index = -8
 collision_layer = 4
 collision_mask = 13
 collision/safe_margin = 0.001

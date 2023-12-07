@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Objects/Warps/obj_spawnpoint.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Objects/Warps/obj_door.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Objects/Level/obj_boilingsauce.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Objects/Level/obj_pizzacutter.tscn" type="PackedScene" id=16]
 
 [node name="rm_testing" type="Node2D"]
 script = ExtResource( 9 )
@@ -108,3 +109,6 @@ position = Vector2( 480, 672 )
 
 [node name="obj_boilingsauce5" parent="." instance=ExtResource( 15 )]
 position = Vector2( 512, 672 )
+
+[node name="obj_pizzacutter" parent="." instance=ExtResource( 16 )]
+position = Vector2( 592, 608 )

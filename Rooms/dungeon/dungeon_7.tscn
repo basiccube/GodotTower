@@ -1,0 +1,167 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Backgrounds/bg_dungeon1_0.png" type="Texture" id=1]
+[ext_resource path="res://Backgrounds/bg_dungeontomato2_0.png" type="Texture" id=2]
+[ext_resource path="res://Backgrounds/bg_dungeonskeleton2_0.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Level/obj_camlimit_left.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Level/obj_camlimit_right.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Level/obj_camlimit_bottom.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/Warps/obj_door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/Warps/obj_boxofpizza.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Shaders/TextureScroll.tres" type="Shader" id=10]
+[ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Collision/obj_slope.tscn" type="PackedScene" id=12]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 10 )
+shader_param/motion = Vector2( 0, 50 )
+shader_param/scale = 1.0
+shader_param/offset = Vector2( 0, 0 )
+
+[node name="dungeon_1" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0.75 )
+motion_mirroring = Vector2( 1920, 1920 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 1920 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.95, 0.95 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 1024 )
+
+[node name="ParallaxLayerGround1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0 )
+motion_offset = Vector2( 0, 40 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="ParallaxLayerSky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayerSky"]
+material = SubResource( 1 )
+texture = ExtResource( 3 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 1024 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.85, 0.85 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="ParallaxLayerGround2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="ParallaxLayerSky2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="ParallaxLayerH1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="obj_camlimit_bottom" parent="." instance=ExtResource( 6 )]
+position = Vector2( 0, 2000 )
+
+[node name="obj_camlimit_left" parent="." instance=ExtResource( 4 )]
+
+[node name="obj_camlimit_right" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1800, 0 )
+
+[node name="obj_camlimit_top" parent="." instance=ExtResource( 7 )]
+
+[node name="obj_boxofpizza" parent="." instance=ExtResource( 9 )]
+position = Vector2( 736, 1888 )
+targetDoor = "B"
+targetLevel = "dungeon"
+targetRoom = "dungeon_8"
+
+[node name="obj_boxofpizza2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 352, 192 )
+scale = Vector2( 1, -1 )
+targetLevel = "dungeon"
+targetRoom = "dungeon_6"
+
+[node name="obj_door" parent="." instance=ExtResource( 8 )]
+position = Vector2( 736, 480 )
+targetDoor = "C"
+targetLevel = "dungeon"
+targetRoom = "dungeon_treasure"
+
+[node name="obj_solid" parent="." instance=ExtResource( 11 )]
+position = Vector2( 96, 64 )
+scale = Vector2( 47, 2 )
+
+[node name="obj_solid2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 96, 128 )
+scale = Vector2( 2, 35 )
+
+[node name="obj_solid3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 160, 288 )
+scale = Vector2( 35, 6 )
+
+[node name="obj_solid4" parent="." instance=ExtResource( 11 )]
+position = Vector2( 160, 480 )
+scale = Vector2( 17, 3 )
+
+[node name="obj_solid5" parent="." instance=ExtResource( 11 )]
+position = Vector2( 160, 576 )
+scale = Vector2( 35, 7 )
+
+[node name="obj_solid6" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1408, 128 )
+scale = Vector2( 6, 26 )
+
+[node name="obj_solid7" parent="." instance=ExtResource( 11 )]
+position = Vector2( 288, 960 )
+scale = Vector2( 41, 3 )
+
+[node name="obj_solid8" parent="." instance=ExtResource( 11 )]
+position = Vector2( 160, 1152 )
+scale = Vector2( 39, 3 )
+
+[node name="obj_solid9" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1504, 1056 )
+scale = Vector2( 3, 28 )
+
+[node name="obj_solid10" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1344, 1248 )
+scale = Vector2( 2, 17 )
+
+[node name="obj_solid11" parent="." instance=ExtResource( 11 )]
+position = Vector2( 288, 1472 )
+scale = Vector2( 33, 10 )
+
+[node name="obj_solid12" parent="." instance=ExtResource( 11 )]
+position = Vector2( 576, 1792 )
+scale = Vector2( 1, 5 )
+
+[node name="obj_solid13" parent="." instance=ExtResource( 11 )]
+position = Vector2( 576, 1952 )
+scale = Vector2( 32, 1 )
+
+[node name="obj_slope" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1440, 1888 )
+scale = Vector2( 2, 2 )
+
+[node name="obj_slope2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1344, 896 )
+scale = Vector2( 2, 2 )
+
+[node name="obj_slope3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 224, 1088 )
+scale = Vector2( -2, 2 )

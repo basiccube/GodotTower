@@ -49,6 +49,14 @@ func instance_create_level(x, y, scene):
 	id.position = Vector2(x, y)
 	return id
 	
+func instance_create_unique(x, y, scene):
+	var loadedscene = load(scene)
+	var id = loadedscene.instance()
+	id.name = id.name + str(loadedscene) + str(utils.randi_range(0, 10000)) + "_unique"
+	get_level().add_child(id)
+	id.position = Vector2(x, y)
+	return id
+	
 func instance_exists(node):
 	var instancenode = GameNode.get_node_or_null(node)
 	if instancenode == null:

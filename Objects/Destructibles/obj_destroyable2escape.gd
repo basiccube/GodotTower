@@ -23,7 +23,7 @@ func destroy():
 	debris7.sprite_index = "pizzadebrisescape"
 	var debris8 = utils.instance_create_level(global_position.x + 16, global_position.y + 16, "res://Objects/Visuals/obj_debris.tscn")
 	debris8.sprite_index = "pizzadebrisescape"
-	utils.instance_create_level(global_position.x, global_position.y, "res://Objects/Collectibles/obj_collect.tscn")
+	utils.instance_create_unique(global_position.x, global_position.y, "res://Objects/Collectibles/obj_collect.tscn")
 	if (utils.soundplaying("BreakBlock1") || utils.soundplaying("BreakBlock2")):
 		utils.stopsound("BreakBlock1")
 		utils.stopsound("BreakBlock2")

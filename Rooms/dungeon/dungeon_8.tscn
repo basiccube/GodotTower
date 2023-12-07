@@ -1,0 +1,102 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Backgrounds/bg_dungeon1_0.png" type="Texture" id=1]
+[ext_resource path="res://Backgrounds/bg_dungeontomato2_0.png" type="Texture" id=2]
+[ext_resource path="res://Backgrounds/bg_dungeonskeleton2_0.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Level/obj_camlimit_left.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Level/obj_camlimit_right.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Level/obj_camlimit_bottom.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/Warps/obj_boxofpizza.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Shaders/TextureScroll.tres" type="Shader" id=10]
+[ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=12]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 10 )
+shader_param/motion = Vector2( 0, 50 )
+shader_param/scale = 1.0
+shader_param/offset = Vector2( 0, 0 )
+
+[node name="dungeon_1" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0.75 )
+motion_mirroring = Vector2( 1920, 1920 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 1920 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.95, 0.95 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 1024 )
+
+[node name="ParallaxLayerGround1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0 )
+motion_offset = Vector2( 0, 40 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="ParallaxLayerSky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayerSky"]
+material = SubResource( 1 )
+texture = ExtResource( 3 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 1024 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.85, 0.85 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="ParallaxLayerGround2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="ParallaxLayerSky2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="ParallaxLayerH1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.75, 0 )
+motion_mirroring = Vector2( 1920, 1024 )
+
+[node name="obj_camlimit_bottom" parent="." instance=ExtResource( 6 )]
+position = Vector2( 0, 7000 )
+
+[node name="obj_camlimit_left" parent="." instance=ExtResource( 4 )]
+
+[node name="obj_camlimit_right" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1800, 0 )
+
+[node name="obj_camlimit_top" parent="." instance=ExtResource( 7 )]
+
+[node name="obj_boxofpizza" parent="." instance=ExtResource( 9 )]
+position = Vector2( 832, 192 )
+scale = Vector2( 1, -1 )
+targetDoor = "B"
+targetLevel = "dungeon"
+targetRoom = "dungeon_7"
+
+[node name="obj_boxofpizza2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1472, 5952 )
+targetLevel = "dungeon"
+targetRoom = "dungeon_9"
+
+[node name="obj_hallway" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1824, 3328 )
+scale = Vector2( 2, 0.5 )
+targetDoor = "C"
+targetLevel = "dungeon"
+targetRoom = "dungeon_secret5"
