@@ -546,7 +546,7 @@ func _physics_process(delta):
 	if (!Input.is_action_pressed("key_jump") && (state != global.states.jump && state != global.states.ladder && state != global.states.climbwall && state != global.states.Sjump && state != global.states.Sjumpprep && state != global.states.bump && state != global.states.crouchjump && state != global.states.tumble)):
 		for slope in $SlopeArea.get_overlapping_bodies():
 			if (slope.is_in_group("obj_slope")):
-				if (state == global.states.mach2 || state == global.states.mach3 || state == global.states.tumble):
+				if (state == global.states.mach2 || state == global.states.mach3 || state == global.states.tumble || state == global.states.machslide):
 					if (velocity.y < -6):
 						velocity.y = 0
 				snap_vector = Vector2.DOWN * 20
@@ -857,7 +857,7 @@ func scr_player_normal():
 			$PeppinoSprite.speed_scale = 0.6
 	else:
 		$PeppinoSprite.speed_scale = 0.35
-	if (Input.is_action_just_pressed("key_grab") && ((global.shoulderbash && Input.is_action_pressed("key_up")) || !global.shoulderbash) && character == "P" && (!(shotgunAnim == 1 && Input.is_action_pressed("key_up")))):
+	if (Input.is_action_just_pressed("key_grab") && ((global.shoulderbash && Input.is_action_pressed("key_up")) || !global.shoulderbash) && character == "P"):
 		suplexmove = 1
 		$SuplexDash.play()
 		state = global.states.handstandjump
@@ -866,13 +866,13 @@ func scr_player_normal():
 		else:
 			$PeppinoSprite.animation = "shotgun_suplexdash"
 		movespeed = 6
-	if (Input.is_action_just_pressed("key_grab") && global.shoulderbash && !Input.is_action_pressed("key_up") && character == "P" && (!(shotgunAnim == 1 && Input.is_action_pressed("key_up")))):
+	if (Input.is_action_just_pressed("key_grab") && global.shoulderbash && !Input.is_action_pressed("key_up") && character == "P"):
 		suplexmove = 1
 		$SuplexDash.play()
 		state = global.states.shoulderbash
 		$PeppinoSprite.animation = "attackdash"
 		movespeed = 6
-	if (Input.is_action_just_pressed("key_grab") && character == "P" && shotgunAnim == 1 && Input.is_action_pressed("key_up")):
+	if (Input.is_action_just_pressed("key_shoot") && character == "P" && shotgunAnim == 1):
 		utils.playsound("KillingBlow")
 		state = global.states.shotgun
 		var effectid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_pistoleffect.tscn")
@@ -1008,21 +1008,21 @@ func scr_player_jump():
 		$Groundpound.play()
 		$PeppinoSprite.animation = "bodyslamland"
 		state = global.states.freefallland
-	if (Input.is_action_just_pressed("key_grab") && ((global.shoulderbash && Input.is_action_pressed("key_up")) || !global.shoulderbash) && character == "P" && suplexmove == 0 && (!(shotgunAnim == 1 && Input.is_action_pressed("key_up")))):
+	if (Input.is_action_just_pressed("key_grab") && ((global.shoulderbash && Input.is_action_pressed("key_up")) || !global.shoulderbash) && character == "P" && suplexmove == 0):
 		suplexmove = 1
 		$SuplexDash.play()
 		state = global.states.handstandjump
 		$PeppinoSprite.animation = "suplexdashjumpstart"
 		velocity.y = -4
 		movespeed = 6
-	if (Input.is_action_just_pressed("key_grab") && global.shoulderbash && !Input.is_action_pressed("key_up") && character == "P" && suplexmove == 0 && (!(shotgunAnim == 1 && Input.is_action_pressed("key_up")))):
+	if (Input.is_action_just_pressed("key_grab") && global.shoulderbash && !Input.is_action_pressed("key_up") && character == "P" && suplexmove == 0):
 		suplexmove = 1
 		$SuplexDash.play()
 		state = global.states.shoulderbash
 		$PeppinoSprite.animation = "airattackstart"
 		velocity.y = -4
 		movespeed = 6
-	if (Input.is_action_just_pressed("key_grab") && character == "P" && shotgunAnim == 1 && Input.is_action_pressed("key_up")):
+	if (Input.is_action_just_pressed("key_shoot") && character == "P" && shotgunAnim == 1):
 		utils.playsound("KillingBlow")
 		state = global.states.shotgun
 		var effectid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_pistoleffect.tscn")

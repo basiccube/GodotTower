@@ -96,7 +96,7 @@ tile_data = PoolIntArray( 983064, 0, 196621, 983065, 0, 196622, 1048600, 0, 2621
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 544, 128 )
-z_index = -5
+z_index = -51
 texture = ExtResource( 11 )
 centered = false
 
@@ -150,7 +150,7 @@ position = Vector2( 944, 464 )
 rotation = 1.5708
 frames = SubResource( 3 )
 animation = "green"
-frame = 5
+frame = 1
 playing = true
 
 [editable path="obj_door"]
