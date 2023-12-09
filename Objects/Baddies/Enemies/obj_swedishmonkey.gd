@@ -14,7 +14,6 @@ func _ready():
 	spr_grabbed = "stun"
 	spr_scared = "scared"
 	spr_dead = "swedishmonkey_dead"
-	xscale = -1
 	hp = 2
 	bombreset = 200
 	important = false

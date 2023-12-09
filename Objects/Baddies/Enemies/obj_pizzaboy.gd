@@ -17,7 +17,6 @@ func _ready():
 	spr_grabbed = "pizzaboy"
 	spr_scared = "pizzaboy"
 	spr_dead = "pizzaboy"
-	xscale = -1
 	hp = 1
 	important = false
 	

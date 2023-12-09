@@ -37,6 +37,9 @@ func _process(delta):
 			obj_player.bombpeptimer = 0
 			obj_player.hurted = 1
 			obj_player.state = global.states.bombpep
+	for i in get_overlapping_bodies():
+		if i.is_in_group("obj_destructibles") && !i.is_in_group("obj_specialdestructibles"):
+			i.destroy()
 
 func _on_Sprite_animation_finished():
 	queue_free()

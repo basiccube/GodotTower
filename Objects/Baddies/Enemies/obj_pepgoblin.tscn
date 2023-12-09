@@ -60,7 +60,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32, 31 )
+extents = Vector2( 24, 31 )
 
 [node name="obj_pepgoblin" groups=["obj_pepgoblin"] instance=ExtResource( 1 )]
 script = ExtResource( 30 )

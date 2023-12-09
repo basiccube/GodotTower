@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Backgrounds/bg_dungeonskeleton1_0.png" type="Texture" id=1]
 [ext_resource path="res://Backgrounds/bg_dungeondark1_0.png" type="Texture" id=2]
@@ -10,7 +10,30 @@
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/Warps/obj_boxofpizza.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Shaders/TextureScroll.tres" type="Shader" id=10]
+[ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Collision/obj_slope.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Objects/Blocks/obj_minipillar.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Objects/Destructibles/obj_secretblock.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Objects/Destructibles/obj_destroyable3escape.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Objects/Destructibles/obj_destroyable2_bigescape.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Objects/Destructibles/obj_metalblock.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Objects/Destructibles/obj_destroyable2escape.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Objects/Destructibles/obj_destroyable2.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Objects/Destructibles/obj_destroyable3.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Objects/Destructibles/obj_bombblock.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Objects/Collectibles/obj_pizzabox.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Objects/Collectibles/obj_pizzacollect.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Objects/Collectibles/obj_collect.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_pizzagoblin.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Objects/Baddies/obj_baddiespawner.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_cheeseslime.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Objects/Level/obj_boilingsauce.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_fencer.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_ancho.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Objects/Baddies/obj_escapeenemy.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Objects/Baddies/Enemies/obj_minijohn.tscn" type="PackedScene" id=34]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 10 )
@@ -163,6 +186,18 @@ scale = Vector2( 1, 13 )
 position = Vector2( 3968, 544 )
 scale = Vector2( 28, 1 )
 
+[node name="obj_solid21" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2944, 32 )
+scale = Vector2( 2, 8 )
+
+[node name="obj_solid22" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1440, 320 )
+scale = Vector2( 7, 1 )
+
+[node name="obj_solid23" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1632, 352 )
+scale = Vector2( 1, 2 )
+
 [node name="obj_boxofpizza" parent="." instance=ExtResource( 9 )]
 position = Vector2( 192, 288 )
 scale = Vector2( 1, -1 )
@@ -182,3 +217,564 @@ scale = Vector2( 2, 1.5 )
 targetDoor = "B"
 targetLevel = "dungeon"
 targetRoom = "dungeon_10"
+
+[node name="obj_platform" parent="." instance=ExtResource( 11 )]
+position = Vector2( 864, 352 )
+scale = Vector2( 7, 1 )
+
+[node name="obj_platform2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 4000, 352 )
+scale = Vector2( 4, 1 )
+
+[node name="obj_platform3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 4000, 448 )
+scale = Vector2( 4, 1 )
+
+[node name="obj_slope" parent="." instance=ExtResource( 13 )]
+position = Vector2( 2848, 256 )
+scale = Vector2( -3, 3 )
+
+[node name="obj_slope2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 3200, 544 )
+scale = Vector2( -2, 2 )
+
+[node name="obj_minipillar" parent="." instance=ExtResource( 14 )]
+position = Vector2( 608, 384 )
+z_index = 1
+
+[node name="obj_minipillar2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 640, 384 )
+z_index = 1
+
+[node name="obj_minipillar3" parent="." instance=ExtResource( 14 )]
+position = Vector2( 608, 352 )
+z_index = 1
+
+[node name="obj_minipillar4" parent="." instance=ExtResource( 14 )]
+position = Vector2( 640, 352 )
+z_index = 1
+
+[node name="obj_minipillar5" parent="." instance=ExtResource( 14 )]
+position = Vector2( 608, 320 )
+z_index = 1
+
+[node name="obj_minipillar6" parent="." instance=ExtResource( 14 )]
+position = Vector2( 640, 320 )
+z_index = 1
+
+[node name="obj_minipillar7" parent="." instance=ExtResource( 14 )]
+position = Vector2( 608, 160 )
+z_index = 1
+
+[node name="obj_minipillar8" parent="." instance=ExtResource( 14 )]
+position = Vector2( 640, 160 )
+z_index = 1
+
+[node name="obj_minipillar9" parent="." instance=ExtResource( 14 )]
+position = Vector2( 608, 128 )
+z_index = 1
+
+[node name="obj_minipillar10" parent="." instance=ExtResource( 14 )]
+position = Vector2( 640, 128 )
+z_index = 1
+
+[node name="obj_minipillar11" parent="." instance=ExtResource( 14 )]
+position = Vector2( 608, 96 )
+z_index = 1
+
+[node name="obj_minipillar12" parent="." instance=ExtResource( 14 )]
+position = Vector2( 640, 96 )
+z_index = 1
+
+[node name="obj_minipillar13" parent="." instance=ExtResource( 14 )]
+position = Vector2( 608, 64 )
+z_index = 1
+
+[node name="obj_minipillar14" parent="." instance=ExtResource( 14 )]
+position = Vector2( 640, 64 )
+z_index = 1
+
+[node name="obj_minipillar15" parent="." instance=ExtResource( 14 )]
+position = Vector2( 608, 32 )
+z_index = 1
+
+[node name="obj_minipillar16" parent="." instance=ExtResource( 14 )]
+position = Vector2( 640, 32 )
+z_index = 1
+
+[node name="obj_minipillar17" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1664, 384 )
+z_index = 1
+
+[node name="obj_minipillar18" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1664, 352 )
+z_index = 1
+
+[node name="obj_minipillar19" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1664, 320 )
+z_index = 1
+
+[node name="obj_minipillar20" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1664, 288 )
+z_index = 1
+
+[node name="obj_minipillar21" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1664, 256 )
+z_index = 1
+
+[node name="obj_minipillar22" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1696, 256 )
+z_index = 1
+
+[node name="obj_minipillar23" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1728, 256 )
+z_index = 1
+
+[node name="obj_minipillar24" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1760, 256 )
+z_index = 1
+
+[node name="obj_minipillar25" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1792, 256 )
+z_index = 1
+
+[node name="obj_minipillar26" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1824, 256 )
+z_index = 1
+
+[node name="obj_minipillar27" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1856, 256 )
+z_index = 1
+
+[node name="obj_minipillar28" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1888, 256 )
+z_index = 1
+
+[node name="obj_minipillar29" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1920, 256 )
+z_index = 1
+
+[node name="obj_minipillar30" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1952, 256 )
+z_index = 1
+
+[node name="obj_minipillar31" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1984, 256 )
+z_index = 1
+
+[node name="obj_minipillar32" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2016, 256 )
+z_index = 1
+
+[node name="obj_minipillar33" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2048, 256 )
+z_index = 1
+
+[node name="obj_minipillar34" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2080, 256 )
+z_index = 1
+
+[node name="obj_minipillar35" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2112, 256 )
+z_index = 1
+
+[node name="obj_minipillar36" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2144, 256 )
+z_index = 1
+
+[node name="obj_minipillar37" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2176, 256 )
+z_index = 1
+
+[node name="obj_minipillar38" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2208, 256 )
+z_index = 1
+
+[node name="obj_minipillar39" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2240, 256 )
+z_index = 1
+
+[node name="obj_minipillar40" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2272, 256 )
+z_index = 1
+
+[node name="obj_minipillar41" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2304, 256 )
+z_index = 1
+
+[node name="obj_minipillar42" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2336, 256 )
+z_index = 1
+
+[node name="obj_minipillar43" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2368, 256 )
+z_index = 1
+
+[node name="obj_minipillar44" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2400, 256 )
+z_index = 1
+
+[node name="obj_minipillar45" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2432, 256 )
+z_index = 1
+
+[node name="obj_minipillar46" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2464, 256 )
+z_index = 1
+
+[node name="obj_minipillar47" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1984, 32 )
+z_index = 1
+
+[node name="obj_minipillar48" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2144, 32 )
+z_index = 1
+
+[node name="obj_minipillar49" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2144, 64 )
+z_index = 1
+
+[node name="obj_minipillar50" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2144, 96 )
+z_index = 1
+
+[node name="obj_minipillar51" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2144, 128 )
+z_index = 1
+
+[node name="obj_minipillar52" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2144, 160 )
+z_index = 1
+
+[node name="obj_minipillar53" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2112, 160 )
+z_index = 1
+
+[node name="obj_minipillar54" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2080, 160 )
+z_index = 1
+
+[node name="obj_minipillar55" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2048, 160 )
+z_index = 1
+
+[node name="obj_minipillar56" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2016, 160 )
+z_index = 1
+
+[node name="obj_minipillar57" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1984, 160 )
+z_index = 1
+
+[node name="obj_minipillar58" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1984, 128 )
+z_index = 1
+
+[node name="obj_minipillar59" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1984, 96 )
+z_index = 1
+
+[node name="obj_minipillar60" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1984, 64 )
+z_index = 1
+
+[node name="obj_secretblock" parent="." instance=ExtResource( 15 )]
+position = Vector2( 3680, 576 )
+
+[node name="obj_secretblock2" parent="." instance=ExtResource( 15 )]
+position = Vector2( 3712, 576 )
+
+[node name="obj_secretblock3" parent="." instance=ExtResource( 15 )]
+position = Vector2( 3744, 576 )
+
+[node name="obj_secretblock4" parent="." instance=ExtResource( 15 )]
+position = Vector2( 3776, 576 )
+
+[node name="obj_secretblock5" parent="." instance=ExtResource( 15 )]
+position = Vector2( 3808, 576 )
+
+[node name="obj_secretblock6" parent="." instance=ExtResource( 15 )]
+position = Vector2( 3840, 576 )
+
+[node name="obj_secretblock7" parent="." instance=ExtResource( 15 )]
+position = Vector2( 3872, 576 )
+
+[node name="obj_secretblock8" parent="." instance=ExtResource( 15 )]
+position = Vector2( 3904, 576 )
+
+[node name="obj_secretblock9" parent="." instance=ExtResource( 15 )]
+position = Vector2( 3936, 576 )
+
+[node name="obj_secretblock10" parent="." instance=ExtResource( 15 )]
+position = Vector2( 3968, 576 )
+
+[node name="obj_secretblock11" parent="." instance=ExtResource( 15 )]
+position = Vector2( 4000, 576 )
+
+[node name="obj_secretblock12" parent="." instance=ExtResource( 15 )]
+position = Vector2( 4032, 576 )
+
+[node name="obj_secretblock13" parent="." instance=ExtResource( 15 )]
+position = Vector2( 4064, 576 )
+
+[node name="obj_secretblock14" parent="." instance=ExtResource( 15 )]
+position = Vector2( 4096, 576 )
+
+[node name="obj_secretblock15" parent="." instance=ExtResource( 15 )]
+position = Vector2( 4128, 576 )
+
+[node name="obj_secretblock16" parent="." instance=ExtResource( 15 )]
+position = Vector2( 4160, 576 )
+
+[node name="obj_secretblock17" parent="." instance=ExtResource( 15 )]
+position = Vector2( 4192, 576 )
+
+[node name="obj_secretblock18" parent="." instance=ExtResource( 15 )]
+position = Vector2( 4224, 576 )
+
+[node name="obj_secretblock19" parent="." instance=ExtResource( 15 )]
+position = Vector2( 4256, 576 )
+
+[node name="obj_secretblock20" parent="." instance=ExtResource( 15 )]
+position = Vector2( 4288, 576 )
+
+[node name="obj_secretblock21" parent="." instance=ExtResource( 15 )]
+position = Vector2( 4320, 576 )
+
+[node name="obj_secretblock22" parent="." instance=ExtResource( 15 )]
+position = Vector2( 4352, 576 )
+
+[node name="obj_secretblock23" parent="." instance=ExtResource( 15 )]
+position = Vector2( 4384, 576 )
+
+[node name="obj_secretblock24" parent="." instance=ExtResource( 15 )]
+position = Vector2( 4416, 576 )
+
+[node name="obj_secretblock25" parent="." instance=ExtResource( 15 )]
+position = Vector2( 4448, 576 )
+
+[node name="obj_secretblock26" parent="." instance=ExtResource( 15 )]
+position = Vector2( 4480, 576 )
+
+[node name="obj_secretblock27" parent="." instance=ExtResource( 15 )]
+position = Vector2( 4512, 576 )
+
+[node name="obj_secretblock28" parent="." instance=ExtResource( 15 )]
+position = Vector2( 4544, 576 )
+
+[node name="obj_destroyable3escape" parent="." instance=ExtResource( 16 )]
+position = Vector2( 608, 192 )
+
+[node name="obj_destroyable3escape2" parent="." instance=ExtResource( 16 )]
+position = Vector2( 608, 256 )
+
+[node name="obj_destroyable3escape3" parent="." instance=ExtResource( 16 )]
+position = Vector2( 2048, 192 )
+
+[node name="obj_destroyable3escape4" parent="." instance=ExtResource( 16 )]
+position = Vector2( 2112, 192 )
+
+[node name="obj_destroyable3escape5" parent="." instance=ExtResource( 16 )]
+position = Vector2( 3584, 288 )
+
+[node name="obj_destroyable3escape6" parent="." instance=ExtResource( 16 )]
+position = Vector2( 3648, 288 )
+
+[node name="obj_destroyable2_bigescape" parent="." instance=ExtResource( 17 )]
+position = Vector2( 1984, 192 )
+
+[node name="obj_metalblock" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1440, 352 )
+
+[node name="obj_destroyable2escape" parent="." instance=ExtResource( 19 )]
+position = Vector2( 928, 288 )
+
+[node name="obj_destroyable2escape2" parent="." instance=ExtResource( 19 )]
+position = Vector2( 960, 288 )
+
+[node name="obj_destroyable2escape3" parent="." instance=ExtResource( 19 )]
+position = Vector2( 992, 288 )
+
+[node name="obj_destroyable2escape4" parent="." instance=ExtResource( 19 )]
+position = Vector2( 928, 320 )
+
+[node name="obj_destroyable2escape5" parent="." instance=ExtResource( 19 )]
+position = Vector2( 960, 320 )
+
+[node name="obj_destroyable2escape6" parent="." instance=ExtResource( 19 )]
+position = Vector2( 992, 320 )
+
+[node name="obj_destroyable2" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1600, 256 )
+
+[node name="obj_destroyable3" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1632, 256 )
+
+[node name="obj_destroyable4" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1600, 288 )
+
+[node name="obj_destroyable5" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1632, 288 )
+
+[node name="obj_destroyable6" parent="." instance=ExtResource( 21 )]
+position = Vector2( 2944, 288 )
+
+[node name="obj_bombblock" parent="." instance=ExtResource( 22 )]
+position = Vector2( 4288, 288 )
+
+[node name="obj_pizzabox" parent="." instance=ExtResource( 23 )]
+position = Vector2( 4448, 352 )
+content = "pineapple"
+
+[node name="obj_pizzacollect" parent="." instance=ExtResource( 24 )]
+position = Vector2( 1536, 352 )
+
+[node name="obj_collect" parent="." instance=ExtResource( 25 )]
+position = Vector2( 896, 288 )
+
+[node name="obj_collect2" parent="." instance=ExtResource( 25 )]
+position = Vector2( 928, 288 )
+
+[node name="obj_collect3" parent="." instance=ExtResource( 25 )]
+position = Vector2( 960, 288 )
+
+[node name="obj_collect4" parent="." instance=ExtResource( 25 )]
+position = Vector2( 992, 288 )
+
+[node name="obj_collect5" parent="." instance=ExtResource( 25 )]
+position = Vector2( 1024, 288 )
+
+[node name="obj_collect6" parent="." instance=ExtResource( 25 )]
+position = Vector2( 1504, 352 )
+
+[node name="obj_collect7" parent="." instance=ExtResource( 25 )]
+position = Vector2( 1504, 384 )
+
+[node name="obj_collect8" parent="." instance=ExtResource( 25 )]
+position = Vector2( 1600, 352 )
+
+[node name="obj_collect9" parent="." instance=ExtResource( 25 )]
+position = Vector2( 1600, 384 )
+
+[node name="obj_collect10" parent="." instance=ExtResource( 25 )]
+position = Vector2( 3264, 192 )
+
+[node name="obj_collect11" parent="." instance=ExtResource( 25 )]
+position = Vector2( 3296, 192 )
+
+[node name="obj_collect12" parent="." instance=ExtResource( 25 )]
+position = Vector2( 3328, 192 )
+
+[node name="obj_collect13" parent="." instance=ExtResource( 25 )]
+position = Vector2( 3360, 192 )
+
+[node name="obj_collect14" parent="." instance=ExtResource( 25 )]
+position = Vector2( 4256, 128 )
+
+[node name="obj_collect15" parent="." instance=ExtResource( 25 )]
+position = Vector2( 4256, 192 )
+
+[node name="obj_baddiespawner" parent="." instance=ExtResource( 27 )]
+position = Vector2( 4064, 512 )
+content = ExtResource( 26 )
+baddie = true
+
+[node name="obj_cheeseslime" parent="." instance=ExtResource( 28 )]
+position = Vector2( 416, 368 )
+
+[node name="obj_cheeseslime2" parent="." instance=ExtResource( 28 )]
+position = Vector2( 544, 368 )
+
+[node name="obj_cheeseslime3" parent="." instance=ExtResource( 28 )]
+position = Vector2( 2048, 464 )
+
+[node name="obj_cheeseslime4" parent="." instance=ExtResource( 28 )]
+position = Vector2( 2112, 464 )
+
+[node name="obj_cheeseslime5" parent="." instance=ExtResource( 28 )]
+position = Vector2( 4176, 304 )
+
+[node name="obj_boilingsauce" parent="." instance=ExtResource( 29 )]
+position = Vector2( 672, 448 )
+
+[node name="obj_boilingsauce2" parent="." instance=ExtResource( 29 )]
+position = Vector2( 704, 448 )
+
+[node name="obj_boilingsauce3" parent="." instance=ExtResource( 29 )]
+position = Vector2( 736, 448 )
+
+[node name="obj_boilingsauce4" parent="." instance=ExtResource( 29 )]
+position = Vector2( 768, 448 )
+
+[node name="obj_boilingsauce5" parent="." instance=ExtResource( 29 )]
+position = Vector2( 800, 448 )
+
+[node name="obj_boilingsauce6" parent="." instance=ExtResource( 29 )]
+position = Vector2( 832, 448 )
+
+[node name="obj_boilingsauce7" parent="." instance=ExtResource( 29 )]
+position = Vector2( 864, 448 )
+
+[node name="obj_boilingsauce8" parent="." instance=ExtResource( 29 )]
+position = Vector2( 896, 448 )
+
+[node name="obj_boilingsauce9" parent="." instance=ExtResource( 29 )]
+position = Vector2( 928, 448 )
+
+[node name="obj_boilingsauce10" parent="." instance=ExtResource( 29 )]
+position = Vector2( 960, 448 )
+
+[node name="obj_boilingsauce11" parent="." instance=ExtResource( 29 )]
+position = Vector2( 992, 448 )
+
+[node name="obj_boilingsauce12" parent="." instance=ExtResource( 29 )]
+position = Vector2( 1024, 448 )
+
+[node name="obj_boilingsauce13" parent="." instance=ExtResource( 29 )]
+position = Vector2( 1056, 448 )
+
+[node name="obj_boilingsauce14" parent="." instance=ExtResource( 29 )]
+position = Vector2( 1088, 448 )
+
+[node name="obj_boilingsauce15" parent="." instance=ExtResource( 29 )]
+position = Vector2( 1120, 448 )
+
+[node name="obj_boilingsauce16" parent="." instance=ExtResource( 29 )]
+position = Vector2( 1152, 448 )
+
+[node name="obj_boilingsauce17" parent="." instance=ExtResource( 29 )]
+position = Vector2( 1184, 448 )
+
+[node name="obj_boilingsauce18" parent="." instance=ExtResource( 29 )]
+position = Vector2( 1216, 448 )
+
+[node name="obj_fencer" parent="." instance=ExtResource( 30 )]
+position = Vector2( 2240, 464 )
+
+[node name="obj_fencer2" parent="." instance=ExtResource( 30 )]
+position = Vector2( 3072, 304 )
+
+[node name="obj_fencer3" parent="." instance=ExtResource( 30 )]
+position = Vector2( 3840, 304 )
+
+[node name="obj_forknight" parent="." instance=ExtResource( 31 )]
+position = Vector2( 480, 368 )
+
+[node name="obj_ancho" parent="." instance=ExtResource( 32 )]
+position = Vector2( 2336, 320 )
+
+[node name="obj_escapeenemy" parent="." instance=ExtResource( 33 )]
+position = Vector2( 1712, 208 )
+content = ExtResource( 31 )
+
+[node name="obj_escapeenemy2" parent="." instance=ExtResource( 33 )]
+position = Vector2( 3072, 224 )
+content = ExtResource( 32 )
+
+[node name="obj_escapeenemy3" parent="." instance=ExtResource( 33 )]
+position = Vector2( 3920, 304 )
+content = ExtResource( 34 )
+
+[node name="obj_escapeenemy4" parent="." instance=ExtResource( 33 )]
+position = Vector2( 4032, 304 )
+content = ExtResource( 34 )

@@ -18,7 +18,6 @@ func _ready():
 	spr_grabbed = "bounce"
 	spr_scared = "scared"
 	spr_dead = "dead"
-	xscale = -1
 	hp = 1
 	ystart = position.y
 	important = false

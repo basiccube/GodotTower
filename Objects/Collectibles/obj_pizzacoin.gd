@@ -28,6 +28,11 @@ func _process(delta):
 	if ($WallCheck.is_colliding() && $WallCheck.get_collider() != null && ($WallCheck.get_collider().is_in_group("obj_solid") || $WallCheck.get_collider().is_in_group("obj_destructibles") || $WallCheck.get_collider().is_in_group("obj_metalblock"))):
 		$WallCheck.scale.x *= -1
 		xscale *= -1
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if (collision.collider != null):
+			if collision.collider.is_in_group("obj_boilingsauce"):
+				queue_free()
 	
 func _physics_process(delta):
 	velocity.y += grav
@@ -41,6 +46,4 @@ func _on_PizzacoinArea_body_entered(body):
 		if (utils.soundplaying("Pizzacoin")):
 			utils.stopsound("Pizzacoin")
 		utils.playsound("Pizzacoin")
-		queue_free()
-	if body.is_in_group("obj_boilingsauce"):
 		queue_free()

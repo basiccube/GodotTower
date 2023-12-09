@@ -194,6 +194,11 @@ func _process(delta):
 						var rng = utils.randi_range(1, 2)
 						$PeppinoSprite.animation = "attack" + str(rng)
 					destructible.destroy()
+				if (state == global.states.faceplant):
+					utils.playsound("Punch")
+					global.hit += 1
+					global.combotime = 60
+					destructible.destroy()
 		if (destructible.is_in_group("obj_hungrypillar")):
 			if (state == global.states.shoulderbash):
 				destructible.destroy()
@@ -579,23 +584,23 @@ func place_meeting(collisionpos: Vector2, object: String):
 			
 func is_colliding_with_wall():
 	if (state == global.states.mach1 || state == global.states.normal || state == global.states.machslide || state == global.states.slipnslide):
-		if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_destructibles") || $SolidCheck.get_collider().is_in_group("obj_metalblock"))) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider() != null && ($SolidCheck2.get_collider().is_in_group("obj_solid") || $SolidCheck2.get_collider().is_in_group("obj_destructibles") || $SolidCheck2.get_collider().is_in_group("obj_metalblock")))) && !utils.instance_exists("obj_fadeout")):
+		if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_destructibles") || $SolidCheck.get_collider().is_in_group("obj_specialdestructibles") || $SolidCheck.get_collider().is_in_group("obj_metalblock"))) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider() != null && ($SolidCheck2.get_collider().is_in_group("obj_solid") || $SolidCheck2.get_collider().is_in_group("obj_destructibles") || $SolidCheck2.get_collider().is_in_group("obj_specialdestructibles") || $SolidCheck2.get_collider().is_in_group("obj_metalblock")))) && !utils.instance_exists("obj_fadeout")):
 			return true
 		else:
 			return false
 	elif (state == global.states.mach2 || state == global.states.machroll || state == global.states.tumble || state == global.states.faceplant):
-		if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_metalblock"))) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider() != null && $SolidCheck2.get_collider().is_in_group("obj_solid"))) && !utils.instance_exists("obj_fadeout")):
+		if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_specialdestructibles") || $SolidCheck.get_collider().is_in_group("obj_metalblock"))) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider() != null && $SolidCheck2.get_collider().is_in_group("obj_solid"))) && !utils.instance_exists("obj_fadeout")):
 			return true
 		else:
 			return false
 	else:
-		if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && $SolidCheck.get_collider().is_in_group("obj_solid")) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider() != null && $SolidCheck2.get_collider().is_in_group("obj_solid"))) && !utils.instance_exists("obj_fadeout")):
+		if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_specialdestructibles"))) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider() != null && $SolidCheck2.get_collider().is_in_group("obj_solid"))) && !utils.instance_exists("obj_fadeout")):
 			return true
 		else:
 			return false
 		
 func is_wallclimbable():
-	if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && $SolidCheck.get_collider().is_in_group("obj_solid")) || ($WallClimbCheck.is_colliding() && $WallClimbCheck.get_collider() != null && $WallClimbCheck.get_collider().is_in_group("obj_solid")))):
+	if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_specialdestructibles"))) || ($WallClimbCheck.is_colliding() && $WallClimbCheck.get_collider() != null && $WallClimbCheck.get_collider().is_in_group("obj_solid")))):
 		return true
 	else:
 		return false
@@ -1052,7 +1057,7 @@ func scr_player_backbreaker():
 		if (supercharged && !utils.instance_exists("obj_tauntaftereffectspawner")):
 			utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_tauntaftereffectspawner.tscn")
 			for i in get_tree().get_nodes_in_group("obj_baddie"):
-				if (i.is_on_floor() && i.screenvisible):
+				if (i.screenvisible):
 					i.destroy()
 			for i in get_tree().get_nodes_in_group("obj_camera"):
 				i.shake_mag = 10

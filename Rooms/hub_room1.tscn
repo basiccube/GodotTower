@@ -161,15 +161,6 @@ F2: Toggle Visible Collisions
 F3: Teleport To Room Start"
 uppercase = true
 
-[node name="UnfinishedText2" type="Label" parent="."]
-margin_left = 448.0
-margin_top = 448.0
-margin_right = 587.0
-margin_bottom = 449.0
-custom_fonts/font = ExtResource( 14 )
-text = "Unfinished!"
-uppercase = true
-
 [node name="obj_boilingsauce" parent="." instance=ExtResource( 16 )]
 position = Vector2( 96, 960 )
 

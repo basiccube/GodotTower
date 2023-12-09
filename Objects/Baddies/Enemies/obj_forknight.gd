@@ -17,7 +17,6 @@ func _ready():
 	spr_grabbed = "grabbed"
 	spr_scared = "scared"
 	spr_dead = "forknight_dead"
-	xscale = -1
 	hp = 1
 	important = false
 	

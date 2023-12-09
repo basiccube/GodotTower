@@ -18,7 +18,6 @@ func _ready():
 	spr_grabbed = "grabbed"
 	spr_scared = "scared"
 	spr_dead = "slimedead"
-	xscale = -1
 	hp = 1
 	important = false
 	

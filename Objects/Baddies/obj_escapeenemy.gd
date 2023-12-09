@@ -14,8 +14,8 @@ func _on_SpawnTimer_timeout():
 	global.escaperoom.append(global.targetRoom + name)
 	var spawnid = content.instance()
 	spawnid.name = name + str(content) + str(utils.randi_range(0, 10000))
-	utils.get_level().add_child(spawnid)
 	spawnid.position = position
+	utils.get_level().add_child(spawnid)
 	if ("xscale" in spawnid):
 		spawnid.xscale = xscale
 	else:

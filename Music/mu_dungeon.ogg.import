@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mu_dungeon.ogg-61fbe4757fb9e7d670c991ba305af516.oggstr"
+
+[deps]
+
+source_file="res://Music/mu_dungeon.ogg"
+dest_files=[ "res://.import/mu_dungeon.ogg-61fbe4757fb9e7d670c991ba305af516.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
