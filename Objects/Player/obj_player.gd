@@ -2875,7 +2875,6 @@ func scr_playerreset():
 	global.taseconds = 0
 	global.timeattack = false
 	state = global.states.normal
-	character = "P"
 	visible = true
 	targetLevel = ""
 	targetRoom = ""
