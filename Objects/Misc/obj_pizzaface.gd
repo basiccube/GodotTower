@@ -14,6 +14,7 @@ func room_start():
 	position.x = utils.get_player().position.x
 	position.y = utils.get_player().position.y
 	modulate.a = 0
+	maxspeed = 1
 	if (global.targetRoom == "rank_room"):
 		destroy()
 		

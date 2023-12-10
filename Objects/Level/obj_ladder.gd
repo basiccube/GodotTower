@@ -8,7 +8,7 @@ func _process(delta):
 	if !Engine.editor_hint:
 		var obj_player = utils.get_player()
 		if ($PlayerCheck.is_colliding() && $PlayerCheck.get_collider().is_in_group("obj_player")):
-			if (Input.is_action_pressed("key_down") && obj_player.state == global.states.crouch && obj_player.slopecheck.is_colliding() && obj_player.slopecheck.get_collider().is_in_group("obj_platform")):
+			if (Input.is_action_pressed("key_down") && obj_player.state == global.states.crouch && obj_player.floorcheck.is_colliding() && obj_player.floorcheck.get_collider().is_in_group("obj_platform")):
 				obj_player.position.y += 25
 				obj_player.velocity.x = 0
 				obj_player.state = global.states.ladder

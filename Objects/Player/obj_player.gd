@@ -89,7 +89,7 @@ onready var charactersprite = $PeppinoSprite
 
 onready var hurttimer = $HurtTimer
 onready var hurttimer2 = $HurtTimer2
-onready var slopecheck = $SlopeCheck
+onready var floorcheck = $FloorCheck
 
 var state = global.states.titlescreen
 
@@ -1744,10 +1744,10 @@ func scr_player_mach2():
 	if (!is_on_floor() && is_wallclimbable() && charactersprite.animation != "walljumpstart"):
 		wallspeed = movespeed
 		state = global.states.climbwall
-	if (is_on_floor() && is_wallclimbable() && $SlopeCheck.is_colliding() && $SlopeCheck.get_collider().is_in_group("obj_slope")):
+	if (is_on_floor() && is_wallclimbable() && $SlopeCheck.is_colliding()):
 		wallspeed = movespeed
 		state = global.states.climbwall
-	if (is_on_floor() && is_colliding_with_wall() && (!$SlopeCheck.is_colliding() || !$SlopeCheck.get_collider().is_in_group("obj_slope"))):
+	if (is_on_floor() && is_colliding_with_wall() && !$SlopeCheck.is_colliding()):
 		movespeed = 0
 		state = global.states.normal
 	if (!utils.instance_exists("obj_dashcloud") && is_on_floor()):
@@ -1851,10 +1851,10 @@ func scr_player_mach3():
 	if (!is_on_floor() && is_wallclimbable()):
 		wallspeed = 10
 		state = global.states.climbwall
-	if (is_on_floor() && is_wallclimbable() && $SlopeCheck.is_colliding() && $SlopeCheck.get_collider().is_in_group("obj_slope")):
+	if (is_on_floor() && is_wallclimbable() && $SlopeCheck.is_colliding()):
 		wallspeed = 10
 		state = global.states.climbwall
-	if (is_on_floor() && (is_colliding_with_wall() && charactersprite.animation != "machslideboost" && charactersprite.animation != "machslideboost3") && (!$SlopeCheck.is_colliding() || !$SlopeCheck.get_collider().is_in_group("obj_slope"))):
+	if (is_on_floor() && (is_colliding_with_wall() && charactersprite.animation != "machslideboost" && charactersprite.animation != "machslideboost3") && !$SlopeCheck.is_colliding()):
 		charactersprite.animation = "hitwall"
 		$Groundpound.play()
 		$Bump.play()
@@ -2524,7 +2524,7 @@ func scr_player_slipnslide():
 	crouchAnim = 0
 	machhitAnim = 0
 	velocity.x = (xscale * movespeed)
-	if ($SlopeCheck.is_colliding() && $SlopeCheck.get_collider().is_in_group("obj_slope")):
+	if ($SlopeCheck.is_colliding()):
 		movespeed += 0.2
 	else:
 		if (movespeed > 0 && is_on_floor()):
@@ -2651,9 +2651,9 @@ func scr_player_knightpepslopes():
 	velocity.x = (xscale * movespeed)
 	if (charactersprite.animation == "knightpep_downslope"):
 		movespeed = 15
-	if (!$SlopeCheck.is_colliding() || !$SlopeCheck.get_collider().is_in_group("obj_slope")):
+	if (!$SlopeCheck.is_colliding()):
 		charactersprite.animation = "knightpep_charge"
-	if ($SlopeCheck.is_colliding() && $SlopeCheck.get_collider() != null && $SlopeCheck.get_collider().is_in_group("obj_slope")):
+	if ($SlopeCheck.is_colliding()):
 		charactersprite.animation = "knightpep_downslope"
 	if (is_colliding_with_wall()):
 		var debris1 = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_knightdebris.tscn")
