@@ -55,6 +55,11 @@ func _init(console):
 	self._console.add_command('levelselect', self, '_levelselect')\
 		.set_description('Level select')\
 		.register()
+		
+	self._console.add_command('character', self, '_character')\
+		.set_description('Changes the player character.')\
+		.add_argument('character', TYPE_STRING)\
+		.register()
 
 	self._console.add_command('version', self, '_version')\
 		.set_description('Shows engine version.')\
@@ -109,6 +114,10 @@ func _levelselect():
 	utils.get_player().state = global.states.titlescreen
 	utils.room_goto("", "rm_levelselect")
 	Console.toggle_console()
+	
+func _character(character = null):
+	if character:
+		utils.debug_character(character)
 
 # Prints out engine version.
 # @returns  void

@@ -343,7 +343,10 @@ func scr_enemy_grabbed():
 	if (obj_player.state == global.states.grabbing || obj_player.state == global.states.grab || obj_player.state == global.states.throw || obj_player.state == global.states.slam):
 		position.x = obj_player.position.x
 		if (obj_player.sprite_index != "haulingstart"):
-			position.y = (obj_player.position.y - 60)
+			if (obj_player.character == "P"):
+				position.y = (obj_player.position.y - 60)
+			else:
+				position.y = (obj_player.position.y - 50)
 		elif (floor(obj_player.get_frame()) == 0):
 			position.y = obj_player.position.y - 20
 		elif (floor(obj_player.get_frame()) == 1):
@@ -481,8 +484,8 @@ func scr_enemy_grabbed():
 				position.y = (obj_player.position.y)
 		else:
 			z_index = 7
-			position.x = (obj_player.position.x)
-			position.y = (obj_player.position.y + 10)
+			position.x = (obj_player.position.x + (5 * obj_player.xscale))
+			position.y = (obj_player.position.y - 10)
 	if (obj_player.sprite_index == "piledriverland" && $Sprite.frame == $Sprite.frames.get_frame_count($Sprite.animation) - 1):
 		obj_player.state = global.states.jump
 		obj_player.velocity.y = -8
@@ -501,7 +504,7 @@ func scr_enemy_grabbed():
 		velocity.x = ((-xscale) * 10)
 		velocity.y = -10
 	if (obj_player.state == global.states.grab && obj_player.sprite_index == "swingding"):
-		if (obj_player.character == "P"):
+		if (obj_player.character == "P" || obj_player.character == "N"):
 			if (floor(obj_player.get_frame()) == 0):
 				z_index = 8
 				position.x = (obj_player.position.x + (obj_player.xscale * 25))
@@ -537,7 +540,7 @@ func scr_enemy_grabbed():
 		else:
 			z_index = 7
 			position.x = obj_player.position.x
-			position.y = (obj_player.position.y - 40)
+			position.y = (obj_player.position.y - 10)
 	$Sprite.animation = spr_grabbed
 	$Sprite.speed_scale = 0.35
 	

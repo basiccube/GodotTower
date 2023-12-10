@@ -124,13 +124,13 @@ frames = SubResource( 5 )
 animation = "idle"
 
 [node name="WallCheck" parent="." index="3"]
-position = Vector2( 0, 32 )
+position = Vector2( 0, 24 )
 
 [node name="WallCheck2" parent="." index="4"]
 position = Vector2( 0, 40 )
 
 [node name="WallCheck3" parent="." index="5"]
-position = Vector2( 0, 24 )
+position = Vector2( 0, 0 )
 
 [node name="OppositeWallCheck" parent="." index="6"]
 position = Vector2( 0, 24 )

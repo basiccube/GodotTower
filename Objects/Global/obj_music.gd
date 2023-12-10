@@ -11,7 +11,8 @@ onready var secretmusicnode = $secretmusic
 #   room name      song name      secret song name     set song position at previous songs position
 var room_arr = [
 	["Realtitlescreen", "mu_title", "mu_medievalsecret", false],
-	["Titlescreen", "mu_title", "mu_medievalsecret", false],
+	["characterselect", "mu_characterselect", "mu_medievalsecret", false],
+	["Titlescreen", "mu_wind", "mu_medievalsecret", false],
 	["hub_room1", "mu_hub", "mu_medievalsecret", false],
 	["hub_special", "mu_hub", "mu_medievalsecret", false],
 	["entrance_1", "mu_entrance", "mu_medievalsecret", false],
@@ -50,7 +51,7 @@ func room_start():
 					else:
 						$music.play()
 				$RestartMusicTimer.start()
-	if ("secret" in global.targetRoom):
+	if ("secret" in global.targetRoom && !global.panic):
 		secret = true
 	else:
 		secret = false
@@ -81,13 +82,24 @@ func _process(delta):
 			$music.stream_paused = false
 		$secretmusic.stop()
 	if (global.panic):
-		if (global.laps == 0 && music != "mu_pizzatime"):
+		var obj_player = utils.get_player()
+		if (global.laps == 0 && music != "mu_pizzatime" && obj_player.character == "P"):
 			music = "mu_pizzatime"
 			var newmusic = load("res://Music/" + music + ".ogg")
 			$music.stream = newmusic
 			$music.play()
-		elif (global.laps == 1 && music != "mu_lap"):
+		elif (global.laps == 0 && music != "mu_noiseescape" && obj_player.character == "N"):
+			music = "mu_noiseescape"
+			var newmusic = load("res://Music/" + music + ".ogg")
+			$music.stream = newmusic
+			$music.play()
+		elif (global.laps == 1 && music != "mu_lap" && obj_player.character == "P"):
 			music = "mu_lap"
+			var newmusic = load("res://Music/" + music + ".ogg")
+			$music.stream = newmusic
+			$music.play()
+		elif (global.laps == 1 && music != "mu_noiselap" && obj_player.character == "N"):
+			music = "mu_noiselap"
 			var newmusic = load("res://Music/" + music + ".ogg")
 			$music.stream = newmusic
 			$music.play()

@@ -9,7 +9,9 @@ func _process(delta):
 			#clothesid.velocity.x = utils.randi_range(-5, 5)
 			#clothesid.velocity.y = utils.randi_range(-6, -11)
 			#clothesid.palette = global.peppalette
-			if (global.peppalette < 8):
+			if (global.peppalette < 8 && obj_player.character == "P"):
+				global.peppalette += 1
+			elif (global.peppalette < 6 && obj_player.character == "N"):
 				global.peppalette += 1
 			else:
 				global.peppalette = 0

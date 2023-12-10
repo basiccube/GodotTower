@@ -6,7 +6,7 @@ func _ready():
 
 func _process(delta):
 	position.x += scale.x * 4
-	if ($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_slope"))):
+	if ($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_slope") || $SolidCheck.get_collider().is_in_group("obj_destructibles"))):
 		destroy()
 	var obj_player = utils.get_player()
 	if (overlaps_body(obj_player)):

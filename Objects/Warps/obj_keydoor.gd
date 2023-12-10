@@ -50,7 +50,7 @@ func _process(delta):
 	if ($Sprite.frame == 2):
 		$Sprite.speed_scale = 0
 	# This code needs some sort of checking whether or not the player is standing in this specific door
-	if (obj_player.pepsprite.frame == obj_player.pepsprite.frames.get_frame_count(obj_player.pepsprite.animation) - 1 && obj_player.state == global.states.victory):
+	if (obj_player.is_last_frame() && obj_player.state == global.states.victory):
 		obj_player.targetLevel = targetLevel
 		obj_player.targetRoom = targetRoom
 		global.targetDoor = targetDoor

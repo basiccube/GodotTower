@@ -29,7 +29,7 @@ func _process(delta):
 
 func _on_StartTimer_timeout():
 	utils.instance_create(utils.get_gamenode().global_position.x, utils.get_gamenode().global_position.y, "res://Objects/Visuals/obj_fadeout.tscn")
-	utils.get_player().targetRoom = "Scootertransition"
+	utils.get_player().targetRoom = "characterselect"
 
 func _on_OptionTimer_timeout():
 	utils.instance_create(utils.get_gamenode().global_position.x, utils.get_gamenode().global_position.y, "res://Objects/Menu/obj_option.tscn")

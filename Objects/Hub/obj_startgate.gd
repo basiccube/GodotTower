@@ -83,7 +83,7 @@ func _process(delta):
 				i.chargecamera = 0
 			obj_player.state = global.states.victory
 			obj_player.set_animation("entergate")
-		if (obj_player.pepsprite.frame == obj_player.pepsprite.frames.get_frame_count(obj_player.pepsprite.animation) - 1 && obj_player.state == global.states.victory):
+		if (obj_player.is_last_frame() && obj_player.state == global.states.victory):
 			obj_player.targetLevel = targetLevel
 			obj_player.targetRoom = targetRoom
 			global.targetDoor = targetDoor

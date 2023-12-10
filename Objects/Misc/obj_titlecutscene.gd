@@ -6,8 +6,13 @@ var grav = 0.5
 var drop = false
 
 func _ready():
+	if (utils.get_player().character == "N"):
+		$Sprite.animation = "noise_mach"
+		$Sprite.speed_scale = 0.5
+	else:
+		$Sprite.animation = "pepcooter"
+		$Sprite.speed_scale = 0.35
 	$Sprite.playing = true
-	$Sprite.speed_scale = 0.35
 
 func _process(delta):
 	if (drop):
@@ -28,10 +33,14 @@ func rockcollision():
 	if (obj_rockcutscene.frame == 0):
 		utils.playsound("PepHurt")
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_bangeffect.tscn")
-		$Sprite.animation = "machfreefall"
+		if (utils.get_player().character == "P"):
+			$Sprite.animation = "machfreefall"
+			obj_rockcutscene.frame = 1
+		elif (utils.get_player().character == "N"):
+			$Sprite.animation = "noise_hurt"
+			obj_rockcutscene.frame = 2
 		drop = true
 		velocity.y = -20
 		velocity.x = 8
-		obj_rockcutscene.frame = 1
 		obj_rockcutscene.velocity.x = -20
 				

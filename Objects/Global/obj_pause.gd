@@ -33,7 +33,7 @@ func _process(delta):
 			else:
 				utils.playsound("EnemyProjectile")
 		if (Input.is_action_just_pressed("key_jump") && selected == 2):
-			if (global.targetRoom == "hub_room1" || global.targetRoom == "Titlescreen" || global.targetRoom == "Scootertransition"):
+			if (global.targetRoom == "hub_room1" || global.targetRoom == "Titlescreen" || global.targetRoom == "Scootertransition" || global.targetRoom == "characterselect"):
 				pause = false
 				get_tree().paused = false
 				utils.get_player().character = "P"

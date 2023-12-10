@@ -135,7 +135,7 @@ func room_goto(levelname, roomname):
 	for i in get_all_nodes():
 		if (i.has_method("room_start")):
 			i.call("room_start")
-	if (roomname != "rank_room" && roomname != "timesuproom" && roomname != "Realtitlescreen"):
+	if (roomname != "rank_room" && roomname != "timesuproom" && roomname != "Realtitlescreen" && roomname != "characterselect"):
 		if (global.shroomfollow):
 			instance_create_level(utils.get_player().position.x, utils.get_player().position.y + 14, "res://Objects/Collectibles/obj_pizzakinshroom.tscn")
 		if (global.cheesefollow):
@@ -211,3 +211,6 @@ func debug_showcollisions():
 
 func debug_view():
 	global.debugview = !global.debugview
+	
+func debug_character(character: String):
+	utils.get_player().character = character

@@ -1,0 +1,39 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Objects/Menu/sprites/characterselect/player1cursor_1.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Menu/sprites/characterselect/player1cursor_2.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Menu/sprites/characterselect/player1cursor_4.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Menu/sprites/characterselect/player1cursorselected_0.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Menu/sprites/characterselect/player1cursorselected_1.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Menu/sprites/characterselect/player1cursor_5.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Menu/sprites/characterselect/player1cursorselected_2.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Menu/sprites/characterselect/player1cursor_0.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Menu/sprites/characterselect/player1cursor_3.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Menu/obj_characterselect.gd" type="Script" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "player1cursor",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "player1cursorselected",
+"speed": 60.0
+} ]
+
+[node name="obj_characterselect" type="Node2D" groups=["obj_characterselect"]]
+script = ExtResource( 10 )
+
+[node name="Player1" type="AnimatedSprite" parent="."]
+position = Vector2( 344, 94 )
+frames = SubResource( 1 )
+animation = "player1cursor"
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 1.667
+one_shot = true
+
+[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]

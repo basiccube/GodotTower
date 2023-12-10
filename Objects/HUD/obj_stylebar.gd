@@ -10,7 +10,7 @@ func _process(delta):
 	var obj_camera = utils.get_instance("obj_camera")
 	position.x = obj_camera.global_position.x - 480
 	position.y = obj_camera.global_position.y - 270
-	if (global.targetRoom == "rank_room" || global.targetRoom == "timesuproom" || global.targetRoom == "Realtitlescreen" || global.targetRoom == "rm_levelselect" || !global.hudvisible):
+	if (global.targetRoom == "rank_room" || global.targetRoom == "timesuproom" || global.targetRoom == "Realtitlescreen" || global.targetRoom == "characterselect" || global.targetRoom == "rm_levelselect" || !global.hudvisible):
 		visible = false
 	else:
 		visible = true

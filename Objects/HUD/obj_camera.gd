@@ -5,6 +5,8 @@ var shake_mag_acc = 0
 var chargecamera = 0
 var ded = 0
 
+onready var facehud = $PeppinoHUD
+
 onready var panictimer = $panictimer
 onready var dedtimer = $dedtimer
 onready var heatmeter = $HeatMeter
@@ -18,7 +20,7 @@ func _ready():
 	room_start()
 	
 func _process(delta):
-	if (global.targetRoom == "rank_room" || global.targetRoom == "timesuproom" || global.targetRoom == "Realtitlescreen" || global.targetRoom == "rm_levelselect" || !global.hudvisible):
+	if (global.targetRoom == "rank_room" || global.targetRoom == "timesuproom" || global.targetRoom == "Realtitlescreen" || global.targetRoom == "characterselect" || global.targetRoom == "rm_levelselect" || !global.hudvisible):
 		visible = false
 	else:
 		visible = true
@@ -90,44 +92,52 @@ func _process(delta):
 		$BackupShotgun.visible = false
 	if (obj_player.state != global.states.gameover):
 		# Character face HUD code
-		$FaceHUD.playing = true
+		if (obj_player.character == "P"):
+			facehud = $PeppinoHUD
+			$PeppinoHUD.visible = true
+			$NoiseHUD.visible = false
+		elif (obj_player.character == "N"):
+			facehud = $NoiseHUD
+			$PeppinoHUD.visible = false
+			$NoiseHUD.visible = true
+		facehud.playing = true
 		if (obj_player.sprite_index == "knightpep_thunder"):
-			$FaceHUD.animation = "thunder"
+			facehud.animation = "thunder"
 		elif (obj_player.sprite_index != "knightpep_start" && (obj_player.state == global.states.knightpep || obj_player.state == global.states.knightpepslopes)):
-			$FaceHUD.animation = "knight"
+			facehud.animation = "knight"
 		elif (obj_player.sprite_index == "bombpep_end"):
-			$FaceHUD.animation = "bombend"
+			facehud.animation = "bombend"
 		elif (utils.instance_exists("obj_itspizzatime") || obj_player.sprite_index == "bombpep_intro" || obj_player.sprite_index == "bombpep_runabouttoexplode" || obj_player.sprite_index == "bombpep_run" || obj_player.sprite_index == "fireass"):
-			$FaceHUD.animation = "scream"
+			facehud.animation = "scream"
 		elif (obj_player.state == global.states.Sjumpland || (obj_player.state == global.states.freefallland && shake_mag > 0)):
-			$FaceHUD.animation = "stun"
+			facehud.animation = "stun"
 		elif (obj_player.sprite_index == "victory" || obj_player.state == global.states.keyget || obj_player.state == global.states.smirk || obj_player.state == global.states.gottreasure || (obj_player.state == global.states.bossintro && obj_player.sprite_index == "levelcomplete")):
-			$FaceHUD.animation = "happy"
+			facehud.animation = "happy"
 		elif (obj_player.sprite_index == "machroll" || obj_player.sprite_index == "tumble"):
-			$FaceHUD.animation = "rolling"
+			facehud.animation = "rolling"
 		elif (global.combo >= 8):
-			$FaceHUD.animation = "menacing"
+			facehud.animation = "menacing"
 		elif (obj_player.state == global.states.mach1 || obj_player.state == global.states.freefallprep || obj_player.state == global.states.freefall || obj_player.state == global.states.tackle || obj_player.state == global.states.Sjump || obj_player.state == global.states.slam || obj_player.state == global.states.Sjumpprep || obj_player.state == global.states.grab || obj_player.state == global.states.punch || obj_player.state == global.states.backbreaker || obj_player.state == global.states.backkick || obj_player.state == global.states.shoulder || obj_player.state == global.states.uppunch):
-			$FaceHUD.animation = "mach1"
+			facehud.animation = "mach1"
 		elif (obj_player.state == global.states.mach2 || obj_player.sprite_index == "dive" || obj_player.sprite_index == "machslideboost" || obj_player.state == global.states.climbwall || obj_player.state == global.states.handstandjump || obj_player.state == global.states.shoulderbash):
-			$FaceHUD.animation = "mach2"
+			facehud.animation = "mach2"
 		elif (obj_player.state == global.states.mach3 && obj_player.sprite_index == "crazyrun"):
-			$FaceHUD.animation = "mach4"
+			facehud.animation = "mach4"
 		elif (obj_player.state == global.states.mach3 || obj_player.sprite_index == "machslideboost3"):
-			$FaceHUD.animation = "mach3"
+			facehud.animation = "mach3"
 		elif (obj_player.state == global.states.hurt || obj_player.sprite_index == "fireassend" || obj_player.state == global.states.timesup || obj_player.state == global.states.bombpep || (obj_player.state == global.states.bossintro && obj_player.sprite_index == "bossintro") || (obj_player.state == global.states.bossintro && obj_player.sprite_index == "idle")):
-			$FaceHUD.animation = "hurt"
+			facehud.animation = "hurt"
 		elif (obj_player.angry):
-			$FaceHUD.animation = "3hp"
+			facehud.animation = "3hp"
 		elif (obj_player.sprite_index == "hurtidle" || obj_player.sprite_index == "hurtwalk"):
-			$FaceHUD.animation = "1hp"
+			facehud.animation = "1hp"
 		elif (global.panic):
-			$FaceHUD.animation = "panic"
+			facehud.animation = "panic"
 		elif (obj_player.sprite_index == "shotgun_pullout"):
-			$FaceHUD.animation = "menacing"
+			facehud.animation = "menacing"
 		else:
-			$FaceHUD.animation = "idle"
-		$FaceHUD.material.set_shader_param("current_palette", global.peppalette)
+			facehud.animation = "idle"
+		facehud.material.set_shader_param("current_palette", global.peppalette)
 		# Speedbar code
 		if (obj_player.movespeed < 2.4 || (!(obj_player.state == global.states.mach1 || obj_player.state == global.states.mach2 || obj_player.state == global.states.mach3 || obj_player.state == global.states.climbwall || obj_player.state == global.states.machslide || obj_player.state == global.states.machroll || obj_player.state == global.states.handstandjump || obj_player.state == global.states.shoulderbash))):
 			$Speedbar.frame = 0
