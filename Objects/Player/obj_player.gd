@@ -1741,7 +1741,7 @@ func scr_player_mach2():
 		flash = false
 		state = global.states.machroll
 		velocity.y = 10
-	if (!is_on_floor() && is_wallclimbable() && charactersprite.animation != "walljumpstart"):
+	if (!is_on_floor() && is_wallclimbable() && (charactersprite.animation != "walljumpstart" || (charactersprite.animation == "walljumpstart" && charactersprite.frame > 2))):
 		wallspeed = movespeed
 		state = global.states.climbwall
 	if (is_on_floor() && is_wallclimbable() && $SlopeCheck.is_colliding()):
