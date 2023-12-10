@@ -115,7 +115,7 @@ func _process(delta):
 			facehud.animation = "happy"
 		elif (obj_player.sprite_index == "machroll" || obj_player.sprite_index == "tumble"):
 			facehud.animation = "rolling"
-		elif (global.combo >= 8):
+		elif (global.combo >= 8 && (obj_player.state == global.states.normal || obj_player.state == global.states.jump)):
 			facehud.animation = "menacing"
 		elif (obj_player.state == global.states.mach1 || obj_player.state == global.states.freefallprep || obj_player.state == global.states.freefall || obj_player.state == global.states.tackle || obj_player.state == global.states.Sjump || obj_player.state == global.states.slam || obj_player.state == global.states.Sjumpprep || obj_player.state == global.states.grab || obj_player.state == global.states.punch || obj_player.state == global.states.backbreaker || obj_player.state == global.states.backkick || obj_player.state == global.states.shoulder || obj_player.state == global.states.uppunch):
 			facehud.animation = "mach1"
