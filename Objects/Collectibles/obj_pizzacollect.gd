@@ -23,6 +23,7 @@ func _on_obj_collect_body_entered(body):
 		global.combotime += 30
 		global.collect += 100 * global.multiplier
 		global.style += 5
+		global.heattime += 30
 		var smallnumbid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_smallnumber.tscn")
 		smallnumbid.number = str(100 * global.multiplier)
 		destroy()

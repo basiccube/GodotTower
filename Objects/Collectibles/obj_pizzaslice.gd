@@ -33,6 +33,7 @@ func _on_PizzasliceArea_body_entered(body):
 		global.combotime += 20
 		global.collect += 25 * global.multiplier
 		global.style += 5
+		global.heattime += 25
 		var smallnumbid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_smallnumber.tscn")
 		smallnumbid.number = str(25 * global.multiplier)
 		if (utils.soundplaying("Collect")):

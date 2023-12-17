@@ -16,6 +16,7 @@ func _on_obj_giantcollect_body_entered(body):
 		global.combotime = 60
 		global.collect += 1000
 		global.style += 10
+		global.heattime = 60
 		var smallnumbid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_smallnumber.tscn")
 		smallnumbid.number = "1000"
 		destroy()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Backgrounds/bg_medievallibrairy2_0.png" type="Texture" id=1]
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Backgrounds/bg_pizzamartinterior.png" type="Texture" id=8]
 [ext_resource path="res://Objects/Warps/obj_door.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Objects/Misc/sprites/shootsign.png" type="Texture" id=10]
 [ext_resource path="res://Objects/Level/obj_weaponmachine.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/Collectibles/obj_shotgun.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Tilesets/tile_pizzamart.tres" type="TileSet" id=13]
@@ -106,11 +105,6 @@ position = Vector2( 672, 384 )
 targetDoor = "C"
 targetLevel = "dungeon"
 targetRoom = "dungeon_6"
-
-[node name="ShootSign" type="Sprite" parent="."]
-position = Vector2( 544, 160 )
-texture = ExtResource( 10 )
-centered = false
 
 [node name="obj_weaponmachine" parent="." instance=ExtResource( 11 )]
 position = Vector2( 425, 333 )
