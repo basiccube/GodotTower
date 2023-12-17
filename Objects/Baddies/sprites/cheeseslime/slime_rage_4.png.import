@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spr_flamecloud_0.png-956842f44a99b4fdafb1f21884d64d50.stex"
+path="res://.import/slime_rage_4.png-2734c4e05d6411aa4c060d333613bdb0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Visuals/sprites/spr_flamecloud_0.png"
-dest_files=[ "res://.import/spr_flamecloud_0.png-956842f44a99b4fdafb1f21884d64d50.stex" ]
+source_file="res://Objects/Baddies/sprites/cheeseslime/slime_rage_4.png"
+dest_files=[ "res://.import/slime_rage_4.png-2734c4e05d6411aa4c060d333613bdb0.stex" ]
 
 [params]
 

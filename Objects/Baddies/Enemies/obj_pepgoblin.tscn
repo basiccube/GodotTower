@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Objects/Baddies/obj_baddie.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_2.png" type="Texture" id=2]
@@ -30,6 +30,17 @@
 [ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_kick_5.png" type="Texture" id=28]
 [ext_resource path="res://Objects/Baddies/sprites/pepgoblin/pepgoblin_kick_3.png" type="Texture" id=29]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_pepgoblin.gd" type="Script" id=30]
+[ext_resource path="res://Shaders/PaletteSwap.gdshader" type="Shader" id=31]
+[ext_resource path="res://Objects/Baddies/sprites/palette_pepgoblin.png" type="Texture" id=32]
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 31 )
+shader_param/skip_first_row = false
+shader_param/use_palette_alpha = false
+shader_param/current_palette = 0
+shader_param/fps = 0.0
+shader_param/flash = false
+shader_param/palette = ExtResource( 32 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -66,6 +77,7 @@ extents = Vector2( 24, 31 )
 script = ExtResource( 30 )
 
 [node name="Sprite" parent="." index="2"]
+material = SubResource( 3 )
 frames = SubResource( 1 )
 animation = "idle"
 

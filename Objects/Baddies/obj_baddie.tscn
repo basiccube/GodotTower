@@ -65,5 +65,10 @@ rect = Rect2( -96, -96, 192, 192 )
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 
+[node name="AfterImageTimer" type="Timer" parent="."]
+wait_time = 0.083
+one_shot = true
+
 [connection signal="timeout" from="MachEffectTimer" to="." method="_on_MachEffectTimer_timeout"]
 [connection signal="timeout" from="BangEffectTimer" to="." method="_on_BangEffectTimer_timeout"]
+[connection signal="timeout" from="AfterImageTimer" to="." method="_on_AfterImageTimer_timeout"]

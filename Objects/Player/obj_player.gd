@@ -206,6 +206,11 @@ func _process(delta):
 					utils.playsound("Punch")
 					global.hit += 1
 					global.combotime = 60
+					global.heatstyle += 5
+					global.heattime = 60
+					for i in get_tree().get_nodes_in_group("obj_camera"):
+						i.shake_mag = 20
+						i.shake_mag_acc = (30 / 30)
 					if (!is_on_floor()):
 						charactersprite.animation = "ungroundedattack"
 						velocity.y = -2
@@ -213,10 +218,12 @@ func _process(delta):
 						var rng = utils.randi_range(1, 2)
 						charactersprite.animation = "attack" + str(rng)
 					destructible.destroy()
-				if (state == global.states.faceplant):
+				if (state == global.states.faceplant || state == global.states.machroll):
 					utils.playsound("Punch")
 					global.hit += 1
 					global.combotime = 60
+					global.heatstyle += 5
+					global.heattime = 60
 					destructible.destroy()
 		if (destructible.is_in_group("obj_hungrypillar")):
 			if (state == global.states.shoulderbash):
@@ -299,6 +306,7 @@ func _process(delta):
 						utils.playsound("Punch")
 						global.hit += 1
 						global.combotime = 60
+						global.heattime = 60
 						if (!is_on_floor() && state != global.states.freefall && Input.is_action_just_pressed("key_jump")):
 							if (state == global.states.mach3 || state == global.states.mach2):
 								charactersprite.animation = "mach2jump"
@@ -489,14 +497,21 @@ func _process(delta):
 		anger -= 1
 	if (charactersprite.animation == "winding" && state != global.states.normal):
 		windingAnim = 0
+	if (global.heatstylethreshold >= 2 && !utils.instance_exists("obj_angrycloud") && state == global.states.normal):
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_angrycloud.tscn")
+	if (global.heattime > 0 && !cutscene):
+		global.heattime -= 0.15
 	if (global.combotime > 0 && !cutscene):
 		global.combotime -= 0.15
 	global.combotime = clamp(global.combotime, 0, 60)
+	global.heattime = clamp(global.heattime, 0, 60)
 	if (global.combotime <= 0 && global.combo != 0):
 		global.combotime = 0
 		global.combodropped = true
 		global.combo = 0
-		global.combomilestone = 3
+		global.combomilestone = 10
+	if (global.heattime <= 0 && global.heatstyle > 0):
+		global.heatstyle -= 0.05
 	if (input_buffer_jump < 8):
 		input_buffer_jump += 1
 	if (input_buffer_secondjump < 8):
@@ -574,7 +589,7 @@ func _physics_process(delta):
 						velocity.y = 0
 				snap_vector = Vector2.DOWN * 20
 	if state != global.states.titlescreen && state != global.states.gameover && state != global.states.ejected && charactersprite.animation != "ungroundedattack" && charactersprite.animation != "attack1" && charactersprite.animation != "attack2":
-		if state != global.states.backbreaker && state != global.states.finishingblow && state != global.states.portal && state != global.states.gottreasure && state != global.states.Sjumpland && state != global.states.ladder && state != global.states.keyget && (state != global.states.door && (charactersprite.animation != "downpizzabox" && charactersprite.animation != "uppizzabox")):
+		if state != global.states.backbreaker && state != global.states.finishingblow && !(state == global.states.handstandjump && global.oldgrab) && state != global.states.portal && state != global.states.gottreasure && state != global.states.Sjumpland && state != global.states.ladder && state != global.states.keyget && (state != global.states.door && (charactersprite.animation != "downpizzabox" && charactersprite.animation != "uppizzabox")):
 			if (velocity.y < 30):
 				velocity.y += grav
 		velocity = move_and_slide_with_snap(velocity, snap_vector, FLOOR_NORMAL, true, 4, 1)
@@ -672,7 +687,6 @@ func destroy(collider):
 			charactersprite.animation = "hurtjump"
 		else:
 			charactersprite.animation = "hurt"
-		
 		movespeed = 8
 		velocity.y = -5
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_spikehurteffect.tscn")
@@ -680,8 +694,9 @@ func destroy(collider):
 		if (shotgunAnim == 0):
 			global.hurtcounter += 1
 			global.style -= 10
+			global.heatstyle -= 25
 			if (global.collect > 100):
-				global.collect -= 100
+				global.collect -= 100 * (global.heatstylethreshold + 1)
 			else:
 				global.collect = 0
 			if (global.collect != 0):
@@ -759,7 +774,7 @@ func scr_player_normal():
 							charactersprite.animation = "hurtidle"
 						elif (global.panic || global.timeattack):
 							charactersprite.animation = "panic"
-						elif (angry):
+						elif (global.heatstylethreshold >= 2):
 							charactersprite.animation = "3hpidle"
 						else:
 							charactersprite.animation = "idle"
@@ -779,7 +794,7 @@ func scr_player_normal():
 			facehurt = 0
 			if (global.minutes == 0 && global.seconds == 0):
 				charactersprite.animation = "hurtwalk"
-			elif (angry):
+			elif (global.heatstylethreshold >= 2):
 				charactersprite.animation = "3hpwalk"
 			else:
 				charactersprite.animation = "move"
@@ -893,6 +908,7 @@ func scr_player_normal():
 		suplexmove = 1
 		$SuplexDash.play()
 		state = global.states.shoulderbash
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_crazyrunothereffect.tscn")
 		charactersprite.animation = "attackdash"
 		movespeed = 6
 	if (Input.is_action_just_pressed("key_shoot") && shotgunAnim == 1):
@@ -1041,6 +1057,7 @@ func scr_player_jump():
 		suplexmove = 1
 		$SuplexDash.play()
 		state = global.states.shoulderbash
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_crazyrunothereffect.tscn")
 		charactersprite.animation = "airattackstart"
 		velocity.y = -4
 		movespeed = 6
@@ -1419,21 +1436,36 @@ func scr_player_handstandjump():
 	velocity.x = (xscale * movespeed)
 	momemtum = 1
 	dir = xscale
-	if (movespeed < 10 && is_on_floor()):
-		movespeed += 0.5
-	elif (!is_on_floor()):
-		movespeed = 10
+	if (!global.oldgrab):
+		if (movespeed < 10 && is_on_floor()):
+			movespeed += 0.5
+		elif (!is_on_floor()):
+			movespeed = 10
+	else:
+		velocity.y = 0
+		if (charactersprite.frame < 2):
+			movespeed = 12
+		if (charactersprite.frame > 7):
+			movespeed -= 0.1
+		if (charactersprite.animation != "suplexdash"):
+			charactersprite.animation = "suplexdash"
 	if (!Input.is_action_pressed("key_jump") && jumpstop == 0 && velocity.y < 0.5 && stompAnim == 0):
 		velocity.y /= 10
 		jumpstop = 1
-	if (move != xscale && move != 0):
+	if (move != xscale && move != 0 && !global.oldgrab):
 		state = global.states.normal
-	if ((is_last_frame() || charactersprite.animation == "suplexdashjump" || charactersprite.animation == "suplexdashjumpstart") && is_on_floor() && !Input.is_action_pressed("key_dash") && velocity.y >= 0):
+	if ((is_last_frame() || charactersprite.animation == "suplexdashjump" || charactersprite.animation == "suplexdashjumpstart") && ((is_on_floor() && !global.oldgrab && !Input.is_action_pressed("key_dash")) || global.oldgrab) && velocity.y >= 0):
 		charactersprite.speed_scale = 0.35
 		state = global.states.normal
-	if ((is_last_frame() || charactersprite.animation == "suplexdashjump" || charactersprite.animation == "suplexdashjumpstart") && is_on_floor() && Input.is_action_pressed("key_dash")):
+	if ((is_last_frame() || charactersprite.animation == "suplexdashjump" || charactersprite.animation == "suplexdashjumpstart") && is_on_floor() && Input.is_action_pressed("key_dash") && !global.oldgrab):
 		charactersprite.speed_scale = 0.35
 		state = global.states.mach2
+	if (Input.is_action_just_pressed("key_jump") && is_on_floor() && global.oldgrab):
+		movespeed = 10
+		charactersprite.animation = "mach2jump"
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_jumpdust.tscn")
+		state = global.states.mach2
+		velocity.y = -9
 	if (is_last_frame() && charactersprite.animation == "suplexdashjumpstart"):
 		charactersprite.animation = "suplexdashjump"
 	if (Input.is_action_pressed("key_down") && is_on_floor() && velocity.y >= 0):
@@ -1443,11 +1475,11 @@ func scr_player_handstandjump():
 		crouchslipbuffer = 20
 		state = global.states.crouchslide
 		movespeed = 12
-	if (!is_on_floor() && (charactersprite.animation == "suplexdash" || charactersprite.animation == "shotgun_suplexdash")):
+	if (!is_on_floor() && !global.oldgrab && (charactersprite.animation == "suplexdash" || charactersprite.animation == "shotgun_suplexdash")):
 		charactersprite.animation = "suplexdashjumpstart"
-	if (Input.is_action_just_pressed("key_jump")):
+	if (Input.is_action_just_pressed("key_jump") && !global.oldgrab):
 		input_buffer_jump = 0
-	if (is_on_floor() && input_buffer_jump < 8):
+	if (is_on_floor() && !global.oldgrab && input_buffer_jump < 8):
 		charactersprite.animation = "suplexdashjumpstart"
 		$Jump.play()
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_highjumpcloud2.tscn")
@@ -1469,8 +1501,11 @@ func scr_player_handstandjump():
 				i.sprite.flip_h = false
 			elif xscale == -1:
 				i.sprite.flip_h = true
-	charactersprite.speed_scale = 0.35
-	if (Input.is_action_just_pressed("key_grab") && character == "P"):
+	if (!global.oldgrab):
+		charactersprite.speed_scale = 0.35
+	else:
+		charactersprite.speed_scale = 0.4
+	if (Input.is_action_just_pressed("key_grab") && character == "P" && !global.oldgrab):
 		movespeed = 8
 		charactersprite.animation = "faceplant"
 		charactersprite.speed_scale = 0.5
@@ -2085,6 +2120,7 @@ func scr_player_Sjump():
 		machhitAnim = 0
 	if (Input.is_action_just_pressed("key_dash")):
 		movespeed = 12
+		velocity.y = 0
 		machhitAnim = 0
 		state = global.states.mach3
 		flash = true
@@ -2840,7 +2876,6 @@ func scr_player_ejected():
 		supercharged = false
 		for i in get_tree().get_nodes_in_group("obj_camera"):
 			i.ded = 0
-			i.heatmeter.animation = "empty"
 		utils.instance_create(utils.get_gamenode().global_position.x, utils.get_gamenode().global_position.y, "res://Objects/Visuals/obj_fadeout.tscn")
 	charactersprite.animation = "deathend"
 	charactersprite.speed_scale = 0.35
@@ -2901,7 +2936,8 @@ func scr_playerreset():
 	jumpstop = 0
 	for i in get_tree().get_nodes_in_group("obj_camera"):
 		i.ded = 0
-		i.heatmeter.animation = "empty"
+	for i in get_tree().get_nodes_in_group("obj_heatmeter"):
+		i.sprite = "mild"
 	global.panic = false
 	jumpAnim = 1
 	landAnim = 0
@@ -2937,6 +2973,11 @@ func scr_playerreset():
 	global.multiplier = 1
 	global.style = 0
 	global.stylethreshold = 0
+	global.heattime = 0
+	global.heatstyle = 0
+	global.heatstylethreshold = 0
+	global.baddiespeed = 1
+	global.baddierage = false
 	backupweapon = false
 	global.hit = 0
 	bounce = 0

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spr_flamecloud_6.png-e0a56ced8c811bd8bb976bd8487c55c7.stex"
+path="res://.import/palette_pepgoblin.png-ebc9d42d1ec49b88a78ff9ebe8d06a48.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Visuals/sprites/spr_flamecloud_6.png"
-dest_files=[ "res://.import/spr_flamecloud_6.png-e0a56ced8c811bd8bb976bd8487c55c7.stex" ]
+source_file="res://Objects/Baddies/sprites/palette_pepgoblin.png"
+dest_files=[ "res://.import/palette_pepgoblin.png-ebc9d42d1ec49b88a78ff9ebe8d06a48.stex" ]
 
 [params]
 

@@ -4,12 +4,13 @@ var optionselected = 0
 var optionsaved_stylebar = global.stylebar
 var optionsaved_may2019run = global.may2019run
 var optionsaved_shoulderbash = global.shoulderbash
+var optionsaved_oldgrab = global.oldgrab
 
 func _process(delta):
 	if (Input.is_action_just_pressed("key_up") && optionselected > -1):
 		optionselected -= 1
 		utils.playsound("Step")
-	if (Input.is_action_just_pressed("key_down") && optionselected < 2):
+	if (Input.is_action_just_pressed("key_down") && optionselected < 3):
 		optionselected += 1
 		utils.playsound("Step")
 	if (optionselected == -1):
@@ -39,6 +40,13 @@ func _process(delta):
 			optionsaved_shoulderbash = false
 		if (Input.is_action_just_pressed("key_jump")):
 			global.shoulderbash = optionsaved_shoulderbash
+	if (optionselected == 3):
+		if (Input.is_action_just_pressed("key_right") && !optionsaved_oldgrab):
+			optionsaved_oldgrab = true
+		if (Input.is_action_just_pressed("key_left") && optionsaved_oldgrab):
+			optionsaved_oldgrab = false
+		if (Input.is_action_just_pressed("key_jump")):
+			global.oldgrab = optionsaved_oldgrab
 	# Menu draw code
 	if (optionselected == -1):
 		$Back.modulate.a = 1
@@ -72,3 +80,12 @@ func _process(delta):
 		$ShoulderBash.text = "SHOULDER BASH: ON"
 	else:
 		$ShoulderBash.text = "SHOULDER BASH: OFF"
+	if (optionselected == 3):
+		$OldGrab.modulate.a = 1
+		$Description.text = "Enables the grab from early 2019."
+	else:
+		$OldGrab.modulate.a = 0.5
+	if (optionsaved_oldgrab):
+		$OldGrab.text = "OLD GRAB: ON"
+	else:
+		$OldGrab.text = "OLD GRAB: OFF"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Objects/Baddies/obj_baddie.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Baddies/sprites/spitcheese/spitcheese_spit_5.png" type="Texture" id=2]
@@ -16,6 +16,17 @@
 [ext_resource path="res://Objects/Baddies/sprites/spitcheese/spitcheese_idle_2.png" type="Texture" id=14]
 [ext_resource path="res://Objects/Baddies/sprites/spitcheese/spitcheese_spit_2.png" type="Texture" id=15]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_spitcheese.gd" type="Script" id=16]
+[ext_resource path="res://Shaders/PaletteSwap.gdshader" type="Shader" id=17]
+[ext_resource path="res://Objects/Baddies/sprites/palette_cheeseslime.png" type="Texture" id=18]
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 17 )
+shader_param/skip_first_row = false
+shader_param/use_palette_alpha = false
+shader_param/current_palette = 0
+shader_param/fps = 0.0
+shader_param/flash = false
+shader_param/palette = ExtResource( 18 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -47,6 +58,7 @@ extents = Vector2( 32, 23 )
 script = ExtResource( 16 )
 
 [node name="Sprite" parent="." index="2"]
+material = SubResource( 5 )
 frames = SubResource( 3 )
 animation = "idle"
 

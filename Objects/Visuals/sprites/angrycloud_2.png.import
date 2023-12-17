@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spr_flamecloud_2.png-81e590c3c5240eb7d49e2ff74675ac23.stex"
+path="res://.import/angrycloud_2.png-fa350a8c28c9f18323d4203a564e457b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Visuals/sprites/spr_flamecloud_2.png"
-dest_files=[ "res://.import/spr_flamecloud_2.png-81e590c3c5240eb7d49e2ff74675ac23.stex" ]
+source_file="res://Objects/Visuals/sprites/angrycloud_2.png"
+dest_files=[ "res://.import/angrycloud_2.png-fa350a8c28c9f18323d4203a564e457b.stex" ]
 
 [params]
 

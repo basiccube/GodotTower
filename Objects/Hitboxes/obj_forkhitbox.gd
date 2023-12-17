@@ -3,8 +3,6 @@ extends StaticBody2D
 var baddieid = ""
 
 func _process(_delta):
-	if (!utils.instance_exists_level(baddieid)):
-		queue_free()
 	if (utils.instance_exists_level(baddieid)):
 		var baddie = utils.get_instance_level(baddieid)
 		scale.x = baddie.xscale
@@ -26,3 +24,5 @@ func _process(_delta):
 			if (baddie.state != global.states.charge):
 				baddie.hitboxcreate = false
 				queue_free()
+	else:
+		queue_free()

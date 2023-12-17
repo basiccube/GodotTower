@@ -21,4 +21,5 @@ func _process(delta):
 		destroy()
 		
 func destroy():
+	utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_cloudeffect.tscn")
 	queue_free()

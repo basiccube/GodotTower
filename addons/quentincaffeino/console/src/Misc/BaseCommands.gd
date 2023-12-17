@@ -60,6 +60,10 @@ func _init(console):
 		.set_description('Changes the player character.')\
 		.add_argument('character', TYPE_STRING)\
 		.register()
+		
+	self._console.add_command('giveheat', self, '_giveheat')\
+		.set_description('Add heat')\
+		.register()
 
 	self._console.add_command('version', self, '_version')\
 		.set_description('Shows engine version.')\
@@ -118,6 +122,10 @@ func _levelselect():
 func _character(character = null):
 	if character:
 		utils.debug_character(character)
+		Console.toggle_console()
+		
+func _giveheat():
+	utils.debug_giveheat()
 
 # Prints out engine version.
 # @returns  void

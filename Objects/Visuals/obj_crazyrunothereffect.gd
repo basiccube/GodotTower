@@ -15,7 +15,7 @@ func _process(delta):
 		$Sprite.flip_h = false
 	elif (utils.get_player().xscale == -1):
 		$Sprite.flip_h = true
-	if (utils.get_player().movespeed <= 12 && utils.get_player().state != global.states.faceplant):
+	if (utils.get_player().movespeed <= 12 && utils.get_player().state != global.states.faceplant && utils.get_player().state != global.states.shoulderbash):
 		queue_free()
 
 func _on_Sprite_animation_finished():

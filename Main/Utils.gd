@@ -154,6 +154,26 @@ func delete_tile_at(position):
 		var tile_position = level_tilemap.world_to_map(local_position)
 		level_tilemap.set_cell(tile_position.x, tile_position.y, -1)
 		
+func heatup():
+	global.baddiespeed += 1
+	if (global.heatstylethreshold >= 2):
+		global.baddierage = true
+	for obj in get_tree().get_nodes_in_group("obj_tv"):
+		obj.message = "HEAT UP!!"
+		obj.showtext = true
+		obj.resettimer.wait_time = 3.33
+		obj.resettimer.start()
+		
+func heatdown():
+	global.baddiespeed -= 1
+	if (global.heatstylethreshold < 2):
+		global.baddierage = false
+	for obj in get_tree().get_nodes_in_group("obj_tv"):
+		obj.message = "HEAT DOWN..."
+		obj.showtext = true
+		obj.resettimer.wait_time = 3.33
+		obj.resettimer.start()
+		
 func is_prank():
 	if (!global.combodropped && global.secretfound >= 6 && global.laps > 0):
 		return true
@@ -214,3 +234,6 @@ func debug_view():
 	
 func debug_character(character: String):
 	utils.get_player().character = character
+	
+func debug_giveheat():
+	global.heatstyle += 100

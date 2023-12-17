@@ -1,0 +1,94 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://Objects/HUD/obj_heatmeter.gd" type="Script" id=1]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_antsy_1.png" type="Texture" id=2]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_crazypop_1.png" type="Texture" id=3]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_crazypop_2.png" type="Texture" id=4]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_crazypop_0.png" type="Texture" id=5]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_antsy_2.png" type="Texture" id=6]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_antsypop_0.png" type="Texture" id=7]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_crazypop_3.png" type="Texture" id=8]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_antsypop_1.png" type="Texture" id=9]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_antsypop_2.png" type="Texture" id=10]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_antsypop_3.png" type="Texture" id=11]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_antsy_0.png" type="Texture" id=12]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_crazy_1.png" type="Texture" id=13]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_mad_2.png" type="Texture" id=14]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_madpop_0.png" type="Texture" id=15]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_crazy_2.png" type="Texture" id=16]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_mildpop_2.png" type="Texture" id=17]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_mad_0.png" type="Texture" id=18]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_madpop_2.png" type="Texture" id=19]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_mad_1.png" type="Texture" id=20]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_mildpop_1.png" type="Texture" id=21]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_madpop_3.png" type="Texture" id=22]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_madpop_1.png" type="Texture" id=23]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_crazy_0.png" type="Texture" id=24]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_mild_0.png" type="Texture" id=25]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_mild_1.png" type="Texture" id=26]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_mild_2.png" type="Texture" id=27]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter_mildpop_0.png" type="Texture" id=28]
+[ext_resource path="res://Objects/HUD/sprites/heatmeter.png" type="Texture" id=29]
+[ext_resource path="res://Objects/HUD/sprites/heatmeterbar_fill.png" type="Texture" id=30]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 2 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "antsy",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "antsypop",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 13 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "crazy",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "crazypop",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 20 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "mad",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "madpop",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "mild",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 28 ), ExtResource( 21 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "mildpop",
+"speed": 60.0
+} ]
+
+[node name="obj_heatmeter" type="Node2D" groups=["obj_heatmeter"]]
+z_index = 1000
+script = ExtResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 220, 60 )
+frames = SubResource( 1 )
+animation = "mild"
+speed_scale = 0.35
+
+[node name="HeatMeter" type="TextureProgress" parent="."]
+margin_left = 193.0
+margin_top = 66.0
+margin_right = 253.0
+margin_bottom = 106.0
+max_value = 55.0
+texture_under = ExtResource( 29 )
+texture_progress = ExtResource( 30 )

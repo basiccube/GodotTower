@@ -10,10 +10,12 @@ var targetDoor = "A"
 var leveltorestart = ""
 var roomtorestart = ""
 
+# Debug stuff
 var debugview = false
 var debugcollisions = true
 var hudvisible = true
 
+# Game options
 var option_resolution = 1
 var option_fullscreen = false
 var option_mastervolume = 0
@@ -31,10 +33,14 @@ var may2019run = false
 # Enables the shoulder bash from late 2020 builds.
 var shoulderbash = false
 
+# Enables the early 2019 grab.
+var oldgrab = false
+
 var minutes = 0
 var seconds = 59
 var laps = 0
 
+# Time attack mode
 var taminutes = 0
 var taseconds = 0
 var timeattack = false
@@ -43,9 +49,19 @@ var combo = 0
 var combotime = 0
 var combodropped = false
 var combomilestone = 10
+
+# Style bar
 var style = 0
 var stylethreshold = 0
 var multiplier = 1
+
+# Heat meter
+var heatstyle = 0
+var heatstylethreshold = 0
+var heattime = 0
+var baddierage = false
+var baddiespeed = 1
+
 var collect = 0
 var pizzacoin = 0
 var key_inv = false
@@ -134,6 +150,7 @@ enum states {
 	hit,
 	charge,
 	chase,
+	rage,
 	pizzagoblinthrow,
 	throw,
 	cheesepep,

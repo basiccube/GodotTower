@@ -1,4 +1,4 @@
-[gd_scene load_steps=293 format=2]
+[gd_scene load_steps=265 format=2]
 
 [ext_resource path="res://Objects/HUD/obj_camera.gd" type="Script" id=1]
 [ext_resource path="res://Objects/HUD/sprites/speedbar_1.png" type="Texture" id=2]
@@ -178,33 +178,6 @@
 [ext_resource path="res://Shaders/PaletteSwap.gdshader" type="Shader" id=176]
 [ext_resource path="res://Objects/Player/peppalette.png" type="Texture" id=177]
 [ext_resource path="res://Objects/HUD/sprites/shotgunbackup_0.png" type="Texture" id=178]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_antsypop_2.png" type="Texture" id=179]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_antsypop_3.png" type="Texture" id=180]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_mildpop_0.png" type="Texture" id=181]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_mildpop_1.png" type="Texture" id=182]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_antsypop_0.png" type="Texture" id=183]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_mild_2.png" type="Texture" id=184]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_antsypop_1.png" type="Texture" id=185]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_antsy_1.png" type="Texture" id=186]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_mad_0.png" type="Texture" id=187]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_mad_1.png" type="Texture" id=188]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_mild_1.png" type="Texture" id=189]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_madpop_2.png" type="Texture" id=190]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_crazy_2.png" type="Texture" id=191]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_crazypop_1.png" type="Texture" id=192]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_crazypop_2.png" type="Texture" id=193]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_antsy_2.png" type="Texture" id=194]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_crazy_0.png" type="Texture" id=195]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_crazypop_0.png" type="Texture" id=196]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_mildpop_2.png" type="Texture" id=197]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_madpop_0.png" type="Texture" id=198]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_crazypop_3.png" type="Texture" id=199]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_mild_0.png" type="Texture" id=200]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_mad_2.png" type="Texture" id=201]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_crazy_1.png" type="Texture" id=202]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_madpop_1.png" type="Texture" id=203]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_antsy_0.png" type="Texture" id=204]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter_madpop_3.png" type="Texture" id=205]
 [ext_resource path="res://Objects/HUD/sprites/heatmeter.png" type="Texture" id=206]
 [ext_resource path="res://Objects/HUD/sprites/heatmeterbar_fill.png" type="Texture" id=207]
 [ext_resource path="res://Objects/HUD/sprites/noise/noiseHUD_lowhealth_2.png" type="Texture" id=208]
@@ -492,54 +465,6 @@ animations = [ {
 "speed": 60.0
 } ]
 
-[sub_resource type="SpriteFrames" id=6]
-animations = [ {
-"frames": [ ExtResource( 204 ), ExtResource( 186 ), ExtResource( 194 ) ],
-"loop": true,
-"name": "antsy",
-"speed": 60.0
-}, {
-"frames": [ ExtResource( 183 ), ExtResource( 185 ), ExtResource( 179 ), ExtResource( 180 ) ],
-"loop": true,
-"name": "antsypop",
-"speed": 60.0
-}, {
-"frames": [ ExtResource( 195 ), ExtResource( 202 ), ExtResource( 191 ) ],
-"loop": true,
-"name": "crazy",
-"speed": 60.0
-}, {
-"frames": [ ExtResource( 196 ), ExtResource( 192 ), ExtResource( 193 ), ExtResource( 199 ) ],
-"loop": true,
-"name": "crazypop",
-"speed": 60.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "empty",
-"speed": 60.0
-}, {
-"frames": [ ExtResource( 187 ), ExtResource( 188 ), ExtResource( 201 ) ],
-"loop": true,
-"name": "mad",
-"speed": 60.0
-}, {
-"frames": [ ExtResource( 198 ), ExtResource( 203 ), ExtResource( 190 ), ExtResource( 205 ) ],
-"loop": true,
-"name": "madpop",
-"speed": 60.0
-}, {
-"frames": [ ExtResource( 200 ), ExtResource( 189 ), ExtResource( 184 ) ],
-"loop": true,
-"name": "mild",
-"speed": 60.0
-}, {
-"frames": [ ExtResource( 181 ), ExtResource( 182 ), ExtResource( 197 ) ],
-"loop": true,
-"name": "mildpop",
-"speed": 60.0
-} ]
-
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 12 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 27 ), ExtResource( 25 ) ],
@@ -583,18 +508,11 @@ animation = "normal"
 speed_scale = 0.0
 centered = false
 
-[node name="HeatMeter" type="AnimatedSprite" parent="."]
-position = Vector2( -328, -272 )
-frames = SubResource( 6 )
-animation = "empty"
-speed_scale = 0.35
-centered = false
-
-[node name="HeatMeterBar" type="TextureProgress" parent="HeatMeter"]
-margin_left = 46.0
-margin_top = 66.0
-margin_right = 106.0
-margin_bottom = 106.0
+[node name="ComboMeter" type="TextureProgress" parent="."]
+margin_left = 326.0
+margin_top = 10.0
+margin_right = 386.0
+margin_bottom = 50.0
 max_value = 50.0
 texture_under = ExtResource( 206 )
 texture_progress = ExtResource( 207 )

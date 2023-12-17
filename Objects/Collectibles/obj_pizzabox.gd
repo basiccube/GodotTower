@@ -21,6 +21,8 @@ func _process(delta):
 		global.combotime = 60
 		global.collect += 1000
 		global.style += 10
+		global.heattime = 60
+		global.heatstyle += 10
 		#utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_taunteffect.tscn")
 		if (content == "shroom"):
 			var pizzakinid = utils.instance_create_level(global_position.x, global_position.y, "res://Objects/Collectibles/obj_pizzakinshroom.tscn")

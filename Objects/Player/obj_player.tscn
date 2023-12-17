@@ -1,4 +1,4 @@
-[gd_scene load_steps=3553 format=2]
+[gd_scene load_steps=3556 format=2]
 
 [ext_resource path="res://Objects/Player/sprites/idle_4.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/sprites/idle_0.png" type="Texture" id=2]
@@ -1979,6 +1979,9 @@
 [ext_resource path="res://Objects/Player/sprites/suplexmash1_2.png" type="Texture" id=1977]
 [ext_resource path="res://Objects/Player/sprites/suplexmash1_1.png" type="Texture" id=1978]
 [ext_resource path="res://Objects/Player/sprites/suplexmash2_2.png" type="Texture" id=1979]
+[ext_resource path="res://Objects/Player/sprites/groundedattack_1.png" type="Texture" id=1980]
+[ext_resource path="res://Objects/Player/sprites/groundedattack_2.png" type="Texture" id=1981]
+[ext_resource path="res://Objects/Player/sprites/groundedattack_0.png" type="Texture" id=1982]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 1204 )
@@ -2234,6 +2237,11 @@ animations = [ {
 "frames": [ ExtResource( 1336 ), ExtResource( 1337 ), ExtResource( 1338 ) ],
 "loop": true,
 "name": "gottreasure",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1982 ), ExtResource( 1980 ), ExtResource( 1981 ) ],
+"loop": true,
+"name": "groundedattack",
 "speed": 60.0
 }, {
 "frames": [ ExtResource( 1222 ), ExtResource( 1223 ), ExtResource( 1224 ) ],

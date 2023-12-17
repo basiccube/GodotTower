@@ -27,6 +27,7 @@ var stunned = 0
 var attack = false
 var movespeed = 0
 var momentum = 0
+var palette = 0
 const FLOOR_NORMAL = Vector2.UP
 var velocity = Vector2.ZERO
 var thrown = false
@@ -43,6 +44,8 @@ onready var bangeffecttimer = $BangEffectTimer
 func _process(delta):
 	sprite_index = $Sprite.animation
 	$Sprite.playing = true
+	if ($Sprite.material != null):
+		$Sprite.material.set_shader_param("current_palette", palette)
 	screenvisible = $ScreenVisibility.is_on_screen()
 	if (state == global.states.grabbed && utils.get_player().state != global.states.finishingblow):
 		$Collision.set_deferred("disabled", true)
@@ -68,6 +71,8 @@ func _process(delta):
 	position.y += velocity.y
 	velocity.x = clamp(velocity.x, -50, 50)
 	velocity.y = clamp(velocity.y, -50, 50)
+	if (global.baddierage):
+		palette = 1
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if (collision.collider != null):
@@ -81,6 +86,8 @@ func _process(delta):
 					utils.playsound("Punch")
 					global.hit += 1
 					global.combotime = 60
+					global.heattime = 60
+					global.heatstyle += 5
 					utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
 					utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
 					state = global.states.stun
@@ -158,11 +165,15 @@ func destroy():
 			obj.shake_mag = 3
 			obj.shake_mag_acc = 0.1
 		var deadbaddieid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_sausageman_dead.tscn")
+		if ($Sprite.material != null):
+			deadbaddieid.get_node("Sprite").set_material($Sprite.material.duplicate(true))
 		deadbaddieid.sprite_index = $Sprite.frames.get_frame(spr_dead, 0)
 		global.baddieroom.append(global.targetRoom + name)
 		for obj in get_tree().get_nodes_in_group("obj_tv"):
 			obj.sprite.frame = utils.randi_range(0, 4)
 		global.combo += 1
+		global.heattime = 60
+		global.heatstyle += 5
 		if (global.combo <= 8):
 			global.collect += 10
 			var smallnumbid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_smallnumber.tscn")
@@ -241,11 +252,11 @@ func scr_enemy_idle():
 	
 func scr_enemy_walk():
 	if (is_on_floor()):
-		velocity.x = (xscale * movespeed)
+		velocity.x = (xscale * (movespeed + (global.baddiespeed - 1)))
 	elif (!is_in_group("obj_ancho")):
 		velocity.x = 0
 	$Sprite.animation = spr_walk
-	$Sprite.speed_scale = 0.35
+	$Sprite.speed_scale = 0.35 + (global.baddiespeed * 0.05)
 	if (is_colliding_with_wall()):
 		if (is_in_group("obj_forknight")):
 			xscale *= -1
@@ -281,7 +292,15 @@ func scr_enemy_turn():
 func scr_enemy_stun():
 	if (is_in_group("obj_ninja")):
 		attack = true
-	stunned -= 1
+	match global.heatstylethreshold:
+		0:
+			stunned -= 1
+		1:
+			stunned -= 1.5
+		2:
+			stunned -= 1.65
+		3:
+			stunned -= 1.8
 	$Sprite.animation = spr_stunfall
 	$Sprite.speed_scale = 0.35
 	if (((is_on_floor() && $FloorCheck.is_colliding()) || is_on_ceiling() || is_colliding_with_solid()) && velocity.y >= 0):
@@ -380,6 +399,9 @@ func scr_enemy_grabbed():
 		velocity.x = ((-xscale) * 25)
 		grav = 0
 		global.combotime = 60
+		global.heattime = 60
+		if (!important):
+			global.heatstyle += 5
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
 		for i in get_tree().get_nodes_in_group("obj_camera"):
@@ -409,6 +431,9 @@ func scr_enemy_grabbed():
 		velocity.y = -7
 		velocity.x = ((-xscale) * 20)
 		global.combotime = 60
+		global.heattime = 60
+		if (!important):
+			global.heatstyle += 5
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
 		for i in get_tree().get_nodes_in_group("obj_camera"):
@@ -443,6 +468,9 @@ func scr_enemy_grabbed():
 		velocity.y = -20
 		velocity.x = ((-xscale) * 2)
 		global.combotime = 60
+		global.heattime = 60
+		if (!important):
+			global.heatstyle += 5
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
 		for i in get_tree().get_nodes_in_group("obj_camera"):
@@ -493,6 +521,9 @@ func scr_enemy_grabbed():
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
 		global.combotime = 60
+		global.heattime = 60
+		if (!important):
+			global.heatstyle += 5
 		global.hit += 1
 		hp -= 5
 		$MachEffectTimer.wait_time = 0.083
@@ -697,6 +728,18 @@ func scr_enemy_chase():
 		momentum -= 0.1
 	if (momentum <= 0):
 		momentum += 0.1
+		
+func scr_enemy_rage():
+	if (is_in_group("obj_cheeseslime")):
+		if ($Sprite.frame > 10):
+			velocity.x = (xscale * 8)
+			var hitboxid = utils.instance_create(-50000, -50000, "res://Objects/Hitboxes/obj_baddieragehitbox.tscn")
+			hitboxid.baddieid = name
+		else:
+			velocity.x = 0
+		if ($Sprite.frame == $Sprite.frames.get_frame_count($Sprite.animation) - 1):
+			state = global.states.walk
+			$Sprite.animation = spr_walk
 
 func scr_scareenemy():
 	var player = utils.get_player()
@@ -706,3 +749,10 @@ func scr_scareenemy():
 			$Sprite.animation = spr_scared
 			if (position.x != player.position.x):
 				xscale = (-(sign(position.x - player.position.x)))
+
+func _on_AfterImageTimer_timeout():
+	var afterimage = utils.instance_create_level(position.x, position.y, "res://Objects/Visuals/obj_afterimage.tscn")
+	afterimage.sprite = $Sprite.frames.get_frame($Sprite.animation, $Sprite.frame)
+	afterimage.scale.x = scale.x
+	if (state == global.states.rage):
+		$AfterImageTimer.start()

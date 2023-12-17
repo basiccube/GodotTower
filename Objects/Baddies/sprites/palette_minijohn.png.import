@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spr_flamecloud_4.png-85b8b9033152bf5736de22e553f621c0.stex"
+path="res://.import/palette_minijohn.png-94afb5bb54fa17e7999409f1106f8f6c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Visuals/sprites/spr_flamecloud_4.png"
-dest_files=[ "res://.import/spr_flamecloud_4.png-85b8b9033152bf5736de22e553f621c0.stex" ]
+source_file="res://Objects/Baddies/sprites/palette_minijohn.png"
+dest_files=[ "res://.import/palette_minijohn.png-94afb5bb54fa17e7999409f1106f8f6c.stex" ]
 
 [params]
 

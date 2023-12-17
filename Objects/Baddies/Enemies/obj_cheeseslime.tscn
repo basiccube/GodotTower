@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=83 format=2]
 
 [ext_resource path="res://Objects/Baddies/obj_baddie.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimeidle_0.png" type="Texture" id=2]
@@ -59,6 +59,35 @@
 [ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimegrabbed_0.png" type="Texture" id=57]
 [ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimegrabbed_2.png" type="Texture" id=58]
 [ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slimebounce_0.png" type="Texture" id=59]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_rage_4.png" type="Texture" id=60]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_rage_7.png" type="Texture" id=61]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_rage_5.png" type="Texture" id=62]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_rage_13.png" type="Texture" id=63]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_rage_16.png" type="Texture" id=64]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_rage_17.png" type="Texture" id=65]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_rage_15.png" type="Texture" id=66]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_rage_3.png" type="Texture" id=67]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_rage_0.png" type="Texture" id=68]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_rage_6.png" type="Texture" id=69]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_rage_9.png" type="Texture" id=70]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_rage_1.png" type="Texture" id=71]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_rage_10.png" type="Texture" id=72]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_rage_11.png" type="Texture" id=73]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_rage_8.png" type="Texture" id=74]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_rage_12.png" type="Texture" id=75]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_rage_14.png" type="Texture" id=76]
+[ext_resource path="res://Objects/Baddies/sprites/cheeseslime/slime_rage_2.png" type="Texture" id=77]
+[ext_resource path="res://Shaders/PaletteSwap.gdshader" type="Shader" id=78]
+[ext_resource path="res://Objects/Baddies/sprites/palette_cheeseslime.png" type="Texture" id=79]
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = ExtResource( 78 )
+shader_param/skip_first_row = false
+shader_param/use_palette_alpha = false
+shader_param/current_palette = 0
+shader_param/fps = 0.0
+shader_param/flash = false
+shader_param/palette = ExtResource( 79 )
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
@@ -85,6 +114,11 @@ animations = [ {
 "frames": [ ExtResource( 18 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "move",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 68 ), ExtResource( 71 ), ExtResource( 77 ), ExtResource( 67 ), ExtResource( 60 ), ExtResource( 62 ), ExtResource( 69 ), ExtResource( 61 ), ExtResource( 74 ), ExtResource( 70 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 75 ), ExtResource( 63 ), ExtResource( 76 ), ExtResource( 66 ), ExtResource( 64 ), ExtResource( 65 ) ],
+"loop": true,
+"name": "rage",
 "speed": 60.0
 }, {
 "frames": [ ExtResource( 47 ), ExtResource( 31 ), ExtResource( 49 ), ExtResource( 53 ), ExtResource( 33 ) ],
@@ -114,12 +148,13 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 28, 19 )
+extents = Vector2( 20, 19 )
 
 [node name="obj_cheeseslime" groups=["obj_cheeseslime"] instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="2"]
+material = SubResource( 7 )
 frames = SubResource( 5 )
 animation = "idle"
 

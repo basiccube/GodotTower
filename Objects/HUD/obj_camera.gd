@@ -9,7 +9,6 @@ onready var facehud = $PeppinoHUD
 
 onready var panictimer = $panictimer
 onready var dedtimer = $dedtimer
-onready var heatmeter = $HeatMeter
 
 func room_start():
 	position = utils.get_player().position
@@ -127,11 +126,11 @@ func _process(delta):
 			facehud.animation = "mach3"
 		elif (obj_player.state == global.states.hurt || obj_player.sprite_index == "fireassend" || obj_player.state == global.states.timesup || obj_player.state == global.states.bombpep || (obj_player.state == global.states.bossintro && obj_player.sprite_index == "bossintro") || (obj_player.state == global.states.bossintro && obj_player.sprite_index == "idle")):
 			facehud.animation = "hurt"
-		elif (obj_player.angry):
+		elif (global.heatstylethreshold == 2):
 			facehud.animation = "3hp"
 		elif (obj_player.sprite_index == "hurtidle" || obj_player.sprite_index == "hurtwalk"):
 			facehud.animation = "1hp"
-		elif (global.panic):
+		elif (global.panic || global.heatstylethreshold >= 3):
 			facehud.animation = "panic"
 		elif (obj_player.sprite_index == "shotgun_pullout"):
 			facehud.animation = "menacing"
@@ -193,41 +192,7 @@ func _process(delta):
 		else:
 			$Key.visible = false
 			$Key.playing = false
-		# Heat meter code
-		if ($HeatMeter.animation == "empty"):
-			$HeatMeter.playing = false
-			$HeatMeter.visible = false
-		if (global.combo <= 0 && global.combotime <= 0):
-			if ($HeatMeter.frame == $HeatMeter.frames.get_frame_count($HeatMeter.animation) - 1):
-				$HeatMeter.animation = "empty"
-			if ($HeatMeter.animation == "mild"):
-				$HeatMeter.animation = "mildpop"
-			if ($HeatMeter.animation == "antsy"):
-				$HeatMeter.animation = "antsypop"
-			if ($HeatMeter.animation == "mad"):
-				$HeatMeter.animation = "madpop"
-			if ($HeatMeter.animation == "crazy"):
-				$HeatMeter.animation = "crazypop"
-		elif (global.combo != 0 && global.combotime > 0):
-			$HeatMeter.visible = true
-			$HeatMeter.playing = true
-			$HeatMeter/HeatMeterBar.value = global.combotime
-			if (global.combo < 8 && $HeatMeter.animation != "mild" && $HeatMeter.animation != "mildpop"):
-				$HeatMeter.animation = "mildpop"
-			if (global.combo > 8 && global.combo < 16 && $HeatMeter.animation != "antsy" && $HeatMeter.animation != "antsypop"):
-				$HeatMeter.animation = "antsypop"
-			if (global.combo > 16 && global.combo < 32 && $HeatMeter.animation != "mad" && $HeatMeter.animation != "madpop"):
-				$HeatMeter.animation = "madpop"
-			if (global.combo > 32 && $HeatMeter.animation != "crazy" && $HeatMeter.animation != "crazypop"):
-				$HeatMeter.animation = "crazypop"
-			if ($HeatMeter.animation == "mildpop" && $HeatMeter.frame == $HeatMeter.frames.get_frame_count($HeatMeter.animation) - 1):
-				$HeatMeter.animation = "mild"
-			if ($HeatMeter.animation == "antsypop" && $HeatMeter.frame == $HeatMeter.frames.get_frame_count($HeatMeter.animation) - 1):
-				$HeatMeter.animation = "antsy"
-			if ($HeatMeter.animation == "madpop" && $HeatMeter.frame == $HeatMeter.frames.get_frame_count($HeatMeter.animation) - 1):
-				$HeatMeter.animation = "mad"
-			if ($HeatMeter.animation == "crazypop" && $HeatMeter.frame == $HeatMeter.frames.get_frame_count($HeatMeter.animation) - 1):
-				$HeatMeter.animation = "crazy"
+		$ComboMeter.value = global.combotime
 
 func _on_dedtimer_timeout():
 	var obj_player = utils.get_player()
