@@ -38,6 +38,7 @@ func _process(delta):
 				obj.macheffecttimer.wait_time = 0.083
 				obj.macheffecttimer.start()
 				obj.thrown = true
+				obj.instakill = true
 				if (obj_player.sprite_index == "uppercutfinishingblow"):
 					obj.velocity.x = 0
 					obj.velocity.y = -35

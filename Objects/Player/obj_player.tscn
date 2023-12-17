@@ -1,4 +1,4 @@
-[gd_scene load_steps=3556 format=2]
+[gd_scene load_steps=3607 format=2]
 
 [ext_resource path="res://Objects/Player/sprites/idle_4.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player/sprites/idle_0.png" type="Texture" id=2]
@@ -1982,6 +1982,57 @@
 [ext_resource path="res://Objects/Player/sprites/groundedattack_1.png" type="Texture" id=1980]
 [ext_resource path="res://Objects/Player/sprites/groundedattack_2.png" type="Texture" id=1981]
 [ext_resource path="res://Objects/Player/sprites/groundedattack_0.png" type="Texture" id=1982]
+[ext_resource path="res://Objects/Player/sprites/breakdance_6.png" type="Texture" id=1983]
+[ext_resource path="res://Objects/Player/sprites/breakdance_0.png" type="Texture" id=1984]
+[ext_resource path="res://Objects/Player/sprites/breakdance_2.png" type="Texture" id=1985]
+[ext_resource path="res://Objects/Player/sprites/breakdance_3.png" type="Texture" id=1986]
+[ext_resource path="res://Objects/Player/sprites/breakdance_5.png" type="Texture" id=1987]
+[ext_resource path="res://Objects/Player/sprites/breakdance_4.png" type="Texture" id=1988]
+[ext_resource path="res://Objects/Player/sprites/breakdance_1.png" type="Texture" id=1989]
+[ext_resource path="res://Objects/Player/sprites/breakdance_7.png" type="Texture" id=1990]
+[ext_resource path="res://Objects/Player/sprites/breakdancesuper_0.png" type="Texture" id=1991]
+[ext_resource path="res://Objects/Player/sprites/breakdancesuper_1.png" type="Texture" id=1992]
+[ext_resource path="res://Objects/Player/sprites/breakdancesuper_3.png" type="Texture" id=1993]
+[ext_resource path="res://Objects/Player/sprites/breakdancesuper_4.png" type="Texture" id=1994]
+[ext_resource path="res://Objects/Player/sprites/breakdancesuper_5.png" type="Texture" id=1995]
+[ext_resource path="res://Objects/Player/sprites/breakdancesuper_6.png" type="Texture" id=1996]
+[ext_resource path="res://Objects/Player/sprites/breakdance_9.png" type="Texture" id=1997]
+[ext_resource path="res://Objects/Player/sprites/breakdancesuper_2.png" type="Texture" id=1998]
+[ext_resource path="res://Objects/Player/sprites/breakdancestart_0.png" type="Texture" id=1999]
+[ext_resource path="res://Objects/Player/sprites/breakdancestart_2.png" type="Texture" id=2000]
+[ext_resource path="res://Objects/Player/sprites/breakdancestart_4.png" type="Texture" id=2001]
+[ext_resource path="res://Objects/Player/sprites/breakdancestart_3.png" type="Texture" id=2002]
+[ext_resource path="res://Objects/Player/sprites/breakdancestart_1.png" type="Texture" id=2003]
+[ext_resource path="res://Objects/Player/sprites/breakdance_8.png" type="Texture" id=2004]
+[ext_resource path="res://Objects/Player/sprites/uppercut_0.png" type="Texture" id=2005]
+[ext_resource path="res://Objects/Player/sprites/uppercut_1.png" type="Texture" id=2006]
+[ext_resource path="res://Objects/Player/sprites/uppercut_11.png" type="Texture" id=2007]
+[ext_resource path="res://Objects/Player/sprites/uppercut_12.png" type="Texture" id=2008]
+[ext_resource path="res://Objects/Player/sprites/uppercut_13.png" type="Texture" id=2009]
+[ext_resource path="res://Objects/Player/sprites/uppercutend_0.png" type="Texture" id=2010]
+[ext_resource path="res://Objects/Player/sprites/uppercut_14.png" type="Texture" id=2011]
+[ext_resource path="res://Objects/Player/sprites/uppercut_16.png" type="Texture" id=2012]
+[ext_resource path="res://Objects/Player/sprites/uppercut_15.png" type="Texture" id=2013]
+[ext_resource path="res://Objects/Player/sprites/uppercut_2.png" type="Texture" id=2014]
+[ext_resource path="res://Objects/Player/sprites/uppercut_4.png" type="Texture" id=2015]
+[ext_resource path="res://Objects/Player/sprites/uppercut_7.png" type="Texture" id=2016]
+[ext_resource path="res://Objects/Player/sprites/uppercut_9.png" type="Texture" id=2017]
+[ext_resource path="res://Objects/Player/sprites/uppercut_10.png" type="Texture" id=2018]
+[ext_resource path="res://Objects/Player/sprites/uppercut_8.png" type="Texture" id=2019]
+[ext_resource path="res://Objects/Player/sprites/uppercut_3.png" type="Texture" id=2020]
+[ext_resource path="res://Objects/Player/sprites/uppercut_6.png" type="Texture" id=2021]
+[ext_resource path="res://Objects/Player/sprites/uppercut_5.png" type="Texture" id=2022]
+[ext_resource path="res://Objects/Player/sprites/buttattack_0.png" type="Texture" id=2023]
+[ext_resource path="res://Objects/Player/sprites/buttattack_1.png" type="Texture" id=2024]
+[ext_resource path="res://Objects/Player/sprites/buttattackend_0.png" type="Texture" id=2025]
+[ext_resource path="res://Objects/Player/sprites/buttattackend_1.png" type="Texture" id=2026]
+[ext_resource path="res://Objects/Player/sprites/buttattackend_2.png" type="Texture" id=2027]
+[ext_resource path="res://Objects/Player/sprites/buttattackstart_0.png" type="Texture" id=2028]
+[ext_resource path="res://Objects/Player/sprites/buttattackstart_1.png" type="Texture" id=2029]
+[ext_resource path="res://Objects/Player/sprites/buttattackstart_2.png" type="Texture" id=2030]
+[ext_resource path="res://Objects/Player/sprites/buttattackstart_5.png" type="Texture" id=2031]
+[ext_resource path="res://Objects/Player/sprites/buttattackstart_3.png" type="Texture" id=2032]
+[ext_resource path="res://Objects/Player/sprites/buttattackstart_4.png" type="Texture" id=2033]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 1204 )
@@ -2084,9 +2135,39 @@ animations = [ {
 "name": "bossintro",
 "speed": 60.0
 }, {
+"frames": [ ExtResource( 1984 ), ExtResource( 1989 ), ExtResource( 1985 ), ExtResource( 1986 ), ExtResource( 1988 ), ExtResource( 1987 ), ExtResource( 1983 ), ExtResource( 1990 ), ExtResource( 2004 ), ExtResource( 1997 ) ],
+"loop": true,
+"name": "breakdance",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1999 ), ExtResource( 2003 ), ExtResource( 2000 ), ExtResource( 2002 ), ExtResource( 2001 ) ],
+"loop": true,
+"name": "breakdancestart",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 1991 ), ExtResource( 1992 ), ExtResource( 1998 ), ExtResource( 1993 ), ExtResource( 1994 ), ExtResource( 1995 ), ExtResource( 1996 ) ],
+"loop": true,
+"name": "breakdancesuper",
+"speed": 60.0
+}, {
 "frames": [ ExtResource( 684 ), ExtResource( 690 ), ExtResource( 693 ), ExtResource( 691 ), ExtResource( 692 ), ExtResource( 685 ), ExtResource( 689 ), ExtResource( 694 ), ExtResource( 686 ), ExtResource( 683 ), ExtResource( 687 ), ExtResource( 688 ) ],
 "loop": true,
 "name": "bump",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 2023 ), ExtResource( 2024 ) ],
+"loop": true,
+"name": "buttattack",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 2025 ), ExtResource( 2026 ), ExtResource( 2027 ) ],
+"loop": true,
+"name": "buttattackend",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 2028 ), ExtResource( 2029 ), ExtResource( 2030 ), ExtResource( 2032 ), ExtResource( 2033 ), ExtResource( 2031 ) ],
+"loop": true,
+"name": "buttattackstart",
 "speed": 60.0
 }, {
 "frames": [ ExtResource( 900 ), ExtResource( 901 ), ExtResource( 904 ), ExtResource( 903 ), ExtResource( 902 ) ],
@@ -2812,6 +2893,16 @@ animations = [ {
 "frames": [ ExtResource( 1785 ), ExtResource( 1781 ), ExtResource( 1786 ) ],
 "loop": true,
 "name": "ungroundedattack",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 2005 ), ExtResource( 2006 ), ExtResource( 2014 ), ExtResource( 2020 ), ExtResource( 2015 ), ExtResource( 2022 ), ExtResource( 2021 ), ExtResource( 2016 ), ExtResource( 2019 ), ExtResource( 2017 ), ExtResource( 2018 ), ExtResource( 2007 ), ExtResource( 2008 ), ExtResource( 2009 ), ExtResource( 2011 ), ExtResource( 2013 ), ExtResource( 2012 ) ],
+"loop": true,
+"name": "uppercut",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 2010 ) ],
+"loop": true,
+"name": "uppercutend",
 "speed": 60.0
 }, {
 "frames": [ ExtResource( 1265 ), ExtResource( 1261 ), ExtResource( 1262 ), ExtResource( 1271 ), ExtResource( 1263 ), ExtResource( 1260 ), ExtResource( 1268 ), ExtResource( 1266 ), ExtResource( 1272 ), ExtResource( 1267 ), ExtResource( 1264 ), ExtResource( 1270 ), ExtResource( 1269 ) ],

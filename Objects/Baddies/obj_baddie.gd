@@ -33,6 +33,7 @@ var velocity = Vector2.ZERO
 var thrown = false
 var straightthrow = false
 var hp = 1
+var instakill = false
 var grav = 0.5
 var bombreset = 0
 export(int) var xscale = -1
@@ -205,6 +206,8 @@ func destroy():
 			obj.shake_mag = 3
 			obj.shake_mag_acc = (3 / 10)
 		var deadbaddieid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Baddies/obj_sausageman_dead.tscn")
+		if ($Sprite.material != null):
+			deadbaddieid.get_node("Sprite").set_material($Sprite.material.duplicate(true))
 		deadbaddieid.sprite_index = $Sprite.frames.get_frame(spr_dead, 0)
 	queue_free()
 	
@@ -305,8 +308,8 @@ func scr_enemy_stun():
 			stunned -= 1.8
 	$Sprite.animation = spr_stunfall
 	$Sprite.speed_scale = 0.35
-	if (((is_on_floor() && $FloorCheck.is_colliding()) || is_on_ceiling() || is_colliding_with_solid()) && velocity.y >= 0):
-		if (thrown && hp <= 0):
+	if (((is_on_floor() && $FloorCheck.is_colliding()) || is_colliding_with_solid()) && velocity.y >= 0):
+		if ((thrown && hp <= 0) || instakill):
 			destroy()
 		thrown = false
 		grav = 0.5
@@ -314,7 +317,7 @@ func scr_enemy_stun():
 	if ($OppositeWallCheck.is_colliding() && ($OppositeWallCheck.get_collider().is_in_group("obj_solid") && !$OppositeWallCheck.get_collider().is_in_group("obj_destructibles"))):
 		var impactinst = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_bulletimpact.tscn")
 		impactinst.scale.x = -xscale
-		if (thrown):
+		if (thrown && hp <= 0):
 			destroy()
 		thrown = false
 		grav = 0.5
@@ -746,7 +749,7 @@ func scr_enemy_rage():
 func scr_scareenemy():
 	var player = utils.get_player()
 	if (player.position.x > (position.x - 400) && player.position.x < (position.x + 400) && position.y <= (player.position.y + 60) && position.y >= (player.position.y - 60)):
-		if (state != global.states.idle && player.state == global.states.mach3):
+		if (state != global.states.idle && state != global.states.stun && player.state == global.states.mach3):
 			state = global.states.idle
 			$Sprite.animation = spr_scared
 			if (position.x != player.position.x):

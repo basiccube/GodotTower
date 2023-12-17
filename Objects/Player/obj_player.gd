@@ -71,6 +71,8 @@ var baddiegrabbed = ""
 var attacking = 0
 var inv_frames = 0
 var supercharged = false
+var attackbuffer = 0
+var breakdance = 0
 var flash = false
 var hurted = 0
 var box = false
@@ -202,27 +204,44 @@ func _process(delta):
 				destructible.destroy()
 		if (destructible.is_in_group("obj_baddie")):
 			if (destructible.state != global.states.grabbed && !cutscene):
-				if (state == global.states.shoulderbash):
+				if (state == global.states.shoulderbash && charactersprite.animation != "groundedattack" && charactersprite.animation != "ungroundedattack"):
 					utils.playsound("Punch")
 					global.hit += 1
 					global.combotime = 60
-					global.heatstyle += 5
 					global.heattime = 60
+					utils.instance_create(destructible.global_position.x, destructible.global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
+					utils.instance_create(destructible.global_position.x, destructible.global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
+					utils.instance_create(destructible.global_position.x, destructible.global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
+					utils.instance_create(destructible.global_position.x, destructible.global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
+					utils.instance_create(destructible.global_position.x, destructible.global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
+					utils.instance_create(destructible.global_position.x, destructible.global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
 					for i in get_tree().get_nodes_in_group("obj_camera"):
-						i.shake_mag = 20
-						i.shake_mag_acc = (30 / 30)
+						i.shake_mag = 3
+						i.shake_mag_acc = (3 / 30)
+					destructible.bangeffecttimer.wait_time = 0.05
+					destructible.bangeffecttimer.start()
+					if (destructible.is_in_group("obj_pizzaball")):
+						global.golfhit += 1
+					destructible.macheffecttimer.wait_time = 0.083
+					destructible.macheffecttimer.start()
+					attackbuffer = 15
 					if (!is_on_floor()):
 						charactersprite.animation = "ungroundedattack"
+						charactersprite.frame = utils.randi_range(0, 2)
 						velocity.y = -2
 					else:
-						var rng = utils.randi_range(1, 2)
-						charactersprite.animation = "attack" + str(rng)
-					destructible.destroy()
+						charactersprite.animation = "groundedattack"
+						charactersprite.frame = utils.randi_range(0, 2)
+					destructible.hp -= 1
+					destructible.thrown = true
+					destructible.stunned = 200
+					destructible.velocity.x = ((xscale) * 15)
+					destructible.velocity.y = -6
+					destructible.state = global.states.stun
 				if (state == global.states.faceplant || state == global.states.machroll):
 					utils.playsound("Punch")
 					global.hit += 1
 					global.combotime = 60
-					global.heatstyle += 5
 					global.heattime = 60
 					destructible.destroy()
 		if (destructible.is_in_group("obj_hungrypillar")):
@@ -314,6 +333,9 @@ func _process(delta):
 								charactersprite.animation = "mach2jump"
 							suplexmove = 0
 							velocity.y = -11
+						for obj in get_tree().get_nodes_in_group("obj_camera"):
+							obj.shake_mag = 3
+							obj.shake_mag_acc = (3 / 30)
 						baddie.destroy()
 					if (state == global.states.slipnslide):
 						utils.playsound("Punch")
@@ -479,6 +501,8 @@ func _process(delta):
 			scr_player_faceplant()
 		global.states.ejected:
 			scr_player_ejected()
+		global.states.punch:
+			scr_player_punch()
 	scr_playersounds()
 	if (global.combo >= global.combomilestone && state != global.states.backbreaker):
 		supercharged = true
@@ -530,7 +554,7 @@ func _process(delta):
 		grabbing = 1
 	else:
 		grabbing = 0
-	if (state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.freefall || state == global.states.tumble || state == global.states.fireass || state == global.states.Sjump || state == global.states.machroll || state == global.states.machfreefall || (state == global.states.superslam && charactersprite.animation == "piledriver") || state == global.states.knightpep || state == global.states.knightpepattack || state == global.states.knightpepslopes || state == global.states.faceplant || state == global.states.shoulderbash || (state == global.states.crouchslide && (charactersprite.animation == "jumpdive1" || charactersprite.animation == "jumpdive2"))):
+	if (state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.freefall || state == global.states.tumble || state == global.states.fireass || state == global.states.Sjump || state == global.states.machroll || state == global.states.machfreefall || (state == global.states.superslam && charactersprite.animation == "piledriver") || state == global.states.knightpep || state == global.states.knightpepattack || state == global.states.knightpepslopes || state == global.states.faceplant || state == global.states.shoulderbash || state == global.states.punch || (state == global.states.crouchslide && (charactersprite.animation == "jumpdive1" || charactersprite.animation == "jumpdive2"))):
 		instakillmove = 1
 	else:
 		instakillmove = 0
@@ -590,7 +614,7 @@ func _physics_process(delta):
 					if (velocity.y < -6):
 						velocity.y = 0
 				snap_vector = Vector2.DOWN * 20
-	if state != global.states.titlescreen && state != global.states.gameover && state != global.states.ejected && charactersprite.animation != "ungroundedattack" && charactersprite.animation != "attack1" && charactersprite.animation != "attack2":
+	if state != global.states.titlescreen && state != global.states.gameover && state != global.states.ejected && charactersprite.animation != "ungroundedattack" && charactersprite.animation != "groundedattack":
 		if state != global.states.backbreaker && state != global.states.finishingblow && !(state == global.states.handstandjump && global.oldgrab) && state != global.states.portal && state != global.states.gottreasure && state != global.states.Sjumpland && state != global.states.ladder && state != global.states.keyget && (state != global.states.door && (charactersprite.animation != "downpizzabox" && charactersprite.animation != "uppizzabox")):
 			if (velocity.y < 30):
 				velocity.y += grav
@@ -623,7 +647,7 @@ func place_meeting(collisionpos: Vector2, object: String):
 			return false
 			
 func is_colliding_with_wall():
-	if (state == global.states.mach1 || state == global.states.normal || state == global.states.machslide || state == global.states.slipnslide):
+	if (state == global.states.mach1 || state == global.states.normal || state == global.states.machslide || state == global.states.slipnslide || state == global.states.punch):
 		if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && ($SolidCheck.get_collider().is_in_group("obj_solid") || $SolidCheck.get_collider().is_in_group("obj_destructibles") || $SolidCheck.get_collider().is_in_group("obj_specialdestructibles") || $SolidCheck.get_collider().is_in_group("obj_metalblock"))) || ($SolidCheck2.is_colliding() && $SolidCheck2.get_collider() != null && ($SolidCheck2.get_collider().is_in_group("obj_solid") || $SolidCheck2.get_collider().is_in_group("obj_destructibles") || $SolidCheck2.get_collider().is_in_group("obj_specialdestructibles") || $SolidCheck2.get_collider().is_in_group("obj_metalblock")))) && !utils.instance_exists("obj_fadeout")):
 			return true
 		else:
@@ -913,6 +937,18 @@ func scr_player_normal():
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_crazyrunothereffect.tscn")
 		charactersprite.animation = "attackdash"
 		movespeed = 6
+	if (Input.is_action_just_pressed("key_shoot") && shotgunAnim == 0):
+		utils.playsound("Breakdance")
+		movespeed = 9
+		state = global.states.punch
+		charactersprite.animation = "breakdancestart"
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_dashcloud.tscn")
+		for i in get_tree().get_nodes_in_group("obj_dashcloud"):
+			if xscale == 1:
+				i.sprite.flip_h = false
+			elif xscale == -1:
+				i.sprite.flip_h = true
+		breakdance = 35
 	if (Input.is_action_just_pressed("key_shoot") && shotgunAnim == 1):
 		utils.playsound("KillingBlow")
 		state = global.states.shotgun
@@ -1063,6 +1099,19 @@ func scr_player_jump():
 		charactersprite.animation = "airattackstart"
 		velocity.y = -4
 		movespeed = 6
+	if (Input.is_action_just_pressed("key_shoot") && shotgunAnim == 0):
+		utils.playsound("Breakdance")
+		velocity.y = -4
+		movespeed = 9
+		state = global.states.punch
+		charactersprite.animation = "breakdancestart"
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_dashcloud.tscn")
+		for i in get_tree().get_nodes_in_group("obj_dashcloud"):
+			if xscale == 1:
+				i.sprite.flip_h = false
+			elif xscale == -1:
+				i.sprite.flip_h = true
+		breakdance = 35
 	if (Input.is_action_just_pressed("key_shoot") && shotgunAnim == 1):
 		utils.playsound("KillingBlow")
 		state = global.states.shotgun
@@ -1523,13 +1572,15 @@ func scr_player_handstandjump():
 func scr_player_shoulderbash():
 	var move = ((-int(Input.is_action_pressed("key_left"))) + int(Input.is_action_pressed("key_right")))
 	landAnim = 0
-	if (charactersprite.animation != "ungroundedattack" && charactersprite.animation != "attack1" && charactersprite.animation != "attack2"):
+	if (charactersprite.animation != "ungroundedattack" && charactersprite.animation != "groundedattack"):
 		velocity.x = (xscale * movespeed)
 	else:
 		velocity.x = 0
 		velocity.y = 0
 	momemtum = 1
 	dir = xscale
+	if (attackbuffer > 0):
+		attackbuffer -= 1
 	if (movespeed < 10 && is_on_floor()):
 		movespeed += 0.5
 	elif (!is_on_floor()):
@@ -1549,9 +1600,9 @@ func scr_player_shoulderbash():
 		state = global.states.mach2
 	if (is_last_frame() && charactersprite.animation == "airattackstart"):
 		charactersprite.animation = "airattack"
-	if (is_last_frame() && charactersprite.animation == "ungroundedattack"):
+	if (attackbuffer <= 0 && charactersprite.animation == "ungroundedattack"):
 		charactersprite.animation = "backflip"
-	if (is_last_frame() && (charactersprite.animation == "attack1" || charactersprite.animation == "attack2")):
+	if (attackbuffer <= 0 && charactersprite.animation == "groundedattack"):
 		charactersprite.animation = "attackdash"
 	if (is_on_floor() && charactersprite.animation == "backflip"):
 		charactersprite.animation = "attackdash"
@@ -1559,13 +1610,12 @@ func scr_player_shoulderbash():
 		if (Input.is_action_pressed("key_dash")):
 			charactersprite.speed_scale = 0.35
 			state = global.states.mach2
-		elif (!Input.is_action_pressed("key_grab")):
-			charactersprite.speed_scale = 0.35
-			state = global.states.machslide
-			$MachSlide.play()
-			charactersprite.animation = "machslidestart"
 		else:
-			charactersprite.animation = "attackdash"
+			charactersprite.speed_scale = 0.35
+			state = global.states.jump
+			charactersprite.animation = "fall"
+	if (!is_on_floor() && charactersprite.animation == "attackdash"):
+		charactersprite.animation = "airattackstart"
 	if (Input.is_action_just_pressed("key_jump")):
 		input_buffer_jump = 0
 	if (is_on_floor() && input_buffer_jump < 8 && charactersprite.animation == "attackdash"):
@@ -1597,7 +1647,10 @@ func scr_player_shoulderbash():
 				i.sprite.flip_h = false
 			elif xscale == -1:
 				i.sprite.flip_h = true
-	charactersprite.speed_scale = 0.35
+	if (charactersprite.animation == "groundedattack" || charactersprite.animation == "ungroundedattack"):
+		charactersprite.speed_scale = 0
+	else:
+		charactersprite.speed_scale = 0.35
 	
 func scr_player_hurt():
 	if (charactersprite.animation == "hurtjump"):
@@ -2886,7 +2939,68 @@ func scr_player_ejected():
 	inv_frames = 0
 	if (velocity.y < 12):
 		velocity.y += grav
-	
+		
+func scr_player_punch():
+	var move = ((-int(Input.is_action_pressed("key_left"))) + int(Input.is_action_pressed("key_right")))
+	if (charactersprite.animation == "uppercut" || charactersprite.animation == "uppercutend"):
+		velocity.x = (move * movespeed)
+	else:
+		velocity.x = (xscale * movespeed)
+	jumpstop = 0
+	if (charactersprite.animation == "breakdancesuper" && Input.is_action_just_pressed("key_shoot")):
+		movespeed = 14
+	if (is_last_frame() && charactersprite.animation == "uppercut"):
+		state = global.states.jump
+		charactersprite.animation = "uppercutend"
+	if (is_on_floor() && velocity.y >= 0 && (charactersprite.animation == "uppercut" || charactersprite.animation == "uppercutend")):
+		state = global.states.jump
+	if (movespeed > 0 && charactersprite.animation == "breakdance" && is_on_floor()):
+		movespeed -= 0.5
+	if (movespeed > 0 && charactersprite.animation == "breakdancesuper"):
+		movespeed -= 0.25
+	if (is_colliding_with_wall() && (charactersprite.animation == "breakdancestart" || charactersprite.animation == "breakdance")):
+		movespeed = 0
+	if (is_last_frame() && charactersprite.animation == "breakdancestart"):
+		charactersprite.animation = "breakdance"
+	if (Input.is_action_just_pressed("key_shoot") && charactersprite.animation == "breakdance"):
+		charactersprite.animation = "breakdancesuper"
+		movespeed = 12
+	if (breakdance > 0):
+		breakdance -= 1
+	landAnim = 1
+	if (movespeed <= 0 && (charactersprite.animation == "breakdancesuper" || charactersprite.animation == "buttattackend")):
+		state = global.states.normal
+	if (breakdance <= 0 && charactersprite.animation == "breakdance"):
+		state = global.states.normal
+	if (is_colliding_with_wall() && charactersprite.animation == "breakdancesuper"):
+		$SolidCheck.scale.x *= -1
+		$SolidCheck2.scale.x *= -1
+		$DestructibleArea.scale.x *= -1
+		$WallClimbCheck.scale.x *= -1
+		xscale *= -1
+	if (charactersprite.animation == "breakdancesuper"):
+		charactersprite.speed_scale = (movespeed / 24)
+	else:
+		charactersprite.speed_scale = 0.4
+	if (charactersprite.animation == "buttattack" || charactersprite.animation == "buttattackstart" || charactersprite.animation == "buttattackend"):
+		if (is_on_wall()):
+			$Bump.play()
+			movespeed = 0
+			state = global.states.bump
+			velocity.x = (-2.5 * xscale)
+			velocity.y = -3
+			mach2 = 0
+			machslideAnim = 1
+			machhitAnim = 0
+			utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_bumpeffect.tscn")
+	if (!utils.instance_exists("obj_dashcloud") && is_on_floor() && movespeed > 5):
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_dashcloud.tscn")
+		for i in get_tree().get_nodes_in_group("obj_dashcloud"):
+			if xscale == 1:
+				i.sprite.flip_h = false
+			elif xscale == -1:
+				i.sprite.flip_h = true
+
 func scr_playerreset():
 	if (utils.instance_exists("obj_endlevelfade")):
 		for i in get_tree().get_nodes_in_group("obj_endlevelfade"):
@@ -2918,6 +3032,8 @@ func scr_playerreset():
 	indoor = false
 	box = false
 	supercharged = false
+	breakdance = 0
+	attackbuffer = 0
 	global.saveroom.clear()
 	global.baddieroom.clear()
 	global.escaperoom.clear()

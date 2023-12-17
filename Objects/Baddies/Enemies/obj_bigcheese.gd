@@ -14,7 +14,7 @@ func _ready():
 	spr_grabbed = "stun"
 	spr_scared = "stun"
 	spr_dead = "dead"
-	hp = 5
+	hp = 2
 	important = false
 	
 func _process(delta):

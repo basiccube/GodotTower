@@ -20,7 +20,7 @@ func _ready():
 	spr_grabbed = "stun"
 	spr_scared = "stun"
 	spr_dead = "minijohn_dead"
-	hp = 1
+	hp = 4
 	momentum = 5
 	important = false
 	
