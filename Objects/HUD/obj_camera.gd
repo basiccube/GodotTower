@@ -192,7 +192,6 @@ func _process(delta):
 		else:
 			$Key.visible = false
 			$Key.playing = false
-		$ComboMeter.value = global.combotime
 
 func _on_dedtimer_timeout():
 	var obj_player = utils.get_player()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=265 format=2]
+[gd_scene load_steps=263 format=2]
 
 [ext_resource path="res://Objects/HUD/obj_camera.gd" type="Script" id=1]
 [ext_resource path="res://Objects/HUD/sprites/speedbar_1.png" type="Texture" id=2]
@@ -178,8 +178,6 @@
 [ext_resource path="res://Shaders/PaletteSwap.gdshader" type="Shader" id=176]
 [ext_resource path="res://Objects/Player/peppalette.png" type="Texture" id=177]
 [ext_resource path="res://Objects/HUD/sprites/shotgunbackup_0.png" type="Texture" id=178]
-[ext_resource path="res://Objects/HUD/sprites/heatmeter.png" type="Texture" id=206]
-[ext_resource path="res://Objects/HUD/sprites/heatmeterbar_fill.png" type="Texture" id=207]
 [ext_resource path="res://Objects/HUD/sprites/noise/noiseHUD_lowhealth_2.png" type="Texture" id=208]
 [ext_resource path="res://Objects/HUD/sprites/noise/noiseHUD_lowhealth_0.png" type="Texture" id=209]
 [ext_resource path="res://Objects/HUD/sprites/noise/noiseHUD_lowhealth_1.png" type="Texture" id=210]
@@ -507,15 +505,6 @@ frames = SubResource( 1 )
 animation = "normal"
 speed_scale = 0.0
 centered = false
-
-[node name="ComboMeter" type="TextureProgress" parent="."]
-margin_left = 326.0
-margin_top = 10.0
-margin_right = 386.0
-margin_bottom = 50.0
-max_value = 50.0
-texture_under = ExtResource( 206 )
-texture_progress = ExtResource( 207 )
 
 [node name="TimeText" type="Label" parent="."]
 margin_left = -480.0

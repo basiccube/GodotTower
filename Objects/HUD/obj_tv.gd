@@ -10,6 +10,10 @@ var shownranka = false
 var shownrankb = false
 var shownrankc = false
 var character = "PEPPINO"
+var combo_state = 0
+var combo_vsp = 0
+var combo_posX = 0
+var combo_posY = 0
 onready var sprite = $TVSprite
 onready var resettimer = $ResetTimer
 
@@ -17,16 +21,13 @@ func _process(delta):
 	$MessageLabel.text = message
 	$TVSprite.animation = tvsprite
 	$TVSprite.playing = true
-	$ComboLabel.modulate.a = $TVSprite.modulate.a
+	$ComboBubble.modulate.a = $TVSprite.modulate.a
 	$ScoreLabel.modulate.a = $TVSprite.modulate.a
 	var obj_camera = utils.get_instance("obj_camera")
 	position.x = obj_camera.global_position.x
 	position.y = obj_camera.global_position.y
 	if (global.combo != 0 && global.combotime != 0):
-		$ComboLabel.visible = true
-		$ComboLabel.text = "X" + str(global.combo)
-	else:
-		$ComboLabel.visible = false
+		$ComboBubble/ComboLabel.text = str(global.combo)
 	if (global.combo != 0 && global.combotime <= 1):
 		if (global.combo <= 8):
 			imageindexstore = 0
@@ -221,7 +222,42 @@ func _process(delta):
 		message = "GOT THE KEY!"
 		$ResetTimer.wait_time = 0.83
 		$ResetTimer.start()
-	
+	$ComboBubble/ComboMeter.value = global.combotime
+	if (global.combotime < 20):
+		combo_posX = lerp(rand_range(-2, 0), rand_range(2, 5), 0.01)
+	else:
+		combo_posX = 0
+	if (global.combotime > 0 && global.combo != 0):
+		match combo_state:
+			0:
+				combo_posY += combo_vsp
+				combo_vsp += 0.5
+				if (combo_posY > 0):
+					combo_state += 1
+			1:
+				combo_posY = lerp(combo_posY, 0, 0.05)
+				if (combo_posY < 1):
+					combo_posY = 0
+					combo_vsp = 0
+					combo_state += 1
+			2:
+				if (global.combotime < 30):
+					combo_posY += combo_vsp
+					if (combo_vsp < 20):
+						combo_vsp += 0.5
+					if (combo_posY > 0):
+						combo_posY = 0
+						combo_vsp -= 1
+						if (global.combotime < 15):
+							combo_vsp = -2
+				else:
+					combo_posY = lerp(combo_posY, 0, 0.25)
+	else:
+		combo_posY = lerp(combo_posY, -500, 0.025)
+		combo_vsp = 0
+		combo_state = 0
+	$ComboBubble.position.x = 344 + combo_posX
+	$ComboBubble.position.y = -72 + combo_posY
 
 func _on_ResetTimer_timeout():
 	showtext = false

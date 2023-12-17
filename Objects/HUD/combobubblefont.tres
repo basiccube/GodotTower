@@ -1,0 +1,14 @@
+[gd_resource type="BitmapFont" load_steps=3 format=2]
+
+[ext_resource path="res://addons/BitmapTextureFont/main.gd" type="Script" id=1]
+[ext_resource path="res://Objects/HUD/sprites/combobubblefont.png" type="Texture" id=2]
+
+[resource]
+textures = [ ExtResource( 2 ) ]
+chars = PoolIntArray( 56, 0, 258, 0, 28, 48, 0, 0, 28, 48, 0, 2, 0, 26, 48, 0, 0, 26, 57, 0, 293, 0, 25, 48, 0, 0, 25, 49, 0, 34, 0, 28, 48, 0, 0, 28, 50, 0, 67, 0, 25, 48, 0, 0, 25, 51, 0, 98, 0, 25, 48, 0, 0, 25, 52, 0, 134, 0, 25, 48, 0, 0, 25, 53, 0, 162, 0, 27, 48, 0, 0, 27, 54, 0, 195, 0, 26, 48, 0, 0, 26, 55, 0, 224, 0, 32, 48, 0, 0, 32 )
+height = 48.0
+script = ExtResource( 1 )
+texture = ExtResource( 2 )
+characterMap = "0123456789"
+size = Vector2( 32, 48 )
+monospace = false

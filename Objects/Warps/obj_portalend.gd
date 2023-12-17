@@ -36,5 +36,4 @@ func _on_Sprite_animation_finished():
 		global.combotime = 60
 		global.laps += 1
 		global.escaperoom.clear()
-		global.baddieroom.clear()
 		utils.instance_create(utils.get_gamenode().global_position.x, utils.get_gamenode().global_position.y, "res://Objects/Visuals/obj_fadeout.tscn")

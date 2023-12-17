@@ -73,6 +73,8 @@ func _process(delta):
 	velocity.y = clamp(velocity.y, -50, 50)
 	if (global.baddierage):
 		palette = 1
+	else:
+		palette = 0
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if (collision.collider != null):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=2]
+[gd_scene load_steps=100 format=2]
 
 [ext_resource path="res://Objects/HUD/obj_tv.gd" type="Script" id=1]
 [ext_resource path="res://Objects/HUD/sprites/tv/tvdefault_0.png" type="Texture" id=2]
@@ -94,6 +94,10 @@
 [ext_resource path="res://Objects/HUD/sprites/tv/tvtreasure_1.png" type="Texture" id=92]
 [ext_resource path="res://Objects/HUD/sprites/tv/tvtreasure_0.png" type="Texture" id=93]
 [ext_resource path="res://Objects/HUD/font.tres" type="BitmapFont" id=94]
+[ext_resource path="res://Objects/HUD/sprites/combometer_fill.png" type="Texture" id=95]
+[ext_resource path="res://Objects/HUD/sprites/combometer.png" type="Texture" id=96]
+[ext_resource path="res://Objects/HUD/combobubblefont.tres" type="BitmapFont" id=97]
+[ext_resource path="res://Objects/HUD/sprites/combobubble.png" type="Texture" id=98]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -217,6 +221,30 @@ animations = [ {
 z_index = 1000
 script = ExtResource( 1 )
 
+[node name="ComboBubble" type="Sprite" parent="."]
+position = Vector2( 344, -72 )
+texture = ExtResource( 98 )
+
+[node name="ComboLabel" type="Label" parent="ComboBubble"]
+margin_left = -132.0
+margin_top = -26.0
+margin_right = -36.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 97 )
+text = "1"
+align = 2
+valign = 1
+uppercase = true
+
+[node name="ComboMeter" type="TextureProgress" parent="ComboBubble"]
+margin_left = -40.0
+margin_top = 22.0
+margin_right = 40.0
+margin_bottom = 29.0
+max_value = 50.0
+texture_under = ExtResource( 96 )
+texture_progress = ExtResource( 95 )
+
 [node name="TVSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 270, -270 )
 frames = SubResource( 1 )
@@ -236,16 +264,6 @@ grow_horizontal = 2
 rect_min_size = Vector2( 960, 32 )
 custom_fonts/font = ExtResource( 94 )
 text = "TEST"
-align = 1
-uppercase = true
-
-[node name="ComboLabel" type="Label" parent="."]
-margin_left = -120.0
-margin_top = -100.0
-margin_right = 840.0
-margin_bottom = -68.0
-custom_fonts/font = ExtResource( 94 )
-text = "X1"
 align = 1
 uppercase = true
 

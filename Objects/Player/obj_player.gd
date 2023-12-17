@@ -247,7 +247,7 @@ func _process(delta):
 						charactersprite.animation = "shotgunjump2"
 					state = global.states.freefallland
 				destructible.destroy()
-			if (velocity.y >= 0 && (state == global.states.knightpep || global.states.knightpepslopes || global.states.knightpepattack)):
+			if (velocity.y >= 0 && (state == global.states.knightpep || state == global.states.knightpepslopes || state == global.states.knightpepattack)):
 				destructible.destroy()
 		if (destructible.is_in_group("obj_specialdestructibles")):
 			if (destructible.is_in_group("obj_bombblock") && state == global.states.bombpep && charactersprite.animation != "bombpep_end"):
