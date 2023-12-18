@@ -207,7 +207,7 @@ func _process(delta):
 				if (state == global.states.shoulderbash && charactersprite.animation != "groundedattack" && charactersprite.animation != "ungroundedattack"):
 					utils.playsound("Punch")
 					global.hit += 1
-					global.combotime = 60
+					global.combotime += 30
 					global.heattime = 60
 					utils.instance_create(destructible.global_position.x, destructible.global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
 					utils.instance_create(destructible.global_position.x, destructible.global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
@@ -258,12 +258,43 @@ func _process(delta):
 				destructible.destroy()
 		if (destructible.is_in_group("obj_baddie")):
 			if (destructible.state != global.states.grabbed && !cutscene):
-				if ((state == global.states.punch && (charactersprite.animation == "uppercut" || charactersprite.animation == "uppercutend")) || state == global.states.Sjump):
+				if (state == global.states.climbwall):
 					utils.playsound("Punch")
 					global.hit += 1
 					global.combotime = 60
 					global.heattime = 60
 					destructible.destroy()
+				if (((state == global.states.punch && (charactersprite.animation == "uppercut" || charactersprite.animation == "uppercutend")) || state == global.states.Sjump) && attackbuffer <= 0):
+					utils.playsound("Punch")
+					global.hit += 1
+					global.combotime = 60
+					global.heattime = 60
+					if (state == global.states.punch):
+						attackbuffer = 35
+					utils.instance_create(destructible.global_position.x, destructible.global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
+					utils.instance_create(destructible.global_position.x, destructible.global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
+					utils.instance_create(destructible.global_position.x, destructible.global_position.y, "res://Objects/Visuals/obj_slapstar.tscn")
+					utils.instance_create(destructible.global_position.x, destructible.global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
+					utils.instance_create(destructible.global_position.x, destructible.global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
+					utils.instance_create(destructible.global_position.x, destructible.global_position.y, "res://Objects/Baddies/obj_baddiegibs.tscn")
+					for i in get_tree().get_nodes_in_group("obj_camera"):
+						i.shake_mag = 3
+						i.shake_mag_acc = (3 / 30)
+					destructible.bangeffecttimer.wait_time = 0.05
+					destructible.bangeffecttimer.start()
+					if (destructible.is_in_group("obj_pizzaball")):
+						global.golfhit += 1
+					destructible.macheffecttimer.wait_time = 0.083
+					destructible.macheffecttimer.start()
+					if (destructible.hp <= 1):
+						destructible.destroy()
+					else:
+						destructible.hp -= 1
+						destructible.thrown = true
+						destructible.stunned = 200
+						destructible.velocity.x = ((xscale) * 10)
+						destructible.velocity.y = -8
+						destructible.state = global.states.stun
 	for destructible in $FallArea.get_overlapping_bodies():
 		if (destructible.is_in_group("obj_destructibles") && !destructible.is_in_group("obj_specialdestructibles")):
 			if (velocity.y >= 0 && (state == global.states.freefall || state == global.states.freefallland)):
@@ -562,10 +593,12 @@ func _process(delta):
 		grabbing = 1
 	else:
 		grabbing = 0
-	if (state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.freefall || state == global.states.tumble || state == global.states.fireass || state == global.states.Sjump || state == global.states.machroll || state == global.states.machfreefall || (state == global.states.superslam && charactersprite.animation == "piledriver") || state == global.states.knightpep || state == global.states.knightpepattack || state == global.states.knightpepslopes || state == global.states.faceplant || state == global.states.shoulderbash || state == global.states.punch || (state == global.states.crouchslide && (charactersprite.animation == "jumpdive1" || charactersprite.animation == "jumpdive2"))):
+	if (state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.freefall || state == global.states.tumble || state == global.states.fireass || state == global.states.Sjump || state == global.states.machroll || state == global.states.machfreefall || (state == global.states.superslam && charactersprite.animation == "piledriver") || state == global.states.knightpep || state == global.states.knightpepattack || state == global.states.knightpepslopes || state == global.states.faceplant || state == global.states.shoulderbash || (state == global.states.punch && charactersprite.animation != "uppercut" && charactersprite.animation != "uppercutend") || (state == global.states.crouchslide && (charactersprite.animation == "jumpdive1" || charactersprite.animation == "jumpdive2"))):
 		instakillmove = 1
 	else:
 		instakillmove = 0
+	if (state != global.states.punch && state != global.states.shoulderbash):
+		attackbuffer = 0
 	if (flash && $WhiteFlashTimer.is_stopped()):
 		$WhiteFlashTimer.wait_time = 0.1
 		$WhiteFlashTimer.start()
@@ -2961,6 +2994,8 @@ func scr_player_punch():
 	else:
 		velocity.x = (xscale * movespeed)
 	jumpstop = 0
+	if (attackbuffer > 0):
+		attackbuffer -= 1
 	if (charactersprite.animation == "breakdancesuper" && Input.is_action_just_pressed("key_shoot")):
 		movespeed = 14
 	if (is_last_frame() && charactersprite.animation == "uppercut"):

@@ -70,13 +70,12 @@ func _process(delta):
 				chargecamera -= 2
 			if (chargecamera < (target.xscale * 100)):
 				chargecamera += 2
-			position.x = (target.position.x + chargecamera)
 		else:
 			if (chargecamera > 0):
 				chargecamera -= 2
 			if (chargecamera < 0):
 				chargecamera += 2
-			position.x = (target.position.x + chargecamera)
+		position.x = (target.position.x + chargecamera)
 		position.y = target.position.y
 		if (shake_mag != 0):
 			position.y = (target.position.y + utils.randi_range((-shake_mag), shake_mag))

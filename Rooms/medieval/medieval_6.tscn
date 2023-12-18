@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Objects/Destructibles/obj_secretmetalblock.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_pizzard.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Objects/Baddies/obj_escapeenemy.tscn" type="PackedScene" id=23]
 
 [node name="medieval_3" type="Node2D"]
 
@@ -511,3 +512,7 @@ position = Vector2( 2080, 1696 )
 
 [node name="obj_collect12" parent="." instance=ExtResource( 14 )]
 position = Vector2( 2112, 1696 )
+
+[node name="obj_escapeenemy" parent="." instance=ExtResource( 23 )]
+position = Vector2( 752, 592 )
+content = ExtResource( 22 )

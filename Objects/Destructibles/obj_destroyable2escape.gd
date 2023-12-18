@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 func _ready():
-	if (global.saveroom.has(global.targetRoom + name)):
+	if (global.escaperoom.has(global.targetRoom + name)):
 		queue_free()
 	if (!global.panic):
 		queue_free()
@@ -32,5 +32,5 @@ func destroy():
 		utils.playsound("BreakBlock1")
 	elif (rng == 2):
 		utils.playsound("BreakBlock2")
-	global.saveroom.append(global.targetRoom + name)
+	global.escaperoom.append(global.targetRoom + name)
 	queue_free()

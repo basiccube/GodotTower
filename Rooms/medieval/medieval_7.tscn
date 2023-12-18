@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_pepgoblin.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Objects/Misc/sprites/rollsign.png" type="Texture" id=26]
+[ext_resource path="res://Objects/Collectibles/obj_escapecollect.tscn" type="PackedScene" id=27]
 
 [node name="medieval_3" type="Node2D"]
 
@@ -141,7 +142,6 @@ scale = Vector2( -2, 2 )
 [node name="obj_ladder" parent="." instance=ExtResource( 8 )]
 position = Vector2( 928, 352 )
 scale = Vector2( 1, 4 )
-z_index = -2
 
 [node name="obj_hallway" parent="." instance=ExtResource( 1 )]
 position = Vector2( 2528, 224 )
@@ -261,3 +261,9 @@ position = Vector2( 1376, 304 )
 
 [node name="obj_pepgoblin2" parent="." instance=ExtResource( 25 )]
 position = Vector2( 1136, 304 )
+
+[node name="obj_escapecollect" parent="." instance=ExtResource( 27 )]
+position = Vector2( 1728, 288 )
+
+[node name="obj_escapecollect2" parent="." instance=ExtResource( 27 )]
+position = Vector2( 1760, 288 )

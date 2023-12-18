@@ -13,6 +13,7 @@ animations = [ {
 } ]
 
 [node name="obj_itspizzatime" type="Node2D" groups=["obj_itspizzatime"]]
+z_index = 500
 script = ExtResource( 3 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]

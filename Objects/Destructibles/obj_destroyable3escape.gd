@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 func _ready():
-	if (global.saveroom.has(global.targetRoom + name)):
+	if (global.escaperoom.has(global.targetRoom + name)):
 		queue_free()
 	if (!global.panic):
 		queue_free()
@@ -29,7 +29,7 @@ func destroy():
 		utils.playsound("BreakBlock1")
 	elif (rng == 2):
 		utils.playsound("BreakBlock2")
-	global.saveroom.append(global.targetRoom + name)
+	global.escaperoom.append(global.targetRoom + name)
 	var pizzacoin = utils.randi_range(1, 100)
 	if (pizzacoin >= 90):
 		var pizzacoininst = utils.instance_create_level(global_position.x, global_position.y, "res://Objects/Collectibles/obj_pizzacoin.tscn")

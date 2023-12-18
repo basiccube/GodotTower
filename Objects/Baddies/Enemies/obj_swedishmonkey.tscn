@@ -101,8 +101,8 @@ animations = [ {
 "speed": 60.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 16, 31 )
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 32, 30 )
 
 [node name="obj_swedishmonkey" groups=["obj_swedishmonkey"] instance=ExtResource( 1 )]
 script = ExtResource( 3 )
@@ -125,5 +125,5 @@ position = Vector2( 0, 24 )
 cast_to = Vector2( 0, 32 )
 
 [node name="Collision" parent="." index="11"]
-position = Vector2( 0, 15 )
-shape = SubResource( 8 )
+position = Vector2( 0, 16 )
+shape = SubResource( 10 )
