@@ -10106,7 +10106,7 @@ shape = SubResource( 7 )
 [node name="SJumpArea" type="Area2D" parent="."]
 modulate = Color( 0.866667, 0.866667, 0.866667, 0.572549 )
 position = Vector2( 0, -28 )
-collision_mask = 2
+collision_mask = 6
 
 [node name="Collision" type="CollisionShape2D" parent="SJumpArea"]
 shape = SubResource( 8 )

@@ -154,7 +154,7 @@ func _process(delta):
 	for destructible in $DestructibleArea.get_overlapping_bodies():
 		if (destructible.is_in_group("obj_destructibles")):
 			if (!destructible.is_in_group("obj_specialdestructibles")):
-				if (state == global.states.mach2 || state == global.states.mach3 || state == global.states.machroll || state == global.states.knightpepslopes || state == global.states.tumble || state == global.states.crouchslide || state == global.states.faceplant):
+				if (state == global.states.mach2 || state == global.states.mach3 || state == global.states.machroll || state == global.states.knightpepslopes || state == global.states.tumble || state == global.states.crouchslide || state == global.states.faceplant || state == global.states.punch):
 					destructible.destroy()
 					if (state == global.states.mach2):
 						machpunchAnim = 1
@@ -238,7 +238,7 @@ func _process(delta):
 					destructible.velocity.x = ((xscale) * 15)
 					destructible.velocity.y = -6
 					destructible.state = global.states.stun
-				if (state == global.states.faceplant || state == global.states.machroll):
+				if (state == global.states.faceplant || state == global.states.machroll || (state == global.states.punch && charactersprite.animation != "uppercut" && charactersprite.animation != "uppercutend")):
 					utils.playsound("Punch")
 					global.hit += 1
 					global.combotime = 60
@@ -256,6 +256,14 @@ func _process(delta):
 		if (destructible.is_in_group("obj_destructibles") && !destructible.is_in_group("obj_specialdestructibles")):
 			if (velocity.y <= 0.5 && (state == global.states.Sjump || state == global.states.climbwall)):
 				destructible.destroy()
+		if (destructible.is_in_group("obj_baddie")):
+			if (destructible.state != global.states.grabbed && !cutscene):
+				if ((state == global.states.punch && (charactersprite.animation == "uppercut" || charactersprite.animation == "uppercutend")) || state == global.states.Sjump):
+					utils.playsound("Punch")
+					global.hit += 1
+					global.combotime = 60
+					global.heattime = 60
+					destructible.destroy()
 	for destructible in $FallArea.get_overlapping_bodies():
 		if (destructible.is_in_group("obj_destructibles") && !destructible.is_in_group("obj_specialdestructibles")):
 			if (velocity.y >= 0 && (state == global.states.freefall || state == global.states.freefallland)):
@@ -581,12 +589,12 @@ func _process(delta):
 		ladderbuffer = 0
 	if state != global.states.jump:
 		stompAnim = 0
-	if ((state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.machroll || state == global.states.handstandjump || state == global.states.shoulderbash || state == global.states.machslide) && (!utils.instance_exists("obj_mach3effect"))):
+	if ((state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.machroll || state == global.states.handstandjump || state == global.states.shoulderbash || state == global.states.punch || state == global.states.machslide) && (!utils.instance_exists("obj_mach3effect"))):
 		toomuchalarm1 = 6
 		utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_mach3effect.tscn")
 	if (toomuchalarm1 > 0):
 		toomuchalarm1 -= 1
-		if (toomuchalarm1 <= 0 && (state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.machroll || state == global.states.handstandjump || state == global.states.shoulderbash || state == global.states.machslide)):
+		if (toomuchalarm1 <= 0 && (state == global.states.mach3 || state == global.states.mach2 || state == global.states.climbwall || state == global.states.machroll || state == global.states.handstandjump || state == global.states.shoulderbash || state == global.states.punch || state == global.states.machslide)):
 			utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_mach3effect.tscn")
 			toomuchalarm1 = 6
 	if (!$CrouchCheck.is_colliding()):
@@ -937,7 +945,7 @@ func scr_player_normal():
 		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_crazyrunothereffect.tscn")
 		charactersprite.animation = "attackdash"
 		movespeed = 6
-	if (Input.is_action_just_pressed("key_shoot") && shotgunAnim == 0):
+	if (Input.is_action_just_pressed("key_shoot") && shotgunAnim == 0 && !Input.is_action_pressed("key_up")):
 		utils.playsound("Breakdance")
 		movespeed = 9
 		state = global.states.punch
@@ -949,7 +957,13 @@ func scr_player_normal():
 			elif xscale == -1:
 				i.sprite.flip_h = true
 		breakdance = 35
-	if (Input.is_action_just_pressed("key_shoot") && shotgunAnim == 1):
+	if (Input.is_action_just_pressed("key_shoot") && Input.is_action_pressed("key_up")):
+		state = global.states.punch
+		charactersprite.animation = "uppercut"
+		velocity.y = -14
+		movespeed = 2
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_highjumpcloud2.tscn")
+	if (Input.is_action_just_pressed("key_shoot") && shotgunAnim == 1 && !Input.is_action_pressed("key_up")):
 		utils.playsound("KillingBlow")
 		state = global.states.shotgun
 		var effectid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_pistoleffect.tscn")
@@ -1099,7 +1113,7 @@ func scr_player_jump():
 		charactersprite.animation = "airattackstart"
 		velocity.y = -4
 		movespeed = 6
-	if (Input.is_action_just_pressed("key_shoot") && shotgunAnim == 0):
+	if (Input.is_action_just_pressed("key_shoot") && shotgunAnim == 0 && !Input.is_action_pressed("key_up")):
 		utils.playsound("Breakdance")
 		velocity.y = -4
 		movespeed = 9
@@ -1112,7 +1126,7 @@ func scr_player_jump():
 			elif xscale == -1:
 				i.sprite.flip_h = true
 		breakdance = 35
-	if (Input.is_action_just_pressed("key_shoot") && shotgunAnim == 1):
+	if (Input.is_action_just_pressed("key_shoot") && shotgunAnim == 1 && !Input.is_action_pressed("key_up")):
 		utils.playsound("KillingBlow")
 		state = global.states.shotgun
 		var effectid = utils.instance_create(global_position.x, global_position.y, "res://Objects/Visuals/obj_pistoleffect.tscn")
@@ -2950,7 +2964,6 @@ func scr_player_punch():
 	if (charactersprite.animation == "breakdancesuper" && Input.is_action_just_pressed("key_shoot")):
 		movespeed = 14
 	if (is_last_frame() && charactersprite.animation == "uppercut"):
-		state = global.states.jump
 		charactersprite.animation = "uppercutend"
 	if (is_on_floor() && velocity.y >= 0 && (charactersprite.animation == "uppercut" || charactersprite.animation == "uppercutend")):
 		state = global.states.jump
@@ -2962,7 +2975,18 @@ func scr_player_punch():
 		movespeed = 0
 	if (is_last_frame() && charactersprite.animation == "breakdancestart"):
 		charactersprite.animation = "breakdance"
-	if (Input.is_action_just_pressed("key_shoot") && charactersprite.animation == "breakdance"):
+	if (Input.is_action_just_pressed("key_shoot") && move == xscale && charactersprite.animation == "breakdance"):
+		charactersprite.animation = "buttattackstart"
+		movespeed = 16
+		velocity.y = -5
+		utils.instance_create(position.x, position.y, "res://Objects/Visuals/obj_crazyrunothereffect.tscn")
+	if (is_last_frame() && charactersprite.animation == "buttattackstart"):
+		charactersprite.animation = "buttattack"
+	if (is_on_floor() && charactersprite.animation == "buttattack"):
+		charactersprite.animation = "buttattackend"
+	if (charactersprite.animation == "buttattackend"):
+		movespeed -= 0.25
+	if (Input.is_action_just_pressed("key_shoot") && charactersprite.animation == "breakdance" && move == 0):
 		charactersprite.animation = "breakdancesuper"
 		movespeed = 12
 	if (breakdance > 0):
