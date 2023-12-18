@@ -648,7 +648,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	var snap_vector = Vector2.ZERO
-	if (!Input.is_action_pressed("key_jump") && (state != global.states.jump && state != global.states.ladder && state != global.states.climbwall && state != global.states.Sjump && state != global.states.Sjumpprep && state != global.states.bump && state != global.states.crouchjump && state != global.states.tumble)):
+	if (!Input.is_action_pressed("key_jump") && (state != global.states.jump && state != global.states.ladder && state != global.states.climbwall && state != global.states.Sjump && state != global.states.Sjumpprep && state != global.states.bump && state != global.states.crouchjump && state != global.states.tumble && state != global.states.punch)):
 		for slope in $SlopeArea.get_overlapping_bodies():
 			if (slope.is_in_group("obj_slope")):
 				if (state == global.states.mach2 || state == global.states.mach3 || state == global.states.tumble || state == global.states.machslide):
