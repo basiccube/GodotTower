@@ -163,4 +163,6 @@ enum states {
 	shotgun,
 	shotgunjump,
 	portal,
+	parry,
+	spin,
 }

@@ -47,7 +47,7 @@ func _process(delta):
 	if (bombreset > 0):
 		bombreset -= 1
 	if (position.x != obj_player.position.x && state != global.states.pizzagoblinthrow && obj_player.state != global.states.tumble && bombreset == 0 && is_on_floor()):
-		if (obj_player.position.x > (position.x - 30) && (obj_player.position.x) < (position.x + 30) && position.y <= (obj_player.position.y + 100) && position.y >= (obj_player.position.y - 100)):
+		if (obj_player.position.x > (position.x - 80) && (obj_player.position.x) < (position.x + 80) && position.y <= (obj_player.position.y + 100) && position.y >= (obj_player.position.y - 100)):
 			if (state == global.states.walk):
 				$Sprite.animation = "kick"
 				xscale = (-(sign(position.x - obj_player.position.x)))

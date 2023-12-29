@@ -21,7 +21,7 @@ func _ready():
 	
 func _process(delta):
 	var obj_player = utils.get_player()
-	if (obj_player.state != global.states.mach3 && obj_player.state != global.states.climbwall && obj_player.state != global.states.mach2 && obj_player.state != global.states.handstandjump && obj_player.state != global.states.machslide && obj_player.state != global.states.slam && obj_player.state != global.states.machfreefall && obj_player.state != global.states.superslam && obj_player.state != global.states.machroll && obj_player.state != global.states.Sjump && obj_player.state != global.states.shoulderbash && obj_player.state != global.states.punch):
+	if (obj_player.state != global.states.mach3 && obj_player.state != global.states.climbwall && obj_player.state != global.states.mach2 && obj_player.state != global.states.handstandjump && obj_player.state != global.states.machslide && obj_player.state != global.states.slam && obj_player.state != global.states.machfreefall && obj_player.state != global.states.superslam && obj_player.state != global.states.machroll && obj_player.state != global.states.Sjump && obj_player.state != global.states.shoulderbash && obj_player.state != global.states.punch && obj_player.state != global.states.spin):
 		queue_free()
 
 func _on_DestroyTimer_timeout():

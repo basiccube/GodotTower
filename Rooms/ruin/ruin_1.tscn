@@ -23,7 +23,7 @@
 [ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_pepgoblin.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Objects/Warps/obj_portalend.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Objects/Misc/obj_doorblocked.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Objects/Warps/obj_exitgate.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Objects/Collectibles/obj_escapecollect.tscn" type="PackedScene" id=25]
 
 [sub_resource type="ShaderMaterial" id=1]
@@ -99,11 +99,11 @@ position = Vector2( 2500, 0 )
 
 [node name="obj_camlimit_top" parent="." instance=ExtResource( 7 )]
 
-[node name="obj_doorblocked" parent="." instance=ExtResource( 24 )]
-position = Vector2( 1216, 416 )
-
 [node name="obj_spawnpoint" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1216, 416 )
+
+[node name="obj_exitgate" parent="." instance=ExtResource( 24 )]
+position = Vector2( 1264, 384 )
 
 [node name="obj_solid" parent="." instance=ExtResource( 1 )]
 position = Vector2( 928, 512 )

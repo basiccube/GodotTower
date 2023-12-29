@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=2]
+[gd_scene load_steps=102 format=2]
 
 [ext_resource path="res://Objects/HUD/obj_tv.gd" type="Script" id=1]
 [ext_resource path="res://Objects/HUD/sprites/tv/tvdefault_0.png" type="Texture" id=2]
@@ -98,6 +98,15 @@
 [ext_resource path="res://Objects/HUD/sprites/combometer.png" type="Texture" id=96]
 [ext_resource path="res://Objects/HUD/combobubblefont.tres" type="BitmapFont" id=97]
 [ext_resource path="res://Objects/HUD/sprites/combobubble.png" type="Texture" id=98]
+[ext_resource path="res://Objects/HUD/sprites/shotgunbackup_0.png" type="Texture" id=99]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 99 ) ],
+"loop": true,
+"name": "backupshotgun",
+"speed": 60.0
+} ]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -220,6 +229,12 @@ animations = [ {
 [node name="obj_tv" type="Node2D" groups=["obj_tv"]]
 z_index = 1000
 script = ExtResource( 1 )
+
+[node name="BackupShotgun" type="AnimatedSprite" parent="."]
+position = Vector2( 208, -240 )
+frames = SubResource( 2 )
+animation = "backupshotgun"
+centered = false
 
 [node name="ComboBubble" type="Sprite" parent="."]
 position = Vector2( 344, -72 )

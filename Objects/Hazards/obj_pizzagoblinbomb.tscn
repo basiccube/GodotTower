@@ -1,0 +1,55 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Objects/Hazards/sprites/bomblit_2.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Hazards/sprites/bomblit_0.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Hazards/sprites/bomb_2.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Hazards/sprites/bomb_1.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Hazards/sprites/bomb_0.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Hazards/sprites/bomblit_1.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Hazards/sprites/bomblit_3.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Hazards/obj_pizzagoblinbomb.gd" type="Script" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "bomb",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "bomblit",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 12, 15 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 12, 23 )
+
+[node name="obj_pizzagoblinbomb" type="KinematicBody2D"]
+collision_layer = 8
+collision_mask = 2
+collision/safe_margin = 0.001
+moving_platform_apply_velocity_on_leave = 2
+script = ExtResource( 8 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "bomb"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( -4, 15 )
+shape = SubResource( 2 )
+
+[node name="PickupArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 5
+
+[node name="Collision" type="CollisionShape2D" parent="PickupArea"]
+position = Vector2( -4, 7 )
+shape = SubResource( 3 )
+
+[connection signal="area_entered" from="PickupArea" to="." method="_on_PickupArea_area_entered"]
+[connection signal="body_entered" from="PickupArea" to="." method="_on_PickupArea_body_entered"]

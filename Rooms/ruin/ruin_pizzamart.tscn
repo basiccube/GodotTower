@@ -9,7 +9,7 @@
 [ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Backgrounds/bg_pizzamartinterior.png" type="Texture" id=8]
 [ext_resource path="res://Objects/Warps/obj_door.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Objects/Level/obj_weaponmachine.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Objects/Gizmos/obj_weaponmachine.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/Collectibles/obj_shotgun.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Tilesets/tile_pizzamart.tres" type="TileSet" id=13]
 

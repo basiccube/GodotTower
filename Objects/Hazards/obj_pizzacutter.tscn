@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Objects/Hazards/sprites/pizzacutter_0.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Hazards/sprites/pizzacutter_2.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Hazards/sprites/pizzacutter_1.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Hazards/obj_pizzacutter.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 32, 32 )
+
+[node name="obj_pizzacutter" type="Area2D" groups=["obj_pizzacutter"]]
+z_index = 2
+collision_layer = 4
+collision_mask = 5
+script = ExtResource( 4 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
+offset = Vector2( 0, -55 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -88 )
+shape = SubResource( 4 )

@@ -21,6 +21,7 @@ func _process(delta):
 	$MessageLabel.text = message
 	$TVSprite.animation = tvsprite
 	$TVSprite.playing = true
+	$BackupShotgun.modulate.a = $TVSprite.modulate.a
 	$ComboBubble.modulate.a = $TVSprite.modulate.a
 	$ScoreLabel.modulate.a = $TVSprite.modulate.a
 	var obj_camera = utils.get_instance("obj_camera")
@@ -95,6 +96,10 @@ func _process(delta):
 		if ($MessageLabel.rect_position.y < 330):
 			$MessageLabel.rect_position.y += 1
 	var obj_player = utils.get_player()
+	if (obj_player.backupweapon):
+		$BackupShotgun.visible = true
+	else:
+		$BackupShotgun.visible = false
 	if (!(obj_player.state == global.states.knightpep && obj_player.state == global.states.knightpepattack && obj_player.state == global.states.knightpepslopes)):
 		once = false
 	if (obj_player.global_position.y < (global_position.y - 60) && obj_player.global_position.x > (global_position.x + 230)):

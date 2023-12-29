@@ -49,7 +49,7 @@ func _process(delta):
 				i.destroy()
 			if i.is_in_group("obj_slipnslide"):
 				if (!i.drop):
-					utils.instance_create(position.x, position.y, "res://Objects/Level/obj_key.tscn")
+					utils.instance_create(position.x, position.y, "res://Objects/Collectibles/obj_key.tscn")
 					dead = true
 					$Sprite.animation = "hurt"
 					velocity.x = spd

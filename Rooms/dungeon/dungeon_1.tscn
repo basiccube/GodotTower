@@ -7,19 +7,19 @@
 [ext_resource path="res://Objects/Level/obj_camlimit_right.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Level/obj_camlimit_bottom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Objects/Misc/obj_doorblocked.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Objects/Level/obj_exitgate.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/Destructibles/obj_secretbigblock.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/Warps/obj_exitgate.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Backgrounds/bg_medieval3_0.png" type="Texture" id=10]
 [ext_resource path="res://Objects/Warps/obj_portalend.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/Destructibles/obj_destroyable3.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Objects/Destructibles/obj_destroyable3escape.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Objects/Destructibles/obj_secretblock.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Objects/Collectibles/obj_pizzacollect.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_ancho.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Objects/Baddies/obj_escapeenemy.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Objects/Destructibles/obj_destroyable2_big.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Backgrounds/bg_medievalinterior_0.png" type="Texture" id=19]
 [ext_resource path="res://Objects/Warps/obj_boxofpizza.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Objects/Blocks/obj_minipillar.tscn" type="PackedScene" id=23]
 
 [node name="dungeon_1" type="Node2D"]
 
@@ -104,20 +104,24 @@ position = Vector2( 1280, 512 )
 scale = Vector2( 32, 4 )
 
 [node name="obj_solid7" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1600, 32 )
-scale = Vector2( 3, 12 )
+position = Vector2( 1600, 416 )
+scale = Vector2( 2, 1 )
+
+[node name="obj_solid13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1600, 128 )
+scale = Vector2( 2, 4 )
 
 [node name="obj_solid8" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2016, 64 )
-scale = Vector2( 3, 13 )
+position = Vector2( 1600, 64 )
+scale = Vector2( 13, 2 )
 
 [node name="obj_solid11" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2112, 256 )
-scale = Vector2( 6, 3 )
+position = Vector2( 2016, 64 )
+scale = Vector2( 2, 14 )
 
 [node name="obj_solid12" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2304, 256 )
-scale = Vector2( 3, 10 )
+position = Vector2( 1600, 320 )
+scale = Vector2( 13, 3 )
 
 [node name="obj_solid9" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1920, 640 )
@@ -132,29 +136,11 @@ position = Vector2( 1184, 768 )
 rotation = 3.14159
 scale = Vector2( 2, -2 )
 
-[node name="obj_doorblocked" parent="." instance=ExtResource( 8 )]
-position = Vector2( 384, 352 )
+[node name="obj_exitgate" parent="." instance=ExtResource( 9 )]
+position = Vector2( 432, 320 )
 
 [node name="obj_spawnpoint" parent="." instance=ExtResource( 3 )]
 position = Vector2( 384, 352 )
-
-[node name="obj_exitgate" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1856, 384 )
-
-[node name="obj_minipillar" parent="." instance=ExtResource( 23 )]
-position = Vector2( 1632, 416 )
-z_index = 1
-Reverse = true
-
-[node name="obj_minipillar2" parent="." instance=ExtResource( 23 )]
-position = Vector2( 1632, 448 )
-z_index = 1
-Reverse = true
-
-[node name="obj_minipillar3" parent="." instance=ExtResource( 23 )]
-position = Vector2( 1632, 480 )
-z_index = 1
-Reverse = true
 
 [node name="obj_destroyable3" parent="." instance=ExtResource( 12 )]
 position = Vector2( 864, 320 )
@@ -175,19 +161,10 @@ targetLevel = "dungeon"
 targetRoom = "dungeon_2"
 
 [node name="obj_portalend" parent="." instance=ExtResource( 11 )]
-position = Vector2( 2240, 432 )
+position = Vector2( 1952, 224 )
 scale = Vector2( -1, 1 )
 targetLevel = "dungeon"
 targetRoom = "dungeon_10"
-
-[node name="obj_secretblock" parent="." instance=ExtResource( 14 )]
-position = Vector2( 2016, 480 )
-
-[node name="obj_secretblock2" parent="." instance=ExtResource( 14 )]
-position = Vector2( 2048, 480 )
-
-[node name="obj_secretblock3" parent="." instance=ExtResource( 14 )]
-position = Vector2( 2080, 480 )
 
 [node name="obj_ancho" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1344, 704 )
@@ -196,3 +173,15 @@ position = Vector2( 1344, 704 )
 position = Vector2( 1312, 448 )
 content = ExtResource( 15 )
 xscale = -1
+
+[node name="obj_secretbigblock" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1600, 256 )
+
+[node name="obj_ancho2" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1856, 448 )
+
+[node name="obj_pizzacollect" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1936, 432 )
+
+[node name="obj_destroyable2_big" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1600, 448 )

@@ -8,12 +8,12 @@
 [ext_resource path="res://Objects/Level/obj_camlimit_bottom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Shaders/TextureScroll.tres" type="Shader" id=8]
-[ext_resource path="res://Objects/Level/obj_exitgate.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/Collectibles/obj_giantcollect.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Backgrounds/bg_medieval3_0.png" type="Texture" id=10]
 [ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/Blocks/obj_minipillar.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Objects/Destructibles/obj_metalblock.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Objects/Level/obj_ladder.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Objects/Blocks/obj_ladder.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Objects/Blocks/obj_destructibleplatform.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Objects/Collectibles/obj_collect.tscn" type="PackedScene" id=17]
@@ -103,12 +103,12 @@ position = Vector2( 1472, 256 )
 scale = Vector2( 3, 26 )
 
 [node name="obj_solid3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1856, 800 )
-scale = Vector2( 2, 10 )
+position = Vector2( 1824, 928 )
+scale = Vector2( 2, 6 )
 
 [node name="obj_solid4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1568, 768 )
-scale = Vector2( 11, 1 )
+position = Vector2( 1568, 896 )
+scale = Vector2( 10, 1 )
 
 [node name="obj_solid5" parent="." instance=ExtResource( 1 )]
 position = Vector2( -256, 192 )
@@ -161,9 +161,6 @@ scale = Vector2( 4, 2 )
 [node name="obj_solid17" parent="." instance=ExtResource( 1 )]
 position = Vector2( 256, 960 )
 scale = Vector2( 10, 2 )
-
-[node name="obj_exitgate" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1728, 992 )
 
 [node name="obj_hallway" parent="." instance=ExtResource( 16 )]
 position = Vector2( -32, 1024 )
@@ -258,7 +255,6 @@ position = Vector2( 960, 960 )
 [node name="obj_ladder" parent="." instance=ExtResource( 14 )]
 position = Vector2( 1216, 960 )
 scale = Vector2( 1, 5 )
-z_index = -2
 
 [node name="obj_destructibleplatform" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1152, 864 )
@@ -388,3 +384,6 @@ position = Vector2( 352, 144 )
 
 [node name="obj_cheeseslime3" parent="." instance=ExtResource( 20 )]
 position = Vector2( 448, 144 )
+
+[node name="obj_giantcollect" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1616, 944 )

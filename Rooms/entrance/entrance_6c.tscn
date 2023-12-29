@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Objects/Level/obj_ladder.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Blocks/obj_ladder.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Level/obj_camlimit_left.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Level/obj_camlimit_right.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Level/obj_camlimit_bottom.tscn" type="PackedScene" id=6]

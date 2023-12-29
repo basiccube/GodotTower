@@ -32,6 +32,7 @@ const FLOOR_NORMAL = Vector2.UP
 var velocity = Vector2.ZERO
 var thrown = false
 var straightthrow = false
+var parryable = true
 var hp = 1
 var instakill = false
 var grav = 0.5
@@ -256,10 +257,8 @@ func scr_enemy_idle():
 	$Sprite.speed_scale = 0.35
 	
 func scr_enemy_walk():
-	if (is_on_floor()):
+	if (is_on_floor() && !is_in_group("obj_spitcheese") && !is_in_group("obj_fencer") && !is_in_group("obj_ancho")):
 		velocity.x = (xscale * (movespeed + (global.baddiespeed - 1)))
-	elif (!is_in_group("obj_ancho")):
-		velocity.x = 0
 	$Sprite.animation = spr_walk
 	$Sprite.speed_scale = 0.35 + (global.baddiespeed * 0.05)
 	if (is_colliding_with_wall()):
@@ -386,7 +385,7 @@ func scr_enemy_grabbed():
 		state = global.states.stun
 		$Sprite.frame = 0
 	velocity.x = 0
-	if (obj_player.state == global.states.punch):
+	if (obj_player.state == global.states.punch || obj_player.state == global.states.parry):
 		$BangEffectTimer.wait_time = 0.05
 		$BangEffectTimer.start()
 		global.hit += 1
@@ -675,7 +674,7 @@ func scr_pizzagoblin_throw():
 		if ($ScreenVisibility.is_on_screen()):
 			utils.playsound("EnemyProjectile")
 		if (is_in_group("obj_pizzagoblin")):
-			var bombid = utils.instance_create_level(position.x, position.y, "res://Objects/Level/obj_pizzagoblinbomb.tscn")
+			var bombid = utils.instance_create_level(position.x, position.y, "res://Objects/Hazards/obj_pizzagoblinbomb.tscn")
 			bombid.velocity.x = (xscale * 10)
 			bombid.velocity.y = -8
 		elif (is_in_group("obj_cheeserobot")):
@@ -705,7 +704,7 @@ func scr_pizzagoblin_throw():
 			var blobid = utils.instance_create_level(position.x, position.y, "res://Objects/BaddieObjects/obj_pizzard_bolt.tscn")
 			blobid.scale.x = xscale
 		elif (is_in_group("obj_swedishmonkey")):
-			var blobid = utils.instance_create_level(position.x, position.y, "res://Objects/Level/obj_slipnslide.tscn")
+			var blobid = utils.instance_create_level(position.x, position.y, "res://Objects/Hazards/obj_slipnslide.tscn")
 			blobid.baddieid = name
 			blobid.scale.x = xscale
 			blobid.velocity.x = ((-xscale) * 4)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Backgrounds/bg_medieval1_0.png" type="Texture" id=2]
@@ -11,19 +11,15 @@
 [ext_resource path="res://Objects/Warps/obj_spawnpoint.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Backgrounds/bg_medieval3_0.png" type="Texture" id=10]
 [ext_resource path="res://Objects/Collectibles/obj_pizzabox.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Objects/Level/obj_exitgate.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Objects/Blocks/obj_minipillar.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Objects/Warps/obj_exitgate.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Objects/Destructibles/obj_metalblock.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Collision/obj_slope.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Objects/Destructibles/obj_destroyable2_big.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Objects/Destructibles/obj_destroyable3escape.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Objects/Destructibles/obj_destroyableescape.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Objects/Destructibles/obj_destroyable3.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Objects/Destructibles/obj_destroyable2_bigescape.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Objects/Destructibles/obj_destroyable2.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Objects/Destructibles/obj_destroyable.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Objects/Destructibles/obj_destroyable2escape.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Objects/Misc/obj_doorblocked.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Objects/Collectibles/obj_collect.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_cheeseslime.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Objects/Baddies/Enemies/obj_forknight.tscn" type="PackedScene" id=27]
@@ -107,12 +103,12 @@ position = Vector2( 2501, 0 )
 [node name="obj_camlimit_top" parent="." instance=ExtResource( 7 )]
 
 [node name="obj_solid" parent="." instance=ExtResource( 1 )]
-position = Vector2( 96, 800 )
-scale = Vector2( 29, 4 )
+position = Vector2( 384, 800 )
+scale = Vector2( 20, 4 )
 
 [node name="obj_solid2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 448 )
-scale = Vector2( 32, 4 )
+position = Vector2( 384, 448 )
+scale = Vector2( 20, 4 )
 
 [node name="obj_solid18" parent="." instance=ExtResource( 1 )]
 position = Vector2( 704, 288 )
@@ -123,12 +119,8 @@ position = Vector2( 960, 288 )
 scale = Vector2( 2, 3 )
 
 [node name="obj_solid3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 576 )
-scale = Vector2( 3, 11 )
-
-[node name="obj_solid4" parent="." instance=ExtResource( 1 )]
 position = Vector2( 384, 576 )
-scale = Vector2( 3, 1 )
+scale = Vector2( 3, 7 )
 
 [node name="obj_solid5" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1120, 480 )
@@ -198,173 +190,14 @@ scale = Vector2( 7, 1 )
 position = Vector2( 1728, 480 )
 scale = Vector2( 5, 1 )
 
-[node name="obj_doorblocked" parent="." instance=ExtResource( 24 )]
-position = Vector2( 576, 704 )
-
 [node name="obj_spawnpoint" parent="." instance=ExtResource( 9 )]
 position = Vector2( 576, 704 )
 
 [node name="obj_exitgate" parent="." instance=ExtResource( 12 )]
-position = Vector2( 256, 672 )
-
-[node name="obj_minipillar" parent="." instance=ExtResource( 13 )]
-position = Vector2( 416, 608 )
-z_index = 1
-Reverse = true
-
-[node name="obj_minipillar2" parent="." instance=ExtResource( 13 )]
-position = Vector2( 416, 640 )
-z_index = 1
-Reverse = true
-
-[node name="obj_minipillar3" parent="." instance=ExtResource( 13 )]
-position = Vector2( 416, 672 )
-z_index = 1
-Reverse = true
-
-[node name="obj_minipillar4" parent="." instance=ExtResource( 13 )]
-position = Vector2( 416, 704 )
-z_index = 1
-Reverse = true
-
-[node name="obj_minipillar5" parent="." instance=ExtResource( 13 )]
-position = Vector2( 416, 736 )
-z_index = 1
-Reverse = true
-
-[node name="obj_minipillar6" parent="." instance=ExtResource( 13 )]
-position = Vector2( 416, 768 )
-z_index = 1
-Reverse = true
+position = Vector2( 624, 672 )
 
 [node name="obj_destroyable2_big" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1888, 224 )
-
-[node name="obj_destroyable3escape" parent="." instance=ExtResource( 17 )]
-position = Vector2( 672, 736 )
-
-[node name="obj_destroyable3escape2" parent="." instance=ExtResource( 17 )]
-position = Vector2( 672, 672 )
-
-[node name="obj_destroyable3escape3" parent="." instance=ExtResource( 17 )]
-position = Vector2( 672, 608 )
-
-[node name="obj_destroyable3escape4" parent="." instance=ExtResource( 17 )]
-position = Vector2( 608, 672 )
-
-[node name="obj_destroyable3escape5" parent="." instance=ExtResource( 17 )]
-position = Vector2( 608, 736 )
-
-[node name="obj_destroyable3escape6" parent="." instance=ExtResource( 17 )]
-position = Vector2( 544, 736 )
-
-[node name="obj_destroyableescape" parent="." instance=ExtResource( 18 )]
-position = Vector2( 512, 768 )
-
-[node name="obj_destroyableescape2" parent="." instance=ExtResource( 18 )]
-position = Vector2( 512, 736 )
-
-[node name="obj_destroyableescape3" parent="." instance=ExtResource( 18 )]
-position = Vector2( 512, 704 )
-
-[node name="obj_destroyableescape4" parent="." instance=ExtResource( 18 )]
-position = Vector2( 512, 672 )
-
-[node name="obj_destroyableescape5" parent="." instance=ExtResource( 18 )]
-position = Vector2( 512, 640 )
-
-[node name="obj_destroyableescape6" parent="." instance=ExtResource( 18 )]
-position = Vector2( 512, 608 )
-
-[node name="obj_destroyableescape7" parent="." instance=ExtResource( 18 )]
-position = Vector2( 736, 768 )
-
-[node name="obj_destroyableescape8" parent="." instance=ExtResource( 18 )]
-position = Vector2( 768, 768 )
-
-[node name="obj_destroyableescape9" parent="." instance=ExtResource( 18 )]
-position = Vector2( 800, 768 )
-
-[node name="obj_destroyableescape10" parent="." instance=ExtResource( 18 )]
-position = Vector2( 800, 736 )
-
-[node name="obj_destroyableescape11" parent="." instance=ExtResource( 18 )]
-position = Vector2( 768, 736 )
-
-[node name="obj_destroyableescape12" parent="." instance=ExtResource( 18 )]
-position = Vector2( 736, 736 )
-
-[node name="obj_destroyableescape13" parent="." instance=ExtResource( 18 )]
-position = Vector2( 736, 704 )
-
-[node name="obj_destroyableescape14" parent="." instance=ExtResource( 18 )]
-position = Vector2( 768, 704 )
-
-[node name="obj_destroyableescape15" parent="." instance=ExtResource( 18 )]
-position = Vector2( 800, 704 )
-
-[node name="obj_destroyableescape16" parent="." instance=ExtResource( 18 )]
-position = Vector2( 800, 672 )
-
-[node name="obj_destroyableescape17" parent="." instance=ExtResource( 18 )]
-position = Vector2( 768, 672 )
-
-[node name="obj_destroyableescape18" parent="." instance=ExtResource( 18 )]
-position = Vector2( 736, 672 )
-
-[node name="obj_destroyableescape19" parent="." instance=ExtResource( 18 )]
-position = Vector2( 736, 640 )
-
-[node name="obj_destroyableescape20" parent="." instance=ExtResource( 18 )]
-position = Vector2( 768, 640 )
-
-[node name="obj_destroyableescape21" parent="." instance=ExtResource( 18 )]
-position = Vector2( 800, 640 )
-
-[node name="obj_destroyableescape22" parent="." instance=ExtResource( 18 )]
-position = Vector2( 800, 608 )
-
-[node name="obj_destroyableescape23" parent="." instance=ExtResource( 18 )]
-position = Vector2( 768, 608 )
-
-[node name="obj_destroyableescape24" parent="." instance=ExtResource( 18 )]
-position = Vector2( 736, 608 )
-
-[node name="obj_destroyableescape25" parent="." instance=ExtResource( 18 )]
-position = Vector2( 544, 640 )
-
-[node name="obj_destroyableescape26" parent="." instance=ExtResource( 18 )]
-position = Vector2( 576, 640 )
-
-[node name="obj_destroyableescape27" parent="." instance=ExtResource( 18 )]
-position = Vector2( 608, 640 )
-
-[node name="obj_destroyableescape28" parent="." instance=ExtResource( 18 )]
-position = Vector2( 608, 608 )
-
-[node name="obj_destroyableescape31" parent="." instance=ExtResource( 18 )]
-position = Vector2( 640, 640 )
-
-[node name="obj_destroyableescape32" parent="." instance=ExtResource( 18 )]
-position = Vector2( 640, 608 )
-
-[node name="obj_destroyableescape33" parent="." instance=ExtResource( 18 )]
-position = Vector2( 544, 704 )
-
-[node name="obj_destroyableescape34" parent="." instance=ExtResource( 18 )]
-position = Vector2( 544, 672 )
-
-[node name="obj_destroyableescape35" parent="." instance=ExtResource( 18 )]
-position = Vector2( 576, 704 )
-
-[node name="obj_destroyableescape36" parent="." instance=ExtResource( 18 )]
-position = Vector2( 576, 672 )
-
-[node name="obj_destroyableescape29" parent="." instance=ExtResource( 18 )]
-position = Vector2( 576, 608 )
-
-[node name="obj_destroyableescape30" parent="." instance=ExtResource( 18 )]
-position = Vector2( 544, 608 )
 
 [node name="obj_destroyable3" parent="." instance=ExtResource( 19 )]
 position = Vector2( 832, 736 )

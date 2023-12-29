@@ -84,10 +84,6 @@ func _process(delta):
 	if (shake_mag != 0):
 		global_position.y = clamp(global_position.y, (limit_top + 270 + utils.randi_range((-shake_mag), shake_mag)), (limit_bottom - 270 + utils.randi_range((-shake_mag), shake_mag)))
 	var obj_player = utils.get_player()
-	if (obj_player.backupweapon):
-		$BackupShotgun.visible = true
-	else:
-		$BackupShotgun.visible = false
 	if (obj_player.state != global.states.gameover):
 		# Character face HUD code
 		if (obj_player.character == "P"):
@@ -115,7 +111,7 @@ func _process(delta):
 			facehud.animation = "rolling"
 		elif (global.combo >= 8):
 			facehud.animation = "menacing"
-		elif (obj_player.state == global.states.mach1 || obj_player.state == global.states.freefallprep || obj_player.state == global.states.freefall || obj_player.state == global.states.tackle || obj_player.state == global.states.Sjump || obj_player.state == global.states.slam || obj_player.state == global.states.Sjumpprep || obj_player.state == global.states.grab || obj_player.state == global.states.punch || obj_player.state == global.states.backbreaker || obj_player.state == global.states.backkick || obj_player.state == global.states.shoulder || obj_player.state == global.states.uppunch):
+		elif (obj_player.state == global.states.mach1 || obj_player.state == global.states.freefallprep || obj_player.state == global.states.freefall || obj_player.state == global.states.tackle || obj_player.state == global.states.Sjump || obj_player.state == global.states.slam || obj_player.state == global.states.Sjumpprep || obj_player.state == global.states.grab || obj_player.state == global.states.punch || obj_player.state == global.states.spin || obj_player.state == global.states.backbreaker || obj_player.state == global.states.backkick || obj_player.state == global.states.shoulder || obj_player.state == global.states.uppunch):
 			facehud.animation = "mach1"
 		elif (obj_player.state == global.states.mach2 || obj_player.sprite_index == "dive" || obj_player.sprite_index == "machslideboost" || obj_player.state == global.states.climbwall || obj_player.state == global.states.handstandjump || obj_player.state == global.states.shoulderbash):
 			facehud.animation = "mach2"

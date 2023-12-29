@@ -1,4 +1,4 @@
-[gd_scene load_steps=263 format=2]
+[gd_scene load_steps=261 format=2]
 
 [ext_resource path="res://Objects/HUD/obj_camera.gd" type="Script" id=1]
 [ext_resource path="res://Objects/HUD/sprites/speedbar_1.png" type="Texture" id=2]
@@ -11,24 +11,24 @@
 [ext_resource path="res://Objects/HUD/sprites/speedbar_5.png" type="Texture" id=9]
 [ext_resource path="res://Objects/HUD/font.tres" type="BitmapFont" id=10]
 [ext_resource path="res://Objects/HUD/sprites/inv_0.png" type="Texture" id=11]
-[ext_resource path="res://Objects/Level/sprites/key_12.png" type="Texture" id=12]
-[ext_resource path="res://Objects/Level/sprites/key_5.png" type="Texture" id=13]
-[ext_resource path="res://Objects/Level/sprites/key_6.png" type="Texture" id=14]
-[ext_resource path="res://Objects/Level/sprites/key_7.png" type="Texture" id=15]
-[ext_resource path="res://Objects/Level/sprites/key_8.png" type="Texture" id=16]
-[ext_resource path="res://Objects/Level/sprites/key_9.png" type="Texture" id=17]
-[ext_resource path="res://Objects/Level/sprites/key_10.png" type="Texture" id=18]
-[ext_resource path="res://Objects/Level/sprites/key_11.png" type="Texture" id=19]
-[ext_resource path="res://Objects/Level/sprites/key_0.png" type="Texture" id=20]
-[ext_resource path="res://Objects/Level/sprites/key_1.png" type="Texture" id=21]
-[ext_resource path="res://Objects/Level/sprites/key_4.png" type="Texture" id=22]
-[ext_resource path="res://Objects/Level/sprites/key_2.png" type="Texture" id=23]
-[ext_resource path="res://Objects/Level/sprites/key_3.png" type="Texture" id=24]
-[ext_resource path="res://Objects/Level/sprites/key_17.png" type="Texture" id=25]
-[ext_resource path="res://Objects/Level/sprites/key_13.png" type="Texture" id=26]
-[ext_resource path="res://Objects/Level/sprites/key_16.png" type="Texture" id=27]
-[ext_resource path="res://Objects/Level/sprites/key_15.png" type="Texture" id=28]
-[ext_resource path="res://Objects/Level/sprites/key_14.png" type="Texture" id=29]
+[ext_resource path="res://Objects/Collectibles/sprites/key_12.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Collectibles/sprites/key_5.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Collectibles/sprites/key_6.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Collectibles/sprites/key_7.png" type="Texture" id=15]
+[ext_resource path="res://Objects/Collectibles/sprites/key_8.png" type="Texture" id=16]
+[ext_resource path="res://Objects/Collectibles/sprites/key_9.png" type="Texture" id=17]
+[ext_resource path="res://Objects/Collectibles/sprites/key_10.png" type="Texture" id=18]
+[ext_resource path="res://Objects/Collectibles/sprites/key_11.png" type="Texture" id=19]
+[ext_resource path="res://Objects/Collectibles/sprites/key_0.png" type="Texture" id=20]
+[ext_resource path="res://Objects/Collectibles/sprites/key_1.png" type="Texture" id=21]
+[ext_resource path="res://Objects/Collectibles/sprites/key_4.png" type="Texture" id=22]
+[ext_resource path="res://Objects/Collectibles/sprites/key_2.png" type="Texture" id=23]
+[ext_resource path="res://Objects/Collectibles/sprites/key_3.png" type="Texture" id=24]
+[ext_resource path="res://Objects/Collectibles/sprites/key_17.png" type="Texture" id=25]
+[ext_resource path="res://Objects/Collectibles/sprites/key_13.png" type="Texture" id=26]
+[ext_resource path="res://Objects/Collectibles/sprites/key_16.png" type="Texture" id=27]
+[ext_resource path="res://Objects/Collectibles/sprites/key_15.png" type="Texture" id=28]
+[ext_resource path="res://Objects/Collectibles/sprites/key_14.png" type="Texture" id=29]
 [ext_resource path="res://Objects/HUD/sprites/peppino/pepinoHUD_29.png" type="Texture" id=30]
 [ext_resource path="res://Objects/HUD/sprites/peppino/pepinoHUD_18.png" type="Texture" id=31]
 [ext_resource path="res://Objects/HUD/sprites/peppino/pepinoHUD_22.png" type="Texture" id=32]
@@ -177,7 +177,6 @@
 [ext_resource path="res://Objects/HUD/sprites/peppino/pepinoHUDmenacing_2.png" type="Texture" id=175]
 [ext_resource path="res://Shaders/PaletteSwap.gdshader" type="Shader" id=176]
 [ext_resource path="res://Objects/Player/peppalette.png" type="Texture" id=177]
-[ext_resource path="res://Objects/HUD/sprites/shotgunbackup_0.png" type="Texture" id=178]
 [ext_resource path="res://Objects/HUD/sprites/noise/noiseHUD_lowhealth_2.png" type="Texture" id=208]
 [ext_resource path="res://Objects/HUD/sprites/noise/noiseHUD_lowhealth_0.png" type="Texture" id=209]
 [ext_resource path="res://Objects/HUD/sprites/noise/noiseHUD_lowhealth_1.png" type="Texture" id=210]
@@ -256,14 +255,6 @@
 [ext_resource path="res://Objects/HUD/sprites/noise/noiseHUD_panic_2.png" type="Texture" id=283]
 [ext_resource path="res://Objects/HUD/sprites/noise/noiseHUD_panic_4.png" type="Texture" id=284]
 [ext_resource path="res://Objects/HUD/sprites/noise/noiseHUD_thunder_2.png" type="Texture" id=285]
-
-[sub_resource type="SpriteFrames" id=5]
-animations = [ {
-"frames": [ ExtResource( 178 ) ],
-"loop": true,
-"name": "backupshotgun",
-"speed": 60.0
-} ]
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 176 )
@@ -475,12 +466,6 @@ animations = [ {
 z_index = 1000
 current = true
 script = ExtResource( 1 )
-
-[node name="BackupShotgun" type="AnimatedSprite" parent="."]
-position = Vector2( -462, -200 )
-frames = SubResource( 5 )
-animation = "backupshotgun"
-centered = false
 
 [node name="PeppinoHUD" type="AnimatedSprite" parent="."]
 material = SubResource( 4 )

@@ -11,10 +11,10 @@
 [ext_resource path="res://Objects/Warps/obj_spawnpoint.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Backgrounds/bg_hubworld1back.png" type="Texture" id=10]
 [ext_resource path="res://Objects/Hub/obj_dresser.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Objects/Level/obj_ladder.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Objects/Blocks/obj_ladder.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Objects/HUD/smallerfont.tres" type="BitmapFont" id=14]
 [ext_resource path="res://Collision/obj_platform.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Objects/Level/obj_boilingsauce.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Objects/Hazards/obj_boilingsauce.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Objects/Warps/obj_door.tscn" type="PackedScene" id=17]
 
 [node name="hub_room1" type="Node2D"]

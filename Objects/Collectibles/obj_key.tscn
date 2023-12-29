@@ -1,0 +1,60 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Objects/Collectibles/sprites/key_12.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Collectibles/sprites/key_5.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Collectibles/sprites/key_14.png" type="Texture" id=3]
+[ext_resource path="res://Objects/Collectibles/sprites/key_8.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Collectibles/sprites/key_9.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Collectibles/sprites/key_2.png" type="Texture" id=6]
+[ext_resource path="res://Objects/Collectibles/sprites/key_13.png" type="Texture" id=7]
+[ext_resource path="res://Objects/Collectibles/sprites/key_15.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Collectibles/sprites/key_17.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Collectibles/sprites/key_11.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Collectibles/sprites/key_4.png" type="Texture" id=11]
+[ext_resource path="res://Objects/Collectibles/sprites/key_16.png" type="Texture" id=12]
+[ext_resource path="res://Objects/Collectibles/sprites/key_7.png" type="Texture" id=13]
+[ext_resource path="res://Objects/Collectibles/sprites/key_3.png" type="Texture" id=14]
+[ext_resource path="res://Objects/Collectibles/sprites/key_1.png" type="Texture" id=15]
+[ext_resource path="res://Objects/Collectibles/sprites/key_10.png" type="Texture" id=16]
+[ext_resource path="res://Objects/Collectibles/sprites/key_0.png" type="Texture" id=17]
+[ext_resource path="res://Objects/Collectibles/sprites/key_6.png" type="Texture" id=18]
+[ext_resource path="res://Objects/Collectibles/obj_key.gd" type="Script" id=19]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 15 ), ExtResource( 6 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 18 ), ExtResource( 13 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 16 ), ExtResource( 10 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 12 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "key",
+"speed": 60.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 0, 17 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 17 )
+
+[node name="obj_key" type="KinematicBody2D" groups=["obj_key"]]
+collision_layer = 8
+collision_mask = 2
+collision/safe_margin = 0.001
+script = ExtResource( 19 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "key"
+offset = Vector2( 0, -2 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 1 )
+shape = SubResource( 2 )
+
+[node name="CollectArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="Collision" type="CollisionShape2D" parent="CollectArea"]
+position = Vector2( 0, 1 )
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="CollectArea" to="." method="_on_CollectArea_body_entered"]

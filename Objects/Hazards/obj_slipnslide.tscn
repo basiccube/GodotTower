@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/Hazards/sprites/banana.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Hazards/obj_slipnslide.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 16 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 16 )
+
+[node name="obj_slipnslide" type="KinematicBody2D" groups=["obj_slipnslide"]]
+collision_layer = 8
+collision_mask = 2
+collision/safe_margin = 0.001
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 16, 16 )
+shape = SubResource( 1 )
+
+[node name="CollisionArea" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="Collision" type="CollisionShape2D" parent="CollisionArea"]
+position = Vector2( 16, 16 )
+shape = SubResource( 2 )
+
+[node name="ScreenVisibility" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 16, 16 )
+scale = Vector2( 1.6, 1.6 )
+
+[connection signal="body_entered" from="CollisionArea" to="." method="_on_CollisionArea_body_entered"]

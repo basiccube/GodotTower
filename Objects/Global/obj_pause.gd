@@ -29,6 +29,8 @@ func _process(delta):
 				global.targetDoor = "A"
 				utils.room_goto(global.leveltorestart, global.roomtorestart)
 				utils.get_player().scr_playerreset()
+				utils.get_player().state = global.states.comingoutdoor
+				utils.get_player().set_animation("walkfront")
 				pause = false
 			else:
 				utils.playsound("EnemyProjectile")

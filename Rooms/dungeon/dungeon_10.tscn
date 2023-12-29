@@ -13,7 +13,7 @@
 [ext_resource path="res://Objects/Level/obj_hungrypillar.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Objects/Warps/obj_hallway.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Objects/Collectibles/obj_collect.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Objects/Level/obj_pizzacutter.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Objects/Hazards/obj_pizzacutter.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Objects/Warps/obj_portalentrance.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Objects/Collectibles/obj_escapecollect.tscn" type="PackedScene" id=16]
 
