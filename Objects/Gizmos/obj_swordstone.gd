@@ -11,7 +11,7 @@ func _process(delta):
 	else:
 		$Sprite.animation = "idle"
 	if (overlaps_body(utils.get_player())):
-		if (obj_player.is_on_floor() && $Sprite.animation == "idle" && obj_player.state == global.states.handstandjump):
+		if (obj_player.is_on_floor() && $Sprite.animation == "idle" && (obj_player.state == global.states.handstandjump || obj_player.state == global.states.spin)):
 			utils.playsound("KnightSword")
 			obj_player.momemtum = 0
 			obj_player.movespeed = 0
