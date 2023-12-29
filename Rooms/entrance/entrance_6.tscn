@@ -37,7 +37,6 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 1920, 1024 )
 
 [node name="TileMap" type="TileMap" parent="."]
-z_index = 11
 tile_set = ExtResource( 21 )
 cell_size = Vector2( 32, 32 )
 format = 1
@@ -197,6 +196,7 @@ targetRoom = "entrance_6c"
 [node name="obj_boxofpizza2" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1920, 160 )
 scale = Vector2( 1, -1 )
+z_index = -1
 targetDoor = "C"
 targetLevel = "entrance"
 targetRoom = "entrance_secret4"
