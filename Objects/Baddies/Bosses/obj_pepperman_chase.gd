@@ -21,7 +21,7 @@ func _process(delta):
 		spd = floor(obj_player.movespeed)
 	else:
 		spd = 5
-	if (obj_player.state != global.states.comingoutdoor && !screamintro):
+	if (obj_player.is_on_floor() && obj_player.state != global.states.freefall && obj_player.state != global.states.freefallland && !screamintro):
 		obj_player.xscale = -1
 		obj_player.state = global.states.backbreaker
 		obj_player.set_animation("bossintro")

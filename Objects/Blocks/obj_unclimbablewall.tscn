@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/Blocks/sprites/unclimbablewall.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 16, 16 )
+
+[node name="obj_unclimbablewall" type="StaticBody2D" groups=["obj_solid", "obj_unclimbablewall"]]
+z_index = -4
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 16, 16 )
+shape = SubResource( 4 )

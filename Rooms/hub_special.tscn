@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Collision/obj_solid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Backgrounds/bg_hubspecial.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Objects/Level/obj_camlimit_bottom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Level/obj_camlimit_top.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Backgrounds/bg_hubworld1back.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Hub/obj_startgate.tscn" type="PackedScene" id=9]
 
 [node name="hub_special" type="Node2D"]
 
@@ -68,10 +69,10 @@ targetDoor = "E"
 targetLevel = ""
 targetRoom = "hub_room1"
 
-[node name="obj_door3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 592, 352 )
-targetDoor = "C"
+[node name="obj_startgate" parent="." instance=ExtResource( 9 )]
+position = Vector2( 512, 320 )
 targetLevel = ""
-targetRoom = "boss_pepperman_chase"
+targetRoom = "boss_pepperman_old"
+boss = true
 
 [editable path="obj_door"]

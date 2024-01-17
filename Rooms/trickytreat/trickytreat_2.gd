@@ -4,6 +4,7 @@ func _ready():
 	if (global.targetDoor == "C"):
 		utils.get_player().backtohubstartx = 210
 		utils.get_player().backtohubstarty = 1234
+		utils.get_player().backtohubroom = "hub_room1"
 		global.leveltorestart = "trickytreat"
 		global.roomtorestart = "trickytreat_1"
 		global.collect = 2800

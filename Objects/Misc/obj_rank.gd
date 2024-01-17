@@ -47,5 +47,5 @@ func _on_Timer_timeout():
 	global.roomtorestart = ""
 	global.leveltorestart = ""
 	utils.get_player().scr_playerreset()
-	utils.room_goto("", "hub_room1")
+	utils.room_goto("", utils.get_player().backtohubroom)
 	queue_free()

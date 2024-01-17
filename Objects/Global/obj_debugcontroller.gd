@@ -13,6 +13,8 @@ func _process(delta):
 		obj_player.position.y = obj_player.roomstarty
 	for i in get_tree().get_nodes_in_group("collision"):
 		i.visible = global.debugcollisions
+	for i in get_tree().get_nodes_in_group("obj_unclimbablewall"):
+		i.visible = global.debugcollisions
 	for i in get_tree().get_nodes_in_group("obj_secretblock"):
 		i.visible = global.debugcollisions
 	for i in get_tree().get_nodes_in_group("obj_secretbigblock"):

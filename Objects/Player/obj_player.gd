@@ -2145,8 +2145,11 @@ func scr_player_climbwall():
 		windingAnim += 1
 	suplexmove = 0
 	velocity.y = (-wallspeed)
-	if (wallspeed < 24 && move == xscale):
-		wallspeed += 0.05
+	if ((($SolidCheck.is_colliding() && $SolidCheck.get_collider() != null && ($SolidCheck.get_collider().is_in_group("obj_unclimbablewall"))) || ($WallClimbCheck.is_colliding() && $WallClimbCheck.get_collider() != null && $WallClimbCheck.get_collider().is_in_group("obj_unclimbablewall")))):
+		wallspeed -= 0.5
+	else:
+		if (wallspeed < 24 && move == xscale):
+			wallspeed += 0.05
 	crouchslideAnim = 1
 	charactersprite.animation = "climbwall"
 	if (!Input.is_action_pressed("key_dash") || (move != xscale && move != 0)):
@@ -2239,6 +2242,8 @@ func scr_player_tumble():
 	charactersprite.speed_scale = 0.35
 	
 func scr_player_titlescreen():
+	position.x = -500
+	position.y = 250
 	global.targetDoor = "A"
 	if (charactersprite.animation == "pepcooter" && (!utils.instance_exists("obj_superdashcloud"))):
 		utils.instance_create(position.x - 120, position.y, "res://Objects/Visuals/obj_superdashcloud.tscn")
@@ -3044,17 +3049,12 @@ func scr_player_faceplant():
 				i.sprite.flip_h = true
 				
 func scr_player_ejected():
-	if (position.y > utils.get_instance_level("obj_camlimit_bottom").position.y + 100 && !utils.instance_exists("obj_fadeout")):
+	if (position.y > utils.get_instance_level("obj_camlimit_bottom").position.y + 200 && !utils.instance_exists("obj_fadeout")):
 		landAnim = 0
 		targetLevel = lastlevel
 		targetRoom = lastroom
 		global.targetDoor = lastdoor
 		state = global.states.normal
-		global.combo = 0
-		global.combotime = 0
-		global.combodropped = false
-		global.combomilestone = 10
-		supercharged = false
 		for i in get_tree().get_nodes_in_group("obj_camera"):
 			i.ded = 0
 		utils.instance_create(utils.get_gamenode().global_position.x, utils.get_gamenode().global_position.y, "res://Objects/Visuals/obj_fadeout.tscn")

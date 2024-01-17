@@ -3,6 +3,7 @@ extends Area2D
 export(String) var targetDoor = "A"
 export(String) var targetLevel = "testroom"
 export(String) var targetRoom = "testroom_1"
+export(bool) var boss = false
 
 var highscore = 0
 var secretcount = 0
@@ -14,12 +15,13 @@ func loadleveldata():
 	if SaveData != OK:
 		return
 	highscore = SaveManager.get_value("Highscore", targetLevel, 0)
-	secretcount = SaveManager.get_value("Secret", targetLevel, 0)
-	toppin[0] = SaveManager.get_value("Toppin", (targetLevel + "1"), false)
-	toppin[1] = SaveManager.get_value("Toppin", (targetLevel + "2"), false)
-	toppin[2] = SaveManager.get_value("Toppin", (targetLevel + "3"), false)
-	toppin[3] = SaveManager.get_value("Toppin", (targetLevel + "4"), false)
-	toppin[4] = SaveManager.get_value("Toppin", (targetLevel + "5"), false)
+	if (!boss):
+		secretcount = SaveManager.get_value("Secret", targetLevel, 0)
+		toppin[0] = SaveManager.get_value("Toppin", (targetLevel + "1"), false)
+		toppin[1] = SaveManager.get_value("Toppin", (targetLevel + "2"), false)
+		toppin[2] = SaveManager.get_value("Toppin", (targetLevel + "3"), false)
+		toppin[3] = SaveManager.get_value("Toppin", (targetLevel + "4"), false)
+		toppin[4] = SaveManager.get_value("Toppin", (targetLevel + "5"), false)
 
 func _ready():
 	$Sprite.playing = true
@@ -30,46 +32,52 @@ func _process(delta):
 	if (overlaps_body(obj_player)):
 		$Sprite.speed_scale = 0.35
 		$ScoreLabel.visible = true
-		$SecretLabel.visible = true
+		if (!boss):
+			$SecretLabel.visible = true
 	else:
 		$Sprite.speed_scale = 0
 		$Sprite.frame = 0
 		$ScoreLabel.visible = false
-		$SecretLabel.visible = false
+		if (!boss):
+			$SecretLabel.visible = false
 	if (overlaps_body(obj_player)):
 		$ScoreLabel.text = str(highscore)
-		$SecretLabel.text = str(secretcount) + " OF 6 SECRET"
-		match targetLevel:
-			"testroom":
-				for obj in get_tree().get_nodes_in_group("obj_tv"):
-					obj.message = "TEST LEVEL"
-					obj.showtext = true
-					obj.resettimer.wait_time = 0.03
-					obj.resettimer.start()
-			"entrance":
-				for obj in get_tree().get_nodes_in_group("obj_tv"):
-					obj.message = "ENTRANCE"
-					obj.showtext = true
-					obj.resettimer.wait_time = 0.03
-					obj.resettimer.start()
-			"medieval":
-				for obj in get_tree().get_nodes_in_group("obj_tv"):
-					obj.message = "PIZZASCAPE"
-					obj.showtext = true
-					obj.resettimer.wait_time = 0.03
-					obj.resettimer.start()
-			"ruin":
-				for obj in get_tree().get_nodes_in_group("obj_tv"):
-					obj.message = "THE ANCIENT CHEESE"
-					obj.showtext = true
-					obj.resettimer.wait_time = 0.03
-					obj.resettimer.start()
-			"dungeon":
-				for obj in get_tree().get_nodes_in_group("obj_tv"):
-					obj.message = "BLOODSAUCE DUNGEON"
-					obj.showtext = true
-					obj.resettimer.wait_time = 0.03
-					obj.resettimer.start()
+		if (!boss):
+			$SecretLabel.text = str(secretcount) + " OF 6 SECRET"
+		if (!boss):
+			match targetLevel:
+				"entrance":
+					for obj in get_tree().get_nodes_in_group("obj_tv"):
+						obj.message = "ENTRANCE"
+						obj.showtext = true
+						obj.resettimer.wait_time = 0.03
+						obj.resettimer.start()
+				"medieval":
+					for obj in get_tree().get_nodes_in_group("obj_tv"):
+						obj.message = "PIZZASCAPE"
+						obj.showtext = true
+						obj.resettimer.wait_time = 0.03
+						obj.resettimer.start()
+				"ruin":
+					for obj in get_tree().get_nodes_in_group("obj_tv"):
+						obj.message = "THE ANCIENT CHEESE"
+						obj.showtext = true
+						obj.resettimer.wait_time = 0.03
+						obj.resettimer.start()
+				"dungeon":
+					for obj in get_tree().get_nodes_in_group("obj_tv"):
+						obj.message = "BLOODSAUCE DUNGEON"
+						obj.showtext = true
+						obj.resettimer.wait_time = 0.03
+						obj.resettimer.start()
+		else:
+			match targetRoom:
+				"boss_pepperman_old":
+					for obj in get_tree().get_nodes_in_group("obj_tv"):
+						obj.message = "PEPPERMAN"
+						obj.showtext = true
+						obj.resettimer.wait_time = 0.03
+						obj.resettimer.start()
 		if (Input.is_action_pressed("key_up") && obj_player.is_on_floor() && (obj_player.state == global.states.normal || obj_player.state == global.states.mach1 || obj_player.state == global.states.mach2 || obj_player.state == global.states.mach3) && !utils.instance_exists("obj_fadeout") && obj_player.state != global.states.victory && obj_player.state != global.states.comingoutdoor):
 			for i in get_tree().get_nodes_in_group("obj_music"):
 				i.musicnode.stop()

@@ -1,0 +1,89 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Backgrounds/bg_mainmenu_0.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Visuals/obj_background.gd" type="Script" id=3]
+
+[node name="Background" type="Node2D"]
+z_index = -4096
+script = ExtResource( 3 )
+
+[node name="Background" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2( 0.75, 0.75 )
+
+[node name="Sprite" type="Sprite" parent="Background/ParallaxLayer"]
+centered = false
+region_enabled = true
+
+[node name="Background2" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background2"]
+motion_scale = Vector2( 0.85, 0.85 )
+
+[node name="Sprite" type="Sprite" parent="Background2/ParallaxLayer"]
+centered = false
+region_enabled = true
+
+[node name="Background3" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background3"]
+motion_scale = Vector2( 0.95, 0.95 )
+
+[node name="Sprite" type="Sprite" parent="Background3/ParallaxLayer"]
+centered = false
+region_enabled = true
+
+[node name="BackgroundGround1" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BackgroundGround1"]
+motion_scale = Vector2( 0.75, 0 )
+
+[node name="Sprite" type="Sprite" parent="BackgroundGround1/ParallaxLayer"]
+centered = false
+region_enabled = true
+
+[node name="BackgroundGround2" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BackgroundGround2"]
+motion_scale = Vector2( 0.75, 0 )
+
+[node name="Sprite" type="Sprite" parent="BackgroundGround2/ParallaxLayer"]
+centered = false
+region_enabled = true
+
+[node name="BackgroundSky" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BackgroundSky"]
+motion_scale = Vector2( 0.15, 0.15 )
+
+[node name="Sprite" type="Sprite" parent="BackgroundSky/ParallaxLayer"]
+centered = false
+region_enabled = true
+
+[node name="BackgroundSky2" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BackgroundSky2"]
+motion_scale = Vector2( 0, 0 )
+
+[node name="Sprite" type="Sprite" parent="BackgroundSky2/ParallaxLayer"]
+centered = false
+region_enabled = true
+
+[node name="BackgroundH1" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BackgroundH1"]
+motion_scale = Vector2( 0.75, 0 )
+
+[node name="Sprite" type="Sprite" parent="BackgroundH1/ParallaxLayer"]
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true

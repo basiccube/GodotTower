@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bg_mainmenulight_0.png-c38e8c99c86da332010c4a0e3ae270e6.stex"
+path="res://.import/unclimbablewall.png-8148a04e021acd353829a7ebc877e8cd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Backgrounds/bg_mainmenulight_0.png"
-dest_files=[ "res://.import/bg_mainmenulight_0.png-c38e8c99c86da332010c4a0e3ae270e6.stex" ]
+source_file="res://Objects/Blocks/sprites/unclimbablewall.png"
+dest_files=[ "res://.import/unclimbablewall.png-8148a04e021acd353829a7ebc877e8cd.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
