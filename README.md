@@ -1,3 +1,9 @@
+# Archived
+
+This hasn't been worked on since 2023/early 2024. The reason is simple: this is a buggy and broken mess that is awful to play, and also isn't worth it to try and fix it up.  
+I have no plans to come back to it any time soon, and I wouldn't want to anyway - it's the same reason why I stopped working on it in the first place.
+
+
 <p align=center>
     <img align=center src="GodotTowerLogo.png"/>
 </p>
